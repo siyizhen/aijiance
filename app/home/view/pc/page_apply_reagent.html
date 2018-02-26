@@ -155,7 +155,7 @@
 				$("#shoujianren").focus();
 				return;
 			}
-			var reg=/^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/;
+			var reg={:config('reg.phone')};
 			if(!reg.test(getphone)){
 				layer.msg('请输入正确的手机号！',{icon:2});
 				$("#getphone").focus();

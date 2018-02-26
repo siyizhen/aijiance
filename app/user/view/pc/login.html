@@ -1,0 +1,118 @@
+﻿{include file="home@pc/common_header"}
+<link rel="stylesheet" href="__HOME__/pc/public/static/plugins/layui/css/layui.css">
+<link rel="stylesheet" href="__HOME__/pc/public/static/user/css/style.css">
+<link rel="stylesheet" href="__HOME__/pc/public/static/user/css/global.css">
+<link rel="stylesheet" href="__HOME__/pc/public/static/user/css/style.css"> 
+
+<div class="layui-container fly-marginTop">
+    <div class="fly-panel fly-panel-user">
+        <div class="layui-tab layui-tab-brief" lay-filter="user">
+            <ul class="layui-tab-title">
+                <li class="layui-this">登入</li>
+                <li><a href="{:url('login/reg')}">注册</a></li>
+            </ul>
+            <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-form layui-form-pane">
+                        <form class="layui-form">
+                            <div class="layui-form-item">
+                                <label for="username" class="layui-form-label">帐　号</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="username" name="username" value="" lay-verify="phone" autocomplete="off" class="layui-input" placeholder="请输入手机号">
+                                </div>
+                                <input type="button" class="layui-btn layui-btn-normal" value="发送验证码" id="sendCode" onclick="getCode();" />
+                            </div>
+                            <div class="layui-form-item">
+                                <label for="vercode" class="layui-form-label">验证码</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="vercode" name="vercode" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <input type="button" class="layui-btn" lay-submit lay-filter="sub" value="立即登录">
+                            </div>
+                            <div class="layui-form-item fly-form-app">
+                                <span>或者使用社交账号登入</span>
+                                    <a href="user/loginApi/login/oauth/qq.html" class="iconfont icon-wechat" title="微信登入"></a>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/js/jquery.min.js"></script>
+<script src="__HOME__/pc/js/layer/layer.js"></script>
+<script src="__STATIC__/plugins/layui/layui.js"></script>
+
+<script>
+    layui.use('form', function () {
+        var form = layui.form,$ = layui.jquery;
+        // 登录提交监听
+        form.on('submit(sub)', function (data) {
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post("{:url('login/index')}",data.field,function(res){
+                layer.close(loading);
+                if(res.code > 0){
+                    layer.msg(res.msg,{time:1000,icon:1},function(){
+                        location.href = "user/index/index.html";
+                    });
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                    $('.captcha img').attr('src','captcha.html?id='+Math.random());
+                }
+            });
+            return false;
+        })
+    })
+</script>
+
+<script type="text/javascript">
+        /*获取验证码*/
+        var isPhone = 1;
+        function getCode(e){
+            checkPhone(); //验证手机号码
+            if(isPhone){
+                resetCode(); //倒计时
+            }else{
+                $('#username').focus();
+            }
+            
+        }
+
+        //验证手机号码
+        function checkPhone(){
+            var username = $('#username').val();
+            var pattern = {:config('reg.phone')};
+            isPhone = 1;
+            if(username == '') {
+                layer.msg('请输入手机号码',{icon:2});
+                isPhone = 0;
+                return;
+            }
+            if(!pattern.test(username)){
+                layer.msg('请输入正确的手机号码',{icon:2});
+                isPhone = 0;
+                return;
+            }
+        }
+
+        //倒计时
+        function resetCode(){
+            var second = 60;
+            var timer = null;
+            timer=setInterval(function(){
+                second-= 1;
+                if(second >0 ){
+                    var words=second+'秒后重新获取';
+                    $("#sendCode").removeAttr('onclick').css('background-color', '#999').val(words);
+                }else{
+                    clearInterval(timer);
+                    $("#sendCode").attr('onclick','getCode()').css('background-color', '#1E9FFF').val('发送验证码');
+                }
+            },1000);
+        }
+    </script>
+</body>
+</html>

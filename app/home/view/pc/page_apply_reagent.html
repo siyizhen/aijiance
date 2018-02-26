@@ -1,0 +1,214 @@
+﻿{include file="pc/common_header" /}
+	<div class="index">
+		<div class="container ">
+			<div class="row">
+				<nav>
+				<ol class="breadcrumb"><span class="glyphicon glyphicon-list"></span>
+					<li><a href="demo/business-template/V398/">网站首页</a></li>
+					<li><a title="关于" href="demo/business-template/V398/guan-yu">关于</a></li>
+				</ol>
+				</nav>
+			</div>
+		</div>
+
+		<div class="title">
+			<h3 class="wow bounceInDown">
+				<a href="javascript:;">{$info.title}</a>
+			</h3>
+			<p class="wow bounceIn"></p>
+		</div>
+
+		<div class="container">
+			<div>
+				{$info.content}
+				<br />
+				<p style="text-align: center;">以下是小黄盒试剂图片样例</p>
+				<img src="__HOME__/pc/images/example.jpg" alt="" width="614" class="detail_img_css">
+				<br />
+				<p style="text-align: center;">以下是小黄盒试剂操作视频</p>
+				<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=h0511bs0mcy&auto=0" allowFullScreen="true" quality="high" width="614" height="450" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" class="detail_img_css"></embed>
+			</div>
+
+			<div class="foot4" style="padding-top: 40px;">
+				<p class="notice_kuaidi">温馨提示:您需要支付邮递费用，在线支付为15元；选择货到付款，我们统一使用顺丰发货，约为22元</p>
+		 		<div class="shfw-form">
+					<div class="row wow fadeInUp">
+						<div class="col-lg-7 col-md-6 col-sm-6 center_class">
+							<div>
+								<label for="youjidian" class="label_class">邮寄点</label>
+								<select id="youjidian" class="form-control select_class">
+									<option value="">请选择离您最近的邮寄点</option>
+									{volist name="youjidianArr" id="m"}
+									<option value="{$m.id}">{$m.name}</option>
+									{/volist}
+								</select>
+								<div class="clearfix"></div>
+							</div>
+
+							<div>
+								<label for="shoujianren" class="label_class">收件人</label>
+								<input type="text" class="form-control input_class" id="shoujianren" placeholder="请输入收件人姓名" >
+								<div class="clearfix"></div>
+							</div>
+
+							<div>
+								<label for="getphone" class="label_class">联系电话</label>
+								<input type="text" class="form-control input_class" id="getphone" placeholder="请输入联系电话" >
+								<div class="clearfix"></div>
+							</div>
+
+							<div>
+								<label class="label_class">城市</label>
+								<select id="province" class="form-control liandong_select_class">
+									<option value="">请选择省份</option>
+									{volist name="province" id="m"}
+									<option value="{$m.id}">{$m.name}</option>
+									{/volist}
+								</select>
+								<select id="city" class="form-control liandong_select_class">
+									<option value="">请选择城市</option>
+								</select>
+								<select id="district" class="form-control liandong_select_class">
+									<option value="">请选择区县</option>
+								</select>
+								<div class="clearfix"></div>
+							</div>
+
+							<div>
+								<label for="address" class="label_class">详细地址</label>
+								<input type="text" class="form-control input_class" id="address" placeholder="请输入详细地址" >
+								<div class="clearfix"></div>
+							</div>
+
+							<div>
+								<label  class="label_class">支付方式</label>
+								<div style="float: left;margin-left: 10px;">
+									<input type="radio" value="1" name="payway" class="radio_class"><font style="font-size: 18px;"> 货到付款</font>&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" value="2" name="payway" class="radio_class" checked=""><font style="font-size: 18px;"> 在线支付</font>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+																
+							<input class="btn btn-default foot-btn" type="button" id="submit" value="提交订单">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="blank60"></div>
+		</div>
+	</div>
+	{include file="pc/common_footer" /}
+	<script type="text/javascript">
+		$("#province").change(function() {
+			var province=$(this).val();
+			$.ajax({
+				url: "{:url('base/base/getRegion')}",
+				type: 'GET',
+				dataType: 'json',
+				data: {pid:province,type:2},
+				success:function(res){
+					var str='<option value="">请选择城市</option>';
+					$.each(res, function(index, val) {
+						str+='<option value="'+val.id+'">'+val.name+'</option>';
+					});
+					$("#city").html(str);
+					$("#district").html('<option value="">请选择区县</option>');
+				}
+			})
+		});
+
+		$("#city").change(function() {
+			var city=$(this).val();
+			$.ajax({
+				url: "{:url('base/base/getRegion')}",
+				type: 'GET',
+				dataType: 'json',
+				data: {pid:city,type:3},
+				success:function(res){
+					var str='<option value="">请选择区县</option>';
+					$.each(res, function(index, val) {
+						str+='<option value="'+val.id+'">'+val.name+'</option>';
+					});
+					$("#district").html(str);
+				}
+			})
+		});
+
+		$("#submit").click(function() {
+			var youjidian=$.trim($("#youjidian").val());
+			var shoujianren=$.trim($("#shoujianren").val());
+			var getphone=$.trim($("#getphone").val());
+			var shoujianren=$.trim($("#shoujianren").val());
+			var province=$.trim($("#province").val());
+			var city=$.trim($("#city").val());
+			var district=$.trim($("#district").val());
+			var address=$.trim($("#address").val());
+			var payway=$("input[name='payway']:checked").val();
+
+			if(youjidian==''){
+				layer.msg('请选择邮寄点！',{icon:2});
+				$("#youjidian").focus();
+				return;
+			}
+			if(shoujianren==''){
+				layer.msg('请输入收件人！',{icon:2});
+				$("#shoujianren").focus();
+				return;
+			}
+			var reg=/^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/;
+			if(!reg.test(getphone)){
+				layer.msg('请输入正确的手机号！',{icon:2});
+				$("#getphone").focus();
+				return;
+			}
+			if(isNaN(province)||province==''){
+				layer.msg('请选择省份！',{icon:2});
+				$("#province").focus();
+				return;
+			}
+			if(isNaN(city)||city==''){
+				layer.msg('请选择城市！',{icon:2});
+				$("#city").focus();
+				return;
+			}
+			if(isNaN(district)||district==''){
+				layer.msg('请选择区县！',{icon:2});
+				$("#district").focus();
+				return;
+			}
+			if(address==''){
+				layer.msg('请输入详细地址！',{icon:2});
+				$("#address").focus();
+				return;
+			}
+			if(isNaN(payway)||payway==''){
+				layer.msg('请选择支付方式！',{icon:2});
+				return;
+			}
+			var data={youjidian:youjidian,shoujianren:shoujianren,getphone:getphone,province:province,city:city,district:district,address:address,payway:payway};
+			var _index=layer.msg('加载中……', {icon: 16,shade: [0.9, '#1A1A1A'],time:10000});
+			$.ajax({
+				url: '{:url("order/add")}',
+				type: 'POST',
+				dataType:'json',
+				data: data,
+				success:function(res){
+					if(res.status==0){	
+						setTimeout(function(){
+							window.location.href=res.url;
+						},3000);
+						layer.msg(res.msg,{icon:2});
+					}else{
+						setTimeout(function(){
+							window.location.href=res.url;
+						},1000);
+					}
+				},
+				complete:function(){
+					layer.close(_index);
+				}
+			})
+		});
+	</script>
+</body>
+</html>

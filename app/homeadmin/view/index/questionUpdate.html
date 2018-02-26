@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>青彩VCT采集系统</title>
+		<link href="__STATIC__/plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link href="__STATIC__/plugins/mui/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__STATIC__/plugins/mui/css/app.css">
+    </head>
+    <body>
+    	<form action="{:url('questionUpdateDo')}" method="post">
+    		<div class="mui-content">
+	    		{volist name="questions" id="m" key="mm"}
+	    		<div {if condition="$m.optionsList[0]['type'] eq 'textarea'"}class="question_show_textarea"{else}class="question_show_checked"{/if}>
+    				<h5 class="mui-content-padded">{$m.question}{if condition="$m.optionsList[0]['type'] eq 'checkbox'"}(多选){/if}</h5>
+		    		<div class="mui-card">
+						<div class="mui-input-group">
+							{volist name="$m.optionsList" id="n" key="nn"}
+							{if condition="$n.type eq 'radio'"}
+							<div class="mui-input-row mui-radio mui-left">
+								<label style="width: 95% !important;">{$n.text}</label>
+								<input name="prefix{$m.question_id}" type="radio" value="{$nn-1}" {if condition="in_array($nn-1,$replyRow[$m.question_id])"}checked="checked"{/if}>
+							</div>
+							{elseif condition="$n.type eq 'checkbox'"}
+							<div class="mui-input-row mui-checkbox mui-left">
+								<label style="width: 95% !important;">{$n.text}</label>
+								<input name="prefix{$m.question_id}[]" value="{$nn-1}" type="checkbox" {if condition="in_array($nn-1,$replyRow[$m.question_id])"}checked="checked"{/if}>
+							</div>
+							{elseif condition="$n.type eq 'textarea'"}
+							<div class="mui-input-row" style="height: auto;">
+								<textarea name="prefix{$m.question_id}" rows="5" placeholder="请输入答案">{$replyRow[$m.question_id][0]}</textarea>
+							</div>
+							{/if}
+							{/volist}
+						</div>
+					</div>
+	    		</div>
+				{/volist}
+
+				<div class="mui-content-padded">
+					<button onclick="return submits();" class="mui-btn mui-btn-block mui-btn-primary">提 交</button>
+				</div>
+	    	</div>
+
+	    	<input type="hidden" value="{$questions[0]['questionnaire_id']}" name="questionnaire_id">
+	    	<input type="hidden" value="{$answerRow.vct_id}" name="vct_id">
+    	</form>
+
+    	<script src="__HOME__/js/jquery.min.js"></script>
+    	<script src="__STATIC__/plugins/layer_mobile/layer.js"></script>
+    	<script type="text/javascript">
+    		function submits(){
+    			var status=true;
+
+    			$(".question_show_textarea").each(function(index, el) {
+    				var $el=$(el);
+    				if($el.find('.mui-input-group textarea').val()==''){
+    					status=false;
+    					layer.open({content:'第'+(index+1)+'个问答或填空题未作答！',skin:'footer'});
+    					return false;
+    				}
+    			});
+
+
+    			$(".question_show_checked").each(function(index, el) {
+    				var $el=$(el);
+    				var selectedLength=$el.find('.mui-input-group input:checked').length;
+    				if(selectedLength==0){
+    					status=false;
+    					layer.open({content:'第'+(index+1)+'个选择题未作答！',skin:'footer'});
+    					return false;
+    				}
+    			});
+    			return status;
+    		}
+    	</script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>青彩VCT采集系统</title>
+		<link href="__STATIC__/plugins/mui/css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="{:url('add')}"></a>
+			<h1 class="mui-title">{$title}</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner" style="height: 300px;padding: 0 !important;" id="signature">
+						
+					</div>
+				</div>
+			</div>
+			<div class="mui-content-padded" style="text-align: center;margin: 20px 10px !important;">
+				<button onclick="sures();" class="mui-btn mui-btn-primary" style="width: 40%;">确 认</button>
+				<button onclick="resets();" class="mui-btn mui-btn-warning" style="width: 40%;">重 签</button>
+			</div>
+		</div>
+		<script src="__HOME__/js/jquery.min.js"></script>
+		<script src="__STATIC__/plugins/mui/js/mui.min.js"></script>
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="__STATIC__/plugins/jSignature/flashcanvas.js"></script><![endif]-->
+		<script src="__STATIC__/plugins/jSignature/jSignature.min.js"></script>
+		<script src="__STATIC__/plugins/layer_mobile/layer.js"></script>
+		<script>
+			{if condition="!empty(input('param.id'))"}
+			var id={:input('param.id')};
+			{else}
+			var id={$id};
+			{/if}
+
+		    $(document).ready(function() {
+		        $("#signature").jSignature({height:'100%',width:'100%',lineWidth:8});
+		    });
+		    function resets(){
+		        var $sigdiv = $("#signature");
+		        $sigdiv.jSignature("reset");
+		    }
+
+		    function sures(){ 
+		    	if($("#signature").jSignature('getData', 'native').length<=5){
+		    		layer.open({content:'请先完成签名或规范签名！',skin:'footer'});
+		    		return;
+		    	}
+	        	var signature_image = $("#signature").jSignature("getData", "image");
+	        	var _index;
+	        	$.ajax({
+	        		beforeSend:function(){
+						_index=layer.open({type: 2,content: '确认中'});
+					},
+	        		url: "{:url('signature')}",
+	        		type: 'POST',
+	        		dataType: 'json',
+	        		data: {signature_image:signature_image,id:id},
+	        		success:function(res){
+	        			layer.open({content:res.msg,skin:'footer'});
+	        			if(res.status==1){
+	        				setTimeout(function(){
+								window.location.href="{:url('add')}";
+							},2000);
+	        			}
+	        		},
+	        		complete:function(){
+	        			layer.close(_index);
+	        		}
+	        	})
+	        }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+/* 
+* @Author: siyizhen
+* @Date:   2018-01-08 17:08:54
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-02-01 11:08:50
+*/
+.area {
+	margin: 20px auto 0px auto;
+}
+
+/*.mui-input-group {
+	margin-top: 10px;
+}*/
+
+/*.mui-input-group:first-child {
+	margin-top: 20px;
+}*/
+
+.mui-input-group label {
+	width: 28%;
+}
+
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	width: 72%;
+}
+
+.mui-checkbox input[type=checkbox],
+.mui-radio input[type=radio] {
+	top: 6px;
+}
+
+.mui-btn {
+	padding: 10px;
+}
+
+.link-area {
+	display: block;
+	margin-top: 25px;
+	text-align: center;
+}
+
+.spliter {
+	color: #bbb;
+	padding: 0px 8px;
+}
+
+.oauth-area {
+	position: absolute;
+	bottom: 20px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+.oauth-area .oauth-btn {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-size: 30px 30px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin: 0px 20px;
+	/*-webkit-filter: grayscale(100%); */
+	border: solid 1px #ddd;
+	border-radius: 25px;
+}
+
+.oauth-area .oauth-btn:active {
+	border: solid 1px #aaa;
+}
+
+.oauth-area .oauth-btn.disabled {
+	background-color: #ddd;
+}
+
+.row_radio{
+	height: 40px;line-height: 45px;
+}
+
+.radio_class{
+	position: static !important;
+}
+
+.mui-table-view:before,.mui-table-view:after{
+	left: 15px;
+}
+
+.jutilipin{
+	color: #000;padding-left:5px !important;
+}
+
+.checkbox_label{
+	padding-right:0 !important;
+	font-size: 12px;
+}
+
+.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+	font-size: 22px;
+}
+
+.image_upload_box{
+	width: 72%;height: 98px;float: right;
+}
+
+.image_class{
+	background: url(../images/z_add.png) no-repeat;height: 80px;width: 80px; background-size: 100% 100%;border: 1px solid #999;margin-top:8px;
+}
+.image_class input::-webkit-file-upload-button {
+    width: 80px;
+    height: 80px;
+    border: none;
+    position: absolute;
+    outline: 0;
+    opacity: 0;
+}
+
+.image_class input#file {
+    display: block;
+    width: auto;
+    border: 0;
+    vertical-align: middle;
+}
+
+.question_hide{
+	display: none !important;
+}

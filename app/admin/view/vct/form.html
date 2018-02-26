@@ -1,0 +1,630 @@
+{include file="common/head"/}
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>{$title}</legend>
+    </fieldset>
+    <form class="layui-form layui-form-pane">
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-1">
+                <input type="text" name="username" lay-verify="required" placeholder="{:lang('pleaseEnter')}姓名" class="layui-input" value="{$info.username}">
+            </div>
+        </div>
+    
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+            	{if condition="!empty($info)"}
+				<input type="radio" name="sex" title="男" value="1" {if condition="$info.sex eq 1"}checked=""{/if}>
+				<input type="radio" name="sex" title="女" value="2" {if condition="$info.sex eq 2"}checked=""{/if}>
+            	{else}
+                <input type="radio" name="sex" title="男" value="1" checked="">
+                <input type="radio" name="sex" title="女" value="2">
+                {/if}
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">年龄</label>
+            <div class="layui-input-1">
+                <input type="text" name="age" lay-verify="number" placeholder="{:lang('pleaseEnter')}年龄" class="layui-input" value="{$info.age}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号</label>
+            <div class="layui-input-2">
+                <input type="text" name="phone" lay-verify="phone" placeholder="{:lang('pleaseEnter')}手机号" class="layui-input" value="{$info.phone}">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form">
+            <label class="layui-form-label">现居地</label>
+            <div class="layui-input-inline">
+                <select name="province" lay-filter="province" lay-verify="required">
+                    <option value="">请选择省</option>
+                    {if condition="!empty($info.sheng)"}
+                    <option value="{$info.sheng}" selected="">{$info.sheng}</option>
+                    {/if}
+                </select>
+                <input type="hidden" name="sheng" id="sheng" value="{$info.sheng}">
+            </div>
+            <div class="layui-input-inline" style="display: none;">
+                <select name="city" lay-filter="city">
+                    <option value="">请选择市</option>
+                    {if condition="!empty($info.shi)"}
+                    <option value="{$info.shi}" selected="">{$info.shi}</option>
+                    {/if}
+                </select>
+                <input type="hidden" name="shi" id="shi" value="{$info.shi}">
+            </div>
+            <div class="layui-input-inline" style="display: none;">
+                <select name="area" lay-filter="area">
+                    <option value="">请选择县/区</option>
+                    {if condition="!empty($info.qu)"}
+                    <option value="{$info.qu}" selected="">{$info.qu}</option>
+                    {/if}
+                </select>
+                <input type="hidden" name="qu" id="qu" value="{$info.qu}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">检测编号</label>
+            <div class="layui-input-2">
+                <input type="text" name="jiance_bianhao" lay-verify="required" placeholder="{:lang('pleaseEnter')}检测编号" class="layui-input" value="{$info.jiance_bianhao}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+			<label class="layui-form-label">来访时间</label>
+			<div class="layui-input-2">
+				{if condition="!empty($info)"}
+				<input type="text" lay-verify="date" name="visited_time" id="visited_time" class="layui-input" value="{$info.visited_time|date='Y-m-d',###}">
+				{else}
+				<input type="text" lay-verify="date" name="visited_time" id="visited_time" class="layui-input" value="<?php echo date('Y-m-d');?>">
+				{/if}
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">对象来源</label>
+			<div class="layui-input-1">
+				<select name="from_qudao" lay-verify="required" lay-search="">
+					<option value="">请选择</option>
+                    <?php $qudaoArr=fromQudao();?>
+                    {volist name="qudaoArr" id="m" key="n"}
+					<option value="{$n}" {if condition="$info.from_qudao eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+				</select>
+			</div>
+		</div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">学校</label>
+            <div class="layui-input-2">
+                <input type="text" value="{if condition='$info.school eq 0'}{else}{$info.school}{/if}" name="school" class="layui-input" placeholder="请务必输入准确的学校">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">民族</label>
+            <div class="layui-input-1">
+                <select name="mingzu" lay-filter="mingzu" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $mingzuArr=mingZu();?>
+                    {volist name="mingzuArr" id="m" key="n"}
+                    <option value="{$n}" {if condition="$info.mingzu eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="$info.mingzu neq 57"}style="display: none;"{/if}>
+            <label class="layui-form-label">其他民族</label>
+            <div class="layui-input-3">
+                <textarea placeholder="请输入其他民族" class="layui-textarea" name="mingzu_note" id="mingzu_note" {if condition="$info.mingzu neq 57"}disabled=""{/if}>{$info.mingzu_note}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">民族</label>
+            <div class="layui-input-1">
+                <select name="livetime" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $livetimeArr=liveTime();?>
+                    {volist name="livetimeArr" id="m" key="n"}
+                    <option value="{$n}" {if condition="$info.livetime eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">来访原因</label>
+			<div class="layui-input-11">
+				<?php $reasonArr=visitedReason();?>
+				{if !empty($info)}
+                {volist name="reasonArr" id="m" key="n"}
+                <input type="radio" name="visited_reason" title="{$m}" value="{$n}" {if condition="$n eq $info.visited_reason"}checked=""{/if}>
+                {/volist}
+                {else}
+				{volist name="reasonArr" id="m" key="n"}
+                <input type="radio" name="visited_reason" title="{$m}" value="{$n}" {if condition="$n eq 1"}checked=""{/if}>
+                {/volist}
+                {/if}
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">暴露原因</label>
+			<div class="layui-input-2">
+				<select name="baolou_reason" lay-verify="required" lay-search="" lay-filter="baolou_reason">
+					<option value="">请选择</option>
+					<?php $baoluArr=baolouReason();?>
+                    {volist name="baoluArr" id="m" key="n"}
+                    <option value="{$n}" {if condition="$info.baolou_reason eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+				</select>
+			</div>
+		</div>
+
+        <div class="layui-form-item" {if condition="$info.baolou_reason neq 6"}style="display: none;"{/if}>
+            <label class="layui-form-label">原因说明</label>
+            <div class="layui-input-3">
+                <textarea placeholder="请输入原因说明" class="layui-textarea" name="baolou_reason_note" id="baolou_reason_note" {if condition="$info.baolou_reason neq 6"}disabled=""{/if}>{$info.baolou_reason_note}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">婚姻</label>
+            <div class="layui-input-1">
+                <select name="hunyin" lay-verify="required" lay-filter="hunyin">
+                    <option value="">请选择</option>
+                    <?php $hunyinArr=hunYin();?>
+                    {volist name="hunyinArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.hunyin eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">职业</label>
+            <div class="layui-input-1">
+                <select name="zhiye" lay-verify="required" lay-filter="zhiye">
+                    <option value="">请选择</option>
+                    <?php $zhiyeArr=zhiYe();?>
+                    {volist name="zhiyeArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.zhiye eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">学历</label>
+            <div class="layui-input-1">
+                <select name="xueli" lay-verify="required" lay-filter="xueli">
+                    <option value="">请选择</option>
+                    <?php $xueliArr=xueLi();?>
+                    {volist name="xueliArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.xueli eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">收入</label>
+            <div class="layui-input-1">
+                <select name="shouru" lay-verify="required" lay-filter="shouru">
+                    <option value="">请选择</option>
+                    <?php $shouruArr=shouRu();?>
+                    {volist name="shouruArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.shouru eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">窗口期</label>
+            <div class="layui-input-1">
+                <select name="chuangkouqi" lay-verify="required" lay-filter="chuangkouqi">
+                    <option value="">请选择</option>
+                    <?php $chuangkouqiArr=chuangKouQi();?>
+                    {volist name="chuangkouqiArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.chuangkouqi eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="$info.chuangkouqi neq 8"}style="display: none;"{/if}>
+            <label class="layui-form-label">窗口说明</label>
+            <div class="layui-input-3">
+                <textarea placeholder="请输入窗口期其他说明" class="layui-textarea" name="chuangkouqi_note" id="chuangkouqi_note" {if condition="$info.chuangkouqi neq 8"}disabled=""{/if}>{$info.chuangkouqi_note}</textarea>
+            </div>
+        </div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">人群属性</label>
+			<div class="layui-input-2">
+				<select name="renqun_shuxing" lay-verify="required" lay-search="">
+					<option value="">请选择</option>
+					<?php $renqunArr=renqunShuxing();?>
+                    {volist name="renqunArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.renqun_shuxing eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+            <label class="layui-form-label">快速检测</label>
+            <div class="layui-input-block">
+            	{if condition="!empty($info)"}
+                <input type="radio" lay-filter="jinbiao_jiance" name="jinbiao_jiance" title="阴性" value="1" {if condition="$info.jinbiao_jiance eq 1"}checked=""{/if}>
+                <input type="radio" lay-filter="jinbiao_jiance" name="jinbiao_jiance" title="待复查" value="2" {if condition="$info.jinbiao_jiance eq 2"}checked=""{/if}>
+                {else}
+				<input type="radio" lay-filter="jinbiao_jiance" name="jinbiao_jiance" title="阴性" value="1" checked="">
+                <input type="radio" lay-filter="jinbiao_jiance" name="jinbiao_jiance" title="待复查" value="2">
+                {/if}
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="$info.jinbiao_jiance neq 2"}style="display: none;"{/if}>
+            <label class="layui-form-label">确证单位</label>
+            <div class="layui-input-1">
+                <select id="quezheng_danwei" name="quezheng_danwei" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $quezhengArr=queZheng();?>
+                    {volist name="quezhengArr" id="m" key="n"}
+                    <option value="{$n}"  {if condition="$info.quezheng_danwei eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="$info.jinbiao_jiance neq 2"}style="display: none;"{/if}>
+            <label class="layui-form-label">真实姓名</label>
+            <div class="layui-input-2">
+                <input type="text" id="truename" name="truename" placeholder="{:lang('pleaseEnter')}真实姓名" class="layui-input" {if condition="$info.jinbiao_jiance neq 2"}disabled=""{/if} value="{$info.truename}">
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="$info.jinbiao_jiance neq 2"}style="display: none;"{/if}>
+            <label class="layui-form-label">身份证</label>
+            <div class="layui-input-2">
+                <input type="text" id="idcard" name="idcard" placeholder="{:lang('pleaseEnter')}身份证" class="layui-input" {if condition="$info.jinbiao_jiance neq 2"}disabled=""{/if} value="{$info.idcard}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">首次检测</label>
+            <div class="layui-input-block">
+                {if condition="!empty($info)"}
+                <input type="radio" disabled="" lay-filter="is_first_jiance" name="is_first_jiance" title="是" value="1" {if condition="$info.is_first_jiance eq 1"}checked=""{/if}>
+                <input type="radio" disabled="" lay-filter="is_first_jiance" name="is_first_jiance" title="否" value="0" {if condition="$info.is_first_jiance eq 0"}checked=""{/if}>
+                {else}
+                <input type="radio" disabled="" lay-filter="is_first_jiance" name="is_first_jiance" title="是" value="1" checked="">
+                <input type="radio" disabled="" lay-filter="is_first_jiance" name="is_first_jiance" title="否" value="0">
+                {/if}
+            </div>
+        </div>
+
+
+        <div class="layui-form-item" {if condition="empty($info) || $info.is_first_jiance eq 1"}style="display: none;"{/if}>
+            <label class="layui-form-label">上次检测机构</label>
+            <div class="layui-input-2">
+                <input type="text" id="last_jiance_jigou" class="layui-input" disabled="" value="{$info.last_jiance_jigou}">
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="empty($info) || $info.is_first_jiance eq 1"}style="display: none;"{/if}>
+            <label class="layui-form-label">上次检测时间</label>
+            <div class="layui-input-2">
+                <input type="text" disabled="" class="layui-input" value="{if condition='empty($info)'}{else}{$info.last_jiance_time|date='Y-m-d',###}{/if}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">领取礼品</label>
+            <div class="layui-input-block">
+                {if condition="!empty($info)"}
+				<input type="radio" lay-filter="is_take_gift" name="is_take_gift" title="是" value="1" {if condition="$info.is_take_gift eq 1"}checked=""{/if}>
+                <input type="radio" lay-filter="is_take_gift" name="is_take_gift" title="否" value="0" {if condition="$info.is_take_gift eq 0"}checked=""{/if}>
+                {else}
+				<input type="radio" lay-filter="is_take_gift" name="is_take_gift" title="是" value="1">
+                <input type="radio" lay-filter="is_take_gift" name="is_take_gift" title="否" value="0" checked="">
+                {/if}
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="$info.is_take_gift neq 1"}style="display: none;"{/if}>
+            <label class="layui-form-label">礼品名</label>
+            <div class="layui-input-12 giftGroup">
+                <?php $giftArr=gift();?>
+                {volist name="giftArr" id="m" key="n"}
+                <input type="checkbox" lay-filter="gift" name="gift[{$n}]" value="{$n}" lay-skin="primary" title="{$m}" {if condition="!empty($info['gift'])&&in_array($n,$info.gift)"}checked=""{/if}>
+                {/volist}
+            </div>
+        </div>
+
+        <div class="layui-form-item" {if condition="empty($info.gift_note)"}style="display: none;"{/if}>
+            <label class="layui-form-label">其他说明</label>
+            <div class="layui-input-3">
+                <textarea placeholder="请输入其他礼品说明" class="layui-textarea" name="gift_note" id="gift_note">{$info.gift_note}</textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">加咨询员微信/QQ</label>
+            <div class="layui-input-block">
+                {if condition="!empty($info)"}
+				<input type="radio" name="is_get_weixin" title="是" value="1" {if condition="$info.is_get_weixin eq 1"}checked=""{/if}>
+                <input type="radio" name="is_get_weixin" title="否" value="0" {if condition="$info.is_get_weixin eq 0"}checked=""{/if}>
+                {else}
+				<input type="radio" name="is_get_weixin" title="是" value="1">
+                <input type="radio" name="is_get_weixin" title="否" value="0" checked="">
+                {/if}
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">关注艾检测</label>
+            <div class="layui-input-block">
+                {if condition="!empty($info)"}
+				<input type="radio" name="is_take_ajiance" title="是" value="1" {if condition="$info.is_take_ajiance eq 1"}checked=""{/if}>
+                <input type="radio" name="is_take_ajiance" title="否" value="0" {if condition="$info.is_take_ajiance eq 0"}checked=""{/if}>
+                {else}
+				<input type="radio" name="is_take_ajiance" title="是" value="1">
+                <input type="radio" name="is_take_ajiance" title="否" value="0" checked="">
+                {/if}
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">健康计划</label>
+            <div class="layui-input-block">
+                {if condition="!empty($info)"}
+                <input type="radio" name="jiankang_plan" title="加入" value="1" {if condition="$info.jiankang_plan eq 1"}checked=""{/if}>
+                <input type="radio" name="jiankang_plan" title="不加入" value="0" {if condition="$info.jiankang_plan eq 0"}checked=""{/if}>
+                {else}
+                <input type="radio" name="jiankang_plan" title="加入" value="1" checked="">
+                <input type="radio" name="jiankang_plan" title="不加入" value="0">
+                {/if}
+            </div>
+        </div>
+
+        {if condition="!empty($info)"}
+		<input type="hidden" value="{$info.id}" name="id">
+        {/if}
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="submit">{:lang('submit')}</button>
+                <a href="{:url('index')}" class="layui-btn layui-btn-primary">{:lang('back')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+{include file="common/foot"/}
+<script type="text/javascript" src="__ADMIN__/js/area.js"></script>
+<script>
+    var areaData = Area;
+    var $form;
+    var form;
+    var $;
+    layui.use(['form', 'layer','laydate'], function () {
+        form = layui.form;
+        var laydate = layui.laydate;
+        $ = layui.jquery;
+
+        laydate.render({
+            elem: '#visited_time'
+        });
+
+        form.on('select(mingzu)', function(data){
+            if(data.value==57){
+                $("#mingzu_note").removeAttr('disabled').parent().parent().show();
+            }else{
+                $("#mingzu_note").attr('disabled','true').parent().parent().hide();
+                $("#mingzu_note").val('');
+            }
+        }); 
+
+        form.on('select(baolou_reason)', function(data){
+			if(data.value==6){
+				$("#baolou_reason_note").removeAttr('disabled').parent().parent().show();
+			}else{
+				$("#baolou_reason_note").attr('disabled','true').parent().parent().hide();
+				$("#baolou_reason_note").val('');
+			}
+		}); 
+
+        form.on('select(chuangkouqi)', function(data){
+            if(data.value==8){
+                $("#chuangkouqi_note").removeAttr('disabled').parent().parent().show();
+            }else{
+                $("#chuangkouqi_note").attr('disabled','true').parent().parent().hide();
+                $("#chuangkouqi_note").val('');
+            }
+        }); 
+
+		form.on('radio(jinbiao_jiance)', function(data){
+			if(data.value==2){
+				$("#quezheng_danwei").removeAttr('disabled').parent().parent().show();
+                $("#idcard").removeAttr('disabled').parent().parent().show();
+                $("#truename").removeAttr('disabled').parent().parent().show();
+			}else{
+				$("#quezheng_danwei").attr('disabled','true').parent().parent().hide();
+				$("#quezheng_danwei").val('');
+                $("#idcard").attr('disabled','true').parent().parent().hide();
+                $("#idcard").val('');
+                $("#truename").attr('disabled','true').parent().parent().hide();
+                $("#truename").val('');
+                form.render();
+			}
+		});  
+
+		form.on('radio(is_take_gift)', function(data){
+			if(data.value==1){
+				$("input:checkbox[name='gift[1]']").parent().parent().show();
+			}else{
+				$("input:checkbox[name='gift[1]']").parent().parent().hide();
+                $(".giftGroup input[type='checkbox']").removeAttr("checked");
+                $("#gift_note").attr('disabled','true').parent().parent().hide();
+                $("#gift_note").val('');
+                form.render();
+			}
+		});
+
+        form.on('checkbox(gift)', function(data){
+            if(data.value==11 && data.elem.checked){
+                $("#gift_note").removeAttr('disabled').parent().parent().show();
+            }else if(data.value==11 && !data.elem.checked){
+                $("#gift_note").attr('disabled','true').parent().parent().hide();
+                $("#gift_note").val('');
+            }
+        });    
+
+        form.on('submit(submit)', function (data) {
+            if($("#shi").val()==''){
+                layer.msg('请点击并选择居住地城市！',{icon:2});
+                return;
+            }
+            if($("#qu").val()==''){
+                layer.msg('请点击并选择居住地区/县！',{icon:2});
+                return;
+            }
+            if(data.field.mingzu==57 && data.field.mingzu_note==''){
+                layer.msg('请输入其他民族！',{icon:2});
+                return;
+            }
+            if(data.field.baolou_reason==6 && data.field.baolou_reason_note==''){
+                layer.msg('请输入暴露原因的其他说明！',{icon:2});
+                return;
+            }
+            var chuangkouqi=data.field.chuangkouqi;
+            var chuangkouqi_note=data.field.chuangkouqi_note;
+            var jinbiao_jiance=data.field.jinbiao_jiance;
+            var quezheng_danwei=data.field.quezheng_danwei;
+            var truename=data.field.truename;
+            var idcard=data.field.idcard;
+
+            if(chuangkouqi==8 && chuangkouqi_note==''){
+                layer.msg('请输入窗口期的其他说明！',{icon:2});
+                return;
+            }
+
+            if(jinbiao_jiance==2 && quezheng_danwei==''){
+                layer.msg('请选择确证单位！',{icon:2});
+                return;
+            }
+
+            if(jinbiao_jiance==2 && truename==''){
+                layer.msg('请输入真实姓名！',{icon:2});
+                return;
+            }
+
+            if(jinbiao_jiance==2 && idcard==''){
+                layer.msg('请输入身份证！',{icon:2});
+                return;
+            }
+
+            if(data.field.is_take_gift==1){
+                var giftLength=$(".giftGroup input[type=checkbox]:checked").length;
+                console.log(giftLength);
+                if(giftLength<=0){
+                    layer.msg('请选择领取的礼品！',{icon:2});
+                    return;
+                }
+                if(data.field['gift[11]']==11 && data.field.gift_note==''){
+                    layer.msg('请输入其他礼品说明！',{icon:2});
+                    return;
+                }
+            }
+
+            // 提交到方法 默认为本身
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post("", data.field, function (res) {
+                layer.close(loading);
+                if (res.code > 0) {
+                    layer.msg(res.msg, {time: 1800, icon: 1}, function () {
+                        location.href = res.url;
+                    });
+                } else {
+                    layer.msg(res.msg, {time: 1800, icon: 2});
+                }
+            });
+        })
+
+        $form = $('.layui-form');
+        loadProvince();
+    });
+
+     //加载省数据
+    function loadProvince() {
+        var proHtml = '';
+        for (var i = 0; i < areaData.length; i++) {
+            proHtml += '<option value="' + areaData[i].provinceCode + '_' + areaData[i].mallCityList.length + '_' + i + '">' + areaData[i].provinceName + '</option>';
+        }
+        //初始化省数据
+        $form.find('select[name=province]').append(proHtml);
+        form.render();
+        form.on('select(province)', function(data) {
+            $form.find('select[name=area]').html('<option value="">请选择县/区</option>').parent().hide();
+            var value = data.value;
+            var d = value.split('_');
+            var code = d[0];
+            var count = d[1];
+            var index = d[2];
+            $("#sheng").val(areaData[index].provinceName);
+            if (count > 0) {
+                loadCity(areaData[index].mallCityList);
+            } else {
+                $form.find('select[name=city]').parent().hide();
+            }
+        });
+    }
+     //加载市数据
+    function loadCity(citys) {
+        var cityHtml = '';
+        for (var i = 0; i < citys.length; i++) {
+            cityHtml += '<option value="' + citys[i].cityCode + '_' + citys[i].mallAreaList.length + '_' + i + '">' + citys[i].cityName + '</option>';
+        }
+        $form.find('select[name=city]').html(cityHtml).parent().show();
+        form.render();
+        form.on('select(city)', function(data) {
+            var value = data.value;
+            var d = value.split('_');
+            var code = d[0];
+            var count = d[1];
+            var index = d[2];
+            $("#shi").val(citys[index].cityName);
+            if (count > 0) {
+                loadArea(citys[index].mallAreaList);
+            } else {
+                $form.find('select[name=area]').parent().hide();
+            }
+        });
+    }
+     //加载县/区数据
+    function loadArea(areas) {
+        var areaHtml = '';
+        for (var i = 0; i < areas.length; i++) {
+            areaHtml += '<option value="' + areas[i].areaCode + '">' + areas[i].areaName + '</option>';
+        }
+        $form.find('select[name=area]').html(areaHtml).parent().show();
+        form.render();
+        form.on('select(area)', function(data) {
+            for (var i = 0; i < areas.length; i++) {
+                if(areas[i].areaCode==data.value){
+                    $("#qu").val(areas[i].areaName);
+                }
+            }
+        });
+    }
+</script>

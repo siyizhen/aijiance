@@ -1,0 +1,232 @@
+﻿{include file="pc/common_header" /}
+
+    <!--banner图-->
+	<div id="bootstrap-touch-slider" class="carousel bs-slider fade control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			{volist name="adList" id="vo" key="i"}
+			<li data-slide-to="{$i-1}" {if condition="$i eq 1"}class="active"{/if}></li>
+			{/volist}
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			{volist name="adList" id="vo" key="i"}
+			<div class="item {if condition='$i eq 1'}active{/if}">
+				<img  src="__PUBLIC__{$vo.pic}" alt="{$vo.name}" class="slide-image">
+				<!-- Slide Text Layer -->
+				<div class="slide-text slide_style_center">
+					<h1 data-animation="animated flipInX">{$vo.name}</h1>
+					<p data-animation="animated lightSpeedIn">{$vo.content}</p> 
+					<a href="{$vo.url}" target="_blank" class="btn btn-primary">了解更多</a>
+				</div>
+			</div>
+			{/volist}
+		</div>
+
+		<!-- Left Control -->
+		<a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+
+		<!-- Right Control -->
+		<a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	
+	<div class="index">
+		<!--中部碎片-->
+		<div class="section1">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="s1-item wow fadeInUp" data-wow-delay="300ms">
+							<a  href="demo/business-template/V398/fu-wu/show_172.html" title="" target="_blank" >
+								<div class="s1-img">
+									<img alt="卧室家具独家量身定制/Bed" src="__HOME__/pc/demo/business-template/v398/upload/images/201706/14987232797628.jpg" />
+								</div>
+								<div class="s1-text">
+									<h4><font>艾检测小黄盒</font></h4>
+									<p>申请流程简单，信息全程保密</p>
+									<p>5分钟内知晓结果，平台就近推荐专业检测机构为您答疑解惑</p>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="s1-item wow fadeInUp" data-wow-delay="300ms">
+							<a href="demo/business-template/V398/fu-wu/show_171.html" title="" target="_blank" >
+								<div class="s1-img">
+									<img src="__HOME__/pc/demo/business-template/v398/upload/images/201706/14987284560146.jpg" />
+								</div>
+								<div class="s1-text">
+									<h4><font>艾滋病病毒感染保险金</font></h4>
+									<p>等待期90天后，于30日内通过HIV阴性监测的健康被保人</p>
+									<p>保障期间内感染HIV即可获得保险金10万被保人卖淫、</p>
+									<p style="margin-left:160px !important;">嫖娼、使用毒品、管制药物期间患病的除外</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section3" data-stellar-background-ratio="0.1">
+			<div class="container">
+				<div class="s3-ico"></div>
+				<div class="s3-content wow fadeInUp">
+					<h4>关于我们</h4>
+					<p>about us<p>
+					<div class="s3-text">艾检测是由湖南户晓科技发展有限公司联合众多国内防艾公益组织、政府机构、社区人群共同开发的一款艾滋病综合服务平台。您可通过本平台查询合作医疗机构的HIV初筛检测结果、申请免费的HIV检测试剂……</div>
+					<a class="s3-more" href="demo/business-template/V398/guan-yu" title="" target="_blank">more<span class="fa fa-angle-right"></a>
+				</div>
+			</div>
+		</div>
+		<div class="section4" style="padding-bottom: 0;">
+			<div class="title10 wow fadeInUp">
+				<h4><a href="demo/business-template/V398/news" title="" target="_blank">新闻资讯</a></h4>
+				<p>news</p>
+			</div>
+			<div class="blank20"></div>
+			<div class="blank20"></div>
+			<div class="container">
+				<div class="row">	
+					<div class="col-md-4">
+						<div class="s4-item wow fadeInUp">
+							<a href="demo/business-template/V398/news/show_195.html" title="新作 | 揽镜斋阁 一家眼镜店的时尚与新意" target="_blank" >
+							<div class="s4-date">
+								<div class="s4-date-ico"><span class="fa fa-angle-right"></span></div>
+								<div class="s4-date-md">06-29</div>
+								<div class="s4-date-y">2017</div>
+							</div>
+							<div class="s4-text">
+								<h4><font style="color:;">新作 | 揽镜斋阁 一家眼镜店的时尚与新</font></h4>
+								<p>项目位于台北市东区的消费尖端地段，映绿的树海街景与时尚缤纷的妆点，塑造了本项目商业空间的意象，兼顾业主在眼镜业界的时尚图</p>
+							</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="s4-item wow fadeInUp">
+							<a href="demo/business-template/V398/news/show_195.html" title="新作 | 揽镜斋阁 一家眼镜店的时尚与新意" target="_blank" >
+							<div class="s4-date">
+								<div class="s4-date-ico"><span class="fa fa-angle-right"></span></div>
+								<div class="s4-date-md">06-29</div>
+								<div class="s4-date-y">2017</div>
+							</div>
+							<div class="s4-text">
+								<h4><font style="color:;">新作 | 揽镜斋阁 一家眼镜店的时尚与新</font></h4>
+								<p>项目位于台北市东区的消费尖端地段，映绿的树海街景与时尚缤纷的妆点，塑造了本项目商业空间的意象，兼顾业主在眼镜业界的时尚图</p>
+							</div>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="s4-item wow fadeInUp">
+							<a href="demo/business-template/V398/news/show_195.html" title="新作 | 揽镜斋阁 一家眼镜店的时尚与新意" target="_blank" >
+							<div class="s4-date">
+								<div class="s4-date-ico"><span class="fa fa-angle-right"></span></div>
+								<div class="s4-date-md">06-29</div>
+								<div class="s4-date-y">2017</div>
+							</div>
+							<div class="s4-text">
+								<h4><font style="color:;">新作 | 揽镜斋阁 一家眼镜店的时尚与新</font></h4>
+								<p>项目位于台北市东区的消费尖端地段，映绿的树海街景与时尚缤纷的妆点，塑造了本项目商业空间的意象，兼顾业主在眼镜业界的时尚图</p>
+							</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section2" style="padding: 0;">
+			<div class="title10 wow fadeInUp" data-wow-delay="300ms"> 
+				<h4><a href="demo/business-template/V398/Product" title="" target="_blank">媒体报道</a></h4>
+				<p>Media reports</p>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-xs-6">
+						<div class="s2-item wow fadeInUp" data-wow-delay="300ms">
+							<a href="demo/business-template/V398/sha-fa/show_189.html" title="欧式真皮沙发" target="_blank" >
+								<div class="s2-img">
+									<img alt="欧式真皮沙发" src="__HOME__/pc/images/hongwang.jpg" />
+									<div class="s2-ico"></div>
+								</div>
+								<div class="s2-text">
+									<h4><font>长沙免费推出艾检测小黄盒 市民扫码可申领</font></h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<div class="s2-item wow fadeInUp" data-wow-delay="300ms">
+							<a href="demo/business-template/V398/sha-fa/show_189.html" title="欧式真皮沙发" target="_blank" >
+								<div class="s2-img">
+									<img alt="欧式真皮沙发" src="__HOME__/pc/images/hongwang.jpg" />
+									<div class="s2-ico"></div>
+								</div>
+								<div class="s2-text">
+									<h4><font>长沙免费推出艾检测小黄盒 市民扫码可申领</font></h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<div class="s2-item wow fadeInUp" data-wow-delay="300ms">
+							<a href="demo/business-template/V398/sha-fa/show_189.html" title="欧式真皮沙发" target="_blank" >
+								<div class="s2-img">
+									<img alt="欧式真皮沙发" src="__HOME__/pc/images/hongwang.jpg" />
+									<div class="s2-ico"></div>
+								</div>
+								<div class="s2-text">
+									<h4><font>长沙免费推出艾检测小黄盒 市民扫码可申领</font></h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<div class="s2-item wow fadeInUp" data-wow-delay="300ms">
+							<a href="demo/business-template/V398/sha-fa/show_189.html" title="欧式真皮沙发" target="_blank" >
+								<div class="s2-img">
+									<img alt="欧式真皮沙发" src="__HOME__/pc/images/hongwang.jpg" />
+									<div class="s2-ico"></div>
+								</div>
+								<div class="s2-text">
+									<h4><font>长沙免费推出艾检测小黄盒 市民扫码可申领</font></h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<div class="s2-item wow fadeInUp" data-wow-delay="300ms">
+							<a href="demo/business-template/V398/sha-fa/show_189.html" title="欧式真皮沙发" target="_blank" >
+								<div class="s2-img">
+									<img alt="欧式真皮沙发" src="__HOME__/pc/images/hongwang.jpg" />
+									<div class="s2-ico"></div>
+								</div>
+								<div class="s2-text">
+									<h4><font>长沙免费推出艾检测小黄盒 市民扫码可申领</font></h4>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="index-more wow fadeInUp">
+					<a href="demo/business-template/V398/Product" title="" target="_blank">
+						more<span class="fa fa-angle-right"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{include file="pc/common_footer" /}
+</body>
+</html>

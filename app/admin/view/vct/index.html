@@ -1,0 +1,402 @@
+{include file="common/head"/}
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>{:lang('vct')}管理</legend>
+    </fieldset>
+    <div class="demoTable layui-form">
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">首次检测</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="is_first_jiance" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">得知渠道</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="from_qudao" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $qudaoArr=fromQudao();?>
+                    {volist name="qudaoArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">来访原因</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="visited_reason" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $reasonArr=visitedReason();?>
+                    {volist name="reasonArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">暴露原因</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="baolou_reason" lay-verify="required" lay-search="" lay-filter="baolou_reason">
+                    <option value="">请选择</option>
+                    <?php $baoluArr=baolouReason();?>
+                    {volist name="baoluArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">人群属性</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="renqun_shuxing" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $renqunArr=renqunShuxing();?>
+                    {volist name="renqunArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="demoTable layui-form" style="margin-top: 10px;">
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">快速检测</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="jinbiao_jiance" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <option value="1">阴性</option>
+                    <option value="2">待复查</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">领取礼品</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="is_take_gift" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">加咨询员</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="is_get_weixin" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">加艾检测</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="is_take_ajiance" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">咨询点</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="role_id" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    {volist name="zixundianList" id="m" key="n"}
+                    <option value="{$m.id}">{$m.title_display}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="demoTable layui-form" style="margin-top: 10px;">
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">婚姻情况</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="hunyin" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $hunyinArr=hunYin();?>
+                    {volist name="hunyinArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">职业情况</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="zhiye" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $zhiyeArr=zhiYe();?>
+                    {volist name="zhiyeArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">学历情况</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="xueli" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $xueliArr=xueLi();?>
+                    {volist name="xueliArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label" style="width: 56px;">收入情况</label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <select id="shouru" lay-verify="required" lay-search="">
+                    <option value="">请选择</option>
+                    <?php $shouruArr=shouRu();?>
+                    {volist name="shouruArr" id="m" key="n"}
+                    <option value="{$n}">{$m}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="demoTable layui-form" style="margin-top: 10px;">
+        <div class="layui-inline" style="width: 23%;">
+            <input class="layui-input" name="key" id="key" placeholder="姓名/身份证/电话/地址/检测编号/礼品">
+        </div>
+        <div class="layui-inline" style="width:11%;">
+            <input type="text" class="layui-input" id="addtime" placeholder="请选择时间范围">
+        </div>
+        <button class="layui-btn" id="search" data-type="reload">{:lang('search')}</button>
+        <a href="javascript:sendSms();" class="layui-btn layui-btn-normal">发短信</a>
+        <a href="javascript:downloadList();" class="layui-btn layui-btn-warm">导出数据</a>
+        <button type="button" class="layui-btn layui-btn-danger" id="delAll">批量删除</button>
+        <!-- <a href="{:url('add')}" class="layui-btn" style="float:right;"><i class="fa fa-plus" aria-hidden="true"></i>{:lang('add')}{:lang('vct')}</a> -->
+        <div style="clear: both;"></div>
+    </div>
+    <table class="layui-table" id="list" lay-filter="list"></table>
+</div>
+{include file="common/foot"/}
+<script type="text/html" id="action">
+    <a href="javascript:printInfo({{d.id}});" class="layui-btn layui-btn-danger layui-btn-xs">打印</a>
+    <a href="{:url('edit')}?id={{d.id}}" class="layui-btn layui-btn-xs">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script>
+    var urls="{:url('printInfo')}?id=";
+    function printInfo(id){
+        var title="详细资料";
+        parent.tab.tabAdd({
+            href: urls+id,
+            title: title
+        });
+    }
+
+    function sendSms(){
+        layui.use(['table'], function(){
+            var table = layui.table,$ = layui.jquery;
+            var checkStatus = table.checkStatus('vct'); //test即为参数id设定的值
+            var phones = [];
+            $(checkStatus.data).each(function (i, o) {
+                phones.push(o.phone);
+            });
+            if(phones.length==0){
+                layer.msg('选择需要发送短信的用户！',{icon:2});
+                return;
+            }
+            $.ajax({
+                url: "{:url('sendSms')}",
+                type: 'POST',
+                dataType: 'json',
+                data: {phones:phones},
+                success:function(res){
+                    layer.msg(res.msg,{icon:1});
+                }
+            })
+        });
+    }
+
+    function downloadList(){
+        var $ = layui.jquery;
+        var key = $('#key').val();
+        var addtime = $('#addtime').val();
+        var is_first_jiance = $('#is_first_jiance').val();
+        var from_qudao = $('#from_qudao').val();
+        var visited_reason = $('#visited_reason').val();
+        var baolou_reason = $('#baolou_reason').val();
+        var renqun_shuxing = $('#renqun_shuxing').val();
+        var jinbiao_jiance = $('#jinbiao_jiance').val();
+        var is_take_gift = $('#is_take_gift').val();
+        var is_get_weixin = $('#is_get_weixin').val();
+        var is_take_ajiance = $('#is_take_ajiance').val();
+        var role_id = $('#role_id').val();
+        var hunyin = $('#hunyin').val();
+        var zhiye = $('#zhiye').val();
+        var xueli = $('#xueli').val();
+        var shouru = $('#shouru').val();
+
+        var str='?key='+key+'&addtime='+addtime+'&is_first_jiance='+is_first_jiance+'&from_qudao='+from_qudao+'&visited_reason='+visited_reason+'&baolou_reason='+baolou_reason+'&renqun_shuxing='+renqun_shuxing+'&jinbiao_jiance='+jinbiao_jiance+'&is_take_gift='+is_take_gift+'&is_get_weixin='+is_get_weixin+'&is_take_ajiance='+is_take_ajiance+'&role_id='+role_id+'&hunyin='+hunyin+'&zhiye='+zhiye+'&xueli='+xueli+'&shouru='+shouru;
+
+        var index = layui.layer.msg('下载中，请稍后…',{icon: 16,time:6000,shade:0.8});
+        window.location.href="{:url('downloadList')}"+str;
+    }
+
+    layui.use(['table','form','laydate'], function() {
+        var table = layui.table,form = layui.form,$ = layui.jquery,laydate = layui.laydate;
+        var tableIn = table.render({
+            id: 'vct',
+            elem: '#list',
+            url: '{:url("index")}',
+            method: 'post',
+            page:true,
+            cols: [[
+                {checkbox: true, fixed:'left',align: 'center'},
+                {field: 'index', title: '编号', width: 80, fixed: true,align: 'center'},
+                {field: 'username', title: '姓名', width: 100,align: 'center'},
+                {field: 'sex', title: '性别', width: 60,align: 'center'},
+                {field: 'age', title: '年龄',width: 60,align: 'center'},
+                {field: 'phone', title: '联系电话', width: 160,align: 'center'},
+                {field: 'address', title: '现居地',width: 180,align: 'center'},
+                {field: 'jiance_bianhao', align: 'center', title: '检测编号', width: 120,align: 'center'},
+                {field: 'is_first_jiance', title: '首次检测', width: 100,align: 'center'},
+                {field: 'visited_time', title: '来访时间', width: 110,align: 'center'},
+                {field: 'zixundian', title: '咨询点', width: 200,align: 'center'},
+                {field: 'from_qudao', title: '得知渠道', width: 100,align: 'center'},
+                {field: 'visited_reason', title: '来访原因', width: 120,align: 'center'},
+                {field: 'baolou_reason', title: '暴露原因', width: 160,align: 'center'},
+                {field: 'hunyin', title: '婚姻', width: 120,align: 'center'},
+                {field: 'zhiye', title: '职业', width: 170,align: 'center'},
+                {field: 'xueli', title: '学历', width: 120,align: 'center'},
+                {field: 'shouru', title: '收入', width: 120,align: 'center'},
+                {field: 'chuangkouqi', title: '窗口期', width: 120,align: 'center'},
+                {field: 'renqun_shuxing', title: '人群属性', width: 120,align: 'center'},
+                {field: 'jinbiao_jiance', title: '快速检测', width: 100,align: 'center'},
+                {field: 'school', title: '学校', width: 200,align: 'center'},
+                {field: 'mingzu', title: '民族',width: 100,align: 'center'},
+                {field: 'mingzu_note', title: '其他民族',width: 100,align: 'center'},
+                {field: 'livetime', title: '本地居住时间',width: 160,align: 'center'},
+                {field: 'last_jiance_jigou', title: '上次检测机构', width: 200,align: 'center'},
+                {field: 'last_jiance_time', title: '上次检测时间', width: 130,align: 'center'},
+                {field: 'is_take_gift', title: '领取礼品', width: 100,align: 'center'},
+                {field: 'gift', title: '礼品名', width: 100,align: 'center'},
+                {field: 'is_get_weixin', title: '加咨询员微信/QQ', width: 140,align: 'center'},
+                {field: 'is_take_ajiance', title: '关注艾检测', width: 130,align: 'center'},
+                {field: 'jiankang_plan', title: '健康计划', width: 100,align: 'center'},
+                {fixed: 'right',width: 160, title: '操作',toolbar: '#action',align:'center'}
+            ]],
+            limit:10
+        });
+
+        laydate.render({
+            elem: '#addtime',
+            range: true
+        });
+
+        form.on('switch(open)', function(obj){
+            loading =layer.load(1, {shade: [0.1,'#fff']});
+            var id = this.value;
+            var open = obj.elem.checked===true?1:0;
+            $.post('{:url("editState")}',{'id':id,'open':open},function (res) {
+                layer.close(loading);
+                if (res.status==1) {
+                    tableIn.reload();
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                    return false;
+                }
+            })
+        });
+        //搜索
+        $('#search').on('click', function () {
+            var key = $('#key').val();
+            var addtime = $('#addtime').val();
+            var is_first_jiance = $('#is_first_jiance').val();
+            var from_qudao = $('#from_qudao').val();
+            var visited_reason = $('#visited_reason').val();
+            var baolou_reason = $('#baolou_reason').val();
+            var renqun_shuxing = $('#renqun_shuxing').val();
+            var jinbiao_jiance = $('#jinbiao_jiance').val();
+            var is_take_gift = $('#is_take_gift').val();
+            var is_get_weixin = $('#is_get_weixin').val();
+            var is_take_ajiance = $('#is_take_ajiance').val();
+            var role_id = $('#role_id').val();
+            var hunyin = $('#hunyin').val();
+            var zhiye = $('#zhiye').val();
+            var xueli = $('#xueli').val();
+            var shouru = $('#shouru').val();
+
+            tableIn.reload({
+                where: {key: key,is_first_jiance:is_first_jiance,from_qudao:from_qudao,visited_reason:visited_reason,baolou_reason:baolou_reason,renqun_shuxing:renqun_shuxing,jinbiao_jiance:jinbiao_jiance,is_take_gift:is_take_gift,is_get_weixin:is_get_weixin,is_take_ajiance:is_take_ajiance,role_id:role_id,addtime:addtime,hunyin:hunyin,zhiye:zhiye,xueli:xueli,shouru:shouru}
+            });
+        });
+        table.on('tool(list)', function(obj) {
+            var data = obj.data;
+            if (obj.event === 'del'){
+                layer.confirm('您确定要删除该数据吗？', function(index){
+                    var loading = layer.load(1, {shade: [0.1, '#fff']});
+                    $.post("{:url('del')}",{id:data.id},function(res){
+                        layer.close(loading);
+                        if(res.code===1){
+                            layer.msg(res.msg,{time:1000,icon:1});
+                            tableIn.reload();
+                        }else{
+                            layer.msg('操作失败！',{time:1000,icon:2});
+                        }
+                    });
+                    layer.close(index);
+                });
+            }
+        });
+        $('body').on('blur','.list_order',function() {
+            var ad_id = $(this).attr('data-id');
+            var sort = $(this).val();
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post('{:url("adOrder")}',{ad_id:ad_id,sort:sort},function(res){
+                layer.close(loading);
+                if(res.code === 1){
+                    layer.msg(res.msg, {time: 1000, icon: 1});
+                    tableIn.reload();
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                }
+            })
+        });
+        $('#delAll').click(function(){
+            layer.confirm('确认要删除选中的数据吗？', {icon: 3}, function(index) {
+                layer.close(index);
+                var checkStatus = table.checkStatus('vct'); //test即为参数id设定的值
+                var ids = [];
+                $(checkStatus.data).each(function (i, o) {
+                    ids.push(o.id);
+                });
+                var loading = layer.load(1, {shade: [0.1, '#fff']});
+                $.post("{:url('delall')}", {ids: ids}, function (data) {
+                    layer.close(loading);
+                    if (data.code === 1) {
+                        layer.msg(data.msg, {time: 1000, icon: 1});
+                        tableIn.reload();
+                    } else {
+                        layer.msg(data.msg, {time: 1000, icon: 2});
+                    }
+                });
+            });
+        })
+    })
+</script>

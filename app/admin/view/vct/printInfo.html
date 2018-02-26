@@ -1,0 +1,170 @@
+{include file="common/head"/}
+<style>
+	.layui-table td, .layui-table th {
+	    border: 1px solid #000;
+	    padding: 8px 1px;
+	}
+	body{
+		font-family: '宋体';
+		font-size:12px;
+	}
+	.td_head_title{
+		font-weight: bolder;
+	}
+	#infoBox{
+		width: 795px;margin:5px auto;
+	}
+	.table_head{
+		text-align: center !important;font-size:18px !important;font-weight: bolder !important;
+	}
+	.print{
+		text-align: center;
+	}
+</style>
+<div id="infoBox">
+	<table class="layui-table" style="padding: 10px;">
+		<tr>
+			<th colspan="8" class="table_head">{$info.username}的详细资料</th>
+		</tr>
+		<tbody>
+			<tr align="center">
+				<td colspan="8"><span class="td_head_title">咨询点：</span>{$info.zixundian}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="td_head_title">咨询员：</span>{$info.admin_truename}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="td_head_title">采集时间：</span>{$info.addtime|date='Y-m-d',###}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">姓名</td>
+				<td>{$info.username}</td>
+				<td class="td_head_title">检测编号</td>
+				<td>{$info.jiance_bianhao}</td>
+				<td class="td_head_title">年龄</td>
+				<td>{$info.age}</td>
+				<td class="td_head_title">性别</td>
+				<td>{if condition="$info.sex eq 1"}男{else}女{/if}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">婚姻状况</td>
+				<td>{:getHunYin($info.hunyin)}</td>
+				<td class="td_head_title">电话</td>
+				<td>{$info.phone}</td>
+				<td class="td_head_title">首次检测</td>
+				<td>{if condition="$info.is_first_jiance eq 1"}是{else}否{/if}</td>
+				<td class="td_head_title">窗口期</td>
+				<td>{:getChuangKouQi($info.chuangkouqi)}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">来访原因</td>
+				<td>{:getVisitedReason($info.visited_reason)}</td>
+				<td class="td_head_title">对象来源</td>
+				<td>{:getFromQudao($info.from_qudao)}</td>
+				<td class="td_head_title">人群属性</td>
+				<td>{:getRenqunShuxing($info.renqun_shuxing)}</td>
+				<td class="td_head_title">暴露原因</td>
+				<td>{:getBaolouReason($info.baolou_reason)}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">职业情况</td>
+				<td colspan="2">{:getZhiYe($info.zhiye)}</td>
+				<td class="td_head_title">最高学历</td>
+				<td colspan="2">{:getXueLi($info.xueli)}</td>
+				<td class="td_head_title">月收入</td>
+				<td>{:getShouRu($info.shouru)}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">领取礼品</td>
+				<td>{if condition="$info.is_take_gift eq 1"}是{else}否{/if}</td>
+				<td class="td_head_title">礼品名</td>
+				<td colspan="5" align="left">
+					{$info.gift}
+        		</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">加咨询员微信/QQ</td>
+				<td>{if condition="$info.is_get_weixin eq 1"}是{else}否{/if}</td>
+				<td class="td_head_title">关注艾检测</td>
+				<td>{if condition="$info.is_take_ajiance eq 1"}是{else}否{/if}</td>
+				<td class="td_head_title">健康计划</td>
+				<td colspan="3">{if condition="$info.jiankang_plan eq 1"}加入{else}不加入{/if}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">快速检测</td>
+				<td colspan="3">{if condition="$info.jinbiao_jiance eq 1"}阴性{else}待复查{/if}</td>
+				<td class="td_head_title">学校</td>
+				<td colspan="3">{if condition="$info.school neq '0'"}{$info.school}{else}&nbsp;{/if}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">名族</td>
+				<td colspan="2">{:getMingZu($info.mingzu)}</td>
+				<td class="td_head_title">其他名族</td>
+				<td>{$info.mingzu_note}</td>
+				<td class="td_head_title">本地居住时间</td>
+				<td colspan="2">{:getLiveTime($info.livetime)}</td>
+			</tr>
+			<tr align="center">
+				<td class="td_head_title">上次检测时间</td>
+				<td colspan="3">{if condition="!empty($info.last_jiance_time)"}{$info.last_jiance_time|date="Y-m-d",###}{else}&nbsp;{/if}</td>
+				<td class="td_head_title">上次检测机构</td>
+				<td colspan="3">{if condition="!empty($info.last_jiance_jigou)"}{$info.last_jiance_jigou}{else}&nbsp;{/if}</td>
+			</tr>
+			<tr>
+				<td align="center" class="td_head_title">现居地</td>
+				<td colspan="7" align="left">
+					{$info.address}
+        		</td>
+			</tr>
+			<tr>
+				<td colspan="4" align="center" style="width: 50%;">
+					<p>我确认以上采集的相关信息是我的真实情况描述：</p>
+					<img src="{$info.signature_image}" style="margin-top: 10px;max-width: 300px;height: 300px;">
+				</td>
+				<td align="center" colspan="4" style="width: 50%;">
+					<p>以下为{$info.jiance_bianhao}的快速检测结果：</p>
+					{if condition="!empty($info.result_image) && file_exists('.'.$info.result_image)"}
+					<img src="{$info.result_image}" style="margin-top: 10px;max-width: 300px;height: 300px;" id="result_image">
+					{else}
+					<img src="{$info.signature_image}" style="margin-top: 10px;visibility: hidden;max-width: 300px;height: 300px;">
+					{/if}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	{if condition="!empty($questions)"}
+	<table class="layui-table" style="padding: 10px;">
+		<tr>
+			<th colspan="8" class="table_head">问卷信息</th>
+		</tr>
+		<tbody>
+			{volist name="questions" id="m"}
+			<tr>
+				<td colspan="5" align="center">{$m.question}</td>
+				<td align="center">{$m.answer}</td>
+			</tr>
+			{/volist}
+		</tbody>
+	</table>
+	{/if}
+</div>
+
+<div class="print">
+	<button class="layui-btn" onclick="prints();">点击打印</button>
+</div>
+
+{include file="common/foot"/}
+<script src="__STATIC__/common/js/jquery.2.1.1.min.js"></script>
+<script type="text/javascript" src="__STATIC__/common/js/jQueryRotate.js"></script>
+<script type="text/javascript">
+	function prints(){
+		window.print();
+	}
+
+	var value1 = 0
+	$("#result_image").rotate({
+		bind:{
+			click: function(){
+				value1 +=90;
+				$("#result_image").rotate({ animateTo:value1})
+			}
+		}
+	}); 
+</script>
+</body>
+</html>

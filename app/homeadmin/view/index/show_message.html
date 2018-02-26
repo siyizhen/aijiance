@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>青彩VCT采集系统</title>
+		<link href="__STATIC__/plugins/weui/css/weui.css" rel="stylesheet" />
+    </head>
+    <body>
+    	<div class="page msg_{$param.type} js_show">
+		    <div class="weui-msg">
+		        <div class="weui-msg__icon-area"><i class="weui-icon-{$param.type} weui-icon_msg"></i></div>
+		        <div class="weui-msg__text-area">
+		            <h2 class="weui-msg__title">{if condition="$param.type eq 'warn'"}操作失败{elseif condition="$param.type eq 'success'"}操作成功{/if}</h2>
+		            <p class="weui-msg__desc">{$param.msg}<span id="miao">{:config('turn_seconds')}</span>秒后跳转</p>
+		        </div>
+		    </div>
+		</div>
+	
+		<script src="__HOME__/js/jquery.min.js"></script>
+		<script type="text/javascript">
+			setInterval(function(){
+				var numbers=parseInt($("#miao").html());
+				$("#miao").html(numbers-1);
+
+				if(numbers-1==0){
+					window.location.href="{:url($param.url)}{$param.paramStr}";
+				}
+			},1000);
+		</script>
+    </body>
+</html>

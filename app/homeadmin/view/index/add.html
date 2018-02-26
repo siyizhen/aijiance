@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>青彩VCT采集系统</title>
+		<link href="__STATIC__/plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link href="__STATIC__/plugins/mui/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__STATIC__/plugins/mui/css/mui.picker.min.css">
+		<link rel="stylesheet" href="__STATIC__/plugins/mui/css/app.css">
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a href="{:url('search')}" class="mui-btn mui-btn-blue mui-btn-link mui-pull-left">搜索</a>
+			<h1 class="mui-title">{$zixundian}</h1>
+			<a href="javascript:loginOut();" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">退出</a>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-group">
+				<div class="mui-input-row">
+					<label>姓名</label>
+					<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入姓名">
+				</div>
+				<div class="mui-input-row mui-table-view-radio">
+					<label>性别</label>
+					<div class="mui-radio row_radio">
+						<input name="sex" type="radio" value="1" class="radio_class" checked="">
+						男&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="sex" type="radio" value="2" class="radio_class">
+						女
+					</div>
+				</div>
+				<div class="mui-input-row">
+					<label>年龄</label>
+					<input id='age' type="text" class="mui-input-clear mui-input" placeholder="请输入年龄">
+				</div>
+				<div class="mui-input-row">
+					<label>民族</label>
+					<input id='mingzu_show' readonly='readonly' type="text" class="mui-input-clear mui-input" placeholder="请选择民族">
+					<input type="hidden" id="mingzu">
+				</div>
+				<div class="mui-input-row" style="height: auto !important;display: none;">
+					<label>其他民族</label>
+					<textarea id="mingzu_note" rows="5" placeholder="请输入其他民族"></textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>手机</label>
+					<input id='phone' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号码">
+				</div>
+				<div class="mui-input-row">
+					<label>现居地</label>
+					<input id='address_show' readonly='readonly' type="text" class="mui-input-clear mui-input" placeholder="请输入现居地">
+					<input type="hidden" id="address">
+				</div>
+				<div class="mui-input-row">
+					<label>来访时间</label>
+					<input id='visited_time' readonly='readonly' data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2018,&quot;endYear&quot;:2026}" type="text" class="mui-input-clear mui-input" placeholder="请选择来访时间">
+				</div>
+				<div class="mui-input-row">
+					<label>对象来源</label>
+					<input id='from_qudao_show' readonly='readonly' type="text" class="mui-input-clear mui-input" placeholder="请选择对象来源">
+					<input type="hidden" id="from_qudao">
+				</div>
+				<div class="mui-input-row">
+					<label>来访原因</label>
+					<input id='visited_reason_show' readonly='readonly' type="text" class="mui-input-clear mui-input" placeholder="请选择来访原因">
+					<input type="hidden" id="visited_reason">
+				</div>
+				<div class="mui-input-row">
+					<label>暴露原因</label>
+					<input id='baolou_reason_show' readonly='readonly' type="text" class="mui-input-clear mui-input" placeholder="请选择暴露原因">
+					<input type="hidden" id="baolou_reason">
+				</div>
+				<div class="mui-input-row" style="height: auto !important;display: none;">
+					<label>原因说明</label>
+					<textarea id="baolou_reason_note" rows="5" placeholder="请输入暴露原因说明"></textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>人群属性</label>
+					<input id='renqun_shuxing_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择人群属性">
+					<input type="hidden" id="renqun_shuxing">
+				</div>
+				<div class="mui-input-row" style="display: none;">
+					<label>检测编号</label>
+					<input id='jiance_bianhao' type="text" class="mui-input-clear mui-input" disabled="">
+					<input type="hidden" id="bianhao_number">
+				</div>
+				<div class="mui-input-row">
+					<label>婚姻状况</label>
+					<input id='hunyin_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择婚姻状况">
+					<input type="hidden" id="hunyin">
+				</div>
+				<div class="mui-input-row">
+					<label>职业情况</label>
+					<input id='zhiye_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择职业情况">
+					<input type="hidden" id="zhiye">
+				</div>
+				<div style="display: none;" id="school_box">
+					<div class="mui-input-row">
+						<label>学校城市</label>
+						<input id='school_city' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择学校城市">
+					</div>
+					<div class="mui-input-row">
+						<label>学校名称</label>
+						<input id='school_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择学校名称">
+						<input type="hidden" id="school">
+					</div>
+				</div>
+				<div class="mui-input-row">
+					<label>居住时间</label>
+					<input id='livetime_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择在本地居住时间">
+					<input type="hidden" id="livetime">
+				</div>
+				<div class="mui-input-row">
+					<label>学历情况</label>
+					<input id='xueli_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择学历情况">
+					<input type="hidden" id="xueli">
+				</div>
+				<div class="mui-input-row">
+					<label>收入情况</label>
+					<input id='shouru_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择收入情况">
+					<input type="hidden" id="shouru">
+				</div>
+				<div class="mui-input-row">
+					<label>窗口期</label>
+					<input id='chuangkouqi_show' type="text" readonly='readonly' class="mui-input-clear mui-input" placeholder="请选择窗口期">
+					<input type="hidden" id="chuangkouqi">
+				</div>
+				<div class="mui-input-row" style="height: auto !important;display: none;">
+					<label>窗口说明</label>
+					<textarea id="chuangkouqi_note" rows="5" placeholder="请输入窗口期的其他说明"></textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>快速检测</label>
+					<div class="mui-radio row_radio">
+						<input name="jinbiao_jiance" value="1" type="radio" class="radio_class" checked="">
+						阴性&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="jinbiao_jiance" value="2" type="radio" class="radio_class">
+						待复查
+					</div>
+				</div>
+				<!-- <div class="mui-input-row" style="display: none;">
+					<label>确证单位</label>
+					<input id='quezheng_danwei_show' readonly='readonly' type="text" class="mui-input-clear mui-input" placeholder="请选择确证单位">
+					<input type="hidden" id="quezheng_danwei">
+				</div>
+				<div class="mui-input-row" style="display: none;">
+					<label>真实姓名</label>
+					<input id='truename' type="text" class="mui-input-clear mui-input" placeholder="请输入真实姓名">
+				</div>
+				<div class="mui-input-row" style="display: none;">
+					<label>身份证</label>
+					<input id='idcard' type="text" class="mui-input-clear mui-input" placeholder="请输入身份证号码">
+				</div> -->
+				<div class="mui-input-row">
+					<label>首次检测</label>
+					<div class="mui-radio row_radio">
+						<input disabled="" name="is_first_jiance" value="1" type="radio" class="radio_class" checked="">
+						是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input disabled="" name="is_first_jiance" value="0" type="radio" class="radio_class">
+						否
+					</div>
+				</div>
+				<div class="mui-input-row" style="display: none;">
+					<label>上检机构</label>
+					<input id='last_jiance_jigou_show' readonly='readonly' type="text" class="mui-input-clear mui-input" disabled="">
+					<input type="hidden" id="last_jiance_jigou">
+				</div>
+				<div class="mui-input-row" style="display: none;">
+					<label>上检时间</label>
+					<input id='last_jiance_time_show' readonly='readonly' type="text" class="mui-input-clear mui-input" disabled="">
+					<input type="hidden" id="last_jiance_time">
+				</div>
+				<div class="mui-input-row" style="display: none;">
+					<label>检测次数</label>
+					<input id='jiance_nums' type="text" class="mui-input-clear mui-input" disabled="">
+				</div>
+				<div class="mui-input-row">
+					<label>领取礼品</label>
+					<div class="mui-radio row_radio">
+						<input name="is_take_gift" value="1" type="radio" class="radio_class">
+						是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="is_take_gift" value="0" type="radio" class="radio_class" checked="">
+						否
+					</div>
+				</div>
+				<div style="display: none;" class="mui_gifs">
+					<div class="mui-input-row">
+						<h5 class="mui-content-padded" style="color:#dd524d;">请您在以下菜单处勾选领取的具体礼品</h5>
+					</div>
+					<?php $giftArr=gift();?>
+					{volist name="giftArr" id="m" key="n"}
+					<div class="mui-input-row mui-checkbox gifts_checkbox">
+						<label class="checkbox_label">{$m}</label>
+						<input name="gift[{$n}]" value="{$n}" type="checkbox" class="gifts">
+					</div>
+					{/volist}
+				</div>
+				<div class="mui-input-row" style="height: auto !important;display: none;">
+					<label>礼品说明</label>
+					<textarea id="gift_note" rows="5" placeholder="请输入其他礼品说明"></textarea>
+				</div>
+				<div class="mui-input-row">
+					<label>加咨询员</label>
+					<div class="mui-radio row_radio">
+						<input name="is_get_weixin" value="1" type="radio" class="radio_class">
+						是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="is_get_weixin" value="0" type="radio" class="radio_class" checked="">
+						否
+					</div>
+				</div>
+				<div class="mui-input-row">
+					<label>加艾检测</label>
+					<div class="mui-radio row_radio">
+						<input name="is_take_ajiance" value="1" type="radio" class="radio_class">
+						是&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="is_take_ajiance" value="0" type="radio" class="radio_class" checked="">
+						否
+					</div>
+				</div>
+				<div class="mui-input-row">
+					<label>健康计划</label>
+					<div class="mui-radio row_radio">
+						<input name="jiankang_plan" value="1" type="radio" class="radio_class" checked="">
+						加入&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="jiankang_plan" value="0" type="radio" class="radio_class">
+						不加入
+					</div>
+				</div>
+				
+				<div class="mui-input-row" style="height: auto;">
+					<label>上传结果</label>
+					<div class="image_upload_box">
+						<div class="image_class">
+							<input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="uploads();" />
+						</div>
+			        </div>
+				</div>
+			</div>
+			<div class="mui-content-padded">
+				<button onclick="return submits();" class="mui-btn mui-btn-block mui-btn-primary">提 交</button>
+			</div>
+		</div>
+		<script src="__HOME__/js/jquery.min.js"></script>
+		<script src="__STATIC__/plugins/mui/js/mui.min.js"></script>
+		<script src="__STATIC__/plugins/mui/js/mui.picker.min.js"></script>
+		<script src="__STATIC__/plugins/layer_mobile/layer.js"></script>
+		<script src="__STATIC__/common/js/city.data.js"></script>
+		<script type="text/javascript">
+			var visited_time;
+			var result_image='';
+			function uploads(){
+				var file = document.getElementById("file").files[0];
+				var reader = new FileReader();  
+				reader.readAsDataURL(file);  
+
+				reader.onload=function(e){ 
+		            result_image=this.result;
+		            $(".image_class").css("background-image","url("+result_image+")");
+		        }  
+			}
+
+			function loginOut(){
+				var btnArray = ['是', '否'];
+				mui.confirm('确定要退出登录吗？', '消息提示', btnArray, function(e) {
+					if (e.index == 0) {
+						$.ajax({
+							url: "{:url('loginOut')}",
+							type: 'GET',
+							dataType: 'json',
+							data: {},
+							success:function(res){
+								layer.open({content:res.msg,skin:'footer'});
+								setTimeout(function(){
+									window.location.reload();
+								},2000);
+							}
+						})
+					}
+				})
+			}
+
+			var reg=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
+		    $("#phone").blur(function() {
+		    	var phone=$.trim($("#phone").val());
+				if(!reg.test(phone)){
+					layer.open({content:'请输入正确的手机',skin:'footer'});
+					$("#phone").focus();
+					setTimeout(function(){
+						layer.closeAll();
+					},1000);
+					return false;
+				}
+				
+				$.ajax({
+					url: "{:url('searchPhone')}",
+					type: 'POST',
+					dataType: 'json',
+					data: {phone:phone},
+					success:function(res){
+						if(res.status==1){
+							$('input:radio[name="is_first_jiance"]').eq(1).attr('checked', 'true');
+							document.getElementById('last_jiance_jigou_show').value=res.data.last_jiance_jigou_show;
+							document.getElementById('last_jiance_jigou').value=res.data.role_id;
+							$("#last_jiance_jigou_show").parent().show();
+
+							document.getElementById('last_jiance_time_show').value=res.data.last_jiance_time_show;
+							document.getElementById('last_jiance_time').value=res.data.last_jiance_time_show;
+							$("#last_jiance_time_show").parent().show();
+							document.getElementById('jiance_nums').value=res.nums;
+							$("#jiance_nums").parent().show();
+						}else{
+							$('input:radio[name="is_first_jiance"]').eq(0).attr('checked', 'true');
+							document.getElementById('last_jiance_jigou').value='';
+							$("#last_jiance_jigou_show").parent().hide();
+							document.getElementById('last_jiance_time').value='';
+							$("#last_jiance_time_show").parent().hide();
+							document.getElementById('jiance_nums').value='';
+							$("#jiance_nums").parent().hide();
+						}
+					}
+				})
+		    });
+
+			(function($) {
+				$.init();
+				var userPicker = new $.PopPicker();
+				document.getElementById('visited_time').addEventListener('tap', function() {
+					var optionsJson = this.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+					var id = this.getAttribute('id');
+					var picker = new $.DtPicker(options);
+
+					picker.show(function(rs) {
+						document.getElementById("visited_time").value=visited_time=rs.text;
+						picker.dispose();
+					});
+				}, false);
+
+				document.getElementById('from_qudao_show').addEventListener('tap', function() {
+					userPicker.setData({$fromQudaoData});
+					userPicker.show(function(items) {
+						document.getElementById("from_qudao_show").value=items[0]['text'];
+						document.getElementById("from_qudao").value=items[0]['value'];
+					});
+				}, false);
+
+				document.getElementById('visited_reason_show').addEventListener('tap', function() {
+					userPicker.setData({$visitedReasonData});
+					userPicker.show(function(items) {
+						document.getElementById("visited_reason_show").value=items[0]['text'];
+						document.getElementById("visited_reason").value=items[0]['value'];
+					});
+				}, false);
+
+				document.getElementById('baolou_reason_show').addEventListener('tap', function() {
+					userPicker.setData({$baolouReasonData});
+					userPicker.show(function(items) {
+						document.getElementById("baolou_reason_show").value=items[0]['text'];
+						document.getElementById("baolou_reason").value=items[0]['value'];
+
+						if(items[0]['value']==6){
+							document.getElementById("baolou_reason_note").parentNode.style.display='block';
+						}else{
+							document.getElementById("baolou_reason_note").parentNode.style.display='none';
+							document.getElementById("baolou_reason_note").value='';
+						}
+					});
+				}, false);
+
+				document.getElementById('hunyin_show').addEventListener('tap', function() {
+					userPicker.setData({$hunYinData});
+					userPicker.show(function(items) {
+						document.getElementById("hunyin_show").value=items[0]['text'];
+						document.getElementById("hunyin").value=items[0]['value'];
+					});
+				}, false);
+
+				document.getElementById('zhiye_show').addEventListener('tap', function() {
+					userPicker.setData({$zhiYeData});
+					userPicker.show(function(items) {
+						document.getElementById("zhiye_show").value=items[0]['text'];
+						document.getElementById("zhiye").value=items[0]['value'];
+						if(items[0]['value']==1){
+							document.getElementById("school_box").style.display='block';
+						}else{
+							document.getElementById("school_box").style.display='none';
+							document.getElementById("school_city").value='';
+							document.getElementById("school_show").value='';
+							document.getElementById("school").value='';
+						}
+					});
+				}, false);
+
+				var cityPicker2 = new $.PopPicker({
+					layer: 2
+				});
+				cityPicker2.setData({$schoolCity});
+				document.getElementById('school_city').addEventListener('tap', function(event) {
+					cityPicker2.show(function(items) {
+						document.getElementById("school_city").value=items[0].text + " " + items[1].text;
+						mui.ajax("{:url('getSchool')}",{
+							data:{
+								province:items[0]['value'],
+								city:items[1]['value']
+							},
+							dataType:'json',
+							type:'post',
+							success:function(data){
+								userPicker.setData(data);
+								document.getElementById("school_show").value=data[0]['value'];
+								document.getElementById("school").value=data[0]['value'];
+								document.getElementById('school_show').addEventListener('tap', function() {
+									userPicker.show(function(res) {
+										document.getElementById("school_show").value=res[0]['value'];
+										document.getElementById("school").value=res[0]['value'];
+									});
+								}, false);
+							},
+						});
+					});
+				}, false);
+
+				document.getElementById('mingzu_show').addEventListener('tap', function() {
+					userPicker.setData({$mingZuData});
+					userPicker.show(function(items) {
+						document.getElementById("mingzu_show").value=items[0]['text'];
+						document.getElementById("mingzu").value=items[0]['value'];
+
+						if(items[0]['value']==57){
+							document.getElementById("mingzu_note").parentNode.style.display='block';
+						}else{
+							document.getElementById("mingzu_note").parentNode.style.display='none';
+							document.getElementById("mingzu_note").value='';
+						}
+					});
+				}, false);
+
+				document.getElementById('livetime_show').addEventListener('tap', function() {
+					userPicker.setData({$liveTimeData});
+					userPicker.show(function(items) {
+						document.getElementById("livetime_show").value=items[0]['text'];
+						document.getElementById("livetime").value=items[0]['text'];
+					});
+				}, false);
+
+				document.getElementById('shouru_show').addEventListener('tap', function() {
+					userPicker.setData({$shouRuData});
+					userPicker.show(function(items) {
+						document.getElementById("shouru_show").value=items[0]['text'];
+						document.getElementById("shouru").value=items[0]['value'];
+					});
+				}, false);
+
+				document.getElementById('xueli_show').addEventListener('tap', function() {
+					userPicker.setData({$xueLiData});
+					userPicker.show(function(items) {
+						document.getElementById("xueli_show").value=items[0]['text'];
+						document.getElementById("xueli").value=items[0]['value'];
+					});
+				}, false);
+
+				document.getElementById('chuangkouqi_show').addEventListener('tap', function() {
+					userPicker.setData({$chuangkouqiData});
+					userPicker.show(function(items) {
+						document.getElementById("chuangkouqi_show").value=items[0]['text'];
+						document.getElementById("chuangkouqi").value=items[0]['value'];
+
+						if(items[0]['value']==8){
+							document.getElementById("chuangkouqi_note").parentNode.style.display='block';
+						}else{
+							document.getElementById("chuangkouqi_note").parentNode.style.display='none';
+							document.getElementById("chuangkouqi_note").value='';
+						}
+					});
+				}, false);
+
+				document.getElementById('renqun_shuxing_show').addEventListener('tap', function() {
+					userPicker.setData({$renqunShuxingData});
+					userPicker.show(function(items) {
+						document.getElementById("renqun_shuxing_show").value=items[0]['text'];
+						document.getElementById("renqun_shuxing").value=items[0]['value'];
+
+						mui.post("{:url('getJianceBianHao')}",{
+							renqun_shuxing:items[0]['value']
+						},function(data){
+							document.getElementById("jiance_bianhao").value=data.jiance_bianhao;
+							document.getElementById("jiance_bianhao").parentNode.style.display='block';
+							document.getElementById("bianhao_number").value=data.bianhao_number;
+						},'json');
+					});
+				}, false);
+
+				// document.getElementById('quezheng_danwei_show').addEventListener('tap', function() {
+				// 	userPicker.setData({$queZhengDanWeiData});
+				// 	userPicker.show(function(items) {
+				// 		document.getElementById("quezheng_danwei_show").value=items[0]['text'];
+				// 		document.getElementById("quezheng_danwei").value=items[0]['value'];
+				// 	});
+				// }, false);
+
+				mui('.mui_gifs').on('change', 'input', function(e) {
+					var value = this.checked?true:false;
+					if(value===true && this.value==11){
+						document.getElementById("gift_note").parentNode.style.display='block';
+					}
+					if(value===false && this.value==11){
+						document.getElementById("gift_note").parentNode.style.display='none';
+						document.getElementById("gift_note").value='';
+					}
+				});
+
+				var cityPicker = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker.setData(cityData);
+				document.getElementById('address_show').addEventListener('tap', function(event) {
+					cityPicker.show(function(items) {
+						document.getElementById('address_show').value=document.getElementById('address').value=items[0].text+' '+items[1].text+' '+items[2].text;
+					});
+				}, false);
+			})(mui);
+
+			// $('input:radio[name="jinbiao_jiance"]').change(function() {
+			// 	if($(this).val()==2){
+			// 		$("#quezheng_danwei_show").parent().show();
+			// 		$("#idcard").parent().show();
+			// 		$("#truename").parent().show();
+			// 	}else{
+			// 		$("#quezheng_danwei_show").parent().hide();
+			// 		$("#quezheng_danwei_show").val('');
+			// 		$("#quezheng_danwei").val('');
+			// 		$("#idcard").parent().hide();
+			// 		$("#idcard").val('');
+			// 		$("#truename").parent().hide();
+			// 		$("#truename").val('');
+			// 	}
+			// });
+
+			$('input:radio[name="is_take_gift"]').change(function() {
+				if($(this).val()==1){
+					$(".gifts").parent().parent().show();
+				}else{
+					$(".gifts").parent().parent().hide();
+				}
+			});
+
+			function submits(){
+				var username=$.trim($("#username").val());
+				var sex=$('input:radio[name="sex"]:checked').val();
+				var age=$.trim($("#age").val());
+				var phone=$.trim($("#phone").val());
+				//var idcard=$.trim($("#idcard").val());
+				var address=$.trim($("#address").val());
+				var jiance_bianhao=$.trim($("#jiance_bianhao").val());
+				var is_first_jiance=$('input:radio[name="is_first_jiance"]:checked').val();
+				var from_qudao=$.trim($("#from_qudao").val());
+				var visited_reason=$.trim($("#visited_reason").val());
+				var baolou_reason=$.trim($("#baolou_reason").val());
+				var baolou_reason_note=$.trim($("#baolou_reason_note").val());
+				var renqun_shuxing=$.trim($("#renqun_shuxing").val());
+				var jinbiao_jiance=$('input:radio[name="jinbiao_jiance"]:checked').val();
+				//var truename=$.trim($("#truename").val());
+				//var quezheng_danwei=$.trim($("#quezheng_danwei").val());
+				var is_take_gift=$('input:radio[name="is_take_gift"]:checked').val();
+				var is_get_weixin=$('input:radio[name="is_get_weixin"]:checked').val();
+				var is_take_ajiance=$('input:radio[name="is_take_ajiance"]:checked').val();
+				var gift_note=$.trim($("#gift_note").val());
+				var jiankang_plan=$('input:radio[name="jiankang_plan"]:checked').val();
+				var chuangkouqi=$.trim($("#chuangkouqi").val());
+				var chuangkouqi_note=$.trim($("#chuangkouqi_note").val());
+				var last_jiance_jigou=$.trim($("#last_jiance_jigou").val());
+				var last_jiance_time=$.trim($("#last_jiance_time").val());
+				var bianhao_number=$.trim($("#bianhao_number").val());
+				var hunyin=$.trim($("#hunyin").val());
+				var zhiye=$.trim($("#zhiye").val());
+				var school=$.trim($("#school").val());
+				var mingzu=$.trim($("#mingzu").val());
+				var mingzu_note=$.trim($("#mingzu_note").val());
+				var livetime=$.trim($("#livetime").val());
+				var xueli=$.trim($("#xueli").val());
+				var shouru=$.trim($("#shouru").val());
+
+				
+				if(username==''){
+					layer.open({content:'请输入姓名',skin:'footer'});
+					$("#username").focus();
+					return false;
+				}
+				if(Math.floor(age)!=age){
+					layer.open({content:'请输入正确的年龄',skin:'footer'});
+					$("#age").focus();
+					return false;
+				}
+				if(!reg.test(phone)){
+					layer.open({content:'请输入正确的手机',skin:'footer'});
+					$("#phone").focus();
+					return false;
+				}
+				if(address==''){
+					layer.open({content:'请选择现居住地',skin:'footer'});
+					$("#address").focus();
+					return false;
+				}
+				if(visited_time==''||visited_time==null){
+					layer.open({content:'请选择来访时间',skin:'footer'});
+					$("#visited_time").focus();
+					return false;
+				}
+				if(from_qudao==''){
+					layer.open({content:'请选择对象来源',skin:'footer'});
+					$("#from_qudao").focus();
+					return false;
+				}
+				if(visited_reason==''){
+					layer.open({content:'请选择来访原因',skin:'footer'});
+					$("#visited_reason").focus();
+					return false;
+				}
+				if(baolou_reason==''){
+					layer.open({content:'请选择暴露原因',skin:'footer'});
+					$("#baolou_reason").focus();
+					return false;
+				}
+				if(baolou_reason==6&&baolou_reason_note==''){
+					layer.open({content:'请输入暴露原因说明',skin:'footer'});
+					$("#baolou_reason_note").focus();
+					return false;
+				}
+				if(hunyin==''){
+					layer.open({content:'请选择婚姻状况',skin:'footer'});
+					$("#hunyin").focus();
+					return false;
+				}
+				if(zhiye==''){
+					layer.open({content:'请选择职业情况',skin:'footer'});
+					$("#zhiye").focus();
+					return false;
+				}
+				if(mingzu==''){
+					layer.open({content:'请选择民族',skin:'footer'});
+					$("#mingzu").focus();
+					return false;
+				}
+				if(mingzu==57&&mingzu_note==''){
+					layer.open({content:'请输入其他民族！',skin:'footer'});
+					$("#mingzu_note").focus();
+					return false;
+				}
+				if(livetime==''){
+					layer.open({content:'请选择本地居住时间',skin:'footer'});
+					$("#livetime").focus();
+					return false;
+				}
+				if(xueli==''){
+					layer.open({content:'请选学历状况',skin:'footer'});
+					$("#xueli").focus();
+					return false;
+				}
+				if(shouru==''){
+					layer.open({content:'请选择收入状况',skin:'footer'});
+					$("#shouru").focus();
+					return false;
+				}
+				if(chuangkouqi==8 && chuangkouqi_note==''){
+					layer.open({content:'请输入窗口期的其他说明',skin:'footer'});
+					$("#renqun_shuxing").focus();
+					return false;
+				}
+				if(renqun_shuxing==''||bianhao_number==''){
+					layer.open({content:'请选择人群属性',skin:'footer'});
+					$("#renqun_shuxing").focus();
+					return false;
+				}
+				// if(jinbiao_jiance==2&&quezheng_danwei==''){
+				// 	layer.open({content:'请选择确证单位',skin:'footer'});
+				// 	$("#quezheng_danwei_show").focus();
+				// 	return false;
+				// }
+				// if(jinbiao_jiance==2&&truename==''){
+				// 	layer.open({content:'请输入真实姓名',skin:'footer'});
+				// 	$("#truename").focus();
+				// 	return false;
+				// }
+				// if(jinbiao_jiance==2&&idcard==''){
+				// 	layer.open({content:'请输入身份证',skin:'footer'});
+				// 	$("#idcard").focus();
+				// 	return false;
+				// }
+				if(is_take_gift==1 && $(".gifts_checkbox input[type='checkbox']:checked").length<=0){
+					layer.open({content:'请选择领取的礼品',skin:'footer'});
+					return false;
+				}
+				var giftArr=new Array();  
+				$(".gifts_checkbox input[type='checkbox']:checked").each(function(){  
+				    giftArr.push($(this).val());//向数组中添加元素  
+				});  
+				if(is_take_gift==1 && $.inArray('11', giftArr)>=0 && gift_note==''){
+					layer.open({content:'请输入其他礼品说明',skin:'footer'});	
+					$("#gift_note").focus();
+					return false;
+				}
+				var gift='';
+				if(giftArr.length>0){
+					gift=giftArr.join('|');
+				}
+				var _index;
+				$.ajax({
+					beforeSend:function(){
+						_index=layer.open({type: 2,content: '提交中'});
+					},
+					url: "{:url('homeadmin/index/add')}",
+					type: 'POST',
+					dataType: 'json',
+					data: {username:username,sex:sex,age:age,phone:phone,address:address,is_first_jiance:is_first_jiance,last_jiance_jigou:last_jiance_jigou,last_jiance_time:last_jiance_time,visited_time:visited_time,from_qudao:from_qudao,visited_reason:visited_reason,baolou_reason:baolou_reason,baolou_reason_note:baolou_reason_note,hunyin:hunyin,zhiye:zhiye,school:school,mingzu:mingzu,mingzu_note:mingzu_note,livetime:livetime,xueli:xueli,shouru:shouru,renqun_shuxing:renqun_shuxing,bianhao_number:bianhao_number,jiance_bianhao:jiance_bianhao,jinbiao_jiance:jinbiao_jiance,is_take_gift:is_take_gift,gift:gift,is_get_weixin:is_get_weixin,is_take_ajiance:is_take_ajiance,gift_note:gift_note,jiankang_plan:jiankang_plan,chuangkouqi:chuangkouqi,chuangkouqi_note:chuangkouqi_note,result_image:result_image},
+					success:function(res){
+						layer.open({content:res.msg,skin:'footer'});
+						setTimeout(function(){
+							if(res.status==2){
+								window.location.href="{:url('signature')}?id="+res.id;
+							}else if(res.status==1){
+								window.location.href="{:url('question')}?id="+res.id;
+							}
+						},1000);
+					},
+					complete:function(){
+						layer.close(_index);
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

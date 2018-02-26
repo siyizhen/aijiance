@@ -1,0 +1,133 @@
+<?php $qqArr=explode('|',$sys['qq']);?>
+<div class="foot">
+		<div class="container">
+			<div class="row wow fadeInUp">
+				<div class="col-sm-4 foot1">
+					<ul>
+						<li>电 话：{$sys.tel}</li>
+						<li>邮 箱：{$sys.email}</li>
+					</ul>
+				</div>
+				<div class="col-sm-4 foot2">
+					<ul>
+						<li>第三方平台</li>
+						<li class="fenxiang clearfix">						
+							<!-- <a href="#"><span class="fa fa-weibo"></span></a> -->
+							<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin={$qqArr[0]}&site=qq&menu=yes" target="_blank"><span class="fa fa-qq"></span></a>
+							<a id="weixin" href="javascript:;"><span class="fa fa-weixin"></span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-4 foot3">
+					<ul>
+						<li>地 址：{$sys.ads}</li>
+						<li>邮政编码：410000</li>
+					</ul>
+				</div>				
+			</div>
+		</div>
+	</div>
+
+	<div class="foot-b">
+		<div class="container">
+		Copyright © {$sys.copyright} <a href="{:url('home/index/index')}" target="_blank">{$sys.name}</a> All rights reserved.&nbsp;&nbsp;<a rel="nofollow" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">{$sys.bah}</a>&nbsp;&nbsp;艾检测工作室提供技术支持
+		</div>
+	</div>
+
+	<div class="servers">
+		<div id="top">
+			<div id="izl_rmenu" class="izl-rmenu">
+				<div class="sbtn btn-qq">
+					<div class="qq">
+						{volist name="qqArr" id="m" key="n"}
+						<a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$m}&site=qq&menu=yes">客服{$n}</a>
+						{if condition="count($qqArr) neq $n"}
+						<br />
+						{/if}
+						{/volist}
+					</div>
+				</div>
+				<div class="sbtn btn-wx"><img class="pic" src="__PUBLIC__/{$sys.wechat_logo}"></div>
+				<div class="sbtn btn-phone">
+					<div class="phone">{$sys.tel}</div>
+				</div>
+				<div class="sbtn btn-top"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="outer-w">
+		<div id="outer" >
+			<div id="middle">
+				<div id="inner" class="inner">
+					<div class="inner1">
+						<img src="__PUBLIC__/{$sys.wechat_logo}" width="200" height="200" alt="" />
+					<div id="close"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="bg-black"></div>	
+	</div>
+	
+	<script src="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/js/jquery.min.js"></script>
+	<script src="__HOME__/pc/template/default_bootstrap/skin/js/bootstrap.min.js"></script>
+	<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/jquery.touchSwipe.min.js"></script>
+    <script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.js"></script>
+    <script src="__HOME__/pc/js/layer/layer.js"></script>
+    
+	<script type="text/javascript">
+		//微信公众号的显示与隐藏
+		$("#weixin").click(function() {
+			$("#outer-w").show();
+		});
+		$("#close").click(function() {
+			$("#outer-w").hide();
+		});
+
+		$(function(){
+			$("#izl_rmenu").each(function(){
+				$(this).find(".btn-qq").mouseenter(function(){
+					$(this).find(".qq").fadeIn("fast");
+				});
+				$(this).find(".btn-qq").mouseleave(function(){
+					$(this).find(".qq").fadeOut("fast");
+				});
+				$(this).find(".btn-wx").mouseenter(function(){
+					$(this).find(".pic").fadeIn("fast");
+				});
+				$(this).find(".btn-wx").mouseleave(function(){
+					$(this).find(".pic").fadeOut("fast");
+				});
+				$(this).find(".btn-phone").mouseenter(function(){
+					$(this).find(".phone").fadeIn("fast");
+				});
+				$(this).find(".btn-phone").mouseleave(function(){
+					$(this).find(".phone").fadeOut("fast");
+				});
+				$(this).find(".btn-top").click(function(){
+					$("html, body").animate({
+						"scroll-top":0
+					},"fast");
+				});
+			});
+
+			var lastRmenuStatus=false;
+			$(window).scroll(function(){
+				var _top=$(window).scrollTop();
+				if(_top>200){
+					$("#izl_rmenu").data("expanded",true);
+				}else{
+					$("#izl_rmenu").data("expanded",false);
+				}
+				if($("#izl_rmenu").data("expanded")!=lastRmenuStatus){
+					lastRmenuStatus=$("#izl_rmenu").data("expanded");
+					if(lastRmenuStatus){
+						$("#izl_rmenu .btn-top").slideDown();
+					}else{
+						$("#izl_rmenu .btn-top").slideUp();
+					}
+				}
+			});
+		});
+	</script>

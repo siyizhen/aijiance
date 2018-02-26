@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>青彩VCT采集系统</title>
+		<link href="__STATIC__/plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link href="__STATIC__/plugins/mui/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__STATIC__/plugins/mui/css/app.css">
+        <style>
+            .hide_class{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+    	<form action="{:url('questionInput')}" method="post">
+    		<div class="mui-content">
+	    		{volist name="questions" id="m" key="mm"}
+	    		<div {if condition="$m.optionsList[0]['type'] eq 'textarea'"}class="question_show_textarea"{else}class="question_show_checked"{/if} id="{$m.question_id}">
+    				<h5 class="mui-content-padded">{$m.question}{if condition="$m.optionsList[0]['type'] eq 'checkbox'"}(多选){/if}</h5>
+		    		<div class="mui-card">
+						<div class="mui-input-group">
+							{volist name="$m.optionsList" id="n" key="nn"}
+							{if condition="$n.type eq 'radio'"}
+							<div class="mui-input-row mui-radio mui-left">
+								<label style="width: 95% !important;">{$n.text}</label>
+								<input name="prefix{$m.question_id}" type="radio" value="{$nn-1}" turn_id="{$n.turn_id}">
+							</div>
+							{elseif condition="$n.type eq 'checkbox'"}
+							<div class="mui-input-row mui-checkbox mui-left">
+								<label style="width: 95% !important;">{$n.text}</label>
+								<input name="prefix{$m.question_id}[]" value="{$nn-1}" type="checkbox" turn_id="{$n.turn_id}">
+							</div>
+							{elseif condition="$n.type eq 'textarea'"}
+							<div class="mui-input-row" style="height: auto;">
+								<textarea name="prefix{$m.question_id}" rows="5" placeholder="请输入答案"></textarea>
+							</div>
+							{/if}
+							{/volist}
+						</div>
+					</div>
+	    		</div>
+				{/volist}
+
+				<div class="mui-content-padded">
+					<button onclick="return submits();" class="mui-btn mui-btn-block mui-btn-primary">提 交</button>
+				</div>
+	    	</div>
+
+	    	<input type="hidden" value="{$questions[0]['questionnaire_id']}" name="questionnaire_id">
+	    	<input type="hidden" value="{:input('param.id')}" name="vct_id">
+    	</form>
+
+    	<script src="__HOME__/js/jquery.min.js"></script>
+    	<script src="__STATIC__/plugins/layer_mobile/layer.js"></script>
+    	<script type="text/javascript">
+    		function submits(){
+    			var status=true;
+
+    			$(".question_show_textarea").each(function(index, el) {
+    				var $el=$(el);
+                    if($el.hasClass('hide_class')){
+
+                    }else{
+                        if($el.find('.mui-input-group textarea').val()==''){
+                            status=false;
+                            layer.open({content:'存在填空或问答题未作答！',skin:'footer'});
+                            return false;
+                        }
+                    }
+    			});
+
+
+    			$(".question_show_checked").each(function(index, el) {
+    				var $el=$(el);
+                    if($el.hasClass('hide_class')){
+
+                    }else{
+                        var selectedLength=$el.find('.mui-input-group input:checked').length;
+                        if(selectedLength==0){
+                            status=false;
+                            layer.open({content:'存在选择题未作答！',skin:'footer'});
+                            return false;
+                        }
+                    }
+    			});
+    			return status;
+    		}
+
+            //写的很好啊
+            var previous_index='';
+            $("input[type='radio']").change(function() {
+                var turn_id=$(this).attr('turn_id');
+                var this_index=$(this).parent().parent().parent().parent().index();
+                if(turn_id!=''){
+                    //先显示以前
+                    if(previous_index!=''){
+                        for(i=this_index+1;i<previous_index;i++){
+                            $(".mui-content > div").eq(i).removeClass('hide_class');
+                        }
+                    }
+
+                    //后隐藏现在需要隐藏的
+                    var turn_to_index=previous_index=$("#"+turn_id).index();
+                    for(i=this_index+1;i<turn_to_index;i++){
+                        $(".mui-content > div").eq(i).addClass('hide_class');
+                    }
+                }else{
+                    //直接开始隐藏
+                    if(previous_index!=''){
+                        for(i=this_index+1;i<previous_index;i++){
+                            $(".mui-content > div").eq(i).removeClass('hide_class');
+                        }
+                    }
+                }
+            });
+    	</script>
+    </body>
+</html>

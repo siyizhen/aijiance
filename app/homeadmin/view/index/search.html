@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>青彩VCT采集系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="__STATIC__/plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-table h4,.mui-table h5,.mui-table .mui-h5,.mui-table .mui-h6,.mui-table p{
+		        margin-top: 0;
+		    }
+		    .mui-table h4{
+		        line-height: 21px;
+		        font-weight: 500;
+		    }
+		
+		    .mui-table .oa-icon{
+		        position: absolute;
+		        right:0;
+		        bottom: 0;
+		    }
+		    .mui-table .oa-icon-star-filled{
+		        color:#f14e41;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.back();"></a>
+		    <h1 class="mui-title">采集信息搜索</h1>
+		</header>
+
+		<div class="mui-content">
+			<div class="mui-input-row mui-search">
+			    <input type="search" class="mui-input-clear" placeholder="请输入姓名/真实姓名/手机查询" id="searchBox" style="margin-bottom:0;">
+			</div>
+		    <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+		        <!-- <li class="mui-table-view-cell">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-8">
+		                    <h4 class="mui-ellipsis">siyizhen <span class="mui-badge mui-badge-danger">已签名</span></h4>
+		                    <h5>15274985005</h5>
+		                    <p class="mui-h6 mui-ellipsis">长沙青彩三真医院检测点</p>
+		                </div>
+		                <div class="mui-table-cell mui-col-xs-4 mui-text-right">
+		                    <span class="mui-h5">2017/08/12 12:25</span>
+		                </div>
+		            </div>
+		        </li>
+		        <li class="mui-table-view-cell">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-8">
+		                    <h4 class="mui-ellipsis">siyizhen <span class="mui-badge mui-badge-warning">未签名</span></h4>
+		                    <h5>15274985005</h5>
+		                    <p class="mui-h6 mui-ellipsis">长沙青彩三真医院检测点</p>
+		                </div>
+		                <div class="mui-table-cell mui-col-xs-4 mui-text-right">
+		                    <span class="mui-h5">12:25</span>
+		                </div>
+		            </div>
+		        </li> -->
+		    </ul>
+		</div>
+		<script src="__HOME__/js/jquery.min.js"></script>
+		<script src="__STATIC__/plugins/layer_mobile/layer.js"></script>
+		<script type="text/javascript">
+			var O;
+			$('#searchBox').bind('input propertychange', function(){
+				clearTimeout(O); 
+				var searchVal=$.trim($(this).val());
+		        if(searchVal!=''&&searchVal!=null){
+		        	O=setTimeout(function(){
+			        	$.ajax({
+			        		url: "{:url('search')}",
+			        		type: 'get',
+			        		dataType: 'json',
+			        		data: {searchVal:searchVal},
+			        		success:function(res){
+			        			if(res.status==0){
+			        				layer.open({content:'暂无搜索结果！',skin:'msg',time:2});
+			        				return;
+			        			}else{
+			        				var str='';
+									$.each(res.data, function(index, val) {
+										str+='<li class="mui-table-view-cell"><div class="mui-table"><div class="mui-table-cell mui-col-xs-8"><h4 class="mui-ellipsis">'+val.username;
+										if(val.signature_image!=''){
+											str+=' <span class="mui-badge mui-badge-danger">已签名</span>';
+										}else{
+											str+=' <span class="mui-badge mui-badge-warning">未签名</span>';
+										}
+										str+='</h4><h5>'+val.phone+'</h5><p class="mui-h6 mui-ellipsis">'+val.zixundian+'</p></div><div class="mui-table-cell mui-col-xs-4 mui-text-right"><span class="mui-h5">'+val.addtime+'</span><a href="{:url(\'signature\')}?id='+val.id+'" class="mui-btn mui-btn-primary">重签</a>';
+										if(val.reply_id!=''){
+											str+='&nbsp;<a href="{:url(\'questionUpdate\')}?reply_id='+val.reply_id+'" class="mui-btn mui-btn-warning">问卷</a>';
+										}
+										str+='</div></div></li>';
+									});
+									$(".mui-table-view-condensed").html(str);
+			        			}
+			        		}
+			        	})
+			       	},2000);
+		        }
+		    });
+		</script>
+	</body>
+</html>

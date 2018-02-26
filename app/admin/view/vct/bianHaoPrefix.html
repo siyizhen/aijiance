@@ -1,0 +1,39 @@
+{include file="common/head"/}
+<div class="admin-main layui-anim layui-anim-upbit">
+    <table class="layui-table" id="list" lay-filter="list"></table>
+</div>
+{include file="common/foot"/}
+<script>
+    layui.use(['table','form','laydate'], function() {
+        var table = layui.table,form = layui.form,$ = layui.jquery,laydate = layui.laydate;
+        var tableIn = table.render({
+            id: 'vct',
+            elem: '#list',
+            url: '{:url("bianHaoPrefix")}',
+            method: 'post',
+            page:false,
+            cols: [[
+            	{field: "name", title: "咨询点", width: 300,align: 'center'},
+            	<?php $renqunArr=renqunShuxing();?>
+            	{volist name='renqunArr' id='m' key='n'}
+                {field: "{$n}", title: "{$m}", width: 150,align: 'center',edit: 'text'},
+                {/volist}
+            ]],
+        });
+        //监听单元格编辑
+		table.on('edit(list)', function(obj){
+			var prefix = obj.value;
+			var renqun_shuxing = obj.field; //得到字段
+			var zixundian=obj.data.origin_zixundian;
+			$.ajax({
+				url: "{:url('bianHaoPrefixDo')}",
+				type: 'POST',
+				dataType: 'json',
+				data: {prefix:prefix,renqun_shuxing:renqun_shuxing,zixundian:zixundian},
+				success:function(res){
+
+				}
+			})
+		});
+    })
+</script>

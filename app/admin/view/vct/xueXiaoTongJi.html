@@ -1,0 +1,24 @@
+{include file="common/head"/}
+<div class="layui-form">
+  <table class="layui-table">
+    <thead>
+      <tr>
+        <th width="100">编号</th>
+        <th>学校</th>
+        <th>人数</th>
+        <th>百分比</th>
+      </tr> 
+    </thead>
+    <tbody>
+    	{volist name="rows" id="m"}
+		<tr>
+			<td>{$m.indexs}</td>
+			<td>{if condition="$m.school eq '0'"}未填{else}{$m.school}{/if}</td>
+			<td>{$m.nums}</td>
+			<td>{$m.per}%</td>
+		</tr>
+		{/volist}
+    </tbody>
+  </table>
+</div>
+{include file="common/foot"/}

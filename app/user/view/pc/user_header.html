@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{if condition="$info['title']"}{$info.title}{elseif condition="$title" /}{$title}{else}{$sys.title}{/if}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="{if condition="$info['keywords']"}{$info.keywords}{elseif condition="$keywords" /}{$keywords}{else}{$sys.key}{/if}" />
+    <meta name="description" content="{if condition="$info['description']"}{$info.description}{elseif condition="$description" /}{$description}{else}{$sys.des}{/if}" />
+    <link href="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/css/font-awesome.css" rel="stylesheet">
+    <link href="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="__HOME__/pc/public/index/layui/css/layui.css">
+    <link rel="stylesheet" href="__HOME__/pc/public/index/css/global.css"> 
+    <!--[if IE]>
+    <script src="__HOME__/pc/public/index/js/html5.js"></script>
+    <![endif]-->
+</head>
+<body id="mar_body">
+
+<div class="hidden-xs">
+    <div id="header" class="clearfix">
+        <div class="">
+            <div class="logo-box">
+            	<a href="{:url('home/index/index')}"><img src="__PUBLIC__{$sys['logo']}" alt="{$sys.name}" />
+            </div>
+            <div class="menu">
+                <ul>
+                    <li {if condition="$controller eq index"}class="on"{/if}><a href="{:url('home/index/index')}">网站首页</a></li>
+					<li><a href="">防艾险</a></li>
+					<li><a href="">问卷中心</a></li>
+					{volist name="category" id="vo"}
+	                <li {if condition="$controller eq $vo['catdir']"}class="on"{/if}>
+	                    <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']])}" title="{$vo.catname}-{$sys.name}">{$vo.catname}</a>
+	                </li>
+	                {/volist}
+	                <li>
+						<a href="">
+							{if condition="empty(session('user'))"}
+							个人中心
+							{else}
+							{:substr_replace(session('user.username'),'****',3,4)}
+							{/if}
+							<span class="fa fa-angle-down"></span>
+						</a>
+						<div class="menu2" style="left:0;width: 100px;">
+							<ul>
+								{if condition="empty(session('user'))"}
+								<li><a href="{:url('user/login/index')}">登录</a></li>
+								{else}
+								<li><a href="{:url('user/common/logout')}">退出</a></li>
+								{/if}
+							</ul>
+						</div>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

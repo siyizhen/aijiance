@@ -194,10 +194,10 @@
 				data: data,
 				success:function(res){
 					if(res.status==0){	
-						setTimeout(function(){
-							window.location.href=res.url;
-						},3000);
 						layer.msg(res.msg,{icon:2});
+						setTimeout(function(){
+							window.location.href=res.url+'?preferUrl='+window.location.href;
+						},3000);
 					}else{
 						setTimeout(function(){
 							window.location.href=res.url;

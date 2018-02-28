@@ -29,17 +29,25 @@
 						<li><a href="">问卷中心</a></li>
 						{volist name="category" id="vo"}
 		                <li {if condition="$controller eq $vo['catdir']"}class="on"{/if}>
-		                    <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] )}" title="{$vo.catname}-{$sys.name}">{$vo.catname}</a>
+		                    <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']])}" title="{$vo.catname}-{$sys.name}">{$vo.catname}</a>
 		                </li>
 		                {/volist}
 						<li>
 							<a href="demo/business-template/V398/Product">
-								个人中心<span class="fa fa-angle-down"></span>
+								{if condition="empty(session('user'))"}
+								个人中心
+								{else}
+								{:substr_replace(session('user.username'),'****',3,4)}
+								{/if}
+								<span class="fa fa-angle-down"></span>
 							</a>
 							<div class="menu2" style="left:0;width: 100px;">
 								<ul>
-									<li><a href="">登录</a></li>
-									<li><a href="">注册</a></li>
+									{if condition="empty(session('user'))"}
+									<li><a href="{:url('user/login/index')}">登录</a></li>
+									{else}
+									<li><a href="{:url('user/common/logout')}">退出</a></li>
+									{/if}
 								</ul>
 							</div>
 						</li>

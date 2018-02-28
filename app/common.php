@@ -703,3 +703,69 @@ function getXLSFromList($pres,$lists){
     $content.="</table>";
     return $content;
 }
+
+//性取向
+function quXiang(){
+    $arr=[
+        1=>'异性恋',
+        2=>'同性恋',
+        3=>'双性恋'
+    ];
+    return $arr;
+}
+
+//获取性取向
+function getQuXiang($key){
+    $arr=quXiang();
+    return $arr[$key];
+}
+
+/**
+ * 职业情况
+ * @return  
+ */
+function zhiYe(){
+    $arr=[
+        1=>'在校学生',
+        2=>'公务员及企事业单位',
+        3=>'医疗卫生行业',
+        4=>'计算机网络电子行业',
+        5=>'金融行业',
+        6=>'餐饮及服务行业',
+        7=>'教育行业',
+        8=>'司法行业',
+        9=>'传媒及广告行业',
+        10=>'中介和销售行业',
+        11=>'个体工商户',
+        12=>'自由职业者',
+        13=>'其他'
+    ];
+    return $arr;
+}
+
+function getZhiYe($key){
+    $arr=zhiYe();
+    return $arr[$key];
+}
+
+/**
+ * 学历情况
+ * @return  
+ */
+function xueLi(){
+    $arr=[
+        1=>'小学',
+        2=>'初中',
+        3=>'高中/中职',
+        4=>'大专/高职',
+        5=>'本科',
+        6=>'研究生',
+        7=>'博士及以上'
+    ];
+    return $arr;
+}
+
+function getXueLi($key){
+    $arr=xueLi();
+    return $arr[$key];
+}

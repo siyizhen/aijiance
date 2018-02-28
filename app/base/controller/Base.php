@@ -4,17 +4,47 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 16:42:59
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-02-26 16:44:31
+ * @Last Modified time: 2018-02-27 10:21:25
  */
 namespace app\base\controller;
 use think\Controller;
 
 class Base extends Controller{
+	//获取省市信息
 	public function getRegion(){
         $Region=db("region");
         $map['pid']=input("pid");
         $map['type']=input("type");
         $list=$Region->where($map)->select();
         return json($list);
+    }
+
+    //获取验证码
+    public function getCode($type,$length=4){
+    	$min=(int)('1'.str_repeat('0',$length-1));
+    	$max=(int)(str_repeat('9',$length));
+    	$code=mt_rand($min,$max);
+    	$data=input('param.');
+
+    	if($data['type']='login'){
+    		$num=db('users')->where('username',$data['phone'])->count('id');
+    		if($num>0){
+    			$data['codeTemplate']=config('codeTemplate.login');
+    		}else{
+    			$data['codeTemplate']=config('codeTemplate.register');
+    		}
+    		$data['params']=['code'=>$code];
+    	}
+    	$resObj=sendSms($data);
+    	if($resObj->Code=='OK'){
+    		if($data['type']='login'){
+    			//缓存验证码
+    			cache('login_'.$data['phone'],$code,config('cacheTime.login'));
+    		}
+    		$arr=['status'=>1,'msg'=>'验证码发送成功！请注意查收！'];
+    	}else{
+    		$arr=['status'=>0,'msg'=>'系统繁忙，请稍后再试！'];
+    	}
+    	return json($arr);
     }
 }

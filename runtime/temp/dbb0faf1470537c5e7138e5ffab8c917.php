@@ -1,11 +1,12 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:42:"E:\www\hiv/app/user\view\pc\new_phone.html";i:1519906782;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{if condition="$info['title']"}{$info.title}{elseif condition="$title" /}{$title}{else}{$sys.title}{/if}</title>
+    <title><?php if($info['title']): ?><?php echo $info['title']; elseif($title): ?><?php echo $title; else: ?><?php echo $sys['title']; endif; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="{if condition="$info['keywords']"}{$info.keywords}{elseif condition="$keywords" /}{$keywords}{else}{$sys.key}{/if}" />
-    <meta name="description" content="{if condition="$info['description']"}{$info.description}{elseif condition="$description" /}{$description}{else}{$sys.des}{/if}" />
+    <meta name="keywords" content="<?php if($info['keywords']): ?><?php echo $info['keywords']; elseif($keywords): ?><?php echo $keywords; else: ?><?php echo $sys['key']; endif; ?>" />
+    <meta name="description" content="<?php if($info['description']): ?><?php echo $info['description']; elseif($description): ?><?php echo $description; else: ?><?php echo $sys['des']; endif; ?>" />
     <link rel="stylesheet" href="__HOME__/pc/public/index/layui/css/layui.css">
     <link rel="stylesheet" href="__HOME__/pc/public/index/css/global.css"> 
     <!--[if IE]>
@@ -47,7 +48,7 @@
 			checkPhone(); //验证手机号码
 			if(isPhone){
 				$.ajax({
-	                url: "{:url('base/base/getCode')}",
+	                url: "<?php echo url('base/base/getCode'); ?>",
 	                type: 'GET',
 	                dataType: 'json',
 	                data: {type:$("#type").val(),phone:$("#phone").val()},
@@ -104,7 +105,7 @@
             // 登录提交监听
             form.on('submit(sub)', function (data) {
                 var loading = layer.load(1, {shade: [0.1, '#fff']});
-                $.post("{:url('index/newPhone')}",data.field,function(res){
+                $.post("<?php echo url('index/newPhone'); ?>",data.field,function(res){
                     layer.close(loading);
                     if(res.status > 0){
                     	layer.msg(res.msg,{icon:1},function(){

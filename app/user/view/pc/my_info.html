@@ -25,7 +25,7 @@
                     <div class="layui-inline">
                       <label class="layui-form-label">生日</label>
                       <div class="layui-input-inline">
-                        <input type="text" class="layui-input" id="birthday" name="birthday" required lay-verify="date" placeholder="请选择生日" value="{$info.birthday|date='Y-m-d',###}">
+                        <input type="text" class="layui-input" id="birthday" name="birthday" required lay-verify="date" placeholder="请选择生日" value="{if condition='!empty($info.birthday)'}{$info.birthday|date='Y-m-d',###}{/if}">
                       </div>
                     </div>
                 </div>
@@ -81,5 +81,27 @@
 </div>
 
 {include file="pc/user_footer"}
+<script type="text/javascript">
+    layui.use('form', function () {
+        var form = layui.form,$ = layui.jquery;
+        // 登录提交监听
+        form.on('submit(sub)', function (data) {
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post("{:url('index/myInfo')}",data.field,function(res){
+                layer.close(loading);
+                if(res.status > 0){
+                    layer.msg(res.msg,{time:1000,icon:1},function(){
+                        if(res.url!=''){
+                            location.href = res.url;
+                        }
+                    });
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                }
+            });
+            return false;
+        })
+    })
+</script>
 </body>
 </html>

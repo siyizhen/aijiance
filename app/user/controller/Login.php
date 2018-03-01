@@ -30,13 +30,13 @@ class Login extends Common{
                     'oauth'=>'self',
                     'last_login'=>time()
                 ];
-                db('users',[],false)->insert($data);
+                $data['id']=db('users',[],false)->insertGetId($data);
             }
             session('user',$data);
             if(!empty(input('param.preferUrl'))){
                 return array('code'=>1,'msg'=>'登录成功','url' =>input('param.preferUrl'));
             }else{
-                return array('code'=>1,'msg'=>'登录成功','url' => url('index/index'));
+                return array('code'=>1,'msg'=>'登录成功','url' => url('index/myInfo'));
             }
         }else{
             $plugin = db('plugin')->where(['type'=>'login','status'=>1])->select();

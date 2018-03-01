@@ -284,5 +284,6 @@ return [
         'login'=>300,
         'change_phone'=>300,
         'new_phone'=>300
-    ]
+    ],
+    'money'=>15
 ];

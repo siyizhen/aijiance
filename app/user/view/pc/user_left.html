@@ -1,7 +1,7 @@
 <div class="layui-side layui-bg-black lnk_nav">
         <div class="layui-side-scroll">
         <ul class="layui-nav layui-nav-tree">
-            <li class="layui-nav-item <?php if(request()->action() == 'myOrder'):?>layui-this<?php endif;?>">
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myorder','myOrder'])):?>layui-this<?php endif;?>">
                 <a href="{:url('myOrder')}">申请记录</a>
             </li>
             <li class="layui-nav-item">
@@ -10,11 +10,11 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>
             </li>
-            <li class="layui-nav-item <?php if(request()->action() == 'myInfo'):?>layui-this<?php endif;?>">
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myinfo','myInfo'])):?>layui-this<?php endif;?>">
                 <a href="{:url('myInfo')}">个人资料</a>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">我的地址</a>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myaddress','myAddress'])):?>layui-this<?php endif;?>">
+                <a href="{:url('myAddress')}">我的地址</a>
             </li>
             <li class="layui-nav-item">
                 <a href="javascript:;">意见反馈 <span class="layui-badge">9</span></a>

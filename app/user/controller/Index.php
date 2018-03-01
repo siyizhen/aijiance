@@ -1,6 +1,7 @@
 <?php
 namespace app\user\controller;
 use think\Input;
+use think\Db;
 class Index extends Common{
     public function _initialize(){
         parent::_initialize();
@@ -47,7 +48,50 @@ class Index extends Common{
         }
     }
 
+    public function myAddress(){
+        if(request()->isAjax()){
+            $data=input('param.');
+            $res=db('address')->where('userid',session('user.id'))->update($data);
+            if($res){
+                $arr=['status'=>1,'msg'=>'保存成功！','url'=>''];
+            }else{
+                $arr=['status'=>0,'msg'=>'编辑失败！'];
+            }
+            return json($arr);
+        }else{
+            $province = db('Region')->where(array('pid'=>1))->select();
+            $this->assign('province',$province);
+
+            $address=db('address')->where('userid',session('user.id'))->find();
+            $this->assign('address',$address);
+            return $this->fetch('pc/my_address');
+        }
+    }
+
     public function myOrder(){
+        $where=[
+            'userid'=>session('user.id')
+        ];
+        $list = Db::table(config('database.prefix') . 'main_order')->alias('a')
+            ->join(config('database.prefix') . 'role b', 'a.youjidian = b.id', 'left')
+            ->field('a.*,b.name as youjidian')
+            ->where($where)
+            ->order('a.addtime desc')
+            ->paginate(config('pageSize'))->each(function($v, $k){
+                $v['pay_status']=getPayStatus($v['pay_status']);
+                $v['origin_payway']=$v['payway'];
+                $v['payway']=getPayWay($v['payway']);
+                $v['origin_shipping_status']=$v['shipping_status'];
+                $v['shipping_status']=getshippingStatus($v['shipping_status']);
+                $v['origin_process']=$v['origin_process'];
+                $v['process']=getProcess($v['process']);
+                $v['origin_order_status']=$v['order_status'];
+                $v['order_status']=getOrderStatus($v['order_status']);
+                return $v;
+            });
+        $page = $list->render();
+        $this->assign('list', $list);
+        $this->assign('page', $page);
         return $this->fetch('pc/my_order');
     }
 

@@ -83,8 +83,10 @@
 							<div>
 								<label  class="label_class">支付方式</label>
 								<div style="float: left;margin-left: 10px;">
-									<input type="radio" value="1" name="payway" class="radio_class"><font style="font-size: 18px;"> 货到付款</font>&nbsp;&nbsp;&nbsp;&nbsp;
-									<input type="radio" value="2" name="payway" class="radio_class" checked=""><font style="font-size: 18px;"> 在线支付</font>
+									<?php $payWayArr=payWay();?>
+									{volist name="payWayArr" id="m" key="n"}
+									<input type="radio" value="{$n}" name="payway" class="radio_class" {if condition="$n eq 2"}checked=""{/if}><font style="font-size: 18px;"> {$m}</font>&nbsp;&nbsp;&nbsp;&nbsp;
+									{/volist}
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -214,7 +216,7 @@
 		});
 
 		//显示上一次提交的订单信息
-		if($.cookie("orderInfo")!=''||$.cookie("orderInfo")!=null){
+		if(typeof $.cookie("orderInfo") != 'undefined' && ($.cookie("orderInfo")!=''||$.cookie("orderInfo")!=null)){
 			var data=JSON.parse($.cookie("orderInfo"));
 			for(var i=0;i<$("#youjidian option").length;i++){
 				if(data.youjidian==$("#youjidian option").eq(i).attr('value')){
@@ -243,26 +245,26 @@
 							});
 							$("#city").html(str);
 							$("#district").html('<option value="">请选择区县</option>');
-						}
-					})
 
-					$.ajax({
-						url: "{:url('base/base/getRegion')}",
-						type: 'GET',
-						dataType: 'json',
-						data: {pid:data.city,type:3},
-						success:function(res){
-							var str='<option value="">请选择区县</option>';
-							$.each(res, function(index, val) {
-								if(data.district==val.id){
-									str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
-								}else{
-									str+='<option value="'+val.id+'">'+val.name+'</option>';
+							$.ajax({
+								url: "{:url('base/base/getRegion')}",
+								type: 'GET',
+								dataType: 'json',
+								data: {pid:data.city,type:3},
+								success:function(res){
+									var str='<option value="">请选择区县</option>';
+									$.each(res, function(index, val) {
+										if(data.district==val.id){
+											str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+										}else{
+											str+='<option value="'+val.id+'">'+val.name+'</option>';
+										}
+									});
+									$("#district").html(str);
 								}
 							});
-							$("#district").html(str);
 						}
-					});
+					})
 				}
 			}
 			$("#address").val(data.address);

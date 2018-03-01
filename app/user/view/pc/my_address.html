@@ -1,0 +1,141 @@
+{include file="pc/user_header" /}
+
+<div class="main fly-user-main layui-clear layui-anim layui-anim-scaleSpring">
+    {include file="pc/user_left" /}
+
+    <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
+        <!--我的收货地址-->
+        <div class="my_info">
+            <div class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">城市</label>
+                    <div class="layui-input-inline">
+                        <select name="province" id="province" lay-filter="province" lay-verify="required">
+                            <option value="">请选择省</option>
+                            {volist name="province" id="m"}
+                            <option value="{$m.id}" {if condition="$m.id eq $address.province"}selected=""{/if}>{$m.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="city" id="city" lay-filter="city" lay-verify="required">
+                            <option value="">请选择市</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="district" id="district" lay-filter="district" lay-verify="required">
+                            <option value="">请选择区县</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">详细地址</label>
+                    <div class="layui-input-inline" style="width: 70%;">
+                        <textarea placeholder="请输入详细地址" class="layui-textarea" name="address" id="address" lay-verify="required">{$address.address}</textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="text-align: center;">
+                    <button class="layui-btn" lay-submit="" lay-filter="sub">提 交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="pc/user_footer" /}
+<script type="text/javascript">
+    layui.use('form',function(){
+        var form=layui.form;
+        form.on('select(province)', function(data){
+            var province=data.value;
+            $.ajax({
+                url: "{:url('base/base/getRegion')}",
+                type: 'GET',
+                dataType: 'json',
+                data: {pid:province,type:2},
+                success:function(res){
+                    var str='<option value="">请选择城市</option>';
+                    $.each(res, function(index, val) {
+                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+                    $("#city").html(str);
+                    $("#district").html('<option value="">请选择区县</option>');
+                    form.render();
+                }
+            })
+        });
+
+        form.on('select(city)', function(data){
+            var city=data.value;
+            $.ajax({
+                url: "{:url('base/base/getRegion')}",
+                type: 'GET',
+                dataType: 'json',
+                data: {pid:city,type:3},
+                success:function(res){
+                    var str='<option value="">请选择区县</option>';
+                    $.each(res, function(index, val) {
+                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+                    $("#district").html(str);
+                    form.render();
+                }
+            })
+        });  
+
+        form.on('submit(sub)', function (data) {
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post("{:url('index/myAddress')}",data.field,function(res){
+                layer.close(loading);
+                if(res.status > 0){
+                    $.cookie("orderInfo",null);
+                    layer.msg(res.msg,{time:1000,icon:1});
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                }
+            });
+            return false;
+        });
+
+        $.ajax({
+            url: "{:url('base/base/getRegion')}",
+            type: 'GET',
+            dataType: 'json',
+            data: {pid:{$address.province},type:2},
+            success:function(res){
+                var str='<option value="">请选择城市</option>';
+                $.each(res, function(index, val) {
+                    if({$address.city}==val.id){
+                        str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                    }else{
+                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                    }
+                });
+                $("#city").html(str);
+                $("#district").html('<option value="">请选择区县</option>');
+                
+                $.ajax({
+                    url: "{:url('base/base/getRegion')}",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {pid:{$address.city},type:3},
+                    success:function(res){
+                        var str='<option value="">请选择区县</option>';
+                        $.each(res, function(index, val) {
+                            if({$address.district}==val.id){
+                                str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                            }else{
+                                str+='<option value="'+val.id+'">'+val.name+'</option>';
+                            }
+                        });
+                        $("#district").html(str);
+                        form.render();
+                    }
+                }); 
+            }
+        })
+    })
+</script>
+</body>
+</html>

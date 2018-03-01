@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 17:27:43
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-01 16:31:02
+ * @Last Modified time: 2018-03-01 22:38:10
  */
 namespace app\home\controller;
 use think\Controller;
@@ -79,7 +79,8 @@ class Order extends Controller{
         //判断是否有未完成的订单
         $where=[
             'userid'=>$userid,
-            'process'=>array('neq',6)
+            'process'=>array('neq',6),
+            'order_status'=>1 //正常单 取消单可不计
         ];
         $nums=db('main_order',[],false)->where($where)->count('id');
         if($nums>0){
@@ -88,6 +89,7 @@ class Order extends Controller{
         }
         $data['addtime']=time();
         $data['userid']=$userid;
+        $data['money']=config('money');
         $res=db('main_order',[],false)->insert($data);
         if($res){
             $arr=['status'=>1,'msg'=>'订单确认成功！','url'=>url('pay')];

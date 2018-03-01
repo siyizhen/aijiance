@@ -778,8 +778,8 @@ function process(){
     $arr=[
         1=>'待付款',
         2=>'待客服发货',
-        3=>'待您上传结果',
-        4=>'待您重传结果',
+        3=>'上传结果',
+        4=>'重传结果',
         5=>'待客服确认',
         6=>'已完成'
     ];
@@ -834,5 +834,33 @@ function shippingStatus(){
 
 function getShippingStatus($key){
     $arr=shippingStatus();
+    return $arr[$key];
+}
+
+//付款方式
+function payWay(){
+    $arr=[
+        1=>'货到付款',
+        2=>'在线支付'
+    ];
+    return $arr;
+}
+
+function getPayWay($key){
+    $arr=payWay();
+    return $arr[$key];
+}
+
+//订单状态
+function orderStatus(){
+    $arr=[
+        1=>'取消',
+        2=>'已取消'
+    ];
+    return $arr;
+}
+
+function getOrderStatus($key){
+    $arr=orderStatus();
     return $arr[$key];
 }

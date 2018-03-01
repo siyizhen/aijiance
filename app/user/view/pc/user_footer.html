@@ -4,29 +4,7 @@
 <script src="__HOME__/pc/public/index/js/jquery-2.0.3.min.js"></script>
 <script src="__HOME__/pc/js/layer/layer.js"></script>
 <script src="__HOME__/pc/public/index/layui/layui.js"></script>
-
-<script type="text/javascript">
-    layui.use('form', function () {
-        var form = layui.form,$ = layui.jquery;
-        // 登录提交监听
-        form.on('submit(sub)', function (data) {
-            var loading = layer.load(1, {shade: [0.1, '#fff']});
-            $.post("{:url('index/myInfo')}",data.field,function(res){
-                layer.close(loading);
-                if(res.status > 0){
-                    layer.msg(res.msg,{time:1000,icon:1},function(){
-                        if(res.url!=''){
-                            location.href = res.url;
-                        }
-                    });
-                }else{
-                    layer.msg(res.msg,{time:1000,icon:2});
-                }
-            });
-            return false;
-        })
-    })
-</script>
+<script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
 
 <script>
 	layui.cache.page = 'user';

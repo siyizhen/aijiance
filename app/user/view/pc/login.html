@@ -36,7 +36,7 @@
                             </div>
                             <div class="layui-form-item fly-form-app">
                                 <span>或者使用社交账号登入</span>
-                                    <a href="user/loginApi/login/oauth/qq.html" class="iconfont icon-wechat" title="微信登入"></a>
+                                    <a href="user/loginApi/login/oauth/qq.html" class="iconfont icon-wechat" title="微信登入" style="font-size: 18px;"></a>
                                 </div>
                         </form>
                     </div>
@@ -94,7 +94,12 @@
                     data: {type:'login',phone:$('#username').val()},
                     success:function(res){
                         if(res.status==1){
-                            resetCode(); //倒计时
+                            if(res.status==1){
+                                layer.msg(res.msg,{icon:1});
+                                resetCode(); //倒计时
+                            }else{
+                                layer.msg(res.msg,{icon:2});
+                            }
                         }
                     }
                 })

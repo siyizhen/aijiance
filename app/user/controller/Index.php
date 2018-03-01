@@ -46,4 +46,51 @@ class Index extends Common{
             return $this->fetch('pc/my_info');
         }
     }
+
+    public function myOrder(){
+        return $this->fetch('pc/my_order');
+    }
+
+    public function changePhone(){
+        if(request()->isAjax()){
+            $data=input('param.');
+            $code=input('param.code');
+            if(!cache($data['type'].'_'.session('user.username'))){
+                return array('code' => 0, 'msg' => '验证码已过期！');
+            }
+            if(cache($data['type'].'_'.session('user.username'))!=$code){
+                return array('code' => 0, 'msg' => '验证码错误');
+            }
+            cache($data['type'].'_'.session('user.username'),NULL);
+            return json(['status'=>1,'url'=>url('newPhone')]);
+        }else{  
+            return $this->fetch('pc/change_phone');
+        }
+    }
+
+    public function newPhone(){
+        if(request()->isAjax()){
+            $data=input('param.');
+            $code=input('param.code');
+            if(!cache($data['type'].'_'.$data['phone'])){
+                return array('code' => 0, 'msg' => '验证码已过期！');
+            }
+            if(cache($data['type'].'_'.$data['phone'])!=$code){
+                return array('code' => 0, 'msg' => '验证码错误');
+            }
+            cache($data['type'].'_'.$data['phone'],NULL);
+            $updateArr['username']=$data['phone'];
+            $res=db('users')->where('id',session('user.id'))->update($updateArr);
+            if($res){
+                //变更session信息
+                session('user.username',$data['phone']);
+                $arr=['status'=>1,'msg'=>'修改成功!'];
+            }else{
+                $arr=['status'=>0,'msg'=>'系统繁忙，请稍候再试！'];
+            }
+            return json($arr);
+        }else{  
+            return $this->fetch('pc/new_phone');
+        }
+    }
 }

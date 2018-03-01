@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:38:"F:\www\hiv/app/home\view\pc\index.html";i:1519691410;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519722502;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519691410;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:38:"F:\www\hiv/app/home\view\pc\index.html";i:1519691410;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519722502;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519894196;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -360,6 +360,7 @@
 	<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/jquery.touchSwipe.min.js"></script>
     <script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.js"></script>
     <script src="__HOME__/pc/js/layer/layer.js"></script>
+    <script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
     
 	<script type="text/javascript">
 		//微信公众号的显示与隐藏

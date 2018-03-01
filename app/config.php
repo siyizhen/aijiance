@@ -276,9 +276,13 @@ return [
     ],
     'codeTemplate'=>[
         'login'=>'SMS_104940040',
-        'register'=>'SMS_105145065'
+        'register'=>'SMS_105145065',
+        'change_phone'=>'SMS_104940036',
+        'new_phone'=>'SMS_104940042'
     ],
     'cacheTime'=>[
-        'login'=>300
+        'login'=>300,
+        'change_phone'=>300,
+        'new_phone'=>300
     ]
 ];

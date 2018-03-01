@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:39:"F:\www\hiv/app/user\view\pc\myInfo.html";i:1519722384;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519722510;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:41:"F:\www\hiv/app/user\view\pc\my_order.html";i:1519893440;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519894794;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +62,7 @@
     <div class="layui-side layui-bg-black lnk_nav">
     <div class="layui-side-scroll">
     <ul class="layui-nav layui-nav-tree" lay-filter="test">
-        <li class="layui-nav-item">
+        <li class="layui-nav-item layui-this">
             <a href="javascript:;">申请记录</a>
         </li>
         <li class="layui-nav-item">
@@ -71,7 +71,7 @@
         <li class="layui-nav-item">
             <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>
         </li>
-        <li class="layui-nav-item layui-this">
+        <li class="layui-nav-item">
             <a href="javascript:;">个人资料</a>
         </li>
         <li class="layui-nav-item">
@@ -89,71 +89,64 @@
     <div class="site-mobile-shade"></div>
 
     <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
-        <!--我的资料-->
-        <div class="my_info">
-            <div class="layui-form">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">帐号</label>
-                    <div class="layui-input-block">
-                        <span class="my_zhanghao">152****5005</span>
-                        <button class="layui-btn layui-btn-sm layui-btn-normal" style="height: 30px;line-height: 30px;padding: 0 10px;font-size: 12px;" onclick="changePhone()">更 换</button>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">性别</label>
-                    <div class="layui-input-block">
-                        <input type="radio" name="sex" value="1" title="男" checked="">
-                        <input type="radio" name="sex" value="2" title="女">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                      <label class="layui-form-label">生日</label>
-                      <div class="layui-input-inline">
-                        <input type="text" class="layui-input" id="birthday" placeholder="请选择生日">
-                      </div>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">性取向</label>
-                        <div class="layui-input-inline">
-                            <select name="" lay-verify="required" lay-search="">
-                                <option value="">请选择</option>
-                                <option value="">1234</option>
-                                <option value="1">layer</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">学历</label>
-                        <div class="layui-input-inline">
-                            <select name="" lay-verify="required" lay-search="">
-                                <option value="">请选择</option>
-                                <option value="">1234</option>
-                                <option value="1">layer</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">职业</label>
-                        <div class="layui-input-inline">
-                            <select name="" lay-verify="required" lay-search="">
-                                <option value="">请选择</option>
-                                <option value="">1234</option>
-                                <option value="1">layer</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-form-item" style="text-align: center;">
-                    <button class="layui-btn" lay-submit="" lay-filter="">提 交</button>
-                </div>
-        </div>
+        <!--申请记录-->
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>邮寄点</th>
+                    <th>收件人</th>
+                    <th>金额</th>
+                    <th>状态</th>
+                    <th>物流</th>
+                    <th>进程</th>
+                    <th>操作</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <tr>
+                    <td>长沙青彩邮寄点</td>
+                    <td>汪忠良量</td>
+                    <td>23￥</td>
+                    <td>已付款(货到付款)</td>
+                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
+                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
+                    <td>
+                        <span class="layui-breadcrumb" lay-separator="|">
+                            <a href="">取消</a>
+                            <a href="javascript:;" class="order_detail">详情</a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>长沙青彩邮寄点</td>
+                    <td>汪忠良量</td>
+                    <td>23￥</td>
+                    <td>已付款(货到付款)</td>
+                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
+                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
+                    <td>
+                        <span class="layui-breadcrumb" lay-separator="|">
+                            <a href="">取消</a>
+                            <a href="javascript:;" class="order_detail">详情</a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>长沙青彩邮寄点</td>
+                    <td>汪忠良量</td>
+                    <td>23￥</td>
+                    <td>已付款(货到付款)</td>
+                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
+                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
+                    <td>
+                        <span class="layui-breadcrumb" lay-separator="|">
+                            <a href="">取消</a>
+                            <a href="javascript:;" class="order_detail">详情</a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
 </div>
@@ -162,9 +155,13 @@
 <div class="footer">
     <p><a href="statute/index.shtml">艾检测</a> 2018 &copy; <a href="">检测中心</a></p>
 </div>
-<script src="__HOME__/pc/public/index/js/jquery-2.0.3.min.js"></script>
-<script src="__HOME__/pc/js/layer/layer.js"></script>
-<script src="__HOME__/pc/public/index/layui/layui.js"></script>
+<script src="Public/Index/js/jquery-2.0.3.min.js"></script>
+<script src="Public/Index/js/TweenLite.min.js"></script>
+<script src="Public/Index/js/EasePack.min.js"></script>
+<script src="Public/Index/js/rAF.js"></script>
+<script src="Public/Index/js/demo-1.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="Public/Index/layui/layui.js"></script>
 
 <script>
 	layui.cache.page = 'user';
@@ -173,7 +170,7 @@
 	};
 	layui.config({
 		version: "2.0.0"
-		,base: '__HOME__/pc/public/index/mods/'
+		,base: 'Public/Index/mods/'
 	}).extend({
 		fly: 'index'
 	}).use('fly');

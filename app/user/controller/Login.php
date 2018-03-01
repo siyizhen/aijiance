@@ -4,6 +4,7 @@ use think\Controller;
 use clt\Leftnav;
 class Login extends Common{
     public function _initialize(){
+        parent::_initialize();
         if (session('user.id')) {
             $this->redirect('index/index');
         }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:40:"F:\www\hiv/app/user\view\pc\my_info.html";i:1519725552;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519722520;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:40:"F:\www\hiv/app/user\view\pc\my_info.html";i:1519895170;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519894794;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519894070;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519895782;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,28 +60,28 @@
 
 <div class="main fly-user-main layui-clear layui-anim layui-anim-scaleSpring">
     <div class="layui-side layui-bg-black lnk_nav">
-    <div class="layui-side-scroll">
-    <ul class="layui-nav layui-nav-tree" lay-filter="test">
-        <li class="layui-nav-item">
-            <a href="javascript:;">申请记录</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">我的消息 <span class="layui-badge">9</span></a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>
-        </li>
-        <li class="layui-nav-item layui-this">
-            <a href="javascript:;">个人资料</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">我的地址</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">意见反馈 <span class="layui-badge">9</span></a>
-        </li>
-    </ul>
-    </div>
+        <div class="layui-side-scroll">
+        <ul class="layui-nav layui-nav-tree">
+            <li class="layui-nav-item <?php if(request()->action() == 'myOrder'):?>layui-this<?php endif;?>">
+                <a href="<?php echo url('myOrder'); ?>">申请记录</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">我的消息 <span class="layui-badge">9</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>
+            </li>
+            <li class="layui-nav-item <?php if(request()->action() == 'myInfo'):?>layui-this<?php endif;?>">
+                <a href="<?php echo url('myInfo'); ?>">个人资料</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">我的地址</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">意见反馈 <span class="layui-badge">9</span></a>
+            </li>
+        </ul>
+        </div>
     </div>
     <div class="site-tree-mobile layui-hide">
         <i class="layui-icon">&#xe602;</i>
@@ -95,7 +95,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">帐号</label>
                     <div class="layui-input-block">
-                        <span class="my_zhanghao">152****5005</span>
+                        <span class="my_zhanghao"><?php echo substr_replace(session('user.username'),'****',3,4)?></span>
                         <button class="layui-btn layui-btn-sm layui-btn-normal" style="height: 30px;line-height: 30px;padding: 0 10px;font-size: 12px;" onclick="changePhone()">更 换</button>
                     </div>
                 </div>
@@ -162,9 +162,8 @@
 
 </div>
 
-
 <div class="footer">
-    <p><a href="statute/index.shtml">艾检测</a> 2018 &copy; <a href="">检测中心</a></p>
+    <p style="padding-left:245px;"><a href="statute/index.shtml"><?php echo $sys['name']; ?></a> <?php echo $sys['copyright']; ?> &copy; <a href="">艾检测工作室提供技术支持</a></p>
 </div>
 <script src="__HOME__/pc/public/index/js/jquery-2.0.3.min.js"></script>
 <script src="__HOME__/pc/js/layer/layer.js"></script>
@@ -258,8 +257,8 @@
             shadeClose: true,
             shade: false,
             maxmin: true, //开启最大化最小化按钮
-            area: ['893px', '300px'],
-            content: 'newPhone.html'
+            area: ['700px', '300px'],
+            content: "<?php echo url('changePhone'); ?>"
         });
     }
     //意见反馈

@@ -769,3 +769,70 @@ function getXueLi($key){
     $arr=xueLi();
     return $arr[$key];
 }
+
+/**
+ * 订单进程
+ * @return  
+ */
+function process(){
+    $arr=[
+        1=>'待付款',
+        2=>'待客服发货',
+        3=>'待您上传结果',
+        4=>'待您重传结果',
+        5=>'待客服确认',
+        6=>'已完成'
+    ];
+    return $arr;
+}
+
+function getProcess($key){
+    $arr=process();
+    return $arr[$key];
+}
+
+/**
+ * 订单客服反馈结果
+ * @return  
+ */
+function orderResult(){
+    $arr=[
+        1=>'结果有效',
+        2=>'结果无效',
+        3=>'要求用户重传'
+    ];
+    return $arr;
+}
+
+function getOrderResult($key){
+    $arr=orderResult();
+    return $arr[$key];
+}
+
+//付款状态
+function payStatus(){
+    $arr=[
+        1=>'未付款',
+        2=>'已付款'
+    ];
+    return $arr;
+}
+
+function getPayStatus($key){
+    $arr=payStatus();
+    return $arr[$key];
+}
+
+//发货状态
+function shippingStatus(){
+    $arr=[
+        1=>'未发货',
+        2=>'已发货'
+    ];
+    return $arr;
+}
+
+function getShippingStatus($key){
+    $arr=shippingStatus();
+    return $arr[$key];
+}

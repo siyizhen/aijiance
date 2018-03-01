@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\www\hiv/app/home\view\pc\page_apply_reagent.html";i:1519716648;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519722502;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519691410;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\www\hiv/app/home\view\pc\page_apply_reagent.html";i:1519892638;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519722502;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519888262;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -230,6 +230,7 @@
 	<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/jquery.touchSwipe.min.js"></script>
     <script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.js"></script>
     <script src="__HOME__/pc/js/layer/layer.js"></script>
+    <script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
     
 	<script type="text/javascript">
 		//微信公众号的显示与隐藏
@@ -381,11 +382,14 @@
 				dataType:'json',
 				data: data,
 				success:function(res){
+					$.cookie("orderInfo",JSON.stringify(data));
 					if(res.status==0){	
 						layer.msg(res.msg,{icon:2});
-						setTimeout(function(){
-							window.location.href=res.url+'?preferUrl='+window.location.href;
-						},3000);
+						if(res.url!=''){
+							setTimeout(function(){
+								window.location.href=res.url+'?preferUrl='+window.location.href;
+							},3000);
+						}
 					}else{
 						setTimeout(function(){
 							window.location.href=res.url;
@@ -397,6 +401,66 @@
 				}
 			})
 		});
+
+		//显示上一次提交的订单信息
+		if($.cookie("orderInfo")!=''||$.cookie("orderInfo")!=null){
+			var data=JSON.parse($.cookie("orderInfo"));
+			for(var i=0;i<$("#youjidian option").length;i++){
+				if(data.youjidian==$("#youjidian option").eq(i).attr('value')){
+					$("#youjidian option").eq(i).attr('selected','selected');
+				}
+			}
+			$("#shoujianren").val(data.shoujianren);
+			$("#getphone").val(data.getphone);
+			for(var i=0;i<$("#province option").length;i++){
+				if(data.province==$("#province option").eq(i).attr('value')){
+					$("#province option").eq(i).attr('selected','selected');
+
+					$.ajax({
+						url: "<?php echo url('base/base/getRegion'); ?>",
+						type: 'GET',
+						dataType: 'json',
+						data: {pid:data.province,type:2},
+						success:function(res){
+							var str='<option value="">请选择城市</option>';
+							$.each(res, function(index, val) {
+								if(data.city==val.id){
+									str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+								}else{
+									str+='<option value="'+val.id+'">'+val.name+'</option>';
+								}
+							});
+							$("#city").html(str);
+							$("#district").html('<option value="">请选择区县</option>');
+						}
+					})
+
+					$.ajax({
+						url: "<?php echo url('base/base/getRegion'); ?>",
+						type: 'GET',
+						dataType: 'json',
+						data: {pid:data.city,type:3},
+						success:function(res){
+							var str='<option value="">请选择区县</option>';
+							$.each(res, function(index, val) {
+								if(data.district==val.id){
+									str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+								}else{
+									str+='<option value="'+val.id+'">'+val.name+'</option>';
+								}
+							});
+							$("#district").html(str);
+						}
+					});
+				}
+			}
+			$("#address").val(data.address);
+			for(var i=0;i<$("input[name='payway']").length;i++){
+				if(data.payway==$("input[name='payway']").eq(i).val()){
+					$("input[name='payway']").eq(i).attr('checked','checked');
+				}
+			}
+		}
 	</script>
 </body>
 </html>

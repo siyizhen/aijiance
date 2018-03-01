@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 16:42:59
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-02-27 10:21:25
+ * @Last Modified time: 2018-03-01 18:08:33
  */
 namespace app\base\controller;
 use think\Controller;
@@ -26,21 +26,24 @@ class Base extends Controller{
     	$code=mt_rand($min,$max);
     	$data=input('param.');
 
-    	if($data['type']='login'){
+        $data['params']=['code'=>$code];
+    	if($data['type']=='login'){
     		$num=db('users')->where('username',$data['phone'])->count('id');
     		if($num>0){
     			$data['codeTemplate']=config('codeTemplate.login');
     		}else{
     			$data['codeTemplate']=config('codeTemplate.register');
     		}
-    		$data['params']=['code'=>$code];
-    	}
+    	}elseif($data['type']=='change_phone'){
+            $data['phone']=session('user.username');
+            $data['codeTemplate']=config('codeTemplate.change_phone');
+        }elseif($data['type']=='new_phone'){
+            $data['codeTemplate']=config('codeTemplate.new_phone');
+        }
     	$resObj=sendSms($data);
     	if($resObj->Code=='OK'){
-    		if($data['type']='login'){
-    			//缓存验证码
-    			cache('login_'.$data['phone'],$code,config('cacheTime.login'));
-    		}
+            //缓存验证码
+            cache($data['type'].'_'.$data['phone'],$code,config('cacheTime.'.$data['type']));
     		$arr=['status'=>1,'msg'=>'验证码发送成功！请注意查收！'];
     	}else{
     		$arr=['status'=>0,'msg'=>'系统繁忙，请稍后再试！'];

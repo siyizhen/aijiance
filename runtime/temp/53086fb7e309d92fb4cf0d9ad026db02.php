@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:38:"F:\www\hiv/app/user\view\pc\login.html";i:1519717024;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519718034;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:38:"F:\www\hiv/app/user\view\pc\login.html";i:1519886908;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519722502;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -93,7 +93,7 @@
                             </div>
                             <div class="layui-form-item fly-form-app">
                                 <span>或者使用社交账号登入</span>
-                                    <a href="user/loginApi/login/oauth/qq.html" class="iconfont icon-wechat" title="微信登入"></a>
+                                    <a href="user/loginApi/login/oauth/qq.html" class="iconfont icon-wechat" title="微信登入" style="font-size: 18px;"></a>
                                 </div>
                         </form>
                     </div>

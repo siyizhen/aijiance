@@ -864,3 +864,31 @@ function getOrderStatus($key){
     $arr=orderStatus();
     return $arr[$key];
 }
+
+//消息是否已读
+function isRead(){
+    $arr=[
+        1=>'已读',
+        2=>'未读'
+    ];
+    return $arr;
+}
+
+function getIsRead($key){
+    $arr=isRead();
+    return $arr[$key];
+}
+
+//性别
+function sex(){
+    $arr=[
+        0=>'女',
+        1=>'男'
+    ];
+    return $arr;
+}
+
+function getSex($key){
+    $arr=sex();
+    return $arr[$key];
+}

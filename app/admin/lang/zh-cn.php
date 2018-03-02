@@ -26,7 +26,7 @@ return [
     'man'=>'男',
     'woman'=>'女',
 
-    'message'=>'留言',
+    'message'=>'意见反馈',
     'link'=>'链接',
     'ad'=>'广告',
 

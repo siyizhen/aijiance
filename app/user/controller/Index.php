@@ -3,11 +3,16 @@ namespace app\user\controller;
 use think\Input;
 use think\Db;
 class Index extends Common{
+    protected $userid;
     public function _initialize(){
         parent::_initialize();
-        if (!session('user.id')) {
+        $this->userid=session('user.id');
+        if (!$this->userid) {
             $this->redirect('login/index');
         }
+
+        //获取未读的意见反馈数
+        $this->assign('messageNums',db('message',[],false)->where(['userid'=>$this->userid,'is_read'=>2])->count('id'));
     }
     public function index(){
         $this->assign('title','会员中心');
@@ -30,7 +35,7 @@ class Index extends Common{
             }
             $data['birthday']=strtotime($data['birthday']);
             $data['ziliao_success']=1;
-            $res=db('users')->where('id',session('user.id'))->update($data);
+            $res=db('users')->where('id',$this->userid)->update($data);
             if($res){
                 if(!empty(input('param.preferUrl'))){
                     $arr=['status'=>1,'msg'=>'保存成功！','url' =>input('param.preferUrl')];
@@ -42,7 +47,7 @@ class Index extends Common{
             }
             return json($arr);
         }else{
-            $info=db('users')->where('id',session('user.id'))->find();
+            $info=db('users')->where('id',$this->userid)->find();
             $this->assign('info',$info);
             return $this->fetch('pc/my_info');
         }
@@ -51,7 +56,7 @@ class Index extends Common{
     public function myAddress(){
         if(request()->isAjax()){
             $data=input('param.');
-            $res=db('address')->where('userid',session('user.id'))->update($data);
+            $res=db('address')->where('userid',$this->userid)->update($data);
             if($res){
                 $arr=['status'=>1,'msg'=>'保存成功！','url'=>''];
             }else{
@@ -62,7 +67,7 @@ class Index extends Common{
             $province = db('Region')->where(array('pid'=>1))->select();
             $this->assign('province',$province);
 
-            $address=db('address')->where('userid',session('user.id'))->find();
+            $address=db('address')->where('userid',$this->userid)->find();
             $this->assign('address',$address);
             return $this->fetch('pc/my_address');
         }
@@ -70,7 +75,7 @@ class Index extends Common{
 
     public function myOrder(){
         $where=[
-            'userid'=>session('user.id')
+            'userid'=>$this->userid
         ];
         $list = Db::table(config('database.prefix') . 'main_order')->alias('a')
             ->join(config('database.prefix') . 'role b', 'a.youjidian = b.id', 'left')
@@ -124,7 +129,7 @@ class Index extends Common{
             }
             cache($data['type'].'_'.$data['phone'],NULL);
             $updateArr['username']=$data['phone'];
-            $res=db('users')->where('id',session('user.id'))->update($updateArr);
+            $res=db('users')->where('id',$this->userid)->update($updateArr);
             if($res){
                 //变更session信息
                 session('user.username',$data['phone']);
@@ -135,6 +140,38 @@ class Index extends Common{
             return json($arr);
         }else{  
             return $this->fetch('pc/new_phone');
+        }
+    }
+
+    public function mySuggestion(){
+        $where=[
+            'userid'=>$this->userid
+        ];
+        $list = Db::table(config('database.prefix') . 'message')
+        ->where($where)
+        ->order('user_addtime desc')
+        ->paginate(config('pageSize'));
+        $page = $list->render();
+        $this->assign('list', $list);
+        $this->assign('page', $page);
+        return $this->fetch('pc/my_suggestion');
+    }
+
+    public function addSuggestion(){
+        if(request()->isAjax()){
+            $data = input('param.');
+            $data['userid']=$this->userid;
+            $data['user_addtime'] = time();
+            $data['ip'] = getIp();
+            $res=db('message')->insert($data);
+            if($res){
+                $arr=['status'=>1,'msg'=>'感谢您的反馈！'];
+            }else{
+                $arr=['status'=>0,'msg'=>'系统繁忙，请稍候再试！'];
+            }
+            return json($arr);
+        }else{
+            return $this->fetch('pc/add_suggestion');
         }
     }
 }

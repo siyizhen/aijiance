@@ -1,6 +1,6 @@
 {include file="pc/user_header" /}
 
-<div class="main fly-user-main layui-clear layui-anim layui-anim-scaleSpring">
+<div class="main fly-user-main layui-clear layui-anim">
     {include file="pc/user_left" /}
 
     <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
@@ -102,11 +102,11 @@
             url: "{:url('base/base/getRegion')}",
             type: 'GET',
             dataType: 'json',
-            data: {pid:{$address.province},type:2},
+            data: {pid:"{$address.province}",type:2},
             success:function(res){
                 var str='<option value="">请选择城市</option>';
                 $.each(res, function(index, val) {
-                    if({$address.city}==val.id){
+                    if("{$address.city}"==val.id){
                         str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
                     }else{
                         str+='<option value="'+val.id+'">'+val.name+'</option>';
@@ -119,11 +119,11 @@
                     url: "{:url('base/base/getRegion')}",
                     type: 'GET',
                     dataType: 'json',
-                    data: {pid:{$address.city},type:3},
+                    data: {pid:"{$address.city}",type:3},
                     success:function(res){
                         var str='<option value="">请选择区县</option>';
                         $.each(res, function(index, val) {
-                            if({$address.district}==val.id){
+                            if("{$address.district}"==val.id){
                                 str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
                             }else{
                                 str+='<option value="'+val.id+'">'+val.name+'</option>';

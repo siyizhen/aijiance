@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:40:"F:\www\hiv/app/user\view\pc\my_info.html";i:1519895170;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519894794;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519894070;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519895782;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:40:"F:\www\hiv/app/user\view\pc\my_info.html";i:1519968234;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519954064;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519967562;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519955022;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,7 @@
 	                </li>
 	                <?php endforeach; endif; else: echo "" ;endif; ?>
 	                <li>
-						<a href="">
+						<a href="<?php echo url('user/index/myInfo'); ?>">
 							<?php if(empty(session('user'))): ?>
 							个人中心
 							<?php else: ?>
@@ -58,11 +58,11 @@
     </div>
 </div>
 
-<div class="main fly-user-main layui-clear layui-anim layui-anim-scaleSpring">
+<div class="main fly-user-main layui-clear layui-anim">
     <div class="layui-side layui-bg-black lnk_nav">
         <div class="layui-side-scroll">
         <ul class="layui-nav layui-nav-tree">
-            <li class="layui-nav-item <?php if(request()->action() == 'myOrder'):?>layui-this<?php endif;?>">
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myorder','myOrder'])):?>layui-this<?php endif;?>">
                 <a href="<?php echo url('myOrder'); ?>">申请记录</a>
             </li>
             <li class="layui-nav-item">
@@ -71,14 +71,14 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>
             </li>
-            <li class="layui-nav-item <?php if(request()->action() == 'myInfo'):?>layui-this<?php endif;?>">
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myinfo','myInfo'])):?>layui-this<?php endif;?>">
                 <a href="<?php echo url('myInfo'); ?>">个人资料</a>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">我的地址</a>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myaddress','myAddress'])):?>layui-this<?php endif;?>">
+                <a href="<?php echo url('myAddress'); ?>">我的地址</a>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">意见反馈 <span class="layui-badge">9</span></a>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['mysuggestion','mySuggestion'])):?>layui-this<?php endif;?>">
+                <a href="<?php echo url('mySuggestion'); ?>">意见反馈 <?php if($messageNums > 0): ?><span class="layui-badge"><?php echo $messageNums; ?></span><?php endif; ?></a>
             </li>
         </ul>
         </div>
@@ -110,7 +110,7 @@
                     <div class="layui-inline">
                       <label class="layui-form-label">生日</label>
                       <div class="layui-input-inline">
-                        <input type="text" class="layui-input" id="birthday" name="birthday" required lay-verify="date" placeholder="请选择生日" value="<?php echo date('Y-m-d',$info['birthday']); ?>">
+                        <input type="text" class="layui-input" id="birthday" name="birthday" required lay-verify="date" placeholder="请选择生日" value="<?php if(!empty($info['birthday'])): ?><?php echo date('Y-m-d',$info['birthday']); endif; ?>">
                       </div>
                     </div>
                 </div>
@@ -168,29 +168,7 @@
 <script src="__HOME__/pc/public/index/js/jquery-2.0.3.min.js"></script>
 <script src="__HOME__/pc/js/layer/layer.js"></script>
 <script src="__HOME__/pc/public/index/layui/layui.js"></script>
-
-<script type="text/javascript">
-    layui.use('form', function () {
-        var form = layui.form,$ = layui.jquery;
-        // 登录提交监听
-        form.on('submit(sub)', function (data) {
-            var loading = layer.load(1, {shade: [0.1, '#fff']});
-            $.post("<?php echo url('index/myInfo'); ?>",data.field,function(res){
-                layer.close(loading);
-                if(res.status > 0){
-                    layer.msg(res.msg,{time:1000,icon:1},function(){
-                        if(res.url!=''){
-                            location.href = res.url;
-                        }
-                    });
-                }else{
-                    layer.msg(res.msg,{time:1000,icon:2});
-                }
-            });
-            return false;
-        })
-    })
-</script>
+<script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
 
 <script>
 	layui.cache.page = 'user';
@@ -270,9 +248,31 @@
             shade: false,
             maxmin: true, //开启最大化最小化按钮
             area: ['893px', '350px'],
-            content: 'fankui.html'
+            content: "<?php echo url('addSuggestion'); ?>"
         });
     }
+</script>
+<script type="text/javascript">
+    layui.use('form', function () {
+        var form = layui.form,$ = layui.jquery;
+        // 登录提交监听
+        form.on('submit(sub)', function (data) {
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post("<?php echo url('index/myInfo'); ?>",data.field,function(res){
+                layer.close(loading);
+                if(res.status > 0){
+                    layer.msg(res.msg,{time:1000,icon:1},function(){
+                        if(res.url!=''){
+                            location.href = res.url;
+                        }
+                    });
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                }
+            });
+            return false;
+        })
+    })
 </script>
 </body>
 </html>

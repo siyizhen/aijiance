@@ -1,0 +1,35 @@
+{include file="pc/user_header" /}
+
+<div class="main fly-user-main layui-clear layui-anim">
+    {include file="pc/user_left" /}
+
+    <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
+        <!--意见反馈-->
+        <blockquote class="layui-elem-quote layui-quote-nm" >
+            <button class="layui-btn" onclick="fankui()"><i class="layui-icon"></i> 向我们反馈</button>
+        </blockquote>
+        <blockquote class="layui-elem-quote layui-quote-nm" style="font-size: 14px;">嗨!我们刚刚起步，如果您有任何好的点子、想法或者意见与建议，请告诉我们，我们的管理猿会尽快回复您。有您的关注，我们将更加努力，谢谢!</blockquote>
+        <div class="layui-collapse">
+            {volist name="list" id="m"}
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">{$m.user_content}<span style="color:red;float: right;">{$m.user_addtime|date="Y-m-d H:i:s",###}</span></h2>
+                {if condition="!empty($m.answer_content)"}
+                <div class="layui-colla-content layui-show">
+                    <p>答：{$m.answer_content}<br />(<span style="color:red;">{$m.answer_time|date="Y-m-d H:i:s",###}</span>)</p>
+                </div>
+                {else}
+                <div class="layui-colla-content">
+                    <p>答：暂未回答</p>
+                </div>
+                {/if}
+            </div>
+            {/volist}
+        </div>
+        <div style="text-align: center;">{$page}</div>
+    </div>
+
+</div>
+{include file="pc/user_footer"}
+
+</body>
+</html>

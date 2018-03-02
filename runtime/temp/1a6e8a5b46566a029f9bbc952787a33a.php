@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:41:"F:\www\hiv/app/user\view\pc\my_order.html";i:1519968240;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519954064;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519967562;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519955022;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:43:"F:\www\hiv/app/user\view\pc\my_address.html";i:1519968228;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519954064;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519967562;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519955022;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,83 +89,45 @@
     <div class="site-mobile-shade"></div>
 
     <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
-        <!--申请记录-->
-        <table class="layui-table">
-            <thead>
-                <tr>
-                    <th>邮寄点</th>
-                    <th>收件人</th>
-                    <th>金额</th>
-                    <th>状态</th>
-                    <th>物流</th>
-                    <th>进程</th>
-                    <td>申请时间</td>
-                    <th>操作</th>
-                </tr> 
-            </thead>
-            <tbody>
-                <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?>
-                <tr>
-                    <td><?php echo $m['youjidian']; ?></td>
-                    <td><?php echo $m['shoujianren']; ?></td>
-                    <td><?php echo $m['money']; ?>￥</td>
-                    <td>
-                        <?php if($m['origin_payway'] == 1): ?>
-                        <?php echo $m['payway']; else: ?>
-                        <?php echo $m['pay_status']; ?>(<?php echo $m['payway']; ?>)
-                        <?php endif; ?>
-                    </td>
-                    <th>
-                        <?php echo $m['shipping_status']; if($m['origin_shipping_status'] == 2): ?>
-                        (<a href="javascript:;" class="wuliu_detail">查看</a>)
-                        <?php endif; ?>
-                    </th>
-                    <td>
-                        <a href="javascript:;" style="color: red;" <?php if(in_array($m['origin_process'],[3,4])): ?>class="shangchuan"<?php endif; ?>><?php echo $m['process']; ?></a>
-                    </td>
-                    <td><?php echo date("Y-m-d H:i",$m['addtime']); ?></td>
-                    <td>
-                        <span class="layui-breadcrumb" lay-separator="|">
-                            <a href="javascript:;" class="order_detail">详情</a>
-                            <a href="javascript:;" <?php if($m['origin_order_status'] == 1): ?>class="cancel"<?php else: ?>style="color: red !important;"<?php endif; ?>><?php echo $m['order_status']; ?></a>
-                        </span>
-                    </td>
-                </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-                <!-- <tr>
-                    <td>长沙青彩邮寄点</td>
-                    <td>汪忠良量</td>
-                    <td>23￥</td>
-                    <td>已付款(货到付款)</td>
-                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
-                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
-                    <td>
-                        <span class="layui-breadcrumb" lay-separator="|">
-                            <a href="">取消</a>
-                            <a href="javascript:;" class="order_detail">详情</a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>长沙青彩邮寄点</td>
-                    <td>汪忠良量</td>
-                    <td>23￥</td>
-                    <td>已付款(货到付款)</td>
-                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
-                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
-                    <td>
-                        <span class="layui-breadcrumb" lay-separator="|">
-                            <a href="">取消</a>
-                            <a href="javascript:;" class="order_detail">详情</a>
-                        </span>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
-        <div style="text-align: center;"><?php echo $page; ?></div>
+        <!--我的收货地址-->
+        <div class="my_info">
+            <div class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">城市</label>
+                    <div class="layui-input-inline">
+                        <select name="province" id="province" lay-filter="province" lay-verify="required">
+                            <option value="">请选择省</option>
+                            <?php if(is_array($province) || $province instanceof \think\Collection || $province instanceof \think\Paginator): $i = 0; $__LIST__ = $province;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?>
+                            <option value="<?php echo $m['id']; ?>" <?php if($m['id'] == $address['province']): ?>selected=""<?php endif; ?>><?php echo $m['name']; ?></option>
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="city" id="city" lay-filter="city" lay-verify="required">
+                            <option value="">请选择市</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="district" id="district" lay-filter="district" lay-verify="required">
+                            <option value="">请选择区县</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">详细地址</label>
+                    <div class="layui-input-inline" style="width: 70%;">
+                        <textarea placeholder="请输入详细地址" class="layui-textarea" name="address" id="address" lay-verify="required"><?php echo $address['address']; ?></textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item" style="text-align: center;">
+                    <button class="layui-btn" lay-submit="" lay-filter="sub">提 交</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
 <div class="footer">
     <p style="padding-left:245px;"><a href="statute/index.shtml"><?php echo $sys['name']; ?></a> <?php echo $sys['copyright']; ?> &copy; <a href="">艾检测工作室提供技术支持</a></p>
 </div>
@@ -255,6 +217,99 @@
             content: "<?php echo url('addSuggestion'); ?>"
         });
     }
+</script>
+<script type="text/javascript">
+    layui.use('form',function(){
+        var form=layui.form;
+        form.on('select(province)', function(data){
+            var province=data.value;
+            $.ajax({
+                url: "<?php echo url('base/base/getRegion'); ?>",
+                type: 'GET',
+                dataType: 'json',
+                data: {pid:province,type:2},
+                success:function(res){
+                    var str='<option value="">请选择城市</option>';
+                    $.each(res, function(index, val) {
+                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+                    $("#city").html(str);
+                    $("#district").html('<option value="">请选择区县</option>');
+                    form.render();
+                }
+            })
+        });
+
+        form.on('select(city)', function(data){
+            var city=data.value;
+            $.ajax({
+                url: "<?php echo url('base/base/getRegion'); ?>",
+                type: 'GET',
+                dataType: 'json',
+                data: {pid:city,type:3},
+                success:function(res){
+                    var str='<option value="">请选择区县</option>';
+                    $.each(res, function(index, val) {
+                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                    });
+                    $("#district").html(str);
+                    form.render();
+                }
+            })
+        });  
+
+        form.on('submit(sub)', function (data) {
+            var loading = layer.load(1, {shade: [0.1, '#fff']});
+            $.post("<?php echo url('index/myAddress'); ?>",data.field,function(res){
+                layer.close(loading);
+                if(res.status > 0){
+                    $.cookie("orderInfo",null);
+                    layer.msg(res.msg,{time:1000,icon:1});
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                }
+            });
+            return false;
+        });
+
+        $.ajax({
+            url: "<?php echo url('base/base/getRegion'); ?>",
+            type: 'GET',
+            dataType: 'json',
+            data: {pid:"<?php echo $address['province']; ?>",type:2},
+            success:function(res){
+                var str='<option value="">请选择城市</option>';
+                $.each(res, function(index, val) {
+                    if("<?php echo $address['city']; ?>"==val.id){
+                        str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                    }else{
+                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                    }
+                });
+                $("#city").html(str);
+                $("#district").html('<option value="">请选择区县</option>');
+                
+                $.ajax({
+                    url: "<?php echo url('base/base/getRegion'); ?>",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {pid:"<?php echo $address['city']; ?>",type:3},
+                    success:function(res){
+                        var str='<option value="">请选择区县</option>';
+                        $.each(res, function(index, val) {
+                            if("<?php echo $address['district']; ?>"==val.id){
+                                str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                            }else{
+                                str+='<option value="'+val.id+'">'+val.name+'</option>';
+                            }
+                        });
+                        $("#district").html(str);
+                        form.render();
+                    }
+                }); 
+            }
+        })
+    })
 </script>
 </body>
 </html>

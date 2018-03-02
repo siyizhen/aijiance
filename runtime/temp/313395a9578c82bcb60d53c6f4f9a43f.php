@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:41:"F:\www\hiv/app/user\view\pc\my_order.html";i:1519968240;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519954064;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519967562;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519955022;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:46:"F:\www\hiv/app/user\view\pc\my_suggestion.html";i:1519968246;s:44:"F:\www\hiv/app/user\view\pc\user_header.html";i:1519954064;s:42:"F:\www\hiv/app/user\view\pc\user_left.html";i:1519967562;s:44:"F:\www\hiv/app/user\view\pc\user_footer.html";i:1519955022;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,83 +89,31 @@
     <div class="site-mobile-shade"></div>
 
     <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
-        <!--申请记录-->
-        <table class="layui-table">
-            <thead>
-                <tr>
-                    <th>邮寄点</th>
-                    <th>收件人</th>
-                    <th>金额</th>
-                    <th>状态</th>
-                    <th>物流</th>
-                    <th>进程</th>
-                    <td>申请时间</td>
-                    <th>操作</th>
-                </tr> 
-            </thead>
-            <tbody>
-                <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?>
-                <tr>
-                    <td><?php echo $m['youjidian']; ?></td>
-                    <td><?php echo $m['shoujianren']; ?></td>
-                    <td><?php echo $m['money']; ?>￥</td>
-                    <td>
-                        <?php if($m['origin_payway'] == 1): ?>
-                        <?php echo $m['payway']; else: ?>
-                        <?php echo $m['pay_status']; ?>(<?php echo $m['payway']; ?>)
-                        <?php endif; ?>
-                    </td>
-                    <th>
-                        <?php echo $m['shipping_status']; if($m['origin_shipping_status'] == 2): ?>
-                        (<a href="javascript:;" class="wuliu_detail">查看</a>)
-                        <?php endif; ?>
-                    </th>
-                    <td>
-                        <a href="javascript:;" style="color: red;" <?php if(in_array($m['origin_process'],[3,4])): ?>class="shangchuan"<?php endif; ?>><?php echo $m['process']; ?></a>
-                    </td>
-                    <td><?php echo date("Y-m-d H:i",$m['addtime']); ?></td>
-                    <td>
-                        <span class="layui-breadcrumb" lay-separator="|">
-                            <a href="javascript:;" class="order_detail">详情</a>
-                            <a href="javascript:;" <?php if($m['origin_order_status'] == 1): ?>class="cancel"<?php else: ?>style="color: red !important;"<?php endif; ?>><?php echo $m['order_status']; ?></a>
-                        </span>
-                    </td>
-                </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-                <!-- <tr>
-                    <td>长沙青彩邮寄点</td>
-                    <td>汪忠良量</td>
-                    <td>23￥</td>
-                    <td>已付款(货到付款)</td>
-                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
-                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
-                    <td>
-                        <span class="layui-breadcrumb" lay-separator="|">
-                            <a href="">取消</a>
-                            <a href="javascript:;" class="order_detail">详情</a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>长沙青彩邮寄点</td>
-                    <td>汪忠良量</td>
-                    <td>23￥</td>
-                    <td>已付款(货到付款)</td>
-                    <th>未发货（<a href="javascript:;" class="wuliu_detail">查看</a>）</th>
-                    <td><a href="javascript:;" style="color: red;" class="shangchuan">上传结果</a></td>
-                    <td>
-                        <span class="layui-breadcrumb" lay-separator="|">
-                            <a href="">取消</a>
-                            <a href="javascript:;" class="order_detail">详情</a>
-                        </span>
-                    </td>
-                </tr> -->
-            </tbody>
-        </table>
+        <!--意见反馈-->
+        <blockquote class="layui-elem-quote layui-quote-nm" >
+            <button class="layui-btn" onclick="fankui()"><i class="layui-icon"></i> 向我们反馈</button>
+        </blockquote>
+        <blockquote class="layui-elem-quote layui-quote-nm" style="font-size: 14px;">嗨!我们刚刚起步，如果您有任何好的点子、想法或者意见与建议，请告诉我们，我们的管理猿会尽快回复您。有您的关注，我们将更加努力，谢谢!</blockquote>
+        <div class="layui-collapse">
+            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title"><?php echo $m['user_content']; ?><span style="color:red;float: right;"><?php echo date("Y-m-d H:i:s",$m['user_addtime']); ?></span></h2>
+                <?php if(!empty($m['answer_content'])): ?>
+                <div class="layui-colla-content layui-show">
+                    <p>答：<?php echo $m['answer_content']; ?><br />(<span style="color:red;"><?php echo date("Y-m-d H:i:s",$m['answer_time']); ?></span>)</p>
+                </div>
+                <?php else: ?>
+                <div class="layui-colla-content">
+                    <p>答：暂未回答</p>
+                </div>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
         <div style="text-align: center;"><?php echo $page; ?></div>
     </div>
-</div>
 
+</div>
 <div class="footer">
     <p style="padding-left:245px;"><a href="statute/index.shtml"><?php echo $sys['name']; ?></a> <?php echo $sys['copyright']; ?> &copy; <a href="">艾检测工作室提供技术支持</a></p>
 </div>
@@ -256,5 +204,6 @@
         });
     }
 </script>
+
 </body>
 </html>

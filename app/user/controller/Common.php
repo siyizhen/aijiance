@@ -2,6 +2,7 @@
 namespace app\user\controller;
 use think\Input;
 use think\Controller;
+use clt\Leftnav;
 class Common extends Controller{
     protected $userInfo;
     public function _initialize(){

@@ -118,12 +118,4 @@ class EmptyController extends Common{
 		}
         return $this->fetch($template);
     }
-    public function senMsg(){
-        $data = input('post.');
-        $data['addtime'] = time();
-        $data['ip'] = getIp();
-        db('message')->insert($data);
-        $result['status'] = 1;
-        return $result;
-    }
 }

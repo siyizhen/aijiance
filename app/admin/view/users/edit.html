@@ -19,30 +19,45 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">{:lang('email')}</label>
-            <div class="layui-input-4">
-                <input type="text" name="email" ng-model="field.email" lay-verify="eamil" placeholder="输入{:lang('email')}" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">
-                必填：用于找回密码
+            <label class="layui-form-label">生日</label>
+            <div class="layui-input-1">
+                <input type="text" name="birthday" id="birthday" ng-model="field.birthday" lay-verify="date" placeholder="选择出生日期" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">{:lang('tel')}</label>
-            <div class="layui-input-4">
-                <input type="text" name="mobile" ng-model="field.mobile" lay-verify="mobile" placeholder="输入{:lang('tel')}" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">
-                只能填写数字
+            <label class="layui-form-label">性取向</label>
+            <div class="layui-input-1">
+                <select name="quxiang" lay-verify="required">
+                    <option value="">请选择</option>
+                    <?php $quXiangArr=quXiang();?>
+                    {volist name="quXiangArr" id="m" key="n"}
+                    <option value="{$n}" {if condition="$userInfo.quxiang eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">{:lang('pwd')}</label>
-            <div class="layui-input-4">
-                <input type="password" name="password" placeholder="输入{:lang('pwd')}" class="layui-input">
+            <label class="layui-form-label">学历</label>
+            <div class="layui-input-1">
+                <select name="xueli" lay-verify="required">
+                    <option value="">请选择</option>
+                    <?php $xueLiArr=xueLi();?>
+                    {volist name="xueLiArr" id="m" key="n"}
+                    <option value="{$n}" {if condition="$userInfo.xueli eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
             </div>
-            <div class="layui-form-mid layui-word-aux">
-                密码必须大于6位，小于15位
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">职业</label>
+            <div class="layui-input-1">
+                <select name="zhiye" lay-verify="required">
+                    <option value="">请选择</option>
+                    <?php $zhiYeArr=zhiYe();?>
+                    {volist name="zhiYeArr" id="m" key="n"}
+                    <option value="{$n}" {if condition="$userInfo.zhiye eq $n"}selected=""{/if}>{$m}</option>
+                    {/volist}
+                </select>
             </div>
         </div>
         <div class="layui-form-item">
@@ -52,30 +67,6 @@
                     <input type="radio" name="sex" ng-model="field.sex" ng-checked="field.sex==1" ng-value="1" title="{:lang('man')}">
                     <input type="radio" name="sex" ng-model="field.sex" ng-checked="field.sex==0" ng-value="0" title="{:lang('woman')}">
                 </div>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">{:lang('qq')}</label>
-            <div class="layui-input-4">
-                <input type="text" name="qq" ng-model="field.qq" placeholder="输入{:lang('qq')}" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">{:lang('address')}</label>
-            <div class="layui-input-inline">
-                <select name="province" ng-model="field.province" lay-filter="province" ng-options="v.id as v.name for v in province" ng-selected="v.id==field.province">
-                    <option value="">请选择省</option>
-                </select>
-            </div>
-            <div class="layui-input-inline" >
-                <select name="city" id="city" ng-model="field.city" lay-filter="city" ng-options="v.id as v.name for v in city" ng-selected="v.id==field.city">
-                    <option value="">请选择市</option>
-                </select>
-            </div>
-            <div class="layui-input-inline">
-                <select name="district" id="district" ng-model="field.district" lay-filter="district" ng-options="v.id as v.name for v in district" ng-selected="v.id==field.district">
-                    <option value="">请选择县/区</option>
-                </select>
             </div>
         </div>
         <div class="layui-form-item">
@@ -93,38 +84,13 @@
     m.controller('ctrl',function($scope) {
         $scope.field = {$info};
         $scope.group = {$user_level};
-        $scope.province = {$province};
-        $scope.city = {$city};
-        $scope.district = {$district};
-        layui.use(['form', 'layer'], function () {
+        layui.use(['form', 'layer','laydate'], function () {
             var form = layui.form, layer = layui.layer,$= layui.jquery;
-            form.on('select(province)', function(data) {
-                var pid = data.value;
-                var loading = layer.load(1, {shade: [0.1, '#fff']});
-                $.get("{:url('getRegion')}?pid=" + pid, function (data) {
-                    layer.close(loading);
-                    var html='<option value="">请选择市</option>';
-                    $.each(data, function (i, value) {
-                        html += '<option value="number:'+value.id+'">'+value.name+'</option>';
-                    });
-                    $('#city').html(html);
-                    $('#district').html('<option value="">请选择县/区</option>');
-                    form.render()
-                });
-            });
-            form.on('select(city)', function(data) {
-                var pid = data.value;
-                var loading = layer.load(1, {shade: [0.1, '#fff']});
-                $.get("{:url('getRegion')}?pid=" + pid, function (data) {
-                    layer.close(loading);
-                    var html='<option value="">请选择县/区</option>';
-                    $.each(data, function (i, value) {
-                        html += '<option value="number:'+value.id+'">'+value.name+'</option>';
-                    });
-                    $('#district').html(html);
-
-                    form.render()
-                });
+            var laydate = layui.laydate;
+  
+            //常规用法
+            laydate.render({
+                elem: '#birthday'
             });
             form.on('submit(submit)', function (data) {
                 // 提交到方法 默认为本身
@@ -140,9 +106,9 @@
                         layer.msg(res.msg, {time: 1800, icon: 2});
                     }
                 });
-            })
+            });
         });
-    });
+    })
 </script>
 </body>
 </html>

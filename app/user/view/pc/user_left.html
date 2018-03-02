@@ -16,8 +16,8 @@
             <li class="layui-nav-item <?php if(in_array(request()->action(),['myaddress','myAddress'])):?>layui-this<?php endif;?>">
                 <a href="{:url('myAddress')}">我的地址</a>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">意见反馈 <span class="layui-badge">9</span></a>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['mysuggestion','mySuggestion'])):?>layui-this<?php endif;?>">
+                <a href="{:url('mySuggestion')}">意见反馈 {if condition="$messageNums gt 0"}<span class="layui-badge">{$messageNums}</span>{/if}</a>
             </li>
         </ul>
         </div>

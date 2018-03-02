@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\www\hiv/app/home\view\pc\page_apply_reagent.html";i:1519892638;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519722502;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519888262;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:51:"F:\www\hiv/app/home\view\pc\page_apply_reagent.html";i:1519954064;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1519954064;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519894196;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -34,7 +34,7 @@
 		                </li>
 		                <?php endforeach; endif; else: echo "" ;endif; ?>
 						<li>
-							<a href="demo/business-template/V398/Product">
+							<a href="<?php echo url('user/index/myInfo'); ?>">
 								<?php if(empty(session('user'))): ?>
 								个人中心
 								<?php else: ?>
@@ -140,8 +140,9 @@
 							<div>
 								<label  class="label_class">支付方式</label>
 								<div style="float: left;margin-left: 10px;">
-									<input type="radio" value="1" name="payway" class="radio_class"><font style="font-size: 18px;"> 货到付款</font>&nbsp;&nbsp;&nbsp;&nbsp;
-									<input type="radio" value="2" name="payway" class="radio_class" checked=""><font style="font-size: 18px;"> 在线支付</font>
+									<?php $payWayArr=payWay();if(is_array($payWayArr) || $payWayArr instanceof \think\Collection || $payWayArr instanceof \think\Paginator): $n = 0; $__LIST__ = $payWayArr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($n % 2 );++$n;?>
+									<input type="radio" value="<?php echo $n; ?>" name="payway" class="radio_class" <?php if($n == 2): ?>checked=""<?php endif; ?>><font style="font-size: 18px;"> <?php echo $m; ?></font>&nbsp;&nbsp;&nbsp;&nbsp;
+									<?php endforeach; endif; else: echo "" ;endif; ?>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -403,7 +404,7 @@
 		});
 
 		//显示上一次提交的订单信息
-		if($.cookie("orderInfo")!=''||$.cookie("orderInfo")!=null){
+		if(typeof $.cookie("orderInfo") != 'undefined' && ($.cookie("orderInfo")!=''||$.cookie("orderInfo")!=null)){
 			var data=JSON.parse($.cookie("orderInfo"));
 			for(var i=0;i<$("#youjidian option").length;i++){
 				if(data.youjidian==$("#youjidian option").eq(i).attr('value')){
@@ -432,26 +433,26 @@
 							});
 							$("#city").html(str);
 							$("#district").html('<option value="">请选择区县</option>');
-						}
-					})
 
-					$.ajax({
-						url: "<?php echo url('base/base/getRegion'); ?>",
-						type: 'GET',
-						dataType: 'json',
-						data: {pid:data.city,type:3},
-						success:function(res){
-							var str='<option value="">请选择区县</option>';
-							$.each(res, function(index, val) {
-								if(data.district==val.id){
-									str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
-								}else{
-									str+='<option value="'+val.id+'">'+val.name+'</option>';
+							$.ajax({
+								url: "<?php echo url('base/base/getRegion'); ?>",
+								type: 'GET',
+								dataType: 'json',
+								data: {pid:data.city,type:3},
+								success:function(res){
+									var str='<option value="">请选择区县</option>';
+									$.each(res, function(index, val) {
+										if(data.district==val.id){
+											str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+										}else{
+											str+='<option value="'+val.id+'">'+val.name+'</option>';
+										}
+									});
+									$("#district").html(str);
 								}
 							});
-							$("#district").html(str);
 						}
-					});
+					})
 				}
 			}
 			$("#address").val(data.address);

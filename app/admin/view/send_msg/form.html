@@ -1,0 +1,74 @@
+{include file="common/head"/}
+	<div class="layui-form" style="margin-top: 10px;">
+		{if condition="$info.type eq 'sms'"}
+		<div class="layui-form-item">
+			<label class="layui-form-label">短信模版</label>
+			<div class="layui-input-inline">
+				<select name="code_template">
+					<option value="">请选择短信模版</option>
+					<?php $templatesArr=templates();?>
+					{volist name="templatesArr" id="m" key="n"}
+					<option value="{$n}" {if condition="$info.code_template eq getCodeTemplate($n)"}selected=""{/if}>{$m}</option>
+					{/volist}
+				</select>
+			</div>
+		</div>
+		{/if}
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">标题</label>
+			<div class="layui-input-4">
+				<input type="text" name="title" lay-verify="required" placeholder="请输入标题" class="layui-input" value="{$info.title}">
+			</div>
+		</div>
+		
+		<div class="layui-form-item layui-form-text">
+		    <label class="layui-form-label">消息内容</label>
+		    <div class="layui-input-5">
+		     	<textarea placeholder="请输消息内容" class="layui-textarea" name="content" id="content">{$info.content}</textarea>
+		    </div>
+	 	</div>
+
+	 	<input type="hidden" value="{$info.id}" name="id">
+
+	 	<div class="layui-form-item" style="margin-left: 50px;">
+            <button class="layui-btn" lay-submit="" lay-filter="sub">提 交</button>
+        </div>
+	</div>
+	{include file="common/foot"/}
+
+	<script type="text/javascript">
+		layui.use(['form','layedit'], function(){
+			var layedit = layui.layedit,form = layui.form,$ = layui.jquery;
+
+			layedit.set({
+				uploadImage: {
+					url: "{:url('admin/UpFiles/editUpload')}"
+				}
+			});
+			//构建一个默认的编辑器
+			var index = layedit.build('content');
+
+			form.on('submit(sub)', function (data) {
+                data.field.content=layedit.getContent(index);
+                if(data.field.content==''){
+                	layer.msg('请输内容',{icon:2});
+                	return;
+                }
+                var loading = layer.load(1, {shade: [0.1, '#fff']});
+                $.post("",data.field,function(res){
+                    layer.close(loading);
+                    if(res.status > 0){
+                        layer.msg(res.msg,{icon:1},function(){
+                        	window.location.href=res.url;
+                        })
+                    }else{
+                        layer.msg(res.msg,{time:1000,icon:2});
+                    }
+                });
+                return false;
+            })
+		});
+	</script>
+    </body>
+</html>

@@ -4,8 +4,11 @@
             <li class="layui-nav-item <?php if(in_array(request()->action(),['myorder','myOrder'])):?>layui-this<?php endif;?>">
                 <a href="{:url('myOrder')}">申请记录</a>
             </li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">我的消息 <span class="layui-badge">9</span></a>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myMsg','myMsg'])):?>layui-this<?php endif;?>">
+                <a href="{:url('myMsg')}">我的消息 {if condition="$msgNums gt 0"}<span class="layui-badge">{$msgNums}</span>{/if}</a>
+            </li>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['mySms','mySms'])):?>layui-this<?php endif;?>">
+                <a href="{:url('mySms')}">短信提醒 {if condition="$smsNums gt 0"}<span class="layui-badge">{$smsNums}</span>{/if}</a>
             </li>
             <li class="layui-nav-item">
                 <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>

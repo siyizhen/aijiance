@@ -181,6 +181,61 @@ class Users extends Common{
         return $result;
     }
 
+    //消息短信发送
+    public function sendMsg(){
+        if(request()->isAjax()){
+            $data=input('param.');
+            unset($data['file']);
+            $idArr=$userRows=$phoneArr=[];
+            if(empty($data['idStr'])){
+                $userRows=db('users')->field('id,username')->select();
+                foreach ($userRows as $k => $v) {
+                    array_push($idArr,$v['id']);
+                }
+            }else{
+                $idArr=explode(',',$data['idStr']);
+                if($data['type']=='sms'){
+                    $userRows=db('users')->field('id,username')->where('id','in',$idArr)->select();
+                }
+            }
+
+            $insertArr=[];
+            if($data['type']=='sms'){
+                $sendData['codeTemplate']=getCodeTemplate($data['code_template']);
+                foreach ($userRows as $k => $v) {
+                    $sendData['params']=['name'=>$v['username']];
+                    $sendData['phone']=$v['username'];
+                    $resObj=sendSms($sendData);
+                    if($resObj->Code=='OK'){
+                        $insertArr[$k]['title']=$data['title'];
+                        $insertArr[$k]['content']=$data['content'];
+                        $insertArr[$k]['userid']=$v['id'];
+                        $insertArr[$k]['addtime']=time();
+                        $insertArr[$k]['type']=$data['type'];
+                        $insertArr[$k]['code_template']=$sendData['codeTemplate'];
+                    }
+                }
+            }else{
+                foreach ($idArr as $k => $v) {
+                    $insertArr[$k]['title']=$data['title'];
+                    $insertArr[$k]['content']=$data['content'];
+                    $insertArr[$k]['userid']=$v;
+                    $insertArr[$k]['addtime']=time();
+                    $insertArr[$k]['type']=$data['type'];
+                }
+            }
+        
+            $res=db('send_msg')->insertAll($insertArr);
+            if($res){
+                $arr=['status'=>1,'msg'=>'发送成功！'];
+            }else{
+                $arr=['status'=>0,'msg'=>'发送失败！'];
+            }
+            return json($arr);
+        }else{
+            return $this->fetch();
+        }
+    }
 
 
 

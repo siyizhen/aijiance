@@ -1,0 +1,64 @@
+{include file="pc/user_header" /}
+
+<div class="main fly-user-main layui-clear layui-anim">
+    {include file="pc/user_left" /}
+
+    <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
+        <!--我的消息-->
+        <div class="layui-form">
+        	 <div class="layui-form-item">
+				<label class="layui-form-label">是否已读</label>
+				<div class="layui-input-inline">
+					<select id="is_read">
+						<option value="">请选择</option>
+						<?php $isReadArr=isRead();?>
+	                    {volist name="isReadArr" id="m" key="n"}
+	                    <option value="{$n}">{$m}</option>
+	                    {/volist}
+					</select>
+				</div>
+
+				<div class="layui-inline">
+                    <button class="layui-btn layui-btn-normal" id="search">开始检索</button>
+                </div>
+  			</div>
+        </div>
+        <table class="layui-hide" id="list"></table>
+    </div>
+
+</div>
+{include file="pc/user_footer" /}
+<script type="text/html" id="title">
+	{{#  if(d.origin_is_read == 2){ }}
+		<a href="{:url('sendMsgDetail')}?id={{d.id}}" class="layui-table-link">{{d.title}}</a> <span class="layui-badge-dot"></span>
+	{{#  } else { }}
+		<a href="{:url('sendMsgDetail')}?id={{d.id}}" class="layui-table-link">{{d.title}}</a>
+	{{#  } }}
+</script>
+
+<script>
+	layui.use('table', function(){
+		var table = layui.table;
+
+		table.render({
+			id:'list',
+			elem: '#list'
+			,url: "{$url}"
+			,page: true
+			,cols: [[
+			{field:'indexs', width:80, title: '编号',},
+			{field:'title', width:'524', title: '标题',templet: '#title'},
+			{field:'addtime', width:'150', title: '时间'},
+			{field:'is_read', width:'100', title: '是否已读'}
+			]]
+		});
+
+		$("#search").click(function() {
+			table.reload('list', {
+		        where:{is_read:$.trim($("#is_read").val())}
+		    })
+		});
+	});
+</script>
+</body>
+</html>

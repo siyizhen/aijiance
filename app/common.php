@@ -892,3 +892,43 @@ function getSex($key){
     $arr=sex();
     return $arr[$key];
 }
+
+//短信模版
+function templates(){
+    $arr=[
+        1=>'生日短信提醒'
+    ];
+    return $arr;
+}
+
+function getTemplates($key){
+    $arr=templates();
+    return $arr[$key];
+}
+
+//短信模版code
+function codeTemplate(){
+    $arr=[
+        1=>'SMS_105085001'
+    ];
+    return $arr;
+}
+
+function getCodeTemplate($key){
+    $arr=codeTemplate();
+    return $arr[$key];
+}
+
+//消息或短信类型
+function msgType(){
+    $arr=[
+        'msg'=>'消息',
+        'sms'=>'短信'
+    ];
+    return $arr;
+}
+
+function getMsgType($key){
+    $arr=msgType();
+    return $arr[$key];
+}

@@ -13,6 +13,8 @@ class Index extends Common{
 
         //获取未读的意见反馈数
         $this->assign('messageNums',db('message',[],false)->where(['userid'=>$this->userid,'is_read'=>2])->count('id'));
+        $this->assign('msgNums',db('send_msg',[],false)->where(['userid'=>$this->userid,'is_read'=>2,'type'=>'msg'])->count('id'));
+        $this->assign('smsNums',db('send_msg',[],false)->where(['userid'=>$this->userid,'is_read'=>2,'type'=>'sms'])->count('id'));
     }
     public function index(){
         $this->assign('title','会员中心');
@@ -154,6 +156,11 @@ class Index extends Common{
         $page = $list->render();
         $this->assign('list', $list);
         $this->assign('page', $page);
+        $this->assign('listArr',$list->toArray());
+
+        //更新我的未读意见建议
+        $where['is_read']=2;
+        db('message')->where($where)->update(['is_read'=>1]);
         return $this->fetch('pc/my_suggestion');
     }
 
@@ -173,5 +180,73 @@ class Index extends Common{
         }else{
             return $this->fetch('pc/add_suggestion');
         }
+    }
+
+    public function myMsg(){
+        if(request()->isAjax()){
+            $page =input('page')?input('page'):1;
+            $pageSize =input('limit')?input('limit'):config('pageSize');
+            $is_read = input('param.is_read');
+            $where=[
+                'type'=>'msg',
+                'userid'=>$this->userid
+            ];
+            if(!empty($is_read)){
+                $where['is_read']=$is_read;
+            }
+            $list=db('send_msg')
+                ->where($where)
+                ->order('addtime desc')
+                ->paginate(array('list_rows'=>$pageSize,'page'=>$page))
+                ->toArray();
+            foreach ($list['data'] as $k=>$v){
+                $list['data'][$k]['addtime'] = date('Y-m-d H:s',$v['addtime']);
+                $list['data'][$k]['indexs']=($page-1)*$pageSize+($k+1);
+                $list['data'][$k]['origin_is_read']=$v['is_read'];
+                $list['data'][$k]['is_read']=getIsRead($v['is_read']);
+            }
+            return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
+        }else{
+            $this->assign('url',url('myMsg'));
+            return $this->fetch('pc/my_msg');
+        }
+    }
+
+    public function mySms(){
+        if(request()->isAjax()){
+            $page =input('page')?input('page'):1;
+            $pageSize =input('limit')?input('limit'):config('pageSize');
+            $is_read = input('param.is_read');
+            $where=[
+                'type'=>'sms',
+                'userid'=>$this->userid
+            ];
+            if(!empty($is_read)){
+                $where['is_read']=$is_read;
+            }
+            $list=db('send_msg')
+                ->where($where)
+                ->order('addtime desc')
+                ->paginate(array('list_rows'=>$pageSize,'page'=>$page))
+                ->toArray();
+            foreach ($list['data'] as $k=>$v){
+                $list['data'][$k]['addtime'] = date('Y-m-d H:s',$v['addtime']);
+                $list['data'][$k]['indexs']=($page-1)*$pageSize+($k+1);
+                $list['data'][$k]['origin_is_read']=$v['is_read'];
+                $list['data'][$k]['is_read']=getIsRead($v['is_read']);
+            }
+            return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
+        }else{
+            $this->assign('url',url('mySms'));
+            return $this->fetch('pc/my_msg');
+        }
+    }
+
+    public function sendMsgDetail(){
+        $id=input('param.id');
+        $info=db('send_msg',[],false)->where('id',$id)->find();
+        db('send_msg',[],false)->where('id',$id)->update(['is_read'=>1]);
+        $this->assign('info',$info);
+        return $this->fetch('pc/send_msg_detail');
     }
 }

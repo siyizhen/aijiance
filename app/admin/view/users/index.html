@@ -57,10 +57,10 @@
         </div>
         
         <button class="layui-btn" id="search" data-type="reload">搜索</button>
-        <a href="javascript:sendSms();" class="layui-btn layui-btn-normal">发短信</a>
-        <a href="javascript:sendSms();" class="layui-btn layui-btn-warm">发消息</a>
+        <a href="javascript:sendMsg('sms');" class="layui-btn layui-btn-normal">发短信</a>
+        <a href="javascript:sendMsg('msg');" class="layui-btn layui-btn-warm">发消息</a>
         <!-- <a href="javascript:downloadList();" class="layui-btn layui-btn-warm">导出数据</a> -->
-        <button type="button" class="layui-btn layui-btn-danger" id="delAll">批量删除</button>
+        <!-- <button type="button" class="layui-btn layui-btn-danger" id="delAll">批量删除</button> -->
         <div style="clear: both;"></div>
     </div>
     <table class="layui-table" id="list" lay-filter="list"></table>
@@ -72,8 +72,13 @@
 
 {include file="common/foot"/}
 <script>
+    var form,layer,table,$;
     layui.use(['table','form','laydate'], function() {
-        var table = layui.table,form = layui.form, $ = layui.jquery,laydate = layui.laydate;
+        var laydate = layui.laydate;
+        layer=layui.layer;
+        form = layui.form;
+        table = layui.table;
+        $ = layui.jquery;
 
         laydate.render({
             elem: '#birthday',
@@ -128,7 +133,6 @@
             var xueli = $('#xueli').val();
             var birthday = $.trim($('#birthday').val());
             var reg_time = $.trim($('#reg_time').val());
-            console.log(quxiang);
 
             tableIn.reload({
                 where: {key:key,zhiye:zhiye,xueli:xueli,quxiang:quxiang,birthday:birthday,reg_time:reg_time}
@@ -174,6 +178,48 @@
             });
         })
     });
+
+    function sendMsg(act){
+        if(act=='msg'){
+            var word='消息';
+        }else if(act=='sms'){
+            var word='短信';
+        }
+        layer.confirm(word+'服务—发送全部用户？还是部分用户发送？', {
+            title:word,
+            btn: ['全发','部分'] 
+        }, function(){
+            layer.open({
+                type: 2,
+                title: '向所有用户发送'+word,
+                shadeClose: true,
+                shade: false,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['1000px', '90%'],
+                content: "{:url('sendMsg')}?act="+act
+            });
+        }, function(){
+            var checkStatus = table.checkStatus('user'); //test即为参数id设定的值
+            var ids = [];
+            $(checkStatus.data).each(function (i, o) {
+                ids.push(o.id);
+            });
+            if(ids.length<=0){
+                layer.msg('请选择要发送'+word+'的用户！',{icon:2});
+                return;
+            }
+            var idStr=ids.join(',');
+            layer.open({
+                type: 2,
+                title: '向选中用户发送'+word,
+                shadeClose: true,
+                shade: false,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['1000px', '90%'],
+                content: "{:url('sendMsg')}?act="+act+'&idStr='+idStr
+            });
+        });
+    }
 </script>
 </body>
 </html>

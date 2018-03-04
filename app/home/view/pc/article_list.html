@@ -1,0 +1,49 @@
+﻿{include file="pc/common_header" /}
+	<div class="index">
+		<div class="container ">
+			<div class="row">
+				<nav>
+					<ol class="breadcrumb"><span class="glyphicon glyphicon-list"></span>
+						<li><a href="__HOME__/pc/demo/business-template/V398/">网站首页</a></li>
+						<li><a title="新闻" href="__HOME__/pc/demo/business-template/V398/news">新闻</a></li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+
+		<div class="box2">
+			<div class="container">
+				{volist name="list" id="vo"}
+				<div class="news row">
+					<a href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}" target="_blank" >
+						<div class="col-md-3 col-sm-5">
+							<div class="news-img">
+								<img src="__PUBLIC__/{$vo.thumb}" />
+							</div>
+						</div>
+						<div class="col-md-9 col-sm-7">
+							<div class="news-text">
+								<div class="news-date">
+									<div class="news-date-md">{:toDate($vo['createtime'],'m-d')}</div>
+									<div class="news-date-y">{:toDate($vo['createtime'],'Y')}</div>
+								</div>
+								<i class="fa fa-angle-right"></i>
+								<h4>{$vo.title}</h4>
+								<p>{:str_cut(strip_tags($vo.content),120)}</p>
+							</div>							
+						</div>
+					</a>
+				</div>
+				{/volist}					
+				
+				{if condition="!empty($list)"}
+				<nav style="text-align: center;">
+					{$page}
+				</nav>
+				{/if}
+			</div>
+		</div>
+	</div>
+	{include file="pc/common_footer" /}
+</body>
+</html>

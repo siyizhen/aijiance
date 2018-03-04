@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:42:"E:\www\hiv/app/home\view\pc\page_show.html";i:1519621418;s:46:"E:\www\hiv/app/home\view\pc\common_header.html";i:1519906443;s:46:"E:\www\hiv/app/home\view\pc\common_footer.html";i:1519906443;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:42:"E:\www\hiv/app/home\view\pc\page_show.html";i:1519621418;s:46:"E:\www\hiv/app/home\view\pc\common_header.html";i:1519914495;s:46:"E:\www\hiv/app/home\view\pc\common_footer.html";i:1519906443;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -34,7 +34,7 @@
 		                </li>
 		                <?php endforeach; endif; else: echo "" ;endif; ?>
 						<li>
-							<a href="demo/business-template/V398/Product">
+							<a href="<?php echo url('user/index/myInfo'); ?>">
 								<?php if(empty(session('user'))): ?>
 								个人中心
 								<?php else: ?>

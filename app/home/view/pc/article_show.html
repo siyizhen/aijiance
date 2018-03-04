@@ -1,0 +1,42 @@
+﻿{include file="pc/common_header" /}
+	<div class="index">
+		<div class="container ">
+			<div class="row">
+				<nav>
+					<ol class="breadcrumb"><span class="glyphicon glyphicon-list"></span>
+						<li><a href="demo/business-template/V398/">网站首页</a></li>
+						<li><a title="新闻" href="demo/business-template/V398/news">新闻</a></li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<div class="title">
+			<h3><a>{$info.title}<small>作者：{$sys.name}&nbsp;&nbsp;&nbsp;&nbsp;时间：{:toDate($info['createtime'],'Y-m-d H:i:s')}</small></a></h3>
+		</div>
+		<hr class="featurette-divider">
+		<div class="container">
+			<div>
+				{$info.content}
+			</div>
+			<div id="page">
+				<strong>上一篇</strong>
+				{if condition="!empty($info.prev)"}
+				<a href="{:url('home/article/info',array('id'=>$info.prev['id'],'catId'=>$info['catid']))}">{$info.prev['title']}</a>
+				{else}
+				无
+				{/if}
+				<div class="blank10"></div>
+				<strong>下一篇</strong>
+				{if condition="!empty($info.next)"}
+				<a href="{:url('home/article/info',array('id'=>$info.next['id'],'catId'=>$info['catid']))}">{$info.next['title']}</a>
+				{else}
+				无
+				{/if}
+			</div>
+			<div class="blank60"></div>
+		</div>
+	</div>
+
+{include file="pc/common_footer" /}
+</body>
+</html>

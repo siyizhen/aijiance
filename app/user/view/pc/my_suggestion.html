@@ -9,6 +9,8 @@
             <button class="layui-btn" onclick="fankui()"><i class="layui-icon"></i> 向我们反馈</button>
         </blockquote>
         <blockquote class="layui-elem-quote layui-quote-nm" style="font-size: 14px;">嗨!我们刚刚起步，如果您有任何好的点子、想法或者意见与建议，请告诉我们，我们的管理猿会尽快回复您。有您的关注，我们将更加努力，谢谢!</blockquote>
+
+        {if condition="$listArr.total gt 0"}
         <div class="layui-collapse">
             {volist name="list" id="m"}
             <div class="layui-colla-item">
@@ -26,6 +28,7 @@
             {/volist}
         </div>
         <div style="text-align: center;">{$page}</div>
+        {/if}
     </div>
 
 </div>

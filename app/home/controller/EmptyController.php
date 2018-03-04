@@ -87,7 +87,7 @@ class EmptyController extends Common{
             }
 			$cattemplate = db('category')->where('id',input('catId'))->value('template_list');
 			$template =$cattemplate ? $cattemplate : DBNAME.'_list';
-            return $this->fetch($template);
+            return $this->fetch('pc/'.$template);
         }
     }
     public function info(){
@@ -105,6 +105,18 @@ class EmptyController extends Common{
                 $info['pics'][$k] = explode('|',$v);
             }
         }
+        if(DBNAME=='article'){
+            //获取上一篇、下一篇文章  
+            $map['catid'] = $info['catid'];  
+            $map['id'] = array('neq',input('id'));  
+            $map['listorder'] = array('elt',$info['listorder']);  
+            $map['createtime'] = array('egt',$info['createtime']);  
+            $info['prev'] = db('article',[],false)->where($map)->order('listorder,createtime DESC')->field('id,title,createtime,listorder')->find();  
+              
+            $map['listorder'] = array('egt',$info['listorder']);  
+            $map['createtime'] = array('elt',$info['createtime']);  
+            $info['next'] = db('article',[],false)->where($map)->order('listorder,createtime DESC')->field('id,title,createtime,listorder')->find();  
+        }
         $this->assign('info',$info);
         if($info['template']){
 			$template = $info['template'];
@@ -116,6 +128,7 @@ class EmptyController extends Common{
 				$template = DBNAME.'_show';
 			}
 		}
-        return $this->fetch($template);
+
+        return $this->fetch('pc/'.$template);
     }
 }

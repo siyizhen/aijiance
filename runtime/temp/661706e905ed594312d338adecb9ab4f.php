@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:38:"E:\www\hiv/app/home\view\pc\index.html";i:1520176945;s:46:"E:\www\hiv/app/home\view\pc\common_header.html";i:1519914495;s:46:"E:\www\hiv/app/home\view\pc\common_footer.html";i:1519906443;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:45:"E:\www\hiv/app/home\view\pc\article_show.html";i:1520175016;s:46:"E:\www\hiv/app/home\view\pc\common_header.html";i:1519914495;s:46:"E:\www\hiv/app/home\view\pc\common_footer.html";i:1519906443;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -56,164 +56,45 @@
 			</div>
 		</div>
 	</div>
-
-    <!--banner图-->
-	<div id="bootstrap-touch-slider" class="carousel bs-slider fade control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<?php if(is_array($adList) || $adList instanceof \think\Collection || $adList instanceof \think\Paginator): $i = 0; $__LIST__ = $adList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-			<li data-slide-to="<?php echo $i-1; ?>" <?php if($i == 1): ?>class="active"<?php endif; ?>></li>
-			<?php endforeach; endif; else: echo "" ;endif; ?>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<?php if(is_array($adList) || $adList instanceof \think\Collection || $adList instanceof \think\Paginator): $i = 0; $__LIST__ = $adList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-			<div class="item <?php if($i == 1): ?>active<?php endif; ?>">
-				<img  src="__PUBLIC__<?php echo $vo['pic']; ?>" alt="<?php echo $vo['name']; ?>" class="slide-image">
-				<!-- Slide Text Layer -->
-				<div class="slide-text slide_style_center">
-					<h1 data-animation="animated flipInX"><?php echo $vo['name']; ?></h1>
-					<p data-animation="animated lightSpeedIn"><?php echo $vo['content']; ?></p> 
-					<a href="<?php echo $vo['url']; ?>" target="_blank" class="btn btn-primary">了解更多</a>
-				</div>
-			</div>
-			<?php endforeach; endif; else: echo "" ;endif; ?>
-		</div>
-
-		<!-- Left Control -->
-		<a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-
-		<!-- Right Control -->
-		<a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-	
 	<div class="index">
-		<!--中部碎片-->
-		<div class="section1">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="s1-item wow fadeInUp" data-wow-delay="300ms">
-							<a  href="home/reagent/index/catId/15.html" title="" target="_blank" >
-								<div class="s1-img">
-									<img src="__HOME__/pc/demo/business-template/v398/upload/images/201706/14987232797628.jpg" />
-								</div>
-								<div class="s1-text">
-									<h4><font>艾检测小黄盒</font></h4>
-									<p>申请流程简单，信息全程保密</p>
-									<p>5分钟内知晓结果，平台就近推荐专业检测机构为您答疑解惑</p>
-								</div>
-							</a>
-						</div>
-					</div>
-
-					<div class="col-sm-6">
-						<div class="s1-item wow fadeInUp" data-wow-delay="300ms">
-							<a href="demo/business-template/V398/fu-wu/show_171.html" title="" target="_blank" >
-								<div class="s1-img">
-									<img src="__HOME__/pc/demo/business-template/v398/upload/images/201706/14987284560146.jpg" />
-								</div>
-								<div class="s1-text">
-									<h4><font>艾滋病病毒感染保险金</font></h4>
-									<p>等待期90天后，于30日内通过HIV阴性监测的健康被保人</p>
-									<p>保障期间内感染HIV即可获得保险金10万被保人卖淫、</p>
-									<p style="margin-left:160px !important;">嫖娼、使用毒品、管制药物期间患病的除外</p>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
+		<div class="container ">
+			<div class="row">
+				<nav>
+					<ol class="breadcrumb"><span class="glyphicon glyphicon-list"></span>
+						<li><a href="demo/business-template/V398/">网站首页</a></li>
+						<li><a title="新闻" href="demo/business-template/V398/news">新闻</a></li>
+					</ol>
+				</nav>
 			</div>
 		</div>
-
-		<div class="section3" data-stellar-background-ratio="0.1">
-			<div class="container">
-				<div class="s3-ico"></div>
-				<div class="s3-content wow fadeInUp">
-					<h4>关于我们</h4>
-					<p>about us<p>
-					<div class="s3-text">艾检测是由湖南户晓科技发展有限公司联合众多国内防艾公益组织、政府机构、社区人群共同开发的一款艾滋病综合服务平台。您可通过本平台查询合作医疗机构的HIV初筛检测结果、申请免费的HIV检测试剂……</div>
-					<a class="s3-more" href="about/14.html" target="_blank">more<span class="fa fa-angle-right"></a>
-				</div>
-			</div>
+		<div class="title">
+			<h3><a><?php echo $info['title']; ?><small>作者：<?php echo $sys['name']; ?>&nbsp;&nbsp;&nbsp;&nbsp;时间：<?php echo toDate($info['createtime'],'Y-m-d H:i:s'); ?></small></a></h3>
 		</div>
-		<div class="section4" style="padding-bottom: 0;">
-			<div class="title10 wow fadeInUp">
-				<h4><a href="<?php echo url('home/article/index',['catId'=>16]); ?>" title="" target="_blank">新闻资讯</a></h4>
-				<p>news</p>
+		<hr class="featurette-divider">
+		<div class="container">
+			<div>
+				<?php echo $info['content']; ?>
 			</div>
-			<div class="blank20"></div>
-			<div class="blank20"></div>
-			<div class="container">
-				<div class="row">
-					<?php $result = db("article")->alias("a")->join("ajc_category c","a.catid = c.id","left")
-            ->where("posid = 1")
-            ->field("a.*,c.catdir")
-            ->limit(3)
-            ->order("listorder asc,createtime desc")
-            ->select();foreach ($result as $k=>$vo):?>	
-					<div class="col-md-4">
-						<div class="s4-item wow fadeInUp">
-							<a href="<?php echo url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid'])); ?>" target="_blank" >
-							<div class="s4-date">
-								<div class="s4-date-ico"><span class="fa fa-angle-right"></span></div>
-								<div class="s4-date-md"><?php echo toDate($vo['createtime'],'m-d'); ?></div>
-								<div class="s4-date-y"><?php echo toDate($vo['createtime'],'Y'); ?></div>
-							</div>
-							<div class="s4-text">
-								<h4><font style="color:;"><?php echo str_cut($vo['title'],30,'...'); ?></font></h4>
-								<p><?php echo str_cut(strip_tags($vo['content']),120); ?></p>
-							</div>
-							</a>
-						</div>
-					</div>
-					<?php endforeach ?>
-				</div>
+			<div id="page">
+				<strong>上一篇</strong>
+				<?php if(!empty($info['prev'])): ?>
+				<a href="<?php echo url('home/article/info',array('id'=>$info['prev']['id'],'catId'=>$info['catid'])); ?>"><?php echo $info['prev']['title']; ?></a>
+				<?php else: ?>
+				无
+				<?php endif; ?>
+				<div class="blank10"></div>
+				<strong>下一篇</strong>
+				<?php if(!empty($info['next'])): ?>
+				<a href="<?php echo url('home/article/info',array('id'=>$info['next']['id'],'catId'=>$info['catid'])); ?>"><?php echo $info['next']['title']; ?></a>
+				<?php else: ?>
+				无
+				<?php endif; ?>
 			</div>
-		</div>
-
-		<div class="section2" style="padding: 0;">
-			<div class="title10 wow fadeInUp" data-wow-delay="300ms"> 
-				<h4><a href="home/article/index/catId/17.html" title="" target="_blank">媒体报道</a></h4>
-				<p>Media reports</p>
-			</div>
-			<div class="container">
-				<div class="row">
-					<?php $result = db("article")->alias("a")->join("ajc_category c","a.catid = c.id","left")
-            ->where("catid=17")
-            ->field("a.*,c.catdir")
-            ->limit(8)
-            ->order("listorder asc,createtime desc")
-            ->select();foreach ($result as $k=>$vo):?>	
-					<div class="col-sm-3 col-xs-6">
-						<div class="s2-item wow fadeInUp" data-wow-delay="300ms">
-							<a href="<?php echo url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid'])); ?>" target="_blank" >
-								<div class="s2-img">
-									<img src="__PUBLIC__<?php echo $vo['thumb']; ?>" />
-									<div class="s2-ico"></div>
-								</div>
-								<div class="s2-text">
-									<h4><font><?php echo str_cut($vo['title'],30,'...'); ?></font></h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<?php endforeach ?>
-				</div>
-				<div class="index-more wow fadeInUp">
-					<a href="home/article/index/catId/17.html" target="_blank">more<span class="fa fa-angle-right"></span>
-					</a>
-				</div>
-			</div>
+			<div class="blank60"></div>
 		</div>
 	</div>
 
-	<?php $qqArr=explode('|',$sys['qq']);?>
+<?php $qqArr=explode('|',$sys['qq']);?>
 <div class="foot">
 		<div class="container">
 			<div class="row wow fadeInUp">

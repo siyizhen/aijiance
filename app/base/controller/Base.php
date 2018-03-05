@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 16:42:59
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-04 17:53:11
+ * @Last Modified time: 2018-03-05 13:30:16
  */
 namespace app\base\controller;
 use think\Controller;
@@ -49,5 +49,21 @@ class Base extends Controller{
     		$arr=['status'=>0,'msg'=>'系统繁忙，请稍后再试！'];
     	}
     	return json($arr);
+    }
+
+    public function showMessage($type='pc',$param){
+        $this->assign('param',$param);
+        if($type=='pc'){
+            return $this->fetch('pc/message');
+        }
+    }
+
+    public function isLogin(){
+        if(!session('user.id')){
+            $arr=['status'=>0,'msg'=>'请先登录！'];
+        }else{
+            $arr=['status'=>1];
+        }
+        return json($arr);
     }
 }

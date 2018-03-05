@@ -13,6 +13,9 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">我的防艾险 <span class="layui-badge">保障中</span></a>
             </li>
+            <li class="layui-nav-item <?php if(in_array(request()->action(),['myquestionnaire','myQuestionnaire','myqustion','myQuestion'])):?>layui-this<?php endif;?>">
+                <a href="{:url('myQuestionnaire')}">我的问卷</a>
+            </li>
             <li class="layui-nav-item <?php if(in_array(request()->action(),['myinfo','myInfo'])):?>layui-this<?php endif;?>">
                 <a href="{:url('myInfo')}">个人资料</a>
             </li>

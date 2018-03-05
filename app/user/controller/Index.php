@@ -249,4 +249,60 @@ class Index extends Common{
         $this->assign('info',$info);
         return $this->fetch('pc/send_msg_detail');
     }
+
+    public function myQuestionnaire(){
+        if(request()->isAjax()){
+            $page =input('page')?input('page'):1;
+            $pageSize =input('limit')?input('limit'):config('pageSize');
+            $where=[
+                'userid'=>$this->userid
+            ];
+            $list=db('questionnaires',[],false)->alias('a')
+                ->join('__REPLY__ b','a.id=b.questionnaire_id')
+                ->where($where)
+                ->order('b.addtime desc')
+                ->field('a.id as questionnaire_id,a.*,b.*')
+                ->paginate(array('list_rows'=>$pageSize,'page'=>$page))
+                ->toArray();
+            foreach ($list['data'] as $k=>$v){
+                $list['data'][$k]['addtime'] = date('Y-m-d H:s',$v['addtime']);
+                $list['data'][$k]['indexs']=($page-1)*$pageSize+($k+1);
+            }
+            return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
+        }
+        return $this->fetch('pc/my_questionnaire');
+    }
+
+    public function myQuestion(){
+        $where=[
+            'questionnaire_id'=>input('param.questionnaire_id'),
+            'userid'=>$this->userid
+        ];
+        $answerRow=db('reply')->where($where)->find();
+
+        $rows=[];
+        if(!empty($answerRow)){
+            $replyRow=json_decode($answerRow['reply'],true);
+            foreach ($replyRow as $k => $v) {
+                $replyRow[$k]=explode(',',$v);
+            }
+            $rows=db('questions')->where('questionnaire_id',$answerRow['questionnaire_id'])->select();
+            foreach ($rows as $k => $v) {
+                $optionsList=json_decode($v['options'],true);
+                $rows[$k]['answer']='';
+                if($optionsList[0]['type']!='textarea'){
+                    if(isset($replyRow[$v['id']])){
+                        foreach ($replyRow[$v['id']] as $m => $n) {
+                            $rows[$k]['answer'].=$optionsList[$n]['text'].' ';
+                        }
+                    }
+                }else{
+                    $rows[$k]['answer']=$replyRow[$v['id']][0];
+                }
+                $rows[$k]['indexs']=$k+1;
+            }
+        }
+        $this->assign('questions',$rows);
+        return $this->fetch('pc/my_question');
+    }
 }

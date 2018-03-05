@@ -932,3 +932,20 @@ function getMsgType($key){
     $arr=msgType();
     return $arr[$key];
 }
+
+/**
+ * 是否默认
+ * @return  
+ */
+function isUse(){
+    $arr=[
+        1=>'否',
+        2=>'是'
+    ];
+    return $arr;
+}
+
+function getIsUse($key){
+    $arr=isUse();
+    return $arr[$key];
+}

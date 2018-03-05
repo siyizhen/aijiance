@@ -1,0 +1,45 @@
+{include file="pc/user_header" /}
+
+<div class="main fly-user-main layui-clear layui-anim">
+    {include file="pc/user_left" /}
+
+    <div class="fly-panel fly-panel-user" style="margin-top: 70px;">
+        <!--我的问卷-->
+        <table class="layui-hide" id="list"></table>
+    </div>
+
+</div>
+{include file="pc/user_footer" /}
+<script type="text/html" id="title">
+	{{#  if(d.origin_is_read == 2){ }}
+		<a href="{:url('myQuestion')}?questionnaire_id={{d.id}}" class="layui-table-link">{{d.title}}</a> <span class="layui-badge-dot"></span>
+	{{#  } else { }}
+		<a href="{:url('myQuestion')}?questionnaire_id={{d.id}}" class="layui-table-link">{{d.title}}</a>
+	{{#  } }}
+</script>
+
+<script>
+	layui.use('table', function(){
+		var table = layui.table;
+
+		table.render({
+			id:'list',
+			elem: '#list'
+			,url: "{:url('user/index/myQuestionnaire')}"
+			,page: true
+			,cols: [[
+			{field:'indexs', width:80, title: '编号',},
+			{field:'title', width:'626', title: '问卷(点击查看)',templet: '#title'},
+			{field:'addtime', width:'150', title: '时间'},
+			]]
+		});
+
+		$("#search").click(function() {
+			table.reload('list', {
+		        where:{is_read:$.trim($("#is_read").val())}
+		    })
+		});
+	});
+</script>
+</body>
+</html>

@@ -34,9 +34,9 @@ class Login extends Common{
             }
             session('user',$data);
             if(!empty(input('param.preferUrl'))){
-                return array('code'=>1,'msg'=>'登录成功','url' =>input('param.preferUrl'));
+                return array('code'=>1,'msg'=>'登录成功','url' =>input('param.preferUrl'),'sence'=>input('param.sence'));
             }else{
-                return array('code'=>1,'msg'=>'登录成功','url' => url('index/myInfo'));
+                return array('code'=>1,'msg'=>'登录成功','url' => url('index/myInfo'),'sence'=>input('param.sence'));
             }
         }else{
             $plugin = db('plugin')->where(['type'=>'login','status'=>1])->select();

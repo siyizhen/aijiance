@@ -1,4 +1,61 @@
-﻿{include file="home@pc/common_header"}
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:38:"F:\www\hiv/app/user\view\pc\login.html";i:1520229318;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1520211232;}*/ ?>
+﻿<!DOCTYPE html>
+<head>
+	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
+	<title><?php if($info['title']): ?><?php echo $info['title']; elseif($title): ?><?php echo $title; else: ?><?php echo $sys['title']; endif; ?></title>
+	<meta name="renderer" content="webkit">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="keywords" content="<?php if($info['keywords']): ?><?php echo $info['keywords']; elseif($keywords): ?><?php echo $keywords; else: ?><?php echo $sys['key']; endif; ?>" />
+    <meta name="description" content="<?php if($info['description']): ?><?php echo $info['description']; elseif($description): ?><?php echo $description; else: ?><?php echo $sys['des']; endif; ?>" />
+	<link href="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/css/bootstrap.min.css" rel="stylesheet">
+	<link href="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/css/style.css" rel="stylesheet">
+	<link href="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/css/font-awesome.css" rel="stylesheet">
+	<link href="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.css" rel="stylesheet" media="all">
+	<link rel="stylesheet" href="__HOME__/pc/css/index.css">
+</head>
+<body>
+	<div class="hidden-xs">
+		<div id="header" class="clearfix">
+			<div class="">
+				<div class="logo-box">
+					<a href="<?php echo url('home/index/index'); ?>"><img src="__PUBLIC__<?php echo $sys['logo']; ?>" alt="<?php echo $sys['name']; ?>" />
+					</a>
+				</div>
+				<div class="menu">
+					<ul>
+						<li <?php if($controller == index): ?>class="on"<?php endif; ?>><a href="<?php echo url('home/index/index'); ?>">网站首页</a></li>
+						<li><a href="">防艾险</a></li>
+						<li><a href="<?php echo url('home/question/question'); ?>">问卷中心</a></li>
+						<?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+		                <li <?php if($controller == $vo['catdir']): ?>class="on"<?php endif; ?>>
+		                    <a href="<?php echo url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']]); ?>" title="<?php echo $vo['catname']; ?>-<?php echo $sys['name']; ?>"><?php echo $vo['catname']; ?></a>
+		                </li>
+		                <?php endforeach; endif; else: echo "" ;endif; ?>
+						<li>
+							<a href="<?php echo url('user/index/myInfo'); ?>">
+								<?php if(empty(session('user'))): ?>
+								个人中心
+								<?php else: ?>
+								<?php echo substr_replace(session('user.username'),'****',3,4); endif; ?>
+								<span class="fa fa-angle-down"></span>
+							</a>
+							<div class="menu2" style="left:0;width: 100px;">
+								<ul>
+									<?php if(empty(session('user'))): ?>
+									<li><a href="<?php echo url('user/login/index'); ?>">登录</a></li>
+									<?php else: ?>
+									<li><a href="<?php echo url('user/common/logout'); ?>">退出</a></li>
+									<?php endif; ?>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 <style>
     body{background: #F2F2F2 !important;}
 </style>
@@ -30,8 +87,8 @@
                                     <input type="text" id="code" name="code" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
-                            <input type="hidden" value="{:input('param.preferUrl')}" name="preferUrl"> 
-                            <input type="hidden" value="{:input('param.sence')}" name="sence">
+                            <input type="hidden" value="<?php echo input('param.preferUrl'); ?>" name="preferUrl"> 
+                            <input type="hidden" value="<?php echo input('param.sence'); ?>" name="sence">
                             <div class="layui-form-item">
                                 <input type="button" class="layui-btn" lay-submit lay-filter="sub" value="立即登录">
                             </div>
@@ -48,11 +105,11 @@
 </div>
 
 <div class="fly-footer">
-    <p>{$sys.name} © {$sys.copyright} All rights reserved.</p>
+    <p><?php echo $sys['name']; ?> © <?php echo $sys['copyright']; ?> All rights reserved.</p>
     <p>
-        {volist name="category" id="vo"}
-        <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] )}" target="_blank">{$vo.catname}</a>
-        {/volist}
+        <?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+        <a href="<?php echo url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] ); ?>" target="_blank"><?php echo $vo['catname']; ?></a>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
     </p>
 </div>
 
@@ -67,12 +124,13 @@
         // 登录提交监听
         form.on('submit(sub)', function (data) {
             var loading = layer.load(1, {shade: [0.1, '#fff']});
-            $.post("{:url('login/index')}",data.field,function(res){
+            $.post("<?php echo url('login/index'); ?>",data.field,function(res){
                 layer.close(loading);
                 if(res.code > 0){
                     layer.msg(res.msg,{time:1000,icon:1},function(){
                         if(res.sence=='question'){
                             parent.layer.closeAll();
+                            parent.submits();
                         }else{
                             location.href = res.url;
                         }
@@ -93,7 +151,7 @@
             checkPhone(); //验证手机号码
             if(isPhone){
                 $.ajax({
-                    url: "{:url('base/base/getCode')}",
+                    url: "<?php echo url('base/base/getCode'); ?>",
                     type: 'GET',
                     dataType: 'json',
                     data: {type:'login',phone:$('#username').val()},
@@ -115,7 +173,7 @@
         //验证手机号码
         function checkPhone(){
             var username = $('#username').val();
-            var pattern = {:config('reg.phone')};
+            var pattern = <?php echo config('reg.phone'); ?>;
             isPhone = 1;
             if(username == '') {
                 layer.msg('请输入手机号码',{icon:2});

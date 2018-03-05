@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-01-05 14:01:02
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-05 09:30:04
+ * @Last Modified time: 2018-03-05 22:16:40
  */
 namespace app\admin\controller;
 use think\Db;
@@ -167,5 +167,44 @@ class Question extends Common{
         $result['code'] = 1;
         $result['url'] = url('questions');
         return $result;
+    }
+
+    public function tongJi(){
+        $questionnaire_id=input('param.questionnaire_id');
+        $info=db('questionnaires')->where('id',$questionnaire_id)->find();
+
+        $questions=db('questions',[],false)->where('questionnaire_id',$questionnaire_id)->select();
+        $rows=[];
+        foreach ($questions as $k => $v) {
+            $questions[$k]['optionsList']=json_decode($v['options'],true);
+            foreach ($questions[$k]['optionsList'] as $m => $n) {
+                $questions[$k]['optionsList'][$m]['nums']=$questions[$k]['optionsList'][$m]['per']=0;
+            }
+            $questions[$k]['indexs']=$k+1;
+            $rows[$v['id']]=$questions[$k];
+        }
+        unset($questions);
+
+
+        $replyRows=db('reply',[],false)->where('questionnaire_id',$questionnaire_id)->select();
+        $total=count($replyRows);
+
+        foreach ($replyRows as $k => $v) {
+            $replyRows[$k]['reply']=json_decode($v['reply'],true);
+            foreach ($replyRows[$k]['reply'] as $m => $n) {
+                $rows[$m]['optionsList'][$n]['nums']+=1;
+                $rows[$m]['optionsList'][$n]['per']+=1/$total;
+            }
+        }
+        unset($replyRows);
+
+        foreach ($rows as $k => $v) {
+            foreach ($rows[$k]['optionsList']    as $m => $n) {
+                $rows[$k]['optionsList'][$m]['per']=sprintf('%.2f',$n['per']*100);   
+            }
+        }
+        $this->assign('info',$info);
+        $this->assign('questions',$rows);
+        return $this->fetch('tongji');
     }
 }

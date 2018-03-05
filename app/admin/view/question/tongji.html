@@ -1,0 +1,48 @@
+{include file="common/head"/}
+<style>
+	.layui-table td, .layui-table th{
+    	font-size: 12px;
+    	padding:3px;
+    }
+    .layui-field-title{
+    	margin: 10px 0 5px;
+    }
+</style>
+<fieldset class="layui-elem-field layui-field-title">
+	<legend>{$info.title}的数据统计</legend>
+</fieldset>
+<div class="layui-form" style="width: 750px;">
+  <table class="layui-table">
+    <thead>
+      <tr>
+        <th width="30">编号</th>
+        <th width="500">问题</th>
+        <th width="150">选项</th>
+        <th width="30">人数</th>
+        <th width="40">百分比</th>
+      </tr> 
+    </thead>
+    <tbody>
+    	{volist name="questions" id="m"}
+		<tr>
+			<td rowspan="{:count($m.optionsList)}">{$m.indexs}</td>
+			<td rowspan="{:count($m.optionsList)}">{$m.question}{if condition="$m.optionsList[0]['type'] eq 'checkbox'"}(多选){/if}</td>
+			<td>{$m.optionsList[0]['text']}</td>
+			<td>{$m.optionsList[0]['nums']}</td>
+			<td>{$m.optionsList[0]['per']}%</td>
+		</tr>
+		{volist name="m.optionsList" id="mm" key="nn"}
+		{if condition="$nn gt 1"}
+		<tr>
+			<td>{$mm.text}</td>
+			<td>{$mm.nums}</td>
+			<td>{$mm.per}%</td>
+		</tr>
+		{/if}
+		{/volist}
+		{/volist}
+    </tbody>
+  </table>
+  <button class="layui-btn layui-btn-primary" style="margin:10px 0 0 10px;" onclick="history.back();">返回问卷列表</button>
+</div>
+{include file="common/foot"/}

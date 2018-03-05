@@ -12,9 +12,9 @@
 {include file="pc/user_footer" /}
 <script type="text/html" id="title">
 	{{#  if(d.origin_is_read == 2){ }}
-		<a href="{:url('myQuestion')}?questionnaire_id={{d.id}}" class="layui-table-link">{{d.title}}</a> <span class="layui-badge-dot"></span>
+		<a href="{:url('myQuestion')}?questionnaire_id={{d.questionnaire_id}}" class="layui-table-link">{{d.title}}</a> <span class="layui-badge-dot"></span>
 	{{#  } else { }}
-		<a href="{:url('myQuestion')}?questionnaire_id={{d.id}}" class="layui-table-link">{{d.title}}</a>
+		<a href="{:url('myQuestion')}?questionnaire_id={{d.questionnaire_id}}" class="layui-table-link">{{d.title}}</a>
 	{{#  } }}
 </script>
 

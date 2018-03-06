@@ -1,0 +1,21 @@
+<div class="servers">
+	<div id="top">
+		<div id="izl_rmenu" class="izl-rmenu">
+			<div class="sbtn btn-qq">
+				<div class="qq">
+					{volist name="qqArr" id="m" key="n"}
+					<a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$m}&site=qq&menu=yes">客服{$n}</a>
+					{if condition="count($qqArr) neq $n"}
+					<br />
+					{/if}
+					{/volist}
+				</div>
+			</div>
+			<div class="sbtn btn-wx"><img class="pic" src="__PUBLIC__/{$sys.wechat_logo}"></div>
+			<div class="sbtn btn-phone">
+				<div class="phone">{$sys.tel}</div>
+			</div>
+			<div class="sbtn btn-top"></div>
+		</div>
+	</div>
+</div>

@@ -278,12 +278,15 @@ return [
         'login'=>'SMS_104940040',
         'register'=>'SMS_105145065',
         'change_phone'=>'SMS_104940036',
-        'new_phone'=>'SMS_104940042'
+        'new_phone'=>'SMS_104940042',
+        'baoxian'=>'SMS_104940042'
     ],
     'cacheTime'=>[
         'login'=>300,
         'change_phone'=>300,
-        'new_phone'=>300
+        'new_phone'=>300,
+        'baoxian'=>300
     ],
-    'money'=>15
+    'money'=>15,
+    'baoxian_money'=>365
 ];

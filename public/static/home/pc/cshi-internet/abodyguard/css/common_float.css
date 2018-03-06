@@ -1,0 +1,74 @@
+/* ÓÒ²à¸¡²ã¿ªÊ¼ */
+.right-fuceng{
+  position: fixed;
+  top: 30%;
+  right: 0;
+  z-index: 9999999;
+}
+
+.fuceng-list{
+  position: absolute;
+  right: 0;
+  background-color:#F7F7F7;
+}
+#j-erweima{
+  height: 50px;
+  padding: 0;
+}
+.fuceng-list ul li a.btn-erweima{
+  padding-top: 8.5px;
+}
+.fuceng-list ul li{
+  width: 50px;
+  height: 26px;
+  border-bottom: 1px solid #acacac;
+  position: relative;
+  padding: 12px 0;
+}
+.fuceng-list ul li a{
+  position: relative;
+  width: 36px;
+  height: 26px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+.fuceng-show-wrap{
+  position: absolute;
+ top: -60px;
+  right: 61px;
+  z-index: 99;
+  display: none;
+}
+.fuceng-list ul li.bn{
+  border-bottom: none;
+}
+.fuceng-list ul li a.btn-gotop{
+  background-position: 0 -158px;
+}
+.fuceng-list ul li a.btn-weixin, .fuceng-list ul li a.btn-gotop{
+  background: url(/cshi-internet/abodyguard/images/icon-health.png) no-repeat;
+  text-indent: -9999px;
+}
+.fuceng-show-wrap b{
+  position: absolute;
+  top: 70px;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #c5c4c4;
+  border-bottom: 10px solid transparent;
+}
+.fuceng-list ul li a.btn-weixin, .fuceng-list ul li a.btn-gotop{
+  background: url(/cshi-internet/abodyguard/images/icon-health.png) no-repeat;
+  text-indent: -9999px;
+}
+.fuceng-list ul li a.btn-weixin{
+  background-position: 0 -105px;
+}
+.fuceng-list ul li a.btn-gotop{
+  background-position: 0 -158px;
+}
+/* ÓÒ²à¸¡²ã½áÊø */
+

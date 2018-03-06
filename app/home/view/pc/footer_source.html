@@ -1,0 +1,62 @@
+<script src="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/js/jquery.min.js"></script>
+<script src="__HOME__/pc/template/default_bootstrap/skin/js/bootstrap.min.js"></script>
+<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/jquery.touchSwipe.min.js"></script>
+<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.js"></script>
+<script src="__HOME__/pc/js/layer/layer.js"></script>
+<script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
+
+<script type="text/javascript">
+	//微信公众号的显示与隐藏
+	$("#weixin").click(function() {
+		$("#outer-w").show();
+	});
+	$("#close").click(function() {
+		$("#outer-w").hide();
+	});
+
+	$(function(){
+		$("#izl_rmenu").each(function(){
+			$(this).find(".btn-qq").mouseenter(function(){
+				$(this).find(".qq").fadeIn("fast");
+			});
+			$(this).find(".btn-qq").mouseleave(function(){
+				$(this).find(".qq").fadeOut("fast");
+			});
+			$(this).find(".btn-wx").mouseenter(function(){
+				$(this).find(".pic").fadeIn("fast");
+			});
+			$(this).find(".btn-wx").mouseleave(function(){
+				$(this).find(".pic").fadeOut("fast");
+			});
+			$(this).find(".btn-phone").mouseenter(function(){
+				$(this).find(".phone").fadeIn("fast");
+			});
+			$(this).find(".btn-phone").mouseleave(function(){
+				$(this).find(".phone").fadeOut("fast");
+			});
+			$(this).find(".btn-top").click(function(){
+				$("html, body").animate({
+					"scroll-top":0
+				},"fast");
+			});
+		});
+
+		var lastRmenuStatus=false;
+		$(window).scroll(function(){
+			var _top=$(window).scrollTop();
+			if(_top>200){
+				$("#izl_rmenu").data("expanded",true);
+			}else{
+				$("#izl_rmenu").data("expanded",false);
+			}
+			if($("#izl_rmenu").data("expanded")!=lastRmenuStatus){
+				lastRmenuStatus=$("#izl_rmenu").data("expanded");
+				if(lastRmenuStatus){
+					$("#izl_rmenu .btn-top").slideDown();
+				}else{
+					$("#izl_rmenu .btn-top").slideUp();
+				}
+			}
+		});
+	});
+</script>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:38:"F:\www\hiv/app/home\view\pc\index.html";i:1520210002;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1520211232;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1519894196;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:38:"F:\www\hiv/app/home\view\pc\index.html";i:1520210002;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1520318094;s:46:"F:\www\hiv/app/home\view\pc\common_footer.html";i:1520318712;s:39:"F:\www\hiv/app/home\view\pc\bottom.html";i:1520318610;s:39:"F:\www\hiv/app/home\view\pc\leftkf.html";i:1520318666;s:46:"F:\www\hiv/app/home\view\pc\footer_source.html";i:1520318730;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -26,7 +26,7 @@
 				<div class="menu">
 					<ul>
 						<li <?php if($controller == index): ?>class="on"<?php endif; ?>><a href="<?php echo url('home/index/index'); ?>">网站首页</a></li>
-						<li><a href="">防艾险</a></li>
+						<li><a href="<?php echo url('home/baoxian/index'); ?>">防艾险</a></li>
 						<li><a href="<?php echo url('home/question/question'); ?>">问卷中心</a></li>
 						<?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 		                <li <?php if($controller == $vo['catdir']): ?>class="on"<?php endif; ?>>
@@ -215,136 +215,134 @@
 
 	<?php $qqArr=explode('|',$sys['qq']);?>
 <div class="foot">
-		<div class="container">
-			<div class="row wow fadeInUp">
-				<div class="col-sm-4 foot1">
-					<ul>
-						<li>电 话：<?php echo $sys['tel']; ?></li>
-						<li>邮 箱：<?php echo $sys['email']; ?></li>
-					</ul>
+	<div class="container">
+		<div class="row wow fadeInUp">
+			<div class="col-sm-4 foot1">
+				<ul>
+					<li>电 话：<?php echo $sys['tel']; ?></li>
+					<li>邮 箱：<?php echo $sys['email']; ?></li>
+				</ul>
+			</div>
+			<div class="col-sm-4 foot2">
+				<ul>
+					<li>第三方平台</li>
+					<li class="fenxiang clearfix">						
+						<!-- <a href="#"><span class="fa fa-weibo"></span></a> -->
+						<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qqArr[0]; ?>&site=qq&menu=yes" target="_blank"><span class="fa fa-qq"></span></a>
+						<a id="weixin" href="javascript:;"><span class="fa fa-weixin"></span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-4 foot3">
+				<ul>
+					<li>地 址：<?php echo $sys['ads']; ?></li>
+					<li>邮政编码：410000</li>
+				</ul>
+			</div>				
+		</div>
+	</div>
+</div>
+
+<div class="foot-b">
+	<div class="container">
+	Copyright © <?php echo $sys['copyright']; ?> <a href="<?php echo url('home/index/index'); ?>" target="_blank"><?php echo $sys['name']; ?></a> All rights reserved.&nbsp;&nbsp;<a rel="nofollow" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank"><?php echo $sys['bah']; ?></a>&nbsp;&nbsp;艾检测工作室提供技术支持
+	</div>
+</div>
+
+<div id="outer-w">
+	<div id="outer" >
+		<div id="middle">
+			<div id="inner" class="inner">
+				<div class="inner1">
+					<img src="__PUBLIC__/<?php echo $sys['wechat_logo']; ?>" width="200" height="200" alt="" />
+				<div id="close"></div>
 				</div>
-				<div class="col-sm-4 foot2">
-					<ul>
-						<li>第三方平台</li>
-						<li class="fenxiang clearfix">						
-							<!-- <a href="#"><span class="fa fa-weibo"></span></a> -->
-							<a rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $qqArr[0]; ?>&site=qq&menu=yes" target="_blank"><span class="fa fa-qq"></span></a>
-							<a id="weixin" href="javascript:;"><span class="fa fa-weixin"></span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-sm-4 foot3">
-					<ul>
-						<li>地 址：<?php echo $sys['ads']; ?></li>
-						<li>邮政编码：410000</li>
-					</ul>
-				</div>				
 			</div>
 		</div>
 	</div>
-
-	<div class="foot-b">
-		<div class="container">
-		Copyright © <?php echo $sys['copyright']; ?> <a href="<?php echo url('home/index/index'); ?>" target="_blank"><?php echo $sys['name']; ?></a> All rights reserved.&nbsp;&nbsp;<a rel="nofollow" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank"><?php echo $sys['bah']; ?></a>&nbsp;&nbsp;艾检测工作室提供技术支持
-		</div>
-	</div>
-
-	<div class="servers">
-		<div id="top">
-			<div id="izl_rmenu" class="izl-rmenu">
-				<div class="sbtn btn-qq">
-					<div class="qq">
-						<?php if(is_array($qqArr) || $qqArr instanceof \think\Collection || $qqArr instanceof \think\Paginator): $n = 0; $__LIST__ = $qqArr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($n % 2 );++$n;?>
-						<a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $m; ?>&site=qq&menu=yes">客服<?php echo $n; ?></a>
-						<?php if(count($qqArr) != $n): ?>
-						<br />
-						<?php endif; endforeach; endif; else: echo "" ;endif; ?>
-					</div>
-				</div>
-				<div class="sbtn btn-wx"><img class="pic" src="__PUBLIC__/<?php echo $sys['wechat_logo']; ?>"></div>
-				<div class="sbtn btn-phone">
-					<div class="phone"><?php echo $sys['tel']; ?></div>
-				</div>
-				<div class="sbtn btn-top"></div>
-			</div>
-		</div>
-	</div>
-
-	<div id="outer-w">
-		<div id="outer" >
-			<div id="middle">
-				<div id="inner" class="inner">
-					<div class="inner1">
-						<img src="__PUBLIC__/<?php echo $sys['wechat_logo']; ?>" width="200" height="200" alt="" />
-					<div id="close"></div>
-					</div>
+	<div id="bg-black"></div>	
+</div>
+<div class="servers">
+	<div id="top">
+		<div id="izl_rmenu" class="izl-rmenu">
+			<div class="sbtn btn-qq">
+				<div class="qq">
+					<?php if(is_array($qqArr) || $qqArr instanceof \think\Collection || $qqArr instanceof \think\Paginator): $n = 0; $__LIST__ = $qqArr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($n % 2 );++$n;?>
+					<a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $m; ?>&site=qq&menu=yes">客服<?php echo $n; ?></a>
+					<?php if(count($qqArr) != $n): ?>
+					<br />
+					<?php endif; endforeach; endif; else: echo "" ;endif; ?>
 				</div>
 			</div>
+			<div class="sbtn btn-wx"><img class="pic" src="__PUBLIC__/<?php echo $sys['wechat_logo']; ?>"></div>
+			<div class="sbtn btn-phone">
+				<div class="phone"><?php echo $sys['tel']; ?></div>
+			</div>
+			<div class="sbtn btn-top"></div>
 		</div>
-		<div id="bg-black"></div>	
 	</div>
-	
-	<script src="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/js/jquery.min.js"></script>
-	<script src="__HOME__/pc/template/default_bootstrap/skin/js/bootstrap.min.js"></script>
-	<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/jquery.touchSwipe.min.js"></script>
-    <script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.js"></script>
-    <script src="__HOME__/pc/js/layer/layer.js"></script>
-    <script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
-    
-	<script type="text/javascript">
-		//微信公众号的显示与隐藏
-		$("#weixin").click(function() {
-			$("#outer-w").show();
-		});
-		$("#close").click(function() {
-			$("#outer-w").hide();
-		});
+</div>
+<script src="__HOME__/pc/demo/business-template/V398/template/CmsEasy_V_398/skin/js/jquery.min.js"></script>
+<script src="__HOME__/pc/template/default_bootstrap/skin/js/bootstrap.min.js"></script>
+<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/jquery.touchSwipe.min.js"></script>
+<script src="__HOME__/pc/template/default_bootstrap/skin/js/slide/bootstrap-touch-slider.js"></script>
+<script src="__HOME__/pc/js/layer/layer.js"></script>
+<script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
 
-		$(function(){
-			$("#izl_rmenu").each(function(){
-				$(this).find(".btn-qq").mouseenter(function(){
-					$(this).find(".qq").fadeIn("fast");
-				});
-				$(this).find(".btn-qq").mouseleave(function(){
-					$(this).find(".qq").fadeOut("fast");
-				});
-				$(this).find(".btn-wx").mouseenter(function(){
-					$(this).find(".pic").fadeIn("fast");
-				});
-				$(this).find(".btn-wx").mouseleave(function(){
-					$(this).find(".pic").fadeOut("fast");
-				});
-				$(this).find(".btn-phone").mouseenter(function(){
-					$(this).find(".phone").fadeIn("fast");
-				});
-				$(this).find(".btn-phone").mouseleave(function(){
-					$(this).find(".phone").fadeOut("fast");
-				});
-				$(this).find(".btn-top").click(function(){
-					$("html, body").animate({
-						"scroll-top":0
-					},"fast");
-				});
+<script type="text/javascript">
+	//微信公众号的显示与隐藏
+	$("#weixin").click(function() {
+		$("#outer-w").show();
+	});
+	$("#close").click(function() {
+		$("#outer-w").hide();
+	});
+
+	$(function(){
+		$("#izl_rmenu").each(function(){
+			$(this).find(".btn-qq").mouseenter(function(){
+				$(this).find(".qq").fadeIn("fast");
 			});
+			$(this).find(".btn-qq").mouseleave(function(){
+				$(this).find(".qq").fadeOut("fast");
+			});
+			$(this).find(".btn-wx").mouseenter(function(){
+				$(this).find(".pic").fadeIn("fast");
+			});
+			$(this).find(".btn-wx").mouseleave(function(){
+				$(this).find(".pic").fadeOut("fast");
+			});
+			$(this).find(".btn-phone").mouseenter(function(){
+				$(this).find(".phone").fadeIn("fast");
+			});
+			$(this).find(".btn-phone").mouseleave(function(){
+				$(this).find(".phone").fadeOut("fast");
+			});
+			$(this).find(".btn-top").click(function(){
+				$("html, body").animate({
+					"scroll-top":0
+				},"fast");
+			});
+		});
 
-			var lastRmenuStatus=false;
-			$(window).scroll(function(){
-				var _top=$(window).scrollTop();
-				if(_top>200){
-					$("#izl_rmenu").data("expanded",true);
+		var lastRmenuStatus=false;
+		$(window).scroll(function(){
+			var _top=$(window).scrollTop();
+			if(_top>200){
+				$("#izl_rmenu").data("expanded",true);
+			}else{
+				$("#izl_rmenu").data("expanded",false);
+			}
+			if($("#izl_rmenu").data("expanded")!=lastRmenuStatus){
+				lastRmenuStatus=$("#izl_rmenu").data("expanded");
+				if(lastRmenuStatus){
+					$("#izl_rmenu .btn-top").slideDown();
 				}else{
-					$("#izl_rmenu").data("expanded",false);
+					$("#izl_rmenu .btn-top").slideUp();
 				}
-				if($("#izl_rmenu").data("expanded")!=lastRmenuStatus){
-					lastRmenuStatus=$("#izl_rmenu").data("expanded");
-					if(lastRmenuStatus){
-						$("#izl_rmenu .btn-top").slideDown();
-					}else{
-						$("#izl_rmenu .btn-top").slideUp();
-					}
-				}
-			});
+			}
 		});
-	</script>
+	});
+</script>
 </body>
 </html>

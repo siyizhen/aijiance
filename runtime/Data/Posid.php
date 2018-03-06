@@ -6,11 +6,5 @@ return array (
     'name' => '首页推荐',
     'listorder' => 0,
   ),
-  2 => 
-  array (
-    'id' => 2,
-    'name' => '当前分类推荐',
-    'listorder' => 0,
-  ),
 );
 ?>

@@ -1,0 +1,86 @@
+.main-banner{
+	background: #F8F4ED url(/cshi-internet/illness/images/illness-banner.jpg) no-repeat center;
+}
+.p-plan{
+	width: 120px;
+	line-height: 28px;
+	text-align: left;
+}
+.p-th-p2{
+	margin-top: 15px;
+}
+.p-main-intro{
+	width: 1223px;
+	margin: 0 auto;
+}
+.p-text-top{
+	width: 1100px;
+	margin: 0 auto;
+}
+.p-text-detail{
+	height: 40px;
+	line-height: 40px;
+}
+.p-text-detail span{
+	color: #FF5F01;
+}
+.p-look{
+	width: 260px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #F0F1F3;
+	margin: 10px 0;
+}
+.p-top-ul{
+	margin-top: 20px;
+	padding-left: 30px;
+	border-top: 1px solid #ccc;
+}
+.p-top-ul li{
+	border-top: 1px dashed #ccc;
+	padding: 20px 0;
+	line-height: 30px;
+}
+.p-top-ul .p-top-li1{
+	border-top: none;
+}
+.p-top-ul li p{
+	display: inline-block;
+	width: 1070px;
+}
+.p-top-li1 .p-li-img,.p-top-li2 .p-li-img,.p-top-li3 .p-li-img,.p-top-li4 .p-li-img{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align: top;
+}
+.p-top-li1 .p-li-img{
+	background: url(/cshi-internet/mbodyguard/images/newimg/k-icon01.png) no-repeat;
+	background-size: contain;
+}
+.p-top-li2 .p-li-img{
+	background: url(/cshi-internet/mbodyguard/images/newimg/k-icon02.png) no-repeat;
+	background-size: contain;
+}
+.p-top-li3 .p-li-img{
+	background: url(/cshi-internet/mbodyguard/images/newimg/k-icon05.png) no-repeat;
+	background-size: contain;
+}
+.p-top-li4 .p-li-img{
+	background: url(/cshi-internet/mbodyguard/images/newimg/k-icon03.png) no-repeat;
+	background-size: contain;
+}
+.p-li-red{
+	display: inline-block;
+	width: 70px;
+	line-height: 30px;
+	color: #FF5F01;
+	vertical-align: top;
+}
+.p-tr-first td {
+  	width: 300px;
+}
+.p-tr-first .p-left-first{
+	width: 220px;
+}

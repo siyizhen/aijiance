@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 16:42:59
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-05 13:30:16
+ * @Last Modified time: 2018-03-06 17:37:38
  */
 namespace app\base\controller;
 use think\Controller;
@@ -38,6 +38,8 @@ class Base extends Controller{
             $data['phone']=session('user.username');
             $data['codeTemplate']=config('codeTemplate.change_phone');
         }elseif($data['type']=='new_phone'){
+            $data['codeTemplate']=config('codeTemplate.new_phone');
+        }elseif($data['type']=='baoxian'){
             $data['codeTemplate']=config('codeTemplate.new_phone');
         }
     	$resObj=sendSms($data);

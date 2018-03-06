@@ -1,0 +1,137 @@
+﻿{include file="pc/common_header" /}
+<link rel="stylesheet" type="text/css" href="__HOME__/pc/cshi-internet/anticancer/css/common.css">
+<link rel="stylesheet" type="text/css" href="__HOME__/pc/cshi-internet/mbodyguard/css/newcss/index.css">
+<link rel="stylesheet" type="text/css" href="__HOME__/pc/cshi-internet/olinsurance/css/public.css">
+
+    <div class="main-container">
+    <!--主内容-->
+    <div class="main-banner" style="background: url(__HOME__/pc/images/baoxian_banner.jpg)"></div>
+    <div class="main-row clearfix">
+        <div class="insurance-wrapper clearfix">
+            <ul class="insurance-inWrapper clearfix">
+                <li class="insuranceAge insuranceSelect inAge" style="height: 40px;text-align: center;">
+                    保障年龄：16-64周岁
+                </li>
+                <li class="insuranceMoney insuranceSelect" style="height: 40px;text-align: center;">
+                    艾滋病病毒感染保险金：10万
+                </li>
+                <li class="insuranceBtn">
+                    <a style="text-decoration: none;color:#fff;" href="javascript:toubao();" otitle="立即投保" title="立即投保">立即投保</a>
+                </li>
+                <li class="insuranceCost" style="width: 200px;font-size: 16px;">
+                    ￥{:config('baoxian_money')}(保费+附加服务费)
+                </li>
+                <li class="insuranceTitle">
+                    需缴纳的费用
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 产品详情 -->
+    <div class="productTab">
+        <ul class="productInTab clearfix">
+            <li class="current tabFirst">产品优势</li>
+            <li>常见问题</li>
+            {volist name="rows" id="m"}
+            <li>{$m.title}</li>
+            {/volist}
+        </ul>
+    </div>
+    <div class="main-row m-wrapper wrapper-product">
+        <div class="p-main">
+			<img src="__HOME__/pc/images/1.png" alt="" style="float: left;">
+			<img src="__HOME__/pc/images/2.png" alt="" style="float: left;">
+			<div class="clearfix"></div>
+			<img src="__HOME__/pc/images/3.png" alt="" style="float: left;">
+			<img src="__HOME__/pc/images/4.png" alt="" style="float: left;">
+		</div>
+    </div>
+    <div class="main-row m-wrapper wrapper-question">
+        <ul class="inWrapper-question clearfix">
+            <li class="questionIcon"></li>
+            <li class="questions">这款产品有等待期吗？</li>
+        </ul>
+        <div class="answer">
+        	<span>A:</span>您好，此款产品的等待期为90天。
+        </div>
+        <ul class="inWrapper-question clearfix">
+            <li class="questionIcon"></li>
+            <li class="questions">这款产品可以投保多份么？</li>
+        </ul>
+        <div class="answer">
+        	<span>A:</span>您好，本产品每人限投保1份。
+        </div>
+        <ul class="inWrapper-question clearfix">
+            <li class="questionIcon"></li>
+            <li class="questions">此款产品可以续保吗？</li>
+        </ul>
+        <div class="answer">
+            <span>A:</span>您好，本产品支持自动续保，如险种到期提供短信提醒续保缴费，连续续保客户，无需等待期及再次提供检验报告。一旦检查发现艾滋病抗体为阳性或提出理赔，即不可续保。
+        </div>
+        <ul class="inWrapper-question clearfix">
+            <li class="questionIcon"></li>
+            <li class="questions">本产品还需要体检吗？</li>
+        </ul>
+        <div class="answer">
+            <span>A:</span>您好，本产品需要体检。本保险自投保之日起90日内（含90日）均为等待期，被保险人需在等待期结束后30日内，在符合本保险合同第十六条释义的医院，完成艾滋病抗体检测且为阴性的，保险责任方可生效。
+        </div>
+    </div>
+
+
+    {volist name="rows" id="m" key="n"}
+    <div class="main-row m-wrapper {if condition='$n eq 1'}wrapper-declaration{elseif condition='$n eq 2'}wrapper-xuzhi{elseif condition='$n eq 3'}wrapper-tiaokuan{/if}">
+        <div class="inWrapper-declaration">
+            {$m.content}
+        </div>
+    </div>
+    {/volist}
+</div>
+
+<div style="width: 1223px;margin:0 auto;">
+    <div class="insurance-condition">
+        <div class="conditionTitle">相关说明</div>
+        <ul class="conditionInfo">
+            <li class="clearfix">
+                保障年龄：16-64<br />
+                周岁保障期限：1年(一般没有公司敢对HIV承保。平安首创防艾险，无论好gay友、血友病患者或HIV传染源接触的高危行业，感染即赔付！防艾，不只是说说而已！)<br />
+                保障范围:<br />
+                艾滋病病毒感染保险金(10万)<br />
+                等待期90天后，于30日内通过HIV阴性监测的健康被保人，保障期间内感染HIV即可获得保险金10万（被保人卖淫、嫖娼、使用毒品、管制药物期间患病的除外）<br />
+            </li>
+        </ul>
+    </div>
+</div>
+    
+<!-- 底部 Start -->
+<div class="footerWrap">
+	<div class="copyRightArea">
+
+		<p>Copyright © {$sys.copyright} <a href="{:url('home/index/index')}" target="_blank">{$sys.name}</a> All rights reserved.&nbsp;&nbsp;艾检测工作室提供技术支持</p>
+		<p class="icp">
+			<a rel="nofollow" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">{$sys.bah}</a>&nbsp;&nbsp;
+		</p>
+	</div>
+</div>
+<!-- 底部 End -->
+
+{include file="pc/leftkf" /}
+{include file="pc/footer_source" /}
+<script type="text/javascript" src="__HOME__/pc/cshi-internet/mbodyguard/js/homePage.js"></script>
+<script type="text/javascript" src="__HOME__/pc/js/layer/layer.js"></script>
+<script type="text/javascript">
+    function toubao(){
+        layer.open({
+            type: 2,
+            title: '录入投保信息',
+            shadeClose: true,
+            shade: false,
+            maxmin: true, //开启最大化最小化按钮
+            area: ['1100px', '80%'],
+            content: "{:url('home/baoxian/toubao')}"
+        });
+    }
+</script>
+</body>
+</html>
+
+

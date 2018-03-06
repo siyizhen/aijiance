@@ -1,0 +1,702 @@
+/* 雪碧图 */
+.icon,
+.headerArea .logo,
+.headerArea .searchBox .btnSoso,
+.allClassifyArea h2 a i,
+.classifyDropArea .dropMenu .arrow,
+.classifyDropArea .dropMenu dt i,
+.dropPopMenu li a i,
+.footerArea .footerLogo .logo,
+.footerArea .footerLogo dd i,
+.footerLink dt i,
+.ico_wangan, .ico_anquan,
+.fixedArea .goTop i,
+.fixedArea .service i {
+	background: url(http://health.pingan.com/app_images/health/v10/icon.png) no-repeat;
+}
+
+/* 顶部 */
+.topWrap {
+	width: 100%;
+	min-height: 30px;
+	background: #eee;
+}
+.topArea {
+	width: 1200px;
+	margin: 0 auto;
+}
+.topArea .f-link {
+	float: left;
+	padding: 7px 0;
+}
+.topArea .t-link {
+	float: right;
+	padding: 7px 0;
+}
+.topArea .f-link li,
+.topArea .t-link li {
+	float: left;
+	line-height: 16px;
+	padding: 0 6px;
+	border-left: 1px solid #808080;
+}
+.topArea .f-link li:first-child,
+.topArea .t-link li:first-child {
+	border-left: 0 none;
+}
+.topArea .f-link li a,
+.topArea .t-link li a {
+	font-size: 12px;
+	color: #808080
+}
+.topArea .f-link li a:hover,
+.topArea .t-link li a:hover {
+	color: #f60;
+	text-decoration: underline;
+}
+
+/* 头部 */
+.headerWrap {
+	position: relative;
+	z-index: 999;
+	zoom: 1;
+	width: 100%;
+	background: #fff;
+}
+.headerArea {
+	width: 1200px;
+	height: 80px;
+	margin: 0 auto;
+}
+.headerArea .logo {
+	float: left;
+	display: block;
+	width: 120px;
+	height: 42px;
+	text-indent: -999em;
+	margin: 16px 0 0 20px;
+	background-position: 0 0;
+}
+.headerArea .toolArea {
+	float: right;
+	padding: 15px 0 0
+}
+.headerArea .loginMod {
+	float: left;
+	padding: 10px 10px 0 0;
+}
+.headerArea .loginMod li {
+	float: left;
+	line-height: 16px;
+	padding: 0 15px;
+	border-left: 1px solid #666;
+}
+.headerArea .loginMod li:first-child {
+	border-left: 0 none;
+}
+.headerArea .loginMod li a {
+	font-size: 14px;
+	color: #666;
+}
+.headerArea .loginMod li a:hover {
+	color: #f60;
+	text-decoration: none;
+}
+.headerArea .novice,
+.headerArea .novice:hover {
+	float: left;
+	display: block;
+	width: 100px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background: #9fbc16;
+	border-radius: 4px;
+	text-decoration: none;
+}
+.headerArea .searchArea {
+	float: left;
+	width: 260px;
+	padding: 0 0 0 15px;
+}
+.headerArea .searchBox {
+	position: relative;
+	z-index: 1;
+	zoom: 1;
+}
+.headerArea .searchBox input {
+	*float: left;
+	width: 203px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #666;
+	padding: 5px 40px 5px 15px;
+	border: 1px solid #f60;
+	border-radius: 4px;
+}
+.headerArea .searchBox .btnSoso {
+	display: block;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	width: 40px;
+	height: 30px;
+	text-indent: -999em;
+	background-position: 0 -56px;
+}
+.headerArea .hotKeywords {
+	line-height: 26px;
+	font-size: 12px;
+	color: #666;
+}
+.headerArea .hotKeywords dt {
+	float: left;
+	font-weight: bold
+}
+.headerArea .hotKeywords dd {
+	margin-left: 65px;
+}
+.headerArea .hotKeywords dd a {
+	float: left;
+	margin-left: 8px;
+}
+.headerArea .hotKeywords dd a:first-child {
+	margin-left: 0
+}
+
+/* 导航 */
+.navigationWrap {
+	position: absolute;
+	bottom: -42px;
+	left: 0;
+	width: 100%;
+	height: 42px;
+	background: url(http://health.pingan.com/app_images/health/v10/white.png) repeat;
+}
+.navigation {
+	width: 1200px;
+	margin: 0 auto;
+}
+.navigation .navArea {
+	margin-left: 310px;
+}
+.navigation .navArea li {
+	float: left;
+	display: inline;
+	height: 42px;
+	margin-left: 65px;
+}
+.navigation .navArea li:first-child {
+	margin-left: 20px;
+}
+.navigation .navArea li a {
+	display: block;
+	padding: 0 10px;
+	min-width: 60px;
+	line-height: 40px;
+	font-size: 16px;
+	color: #43230c;
+	text-align: center;
+	border-bottom: 2px solid transparent
+}
+.navigation .navArea .curr a,
+.navigation .navArea li a:hover {
+	color: #f60;
+	text-decoration: none;
+}
+.navigation .navArea .curr a {
+	font-weight: bold;
+	/*border-color: #f60*/
+}
+
+/* 导航分类下拉 */
+.allClassifyArea {
+	position: relative;
+	z-index: 999;
+	zoom: 1;
+	float: left;
+	width: 265px;
+}
+.allClassifyArea h2 {
+	position: relative;
+	z-index: 999;
+	zoom: 1;
+	height: 42px;
+	line-height: 42px;
+	background: #f60;
+	font-size: 16px;
+	color: #fff;
+}
+.allClassifyArea h2 a {
+	display: block;
+	font-size: 16px;
+	color: #fff;
+	padding: 0 0 0 65px;
+}
+.allClassifyArea h2 a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+.allClassifyArea h2 a .ico {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-right: 10px;
+	vertical-align: -2px;
+	*vertical-align: middle;
+	background-position: 0 -100px;
+}
+.allClassifyArea h2 a .ico_arrow {
+	position: absolute;
+	top: 20px;
+	right: 22px;
+	display: inline-block;
+	width: 10px;
+	height: 7px;
+	background-position: -27px -107px;
+}
+/* 默认隐藏 -- homePage 首页显示 */
+.homePage .classifyDropArea {
+	display: block;
+}
+.allClassifyArea:hover .classifyDropArea {
+	/*display: block;*/
+}
+.classifyDropArea {
+	display: none;
+	position: absolute;
+	top: 42px;
+	left: 0;
+	width: 265px;
+	height: 490px;
+	background: url(http://health.pingan.com/app_images/health/v10/white.png) repeat;
+}
+.classifyDropArea > li {
+	vertical-align: top;
+}
+.classifyDropArea > li:hover {
+	background: #f60
+}
+.classifyDropArea > li > dl {
+	position: relative;
+	z-index: 999;
+	zoom: 1;
+	height: 60px;
+	padding: 10px 30px 0;
+}
+.classifyDropArea .dropMenu .arrow {
+	display: none;
+	position: absolute;
+	top: 25px;
+	right: 12px;
+	width: 11px;
+	height: 20px;
+	background-position: -25px -130px;
+}
+.classifyDropArea > li:hover .arrow {
+	display: block;
+}
+.classifyDropArea .dropMenu dt,
+.classifyDropArea .dropMenu dt a {
+	line-height: 26px;
+	font-size: 16px;
+	color: #383131
+}
+.classifyDropArea .dropMenu dt i {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	margin-right: 5px;
+	vertical-align: bottom;
+	*vertical-align: middle;
+}
+/* 健康 */
+.classifyDropArea .dropMenu dt .ico_type01 { background-position: 0 -200px }
+.classifyDropArea > li:hover .ico_type01 { background-position: -36px -200px }
+/* 意外 */
+.classifyDropArea .dropMenu dt .ico_type02 { background-position: -72px -200px }
+.classifyDropArea > li:hover .ico_type02 { background-position: -108px -200px }
+/* 长期 - 重疾 */
+.classifyDropArea .dropMenu dt .ico_type03 { background-position: -144px -200px }
+.classifyDropArea > li:hover .ico_type03 { background-position: -180px -200px }
+/* 少儿 */
+.classifyDropArea .dropMenu dt .ico_type04 { background-position: 0 -236px }
+.classifyDropArea > li:hover .ico_type04 { background-position: -36px -236px }
+/* 女性 */
+.classifyDropArea .dropMenu dt .ico_type05 { background-position: -72px -236px }
+.classifyDropArea > li:hover .ico_type05 { background-position: -108px -236px }
+/* 自助 */
+.classifyDropArea .dropMenu dt .ico_type06 { background-position: -144px -236px }
+.classifyDropArea > li:hover .ico_type06 { background-position: -180px -236px }
+/* 企业 */
+.classifyDropArea .dropMenu dt .ico_type07 { background-position: 0 -272px }
+.classifyDropArea > li:hover .ico_type07 { background-position: -36px -272px }
+
+/*.classifyDropArea > li:hover .dropMenu dt i {
+	background-position: 0 -151px;
+}*/
+
+.classifyDropArea .dropMenu dd {
+	line-height: 18px;
+	padding: 3px 0 0 32px
+}
+.classifyDropArea .dropMenu dd a {
+	float: left;
+	display: inline;
+	font-size: 12px;
+	color: #555;
+	margin-right: 8px;
+	white-space: nowrap;
+}
+.classifyDropArea .dropMenu dd span {
+	float: left;
+	display: inline-block;
+	font-size: 12px;
+	color: #555;
+	padding-right: 8px;
+}
+.classifyDropArea > li:hover .dropMenu dt,
+.classifyDropArea > li:hover .dropMenu dt a {
+	color: #fff
+}
+.classifyDropArea > li:hover .dropMenu dd,
+.classifyDropArea > li:hover .dropMenu dd a,
+.classifyDropArea > li:hover .dropMenu dd span {
+	color: #fbccaa
+}
+
+/* 二级侧边弹出菜单 */
+.classifyDropArea .dropPop {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 265px;
+	width: 670px;
+	height: 488px;
+	border: 1px solid #ccc;
+	background: #fff;
+}
+.classifyDropArea .noProList {
+	width: 400px;
+	background: #fff url(http://health.pingan.com/app_images/health/v10/wait.png) no-repeat center center;
+}
+.classifyDropArea .noProList .dropPopDetail {
+	display: none
+}
+.classifyDropArea > li:hover .dropPop {
+	display: block;
+}
+.dropPopMenu {
+	float: left;
+	width: 400px;
+}
+.dropPopMenu li {
+	line-height: 24px;
+	vertical-align: top
+}
+.dropPopMenu li a {
+	position: relative;
+	z-index: 1;
+	zoom: 1;
+	display: block;
+	font-size: 16px;
+	color: #333;
+	padding: 10px 10px 10px 40px;
+}
+.dropPopMenu li a i {
+	position: absolute;
+	top: 18px;
+	left: 20px;
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	background-position: 0 -172px;
+}
+.dropPopMenu li a:hover i {
+	background-position: 0 -130px;
+}
+.dropPopMenu li a:hover {
+	color: #f60;
+	background: #edebe9;
+	text-decoration: none;
+}
+.dropPopDetail {
+	float: left;
+	width: 250px;
+	height: 468px;
+	padding: 10px;
+	/*height: 100%;
+	border-left: 1px solid #ccc;*/
+	background: #faf1e7;
+	vertical-align: top
+}
+.dropPopDetail a {
+	display: block;
+}
+.dropPopDetail img {
+	width: 250px;
+	height: 200px;
+}
+.dropPopDetail dl {
+	padding: 10px 0;
+}
+.dropPopDetail dt {
+	line-height: 24px;
+	font-size: 14px;
+	color: #999;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.dropPopDetail dt h4 {
+	font-size: 16px;
+	color: #333;
+}
+.dropPopDetail dd {
+	line-height: 22px;
+	font-size: 14px;
+	color: #999;
+}
+
+.classifyDropArea a {
+	text-decoration: none
+}
+
+
+
+
+
+/* 底部 */
+.footerWrap {
+	width: 100%;
+	background: #fff;
+	padding: 50px 0
+}
+.footerArea {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 0 0 40px;
+}
+.footerArea .footerLogo {
+	float: left;
+	padding: 0 0 20px;
+}
+.footerArea .footerLogo dt {
+	padding: 0 0 30px;
+}
+.footerArea .footerLogo .logo {
+	display: block;
+	width: 214px;
+	height: 48px;
+	background-position: -140px 0;
+	text-indent: -999em
+}
+.footerArea .footerLogo dd {
+	font-size: 16px;
+	color: #666;
+}
+.footerArea .footerLogo dd i {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-position: -158px -60px;
+	margin-right: 8px;
+	vertical-align: -6px;
+	*vertical-align: middle;
+}
+.footerLink {
+	float: right;
+}
+.footerLink dl {
+	float: left;
+	display: inline;
+	margin-right: 50px;
+}
+.footerLink dt {
+	line-height: 24px;
+	font-size: 14px;
+	color: #333;
+	margin-bottom: 10px;
+}
+.footerLink dt i {
+	display: inline-block;
+	width: 23px;
+	height: 23px;
+	margin-right: 5px;
+	vertical-align: -6px;
+	*vertical-align: middle;
+}
+.footerLink dt .ico_about {
+	background-position: -210px -60px
+}
+.footerLink dt .ico_duty {
+	background-position: -243px -60px
+}
+.footerLink dt .ico_help {
+	background-position: -276px -60px
+}
+.footerLink dt .ico_mobile {
+	background-position: -309px -60px
+}
+.footerLink dd {
+	padding: 0 0 0 30px
+}
+.footerLink dd,
+.footerLink dd > a {
+	line-height: 24px;
+	font-size: 12px;
+	color: #999;
+}
+.footerLink dd ul {
+	padding: 10px 0 0
+}
+.footerLink dd li {
+	float: left;
+	display: inline;
+	width: 50px;
+	margin-left: 18px;
+	line-height: 14px;
+	font-size: 12px;
+	color: #999;
+}
+.footerLink dd li:first-child {
+	margin-left: 0;
+}
+.footerLink dd li img {
+	margin-bottom: 5px
+}
+.copyRightArea {
+	width: 100%;
+	border-top: 1px solid #ccc;
+	padding: 35px 0 0;
+	line-height: 22px;
+	font-size: 12px;
+	color: #999;
+	text-align: center;
+}
+.copyRightArea .icp {
+	padding: 10px 0 0
+}
+.copyRightArea .icp a {
+	display: inline-block;
+	margin-left: 10px;
+}
+.ico_wangan, .ico_anquan {
+	width: 17px;
+	height: 23px;
+	text-indent: -999em;
+	vertical-align: bottom;
+}
+.ico_wangan { background-position: -144px -100px }
+.ico_anquan { background-position: -177px -100px }
+
+/* 侧边浮动条 */
+.fixedArea {
+	position: fixed;
+	z-index: 9999;
+	zoom: 1;
+	bottom: 100px;
+	/*left: 50%;
+	margin-left: 610px;*/
+	width: 52px;
+	background: #fff;
+}
+.fixedArea li {
+	vertical-align: top;
+}
+.fixedArea .app, .fixedArea .app:hover {
+	display: block;
+	line-height: 16px;
+	font-size: 12px;
+	color: #999;
+	text-align: center;
+	border: 1px solid #b3b3b3;
+	border-bottom: 0 none;
+	/*padding: 4px 0 10px;*/
+	padding: 5px 0;
+	text-decoration: none;
+}
+.fixedArea .app img {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+.fixedArea .qrCodeArea {
+	position: relative;
+	z-index: 9999;
+	zoom: 1;
+}
+.fixedArea .qrCodePop {
+	display: none;
+	position: absolute;
+	top: -50px;
+	right: 51px;
+	background: #fff;
+	padding: 10px;
+}
+.fixedArea .qrCodeArea:hover .qrCodePop {
+	display: block;
+}
+.fixedArea .qrCodePop dl {
+	width: 100px;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	padding: 10px 0 0
+}
+.fixedArea .qrCodePop dl:first-child {
+	border-top: 0 none;
+	padding: 0
+}
+.fixedArea .qrCodePop dt img {
+	width: 100px;
+	height: 100px;
+}
+.fixedArea .qrCodePop dd {
+	line-height: 30px;
+	font-size: 14px;
+	color: #999;
+}
+
+.fixedArea .goTop,
+.fixedArea .goTop:hover {
+	display: block;
+	width: 52px;
+	height: 47px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background: #e66a17;
+	padding: 5px 0 0;
+	text-decoration: none;
+}
+.fixedArea .goTop i {
+	display: block;
+	width: 23px;
+	height: 22px;
+	margin: 0 auto;
+	background-position: -292px -108px
+}
+.fixedArea .service {
+	display: block;
+	width: 52px;
+	height: 57px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background: #645f5b;
+	padding: 8px 0 0;
+	text-decoration: none;
+}
+.fixedArea .service i {
+	display: block;
+	width: 29px;
+	height: 30px;
+	margin: 0 auto;
+	background-position: -237px -104px
+}

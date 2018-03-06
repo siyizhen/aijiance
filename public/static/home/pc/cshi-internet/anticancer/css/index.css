@@ -1,0 +1,672 @@
+@charset "utf-8";
+/*抗癌卫士-首页样式*/
+.product-columns .product-list, .product-columns .product-list .product-list-item .plan-detail li, .insure-txt-columns .insure-tab, .insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step, .active-columns .active-columns-inner {
+  *zoom: 1;
+}
+
+.product-columns .product-list:before, .product-columns .product-list .product-list-item .plan-detail li:before, .insure-txt-columns .insure-tab:before, .insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step:before, .active-columns .active-columns-inner:before, .product-columns .product-list:after, .product-columns .product-list .product-list-item .plan-detail li:after, .insure-txt-columns .insure-tab:after, .insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step:after, .active-columns .active-columns-inner:after {
+  content: "";
+  display: table;
+}
+
+.product-columns .product-list:after, .product-columns .product-list .product-list-item .plan-detail li:after, .insure-txt-columns .insure-tab:after, .insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step:after, .active-columns .active-columns-inner:after {
+  clear: both;
+}
+.w1015{
+  width:1015px!important;
+}
+.columns-left,.columns-right{
+  float: left;
+}
+.columns-left{
+  width: 745px;
+}
+.columns-right{
+  width: 223px;
+  display: inline;
+  margin: 15px 0 0 15px;
+  padding: 25px 15px;
+  border: 1px solid #DCDCDC;
+}
+.title-bfcx{
+  font-size: 18px;
+  color: #242424;
+}
+.title-bfcx i{
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+  vertical-align: middle;
+  background: url(/cshi-internet/anticancer/images/ehome-icon.png) -240px -140px no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.bfcx-box{
+  margin:30px auto 0;
+}
+.bfcx-box dl dd{
+  border-bottom: 1px dashed #dcdcdc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.bbn{border-bottom: none!important;}
+.bfcx-box dl dt{
+  display: block;
+  color: #000;
+  font-size: 14px;
+  font-weight:normal!important;
+  margin-bottom: 5px;
+}
+.input-date-box{
+  position: relative;
+  left: 0;
+}
+.input-date{
+  border:1px solid #c6c6c6;
+  width: 203px;
+  height: 28px;
+  line-height: 28px;
+  padding-left: 10px;
+  color: #333;
+}
+.input-date-box i{
+  position: absolute;
+  right: 15px;
+  top: 8px;
+  width: 14px;
+  height: 13px;
+  display: block;
+  background: url(/cshi-internet/anticancer/images/ehome-icon.png) -280px -140px no-repeat;
+}
+.details-name{
+  font-size: 12px;
+}
+.details-name i {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  vertical-align: middle;
+  background: url(/cshi-internet/anticancer/images/ehome-icon.png) no-repeat -34px -139px;
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+}
+.f_c_f60{color: #f60;}
+.btn-pay-wrap{
+  width: 215px;
+  margin:20px auto 0;
+}
+.bfcx-btn-orange{
+  width: 215px;
+  height: 45px;
+  line-height: 45px;
+  background-color:#FF6501;
+  color: #fff; 
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+.bfcx-btn-orange:hover{
+  background-color: #FC820B;
+  text-decoration: none;
+  color: #fff;
+}
+.banner-columns {
+  width: 1015px;
+  height: 380px;
+  margin: 0 auto;
+  position: relative;
+  background:url(/cshi-internet/anticancer/images/banner-bg.jpg) no-repeat;
+}
+.banner-btn{
+  position: absolute;
+  right: 65px;
+  bottom: 60px;
+}
+.btn-insure-query,.btn-orange{
+  background: url(/cshi-internet/anticancer/images/ehome-icon.png) no-repeat;
+  width: 175px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+  margin-top: 20px;
+}
+.btn-orange{
+  background-position: -2px -241px;
+}
+.btn-orange:hover{
+  background-position: -1px -201px;
+}
+.btn-insure-query{
+  background-position: -1px -201px;
+}
+.btn-insure-query:hover{
+  background-position: -2px -241px;
+}
+.btn-orange:hover,.btn-insure-query:hover{
+  color: #fff!important;
+}
+.ml30{margin-left: 30px;}
+.vat{vertical-align: top;}
+.banner-btn p{
+  color: #fff;
+  font-size: 14px;
+}
+.banner-columns a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.banner-columns .banner-txt {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+}
+
+.banner-columns .banner-txt li {
+  font-size: 14px;
+}
+
+.banner-columns .banner-txt li span {
+  font-weight: bold;
+}
+.pro-example{
+  width: 335px;
+  height: 295px;
+  float: left;
+  padding: 10px 0 0 10px;
+  display: inline;
+}
+.r25{right: 25px;}
+.r10{right: 10px;}
+.h260{height: 260px;}
+.pro-example p{
+  line-height: 20px!important;
+  font-size: 12px!important;
+  color: #242424; 
+  text-align: left;
+}
+.pro-example-txt p{
+  position: absolute;
+  color: #fff!important;
+}
+.pro-example-txt p strong{
+  font-size: 16px;
+}
+.pro-example-txt{
+  position: relative;
+  margin-bottom: 10px;
+}
+.pro-example-1{
+  left: 20px;
+  top: 48px;
+}
+.pro-example-2{
+  left: 204px;
+  top: 70px;
+}
+.pro-example-3{
+  left: 20px;
+  top: 53px;
+}
+.pro-example-4{
+  left: 149px;
+  top: 40px;
+}
+.br_e0e0e0{
+  border-right: 1px solid #e0e0e0;
+}
+.bb_e0e0e0{
+  border-bottom: 1px solid #e0e0e0;
+}
+.product-columns {
+  margin-top: 20px;
+}
+.product-columns .product-list {
+  width: 1000px;
+  margin-left: -20px;
+}
+
+.product-columns .product-list .product-list-item {
+  position: relative;
+  float: left;
+  width: 230px;
+  height: 160px;
+  margin-left: 20px;
+}
+
+.product-columns .product-list .product-list-item .plan {
+  position: relative;
+  width: 230px;
+  height: 160px;
+  cursor: pointer;
+}
+
+.product-columns .product-list .product-list-item .plan .plan-txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 140px;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.product-columns .product-list .product-list-item .plan .plan-txt p {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.product-columns .product-list .product-list-item .plan .plan-txt .title {
+  color: #fff;
+  font-size: 18px;
+}
+
+.product-columns .product-list .product-list-item .plan .plan-txt .values {
+  color: #fff;
+  font-size: 14px;
+}
+
+.product-columns .product-list .product-list-item .plan .plan-txt .values span {
+  color: #ffe400;
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.product-columns .product-list .product-list-item .plan.curr .plan-txt, .product-columns .product-list .product-list-item .plan.ck .plan-txt {
+  width: 219px;
+  height: 139px;
+  padding-top: 19px;
+  padding-left: 9px;
+  border: 1px solid #FE8A28;
+}
+
+.product-columns .product-list .product-list-item .plan-detail {
+  display: none;
+  position: absolute;
+  top: 160px;
+  left: 0;
+  width: 230px;
+  padding: 10px 0;
+}
+
+.product-columns .product-list .product-list-item .plan-detail li {
+  padding: 3px 10px;
+}
+
+.product-columns .product-list .product-list-item .plan-detail li .details-name {
+  float: left;
+}
+
+.product-columns .product-list .product-list-item .plan-detail li .details-value {
+  float: right;
+  color: #fff;
+  text-align: right;
+  max-width: 170px;
+}
+
+.product-columns .product-list .product-list-item .plan-detail.curr {
+  display: block;
+}
+
+.product-columns .product-list .product-list-item .detail01 {
+  background: url("/cshi-internet/anticancer/images/mask3.png") repeat;
+}
+
+.product-columns .product-list .product-list-item .detail02 {
+  background: url("/cshi-internet/anticancer/images/mask4.png") repeat;
+}
+
+.product-columns .product-list .product-list-item .detail03 {
+  background: url("/cshi-internet/anticancer/images/mask5.png") repeat;
+}
+
+.product-columns .product-list .product-list-item .detail04 {
+  background: url("/cshi-internet/anticancer/images/mask6.png") repeat;
+}
+
+.insure-txt-columns {
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+
+.insure-txt-columns .insure-tab li {
+  float: left;
+  color: #888;
+  font-size: 14px;
+  width: 148px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-right: -1px;
+  border: 1px solid #DCDCDC;
+  background-color: #EFEFEF;
+  cursor: pointer;
+}
+
+.insure-txt-columns .insure-tab li.curr {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  color: #333;
+}
+
+.insure-txt-columns .insure-txt-zome {
+  width: 744px;
+  border: 1px solid #DCDCDC;
+  border-top: 0;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li {
+  display: none;
+  padding: 0 25px 25px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li p {
+  font-size: 14px;
+  line-height: 2;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li h2 {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .table-product-detail {
+  margin: 10px auto;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .table-product-detail td {
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #DCDCDC;
+  background-color: #FAFEF2;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .table-product-detail td.tac {
+  text-align: center;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .table-product-detail2 {
+  margin: 10px auto;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .table-product-detail2 td {
+  font-size: 14px;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #DCDCDC;
+  background-color: #FAFEF2;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li ol {
+  list-style: decimal;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li ol li {
+  display: list-item;
+  color: #888;
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 0;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .ol2 {
+  list-style: decimal;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .ol2 li {
+  display: list-item;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 0;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step {
+  width: 868px;
+  margin: 0 auto;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step li {
+  float: left;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step .guide-step-txt {
+  display: inline-block;
+  width: 115px;
+  height: 80px;
+  padding: 10px;
+  background-color: #FAFEF2;
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step .guide-step-txt p {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .guide-step .guide-next-step {
+  display: inline-block;
+  width: 25px;
+  height: 100px;
+  margin: 0 10px;
+  padding: 0;
+  background: url("/cshi-internet/anticancer/images/next-step.png") no-repeat center;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li .unit {
+  float: right;
+  margin-top: -20px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab li.curr {
+  display: block;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .a-link {
+  color: #00f;
+  text-decoration: underline;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .fwb {
+  font-weight: bold;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .mt_20 {
+  margin-top: 20px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .blue {
+  color: #00f;
+  text-decoration: underline;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img {
+  position: relative;
+  width: 768px;
+  margin: 10px auto 0;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #92C31F;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p2, .insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p3, .insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p4 {
+  position: absolute;
+  top: 77px;
+  left: 77px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p2 span, .insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p3 span, .insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p4 span {
+  font-size: 20px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p2 span b, .insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p3 span b, .insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p4 span b {
+  font-weight: bold;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p3 {
+  top: 60px;
+  left: 558px;
+}
+
+.insure-txt-columns .insure-txt-zome .insure-txt-tab .insure-img .p4 {
+  top: 230px;
+  left: 638px;
+}
+
+.active-columns {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #DCDCDC;
+  border-bottom: 1px solid #DCDCDC;
+  background-color: #F2F2F2;
+}
+
+.active-columns .active-columns-inner {
+  position: relative;
+  width: 800px;
+  height: 60px;
+  padding: 0 90px;
+  margin: 0 auto;
+}
+
+.active-columns .active-columns-inner p {
+  float: left;
+  color: #81be0a;
+  font-size: 20px;
+  line-height: 60px;
+}
+
+.active-columns .active-columns-inner p span {
+  color: #737373;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.active-columns .active-columns-inner p span i {
+  font-style: normal;
+}
+
+.active-columns .active-columns-inner .btn-zone {
+  float: right;
+  margin-top: 14px;
+}
+
+.active-columns .active-columns-inner .btn-zone .btn-insure, .active-columns .active-columns-inner .btn-zone .btn-progress-inquiry {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+  width: 138px;
+  height: 32px;
+  line-height: 32px;
+  margin-left: 30px;
+  border: 1px solid #FC820B;
+  background-color: #FC820B;
+  border-radius: 5px;
+}
+
+.active-columns .active-columns-inner .btn-zone .btn-insure:hover, .active-columns .active-columns-inner .btn-zone .btn-progress-inquiry:hover {
+  text-decoration: none;
+}
+
+.active-columns .active-columns-inner .btn-zone .btn-progress-inquiry {
+  color: #333;
+  border: 1px solid #888;
+  background-color: #fff;
+}
+
+.active-columns .active-columns-inner .art-deco {
+  position: absolute;
+  left: 410px;
+  bottom: -1px;
+  font-size: 0;
+  line-height: 0;
+  width: 74px;
+  height: 44px;
+  display: block;
+  background: url("/cshi-internet/anticancer/images/product-img07.png") no-repeat;
+}
+
+/*保费测算的下拉框*/
+.select-1 .pa_ui_dropselect{
+  width: 215px!important;
+}
+.select-1 .pa_ui_dropselect_input_Container,.select-1 .pa_ui_dropselect_input{
+  width: 197px!important;
+}
+.pa_ui_dropselect_box{
+	overflow-y:scroll !important;
+	/* height:200px !important; */
+}
+#age .select-1 .pa_ui_dropselect_popup .pa_ui_dropselect_box{
+	height:200px !important;
+}
+
+.productMore a{
+   position: relative;
+   display:inline-block !important;
+   *display:inline;
+   zoom:1;
+   margin:0;
+   padding:0;
+}
+
+.productMore .bg{
+	position: absolute;
+	background: #fff;
+	width: 100%;
+    height: 24px;
+    bottom: 0px;
+    left: 0;
+    opacity: 0.7;
+    padding: 16px 0;
+}
+
+.productMore .bottom{
+   position: absolute;
+    width: 100%;
+    height: 24px;
+    bottom: 0px;
+    left: 0;
+    padding: 16px 0;
+    font-size: 18px;
+    color: #000;
+}
+
+.productMore .left{
+	padding-left: 20px;
+}
+
+.productMore .right{
+	padding-right: 20px;
+	float:right;
+	color:#F67D2D
+}

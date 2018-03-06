@@ -1,0 +1,1127 @@
+@charset "utf-8";
+/*抗癌卫士公共样式*/
+html {
+  font-family: "Microsoft Yahei";
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  overflow-y: scroll;
+  /* 0 */
+  -webkit-overflow-scrolling: touch;
+  /* 0 */
+}
+
+body {
+  margin: 0;
+  /* 1 */
+  font-family: "Microsoft Yahei";
+  font-size: 12px;
+  /* 0 */
+  line-height: 1.5;
+  /* 0 */
+  color: #333;
+  /* 0 */
+  background-color: #fff;
+  /* 0 */
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+  *display: inline;
+  /* 3 */
+  *zoom: 1;
+  /* 3 */
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background: transparent;
+  /* 1 */
+  /* 0 */
+  text-decoration: none;
+  color: #333;
+}
+
+a:active, a:hover {
+  outline: 0;
+  /* 2 */
+}
+
+a:hover {
+  color: #FF8929;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  /* display: block; */
+  border: 0;
+  /* 1 */
+  vertical-align: middle;
+  /* 0 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+  /* 1 */
+  white-space: pre;
+  /* 2 */
+  white-space: pre-wrap;
+  /* 2 */
+  word-wrap: break-word;
+  /* 2 */
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  _font-family: 'courier new', monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+}
+textarea {
+  overflow: auto;
+  /* 1 */
+  resize: vertical;
+  /* 0 */
+}
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Microsoft Yahei";
+  outline: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure, form, blockquote {
+  margin: 0;
+}
+
+ul, ol, li, dl, dd {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft Yahei";
+}
+
+ul, ol {
+  list-style: none outside none;
+}
+h1, h2, h3 {
+  line-height: 2;
+  font-weight: normal;
+  font-family: "Microsoft Yahei";
+}
+h1 {font-size: 18px;}
+h2 { font-size: 15.6px;}
+h3 {font-size: 14.04px;}
+h4 {font-size: 12px;font-family: "Microsoft Yahei";}
+h5, h6 {font-family: "Microsoft Yahei";font-size: 10.2px;text-transform: uppercase;}
+.tac {text-align: center;}
+.dsn {display: none;}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #ccc;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #ccc;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #ccc;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+* { margin:0; padding:0; }
+body, h1, h2, h3, h4, h5, h6 { font: normal 12px/22px Arial, Helvetica, sans-serif,"Microsoft Yahei"; color:#373432; }
+h1, h2, h3, h4, h5, h6, p, li,a,span{word-break:break-all;font-family: "Microsoft Yahei";}
+li { list-style:none; }
+.c { zoom:1; }
+.c:after { content:'.'; height:0; clear:both; display:block; overflow:hidden; }
+a { color:#353535; text-decoration:none; }
+a:hover { color:#353535; text-decoration:underline; }
+/*通用样式*/
+.f30{font-size: 30px;}
+.f_c_fc6621{color: #fc6621;}
+.dsb{display: block;}
+.tar{text-align: right;}
+.tal{text-align: left;}
+.vat{vertical-align: top;}
+.f12{font-size: 12px;}
+.pl10{padding-left: 10px;}
+.pl20{padding-left: 20px;}
+.pt5{padding-top: 5px!important;}
+.mt30{margin-top: 30px;}
+.m_r20 { margin-right:20px; }
+.fwn{ font-weight:normal;}
+.clear { clear:both; }
+.m_l78{ margin-left:78px;}
+.aul_FF6200{ color:#FF6200; text-decoration:underline;}
+.aul_FF6200:hover{ color:#FF6200; text-decoration:none;}
+.fl { float:left }
+.fr { float:right }
+.model_wai { background:none repeat scroll 0 0 #E7E7E7; margin-bottom:8px; margin-left:2px; padding-bottom:2px; padding-right:2px; }
+.model_nei { background:none repeat scroll 0 0 #FCFCFC; border:1px solid #DCDCDC; margin-left:-2px; padding:1px; position:relative; }
+.h2_title_health { background:url(/app_images/pingan/v20/health_v20/header/h2_title.gif) no-repeat scroll 0 2px transparent; color:#F76920; font:bold 15px/20px Arial; height:20px; padding-left:20px; position:relative; z-index:99999; margin-bottom:10px; }
+.wapper { background:url(/app_images/pingan/v20/health_v20/header/bg_body.gif) repeat-x scroll 0 0 #F7F7F7; }
+.show { display:block; }
+.hide { display:none; }
+.red { color:#ff6200; }
+.heath_body { width:980px; margin:0 auto; padding-top:15px; }
+
+/*分页*/
+.wenti_list_health .page { border:none;}
+.page { border:1px solid #ddd; border-top:none; background:#f4f4f4; text-align:center; padding:8px 6px; }
+.page_a, .page_b { display:inline; }
+.page_b { display:inline; margin-left:40px; }
+.page ul li.prv_nothing { background:url(/app_images/pingan/v20/one_v20/licai_index/image/page_bg.gif) no-repeat scroll 0 1px transparent; }
+.page ul li.next_nothing { background:url(/app_images/pingan/v20/one_v20/licai_index/image/page_bg.gif) no-repeat scroll -24px -35px transparent; }
+.page ul li.prv { background:url(/app_images/pingan/v20/one_v20/licai_index/image/page_bg.gif) no-repeat scroll -24px 1px transparent; cursor:pointer; }
+.page ul li.next { background:url(/app_images/pingan/v20/one_v20/licai_index/image/page_bg.gif) no-repeat scroll 0 -35px transparent; cursor:pointer; }
+.page ul li { display:block; margin-right:5px; height:18px; line-height:18px; text-align:center; width:24px; overflow:hidden; float:left; zoom:1; }
+.page ul li.num { display:block; margin-right:5px; height:18px; line-height:18px; text-align:center; width:35px; overflow:hidden; float:left; zoom:1; }
+.page ul li.num a { color:#353535; display:block; height:18px; text-decoration:none; width:35px; overflow:hidden }
+.page ul li a { color:#353535; display:block; height:18px; text-decoration:none; width:24px; overflow:hidden }
+.page ul li a.current { color:#ff6200;}
+.page ul li.num { background:url(/app_images/pingan/v20/health_v20/index/page_bg.gif) no-repeat scroll 0 -17px transparent; }
+.page_b .page_text { background:url(/app_images/pingan/v20/one_v20/licai_index/image/page_bg.gif) no-repeat scroll 0 -53px transparent; border:0 none; height:18px; margin:0 4px; text-align:center; width:40px; }
+.page_b .fl { line-height:18px; }
+.page_b .btn_go { background:url(/app_images/pingan/v20/one_v20/licai_index/image/page_bg.gif) no-repeat scroll 0 -71px transparent; display:block; float:left; height:19px; line-height:19px; margin-left:4px; text-indent:-9999px; width:23px; }
+
+.rexian_health { background:url(/app_images/pingan/v20/health_v20/header/rexian_bg.jpg) no-repeat 15px 12px; height:80px; overflow:hidden; }
+.rexian_health p { margin:52px 0 0 54px; }
+.rexian_health p a { color:#ff6200; text-decoration:underline; }
+.rexian_health p a:hover { color:#ff6200; text-decoration:none; }
+
+.wenti_health { padding:20px; }
+.wenti_health h2 { margin-bottom:5px; }
+.wenti_wd { margin-bottom:8px; }
+.ask { font-weight:bold; color:#686868; background:url(/app_images/pingan/v20/health_v20/header/li_bg_a.gif) no-repeat 1px 9px; padding-left:10px; }
+.anser { color:#999; }
+.wenti_list li { color:#686868; background:url(/app_images/pingan/v20/health_v20/header/li_bg_a.gif) no-repeat 1px 9px; padding-left:10px; }
+
+/*主题布局*/
+.main-container {
+  padding-bottom: 30px;
+}
+.main-row {
+  width: 980px;
+}
+.sidebar {
+  float: left;
+  display: inline;
+  width: 278px;
+  border: 1px solid #E7E7E7;
+}
+.container {
+  float: right;
+  display: inline;
+  width: 835px;
+  padding: 15px 34px;
+  border: 1px solid #E7E7E7;
+  background-color: #FFF;
+}
+.container-title {
+  font: 18px/40px "Microsoft Yahei";
+  border-bottom: 1px solid #E7E7E7;
+  position: relative;
+}
+.container-title i {
+  border-bottom: 5px solid #E7E7E7;
+  border-left: 5px dashed transparent;
+  border-right: 5px dashed transparent;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+.container-title b {
+  border-bottom: 5px solid #FFF;
+  border-left: 5px dashed transparent;
+  border-right: 5px dashed transparent;
+  position: absolute;
+  bottom: -1px;
+  left: 30px;
+}
+.container-title .titNew {
+  border-radius: 5px;
+  width: 30px;
+  text-align: center;
+  color: #ff6329;
+  font: 10px/18px arial;
+  border: 1px solid #ff6329;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.sidebar {
+  background: #FBFBFB url(/cshi-internet/ecompany/images/sidebar.png) no-repeat left bottom;
+}
+
+.sidebar-title {
+  margin: 10px 0 20px 10px;
+  border-left: 8px solid #FF6329;
+  background-color: #f5f5f5;
+  padding-left: 9px;
+  font: 18px/30px "Microsoft Yahei";
+}
+
+.side-menu {
+  float: right;
+  display: inline;
+  width: 168px;
+  min-height: 300px;
+  height: auto !important;
+  _height: 300px;
+  padding-top: 20px;
+  background-color: #FFF;
+  font-family: "Microsoft Yahei";
+}
+.side-menu a {
+  color: #333;
+}
+.side-menu a:hover {
+  color: #FF622A;
+}
+.side-menu .level-one-item-link {
+  display: block;
+  padding-left: 70px;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+}
+.side-menu .level-one-item-split {
+  visibility: hidden;
+  color: #FFF;
+  margin-right: 5px;
+  font-family: "Microsoft Yahei";
+}
+.side-menu .level-one-item-current .level-one-item-link {
+  background-color: #FF6329;
+  color: #FFF;
+}
+.side-menu .level-one-item-current .level-one-item-split {
+  visibility: visible;
+}
+.side-menu .level-three-title {
+  height: 22px;
+  line-height: 22px;
+  margin: 10px 0 5px;
+}
+.side-menu .level-three-title-minus,
+.side-menu .level-three-title-plus {
+  float: left;
+  width: 20px;
+  text-align: right;
+}
+.side-menu .level-three-title-minus {
+  display: none;
+}
+.side-menu .level-three-title-link {
+  display: block;
+  margin-left: 25px;
+}
+.side-menu .level-three-item {
+  height: 26px;
+  line-height: 26px;
+  display: none;
+}
+.side-menu .level-three-item-link {
+  display: block;
+  height: 100%;
+  margin-left: 25px;
+}
+.side-menu .level-three-current .level-three-item {
+  display: block;
+}
+.side-menu .level-three-title-current .level-three-title-link {
+  border-bottom: 5px solid #FF6328;
+}
+.side-menu .level-three-title-current .level-three-title-plus {
+  display: none;
+}
+.side-menu .level-three-item-current .level-three-item-link {
+  color: #FF622A;
+}
+
+/*面包屑*/
+.breadcrumb {
+  width: 980px;
+  height: 45px;
+  line-height: 45px;
+  font-family: "Microsoft Yahei";
+}
+.breadcrumb a {
+  font-size: 14px;
+  color: #000;
+}
+.breadcrumb a:hover{
+  color: #f60;
+} 
+.breadcrumb i {
+  font-style: normal;
+  font-size: 14px;
+}
+.breadcrumb span {
+  font-size: 14px;
+  color: #6b6969;
+}
+
+/*分页*/
+.pagination {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.pagination label {
+  display: inline;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.pagination a {
+  display: inline-block;
+  _display: inline;
+  _zoom: 1;
+  padding: 4px 8px;
+  border: 1px solid #e6e6e6;
+  color: #333;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.pagination a:hover {
+  border: 1px solid #FF8929;
+  text-decoration: none;
+  color: #FF8929;
+}
+
+.pagination a.hover {
+  background: #FF8929;
+  color: #fff;
+  border: 1px solid #FF8929;
+}
+
+.pagination a.hover:hover {
+  color: #fff;
+}
+
+.pagination .goto {
+  width: 26px;
+  height: 22px;
+  padding: 0 4px;
+  margin: 0 4px;
+  line-height: 22px;
+  border: 1px solid #dcdcdc;
+  vertical-align: middle;
+}
+
+.pagination .pageIndex_button {
+  width: 44px;
+  height: 24px;
+  line-height: 22px;
+  border: 1px solid #dcdcdc;
+  background-color: #fff;
+  cursor: pointer;
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.Pop_risk {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+}
+
+.Pop_risk .risk_bg {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  filter: Alpha(opacity=0);
+  position: static;
+  *zoom: 1;
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+
+.Pop_risk .risk_bdr {
+  border: 5px solid #a5a5a5;
+  background: #fff;
+  width: 560px;
+  min-height: 360px;
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  margin-left: -280px;
+}
+
+.Pop_risk .risk_title {
+  border-bottom: 1px solid #ebebeb;
+  text-align: center;
+  line-height: 48px;
+  color: #666;
+}
+
+.Pop_risk .risk_title i {
+  width: 15px;
+  height: 18px;
+  background: url(/cshi-internet/ecompany/images/icon02.gif) no-repeat;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.Pop_risk .risk_text {
+  padding: 25px;
+  text-indent: 2em;
+  color: #666;
+}
+
+.Pop_risk .risk_ipt {
+  text-align: center;
+}
+
+.Pop_risk .risk_ipt label {
+  cursor: pointer;
+}
+
+.Pop_risk .risk_ipt .risk_check {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.Pop_risk .risk_ipt .risk_btn {
+  display: block;
+  width: 136px;
+  height: 36px;
+  background: #FF8929;
+  color: #fff;
+  font: 14px/36px "Microsoft Yahei";
+  margin: 20px auto;
+}
+
+/*步骤条*/
+.information-input-step span, .information-input-zone .general-situation-columns .link i, .information-input-zone .information-input-box .information-input-list > li .title, .information-input-zone .information-input-box .information-input-list > li .columns-1, .information-input-zone .information-input-box .information-input-list > li .columns-2, .information-input-zone .add-member-columns .tips i, .main-row-right .plan-columns .plan-details-box .plan-details dd i, .main-row-right .chose-plan h2 i, .main-row-right .chose-plan .chose-plan-list, .btn-save, .btn-next {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.information-input-zone .general-situation-columns, .information-input-zone .information-input-box .information-input-list > li, .main-row-right .plan-columns h2, .main-row-right .plan-columns .plan-details-box .plan-details dd, .main-row-right .chose-plan .flex-box .insure-limit, .main-row-right .chose-plan .flex-box .insure-limit .share .member-1, .main-row-right .chose-plan .flex-box .insure-limit .no-share .member-1, .cost .cost-item dt, .cost .cost-item dd {
+  *zoom: 1;
+}
+
+.information-input-zone .general-situation-columns:before, .information-input-zone .information-input-box .information-input-list > li:before, .main-row-right .plan-columns h2:before, .main-row-right .plan-columns .plan-details-box .plan-details dd:before, .main-row-right .chose-plan .flex-box .insure-limit:before, .main-row-right .chose-plan .flex-box .insure-limit .share .member-1:before, .main-row-right .chose-plan .flex-box .insure-limit .no-share .member-1:before, .cost .cost-item dt:before, .cost .cost-item dd:before, .information-input-zone .general-situation-columns:after, .information-input-zone .information-input-box .information-input-list > li:after, .main-row-right .plan-columns h2:after, .main-row-right .plan-columns .plan-details-box .plan-details dd:after, .main-row-right .chose-plan .flex-box .insure-limit:after, .main-row-right .chose-plan .flex-box .insure-limit .share .member-1:after, .main-row-right .chose-plan .flex-box .insure-limit .no-share .member-1:after, .cost .cost-item dt:after, .cost .cost-item dd:after {
+  content: "";
+  display: table;
+}
+
+.main-row-right .member-columns ul li p:after, .main-row-right .plan-columns h2:after, .main-row-right .plan-columns .plan-details dd:after, .main-row-right .cost .cost-item dt:after, .main-row-right .cost .cost-item dd:after {
+  clear: both;
+}
+.information-input-step {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.information-input-step span {
+  width: 72px;
+  padding-top: 37px;
+}
+.information-input-step .curr {
+  color: #fd872b;
+}
+.information-input-step .step-one, .information-input-step .step-one.curr, .information-input-step .step-two, .information-input-step .step-two.curr, .information-input-step .step-three, .information-input-step .step-three.curr {
+  background: url("/cshi-internet/ecompany/images/ehome-icon.png") no-repeat;
+}
+.information-input-step .step-one, .information-input-step .step-one.curr {
+  padding-right: 90px;
+}
+.information-input-step .step-one.curr {
+  background-position: 0 0;
+}
+.information-input-step .step-two, .information-input-step .step-two.curr {
+  padding-left: 105px;
+  padding-right: 106px;
+  background-position: -162px 0;
+}
+.information-input-step .step-two.curr {
+  background-position: -162px -70px;
+}
+.information-input-step .step-three, .information-input-step .step-three.curr {
+  padding-left: 102px;
+  background-position: -433px 0;
+}
+.information-input-step .step-three.curr {
+  background-position: -433px -70px;
+}
+
+/*抗癌卫士公共样式*/
+.container-title .titNew, .side-menu .level-three-title-plus, .side-menu .level-three-title-current .level-three-title-minus, .Pop_risk .risk_title i {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.main-row, .breadcrumb {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearfix, .main-row, .Pop_risk .risk_ipt {
+  *zoom: 1;
+}
+
+.clearfix:before, .main-row:before, .Pop_risk .risk_ipt:before, .clearfix:after, .main-row:after, .Pop_risk .risk_ipt:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after, .main-row:after, .Pop_risk .risk_ipt:after {
+  clear: both;
+}
+.container-title i, .container-title b {
+  content: "";
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/*产品介绍*/
+.us_health{ background:url(/cshi-internet/ecompany/images/jhxIco1.jpg) no-repeat; margin:20px 0 0 8px; padding-left:76px; font-size:14px; font-weight:bold; width:155px; text-align:right; color:#686868; height:56px; padding-top:4px; }
+
+.us_box{ margin:8px 0 0 8px; padding-bottom:9px;}
+.hxbt1,.hxbt2,.hxbt3,.hxbt4{ background:url(/cshi-internet/ecompany/images/jhxtIco1.gif) no-repeat; width:105px; height:29px; display: inline-block; cursor: pointer;}
+.hxbt1{ background:url(/cshi-internet/ecompany/images/jhxtIco1.gif) no-repeat; margin-right:16px;}
+.hxbt2{ background-position:-140px 0;}
+.hxbt3{ background-position: 0 -40px; margin-right:16px;}
+.hxbt4{ background-position:-140px -40px;}
+.fenge_cj_wenti  { border-bottom: 1px solid #EAEAEA; margin: 12px 0 22px; position: relative;}
+.fenge_cj_wenti span { background: url(/cshi-internet/ecompany/images/s_anjiao.gif) no-repeat scroll 0 0 transparent; bottom: -7px; display: block; height: 7px; left: 50px; position: absolute; width: 13px;}
+
+.hxBoxlist{ overflow:hidden; zoom:1; padding-bottom:15px;}
+.hx1,.hx2,.hx3,.hx4{ min-height:99px;  _height:99px; width:224px; padding-left:81px; margin-top:15px; margin-bottom:15px; float:left;}
+.hx1{ background: url(/cshi-internet/ecompany/images/jhxIco2.gif) no-repeat; margin-right:40px;}
+.hx2{ background: url(/cshi-internet/ecompany/images/jhxIco3.gif) no-repeat;}
+.hx3{ background: url(/cshi-internet/ecompany/images/jhxIco4.gif) no-repeat; margin-right:40px;}
+.hx4{ background: url(/cshi-internet/ecompany/images/jhxIco5.gif) no-repeat; }
+.hx1 dt,.hx2 dt,.hx3 dt,.hx4 dt{ color:#323232; padding-bottom:3px; font-weight:bold;}
+.hx1 dd,.hx2 dd,.hx3 dd,.hx4 dd{ color:#686868; line-height:18px;}
+
+.hxAd{ background:#fffce9 url(/cshi-internet/ecompany/images/arrow.gif) no-repeat 16px -187px; border:1px solid #edddab; height:31px; line-height:31px; text-indent:25px; color:#c0880f;}
+.m_b8{ margin-bottom:8px;}
+.h2_title_health{ overflow: hidden;}
+.h2_title_health a{ float:right; font-size:12px; font-weight:normal; color:#323232;}
+
+.NpList{ overflow:hidden; zoom:1;}
+.Np1{ background:url(/cshi-internet/ecompany/images/jhxLine.gif) left center no-repeat; width:188px; float: left; margin-left:-1px; padding-left:20px;}
+.Np1 dt{ padding-left:27px; padding-bottom:6px; color:#323232; font-weight:bold;}
+.Np1 dt.dt1{ background:url(/cshi-internet/ecompany/images/jhxIcoAll.gif) no-repeat;}
+.Np1 dt.dt2{ background:url(/cshi-internet/ecompany/images/jhxIcoAll.gif) 0 -60px no-repeat;}
+.Np1 dt.dt3{ background:url(/cshi-internet/ecompany/images/jhxIcoAll.gif) 0 -120px no-repeat;}
+.Np1 dd{ background:url(/cshi-internet/ecompany/images/arrow.gif) 19px -192px no-repeat; padding-left:27px; line-height:18px; color:#686868;}
+.f_12{ font-size:12px;}
+
+.rexian_health_en {
+  background: url(/cshi-internet/ecompany/images/jhxIco6.gif) no-repeat scroll 15px 12px; overflow:hidden; height:80px;
+}
+.rexian_health_en p {    margin: 58px 0 0 14px;
+}
+.rexian_health_en p a { color: #FF6200; text-decoration: underline;}
+.rexian_health_en p a:hover { color: #FF6200; text-decoration: none;}
+.us_health_en  { background: url(/cshi-internet/ecompany/images/jhxIco1.jpg) no-repeat scroll 0 0 transparent; color: #686868; font-size: 14px; font-weight: bold; height: auto; margin: 20px 0 0 8px;    padding-left: 67px;  width: 188px;}
+.heath_body_left { float:left; width:700px; }
+.heath_body_right { float:right; width:270px; }
+.health_con_moel { padding:20px; }
+
+/*弹出窗*/
+.information-input-step span, .pay-zone .pay-tab .pay-list li a, .pay-zone .information-input .information-input-list li .title, .pay-zone .information-input .information-input-list li .columns-1, .pay-zone .information-input .information-input-list li .columns-2, .pay-zone .information-input .information-input-list li .columns-3, .pay-zone .information-input .information-input-list li .btn-pay, .mask-schedule-query .information-input-list .title, .mask-schedule-query .information-input-list .columns-1, .mask-schedule-query .information-input-list .columns-3, .btn-zone a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("/cshi-internet/ecompany/images/mask.png") repeat;
+  z-index: 999999;
+}
+
+.mask .mask-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 284px;
+  margin-top: -200px;
+  margin-left: -142px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.mask .mask-main p {
+  text-align: center;
+  color: #888;
+}
+
+.mask .mask-main .p-img {
+  margin-top: 60px;
+}
+
+.mask .mask-main .p-img img {
+  margin: 0 auto;
+}
+
+.mask .mask-main h2 {
+  text-align: center;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.mask .mask-main .h2-error {
+  color: #f00;
+}
+
+.mask .mask-main .p-error {
+  margin-top: 30px;
+}
+
+.mask-schedule-query .h2-title {
+  margin: 0 !important;
+  background-color: #F2F2F2;
+}
+
+.mask-schedule-query .information-input-list {
+  margin-top: 40px;
+}
+
+.mask-schedule-query .information-input-list .title {
+  float: left;
+  font-family: "Microsoft Yahei";
+  font-size: 14px;
+  width: 165px;
+  height: 26px;
+  line-height: 26px;
+  text-align: right;
+  margin-right: 10px;
+  color: #000;
+}
+.mask-schedule-query .information-input-list .title em{
+  color: #f60;
+}
+.mask-schedule-query .information-input-list .columns-1 {
+  float: left;
+  width: 168px;
+}
+
+.mask-schedule-query .information-input-list .columns-1 input[type="text"] {
+  color: #333;
+  font-size: 14px;
+  width: 156px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  border: 1px solid #E2E2E2;
+}
+
+.mask-schedule-query .information-input-list .columns-3 {
+  float: left;
+  width: 168px;
+}
+
+.mask-schedule-query .information-input-list .columns-3 input[type="text"] {
+  float: left;
+  color: #333;
+  font-size: 14px;
+  width: 95px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  border: 1px solid #E2E2E2;
+}
+
+.mask-schedule-query .information-input-list .columns-3 .btn-vcode {
+  float: left;
+  width: 60px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border: 1px solid #E2E2E2;
+  border-left: 0;
+  background-color: #F3F3F3;
+}
+
+.mask-schedule-query .information-input-list .validator-tips {
+  height: 25px;
+  margin-left: 141px;
+}
+
+.succes .a-link {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.succes-adbox, .succes-adbox .succes-adbox-1 a p, .succes-adbox .succes-adbox-2 a p, .succes-adbox .succes-adbox-3 a p, .succes-adbox .succes-adbox-4 a p, .succes-adbox .succes-adbox-5 a p {
+  *zoom: 1;
+}
+
+.succes-adbox:before, .succes-adbox .succes-adbox-1 a p:before, .succes-adbox .succes-adbox-2 a p:before, .succes-adbox .succes-adbox-3 a p:before, .succes-adbox .succes-adbox-4 a p:before, .succes-adbox .succes-adbox-5 a p:before, .succes-adbox:after, .succes-adbox .succes-adbox-1 a p:after, .succes-adbox .succes-adbox-2 a p:after, .succes-adbox .succes-adbox-3 a p:after, .succes-adbox .succes-adbox-4 a p:after, .succes-adbox .succes-adbox-5 a p:after {
+  content: "";
+  display: table;
+}
+
+.succes-adbox:after, .succes-adbox .succes-adbox-1 a p:after, .succes-adbox .succes-adbox-2 a p:after, .succes-adbox .succes-adbox-3 a p:after, .succes-adbox .succes-adbox-4 a p:after, .succes-adbox .succes-adbox-5 a p:after {
+  clear: both;
+}
+
+.succes {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 50px;
+  background-color: #F2F2F2;
+  border: 1px solid #DCDCDC;
+}
+
+.succes .p-img {
+  margin-top: 50px;
+}
+
+.succes .p-img img {
+  margin: 0 auto;
+}
+
+.succes h2 {
+  color: #00CF57;
+  margin: 5px 0;
+}
+
+.succes .a-link {
+  color: #00f;
+  text-decoration: underline;
+  padding-top: 30px;
+}
+
+.succes-adbox {
+  border: 1px solid #DCDCDC;
+  border-top: 0;
+}
+
+.succes-adbox .succes-adbox-1, .succes-adbox .succes-adbox-2, .succes-adbox .succes-adbox-3, .succes-adbox .succes-adbox-4, .succes-adbox .succes-adbox-5 {
+  position: relative;
+  float: left;
+}
+
+.succes-adbox .succes-adbox-1 a:hover, .succes-adbox .succes-adbox-2 a:hover, .succes-adbox .succes-adbox-3 a:hover, .succes-adbox .succes-adbox-4 a:hover, .succes-adbox .succes-adbox-5 a:hover {
+  text-decoration: none;
+}
+
+.succes-adbox .succes-adbox-1 a img, .succes-adbox .succes-adbox-2 a img, .succes-adbox .succes-adbox-3 a img, .succes-adbox .succes-adbox-4 a img, .succes-adbox .succes-adbox-5 a img {
+  float: left;
+}
+
+.succes-adbox .succes-adbox-1 a p, .succes-adbox .succes-adbox-2 a p, .succes-adbox .succes-adbox-3 a p, .succes-adbox .succes-adbox-4 a p, .succes-adbox .succes-adbox-5 a p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  background: url("/cshi-internet/ecompany/images/mask2.png") repeat;
+  height: 35px;
+  line-height: 35px;
+  color: #fff;
+  padding: 0 20px;
+  width: 309px;
+  cursor: pointer;
+}
+
+.succes-adbox .succes-adbox-1 a p .fl, .succes-adbox .succes-adbox-2 a p .fl, .succes-adbox .succes-adbox-3 a p .fl, .succes-adbox .succes-adbox-4 a p .fl, .succes-adbox .succes-adbox-5 a p .fl {
+  float: left;
+}
+
+.succes-adbox .succes-adbox-1 a p .fr, .succes-adbox .succes-adbox-2 a p .fr, .succes-adbox .succes-adbox-3 a p .fr, .succes-adbox .succes-adbox-4 a p .fr, .succes-adbox .succes-adbox-5 a p .fr {
+  float: right;
+}
+
+.succes-adbox .succes-adbox-1 a p i, .succes-adbox .succes-adbox-2 a p i, .succes-adbox .succes-adbox-3 a p i, .succes-adbox .succes-adbox-4 a p i, .succes-adbox .succes-adbox-5 a p i {
+  color: #FDE401;
+  font-size: 18px;
+  font-style: normal;
+}
+
+.succes-adbox .succes-adbox-2 {
+  width: 280px;
+}
+
+.succes-adbox .succes-adbox-2 a p {
+  width: 220px;
+}
+
+.btn-pop, .btn-black {
+  color: #fff;
+  font-size: 14px;
+  display: block;
+  width: 138px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  margin: 25px auto 0;
+  border: 1px solid #FF8929;
+  background-color: #FF8929;
+  border-radius: 5px;
+}
+
+.btn-pop:hover, .btn-black:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-black {
+  color: #333;
+  border: 1px solid #888;
+  background-color: #fff;
+}
+
+.btn-black:hover {
+  color: #333;
+}
+
+.disabled {
+  color: #fff;
+  border: 1px solid #888;
+  background-color: #888;
+}
+
+.disabled:hover {
+  color: #fff;
+}
+
+/*保费测算&健康告知radio样式*/
+.bfcx-box .pa_ui_radio_button,.jkgz-list .pa_ui_radio_button{
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+  border: none;
+}
+.bfcx-boxt .pa_ui_radio_button:hover{
+  border:none!important;
+  background: inherit!important;
+}
+.bfcx-box .pa_ui_radio_item,.bfcx-box .pa_ui_radio_hover,.jkgz-list .pa_ui_radio_item,.jkgz-list .pa_ui_radio_hover{
+  background: url(/cshi-internet/ecompany/images/dischoose.png) no-repeat;
+  background-position: 0 0 !important
+}
+.bfcx-box .pa_ui_radio_select,.jkgz-list .pa_ui_radio_select{
+  background: url(/cshi-internet/ecompany/images/choose.png) no-repeat;
+}
+.bfcx-box .pa_ui_radio_select:hover,.jkgz-list .pa_ui_radio_select:hover{
+  background: url(/cshi-internet/ecompany/images/choose.png) no-repeat!important;
+}
+.table-product-detail td{
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid #666;
+  font-family: 'Microsoft Yahei';
+}
+.table-product-detail-top{
+  background-color: #D9D9D9;
+}

@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:39:"E:\www\hiv/app/home\view\pc\toubao.html";i:1520341412;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +57,8 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">生效日期</label>
                   <div style="color:#999 !important;width: 450px;">
-                  	自{$start_time}起<br />
-                  	至{$end_time}止
+                  	自<?php echo $start_time; ?>起<br />
+                  	至<?php echo $end_time; ?>止
                   </div>
                 </div>
             </div>
@@ -89,9 +90,9 @@
 			    <div class="layui-input-block" style="position: relative;">
 			    	<input type="checkbox" name="agree" value="1" lay-skin="primary" title="我已阅读并同意此保险的"> 
 			    	<div class="shengming">
-			    		{volist name="rows" id="m"}
-			    		<a href="javascript:shows({$m.id});">{:strip_tags($m.title)}</a> 
-						{/volist}
+			    		<?php if(is_array($rows) || $rows instanceof \think\Collection || $rows instanceof \think\Paginator): $i = 0; $__LIST__ = $rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?>
+			    		<a href="javascript:shows(<?php echo $m['id']; ?>);"><?php echo strip_tags($m['title']); ?></a> 
+						<?php endforeach; endif; else: echo "" ;endif; ?>
 			    	</div>
 			    </div>
 			  </div>
@@ -114,7 +115,7 @@
 			checkPhone(); //验证手机号码
 			if(isPhone){
 				$.ajax({
-	                url: "{:url('base/base/getCode')}",
+	                url: "<?php echo url('base/base/getCode'); ?>",
 	                type: 'GET',
 	                dataType: 'json',
 	                data: {type:'baoxian',phone:$("#phone").val()},
@@ -176,10 +177,12 @@
             		return;
             	}
                 var loading = layer.load(1, {shade: [0.1, '#fff']});
-                $.post("{:url('home/baoxian/toubao')}",data.field,function(res){
+                $.post("<?php echo url('home/baoxian/toubao'); ?>",data.field,function(res){
                     layer.close(loading);
                     if(res.status > 0){
-                    	window.location.href="{:url('payment')}?data="+res.data;
+                    	layer.msg(res.msg,{icon:1},function(){
+                    		//parent.location.reload();
+                    	});
                     }else{
                         layer.msg(res.msg,{time:1000,icon:2});
                     }
@@ -189,11 +192,11 @@
         })
 
 	    function shows(ids){
-	    	{volist name="rows" id="m"}
-	    		if(ids=={$m.id}){
-	    			var content='{$m.content}';
+	    	<?php if(is_array($rows) || $rows instanceof \think\Collection || $rows instanceof \think\Paginator): $i = 0; $__LIST__ = $rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$m): $mod = ($i % 2 );++$i;?>
+	    		if(ids==<?php echo $m['id']; ?>){
+	    			var content='<?php echo $m['content']; ?>';
 	    		}
-	    	{/volist}
+	    	<?php endforeach; endif; else: echo "" ;endif; ?>
 	    	layer.open({
 				type: 1,
 				area: ['900px', '80%'],

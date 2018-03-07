@@ -42,7 +42,7 @@ class Login extends Common{
             $plugin = db('plugin')->where(['type'=>'login','status'=>1])->select();
             $this->assign('plugin', $plugin);
             $this->assign('title','会员登录');
-            return $this->fetch('pc/login');
+            return $this->fetch($this->whereIs.'/'.'login');
         }
     }
     public function check($code){

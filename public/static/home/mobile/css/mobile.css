@@ -1,0 +1,208 @@
+/* 
+* @Author: siyizhen
+* @Date:   2018-01-29 15:24:47
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-01-30 17:27:43
+*/
+.clearfix { 
+ 	*zoom: 1; 
+} 
+ 
+.clearfix:before, .clearfix:after { 
+	display: table; 
+	line-height: 0; 
+	content: ""; 
+} 
+ 
+.clearfix:after { 
+	clear: both; 
+} 
+
+
+.weui-cells{
+	margin-top: 0;
+}
+
+.headimg{
+	position: relative;margin-right: 10px;
+}
+
+.headimg img{
+	width: 50px;display: block
+}
+
+.userid{
+	font-size: 13px;color: #888888;
+}
+
+.cell_title{
+	vertical-align: middle
+}
+
+.weui-badge_span{
+	margin-left: 5px;
+}
+
+.weui-grid-usercenter{
+	width: 25% !important;
+}
+
+.tab_icon{
+	color: #666 !important;
+}
+
+.weui-tabbar__label{
+	color: #666 !important;
+}
+
+.icon_box{
+	display: inline-block;position: relative;
+}
+
+
+.list_loadmore{
+	text-align: center;
+	width: 100%;
+}
+
+.list_loading{
+	margin:0 auto;
+}
+
+.lists_title{
+	width: 74%;float: left;
+}
+
+.lists_date{
+	float: right;color: #999999;font-size: 13px;height: 27px;line-height: 27px;
+}
+
+.lists_detail_title{
+	text-align: center;
+	margin-bottom: 0px !important;
+}
+
+.fengei{
+	height:6px;border:none;border-top:2px dotted #999;
+}
+
+.dot_right{
+	margin-right: 10px;
+}
+
+.tabon span i::before,.tabon p{
+	color:#f43530 !important;
+}
+
+.submit_btn{
+	width: 80% !important;margin-top: 8px;
+}
+
+.weui-vcode-btn_disabled{
+	background-color: #999 !important;
+	color: #FFF;
+}
+
+.weui-vcode-btn_disabled:active{
+	color: #FFF;
+}
+
+.suggestion_tips{
+	color: #000;padding: 15px;
+}
+
+.suggestion_list_title{
+	font-weight: 400;font-size: 17px;
+}
+
+.suggestion_list_answer{
+	color: #999;font-size: 13px;line-height: 1.2;
+}
+
+.tuijian{
+	margin-right: 5px;
+    height: 18px;
+    line-height: 18px;
+    margin-top: -5px;
+    border-radius:6px !important;
+}
+
+.position_title{
+	text-align: center;padding: 14px 0 8px 0;
+}
+
+.location_map{
+	font-size: 18px !important;
+	color: #f43530;
+}
+
+.change_location{
+	font-weight: 400px;
+	color: #007aff;
+}
+
+.result_strong{
+	color:#e64340
+}
+
+.card{
+	background: #fff;
+    box-shadow: 0 .05rem .1rem rgba(0,0,0,.3);
+    margin: .5rem;
+    border-radius: .1rem;
+    font-size: .7rem;
+}
+
+.card-header{
+	border-radius: .1rem .1rem 0 0;
+    font-size: .85rem;
+    min-height: 2.2rem;
+    position: relative;
+    padding: .5rem .75rem;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.card-header p{
+	color: red;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+.card-header:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #e1e1e1;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.card-content-inner {
+    padding: .75rem;
+    font-size: .9rem;
+}
+
+.receive_self{
+	width: 30%;float: left;margin-left: 15px;
+}
+
+.wechatpay{
+	width: 30%;float: right;margin-right: 15px;
+}

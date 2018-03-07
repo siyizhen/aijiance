@@ -1,0 +1,7 @@
+/* 鑷畾涔夋寜閽帶浠� 鏀寔杈撳叆鍜岄�夋嫨2绉嶆柟寮� */
+.customizeInput{float:left;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0 0 0 2%;width:100%;height:.75rem;text-indent:.06rem;background:#fff;border: 1px solid #d3d3d3;border-radius:.1rem;font-size:.24rem;color:#888;position:relative}
+.customizeInput_enter{width:100%}
+.customizeInput_enter input{border:none;background:none;width:100%;padding: 0.14rem 0 0.2rem 0;}
+.customizeInput_select{position:absolute;top:0;right:0;width:.5rem;height:.75rem; background: url(/mobile/images/gwMore1.png) no-repeat right 0.24rem center;    background-size:0.24rem auto;}
+.customizeInput_select input{opacity:0;width:100%}
+.customizeInput_select select{opacity:0;width:100%}

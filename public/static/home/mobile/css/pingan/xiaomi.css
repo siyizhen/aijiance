@@ -1,0 +1,110 @@
+/*兼容app中的小米手机*/
+		
+		.mod-dialog-bg{z-index:8889}
+		.mod-dialog{z-index:9000}
+		.bor>div img{font-size:0;vertical-align:top;display:block}
+		.am-share{position:fixed;max-height:80%;overflow:auto}
+		footer a:active{background:#c22529}
+		.audiojs p{line-height:normal;width:100%;height:100%;margin-top:0}
+		.audiojs .play{background:url(images/stop.png) no-repeat;background-size:0.64rem 0.64rem;margin-top:0}
+		.bzDesc .audiojs .pause{background:url(images/pause.png) no-repeat;background-size:0.64rem 0.64rem;margin:0}
+		.audiojs .scrubber{width:1.9rem;height:100%;padding:0;margin:0 0 0 .1rem;background:url(images/voice@2x.png) no-repeat left center;background-size:2rem auto;border:none;margin-right:.04rem;border-top:none}
+		.audiojs .loaded{display:none}
+		.audiojs .progress{background:url(images/voice1@2x.png) no-repeat left center;background-size:2rem auto;height:100%}
+		.audiojs .time{margin:0;padding:0;border:none;line-height:.4rem;text-shadow:none;float:right;margin-right:.25rem;height:.4rem}
+		.audiojs .time strong{display:none}
+		.audiojs .time{line-height:.45rem}
+		.audiojs .time em{height:.45rem;line-height:.45rem}
+		.audiojs{width:auto;box-shadow:none;-webkit-box-shadow:none}
+		.pause{background:url(images/pause.png) no-repeat;background-size:cover;margin:0}
+		.audiojs{height:0.65rem;background:#f0f0f0;border-radius:.1rem;margin:.2rem 0 .3rem 0}
+		.audiojs .time em{height:.65rem;line-height:.65rem;font-size:.23rem;color:#bbb}
+		.pause{background:url(images/allPlaying.png) no-repeat;background-size:cover;margin:0}
+		.audiojs .scrubber{width:3.8rem;height:.11rem;margin-top:.27rem;padding:0;background:#dfdfdf;background-size:2rem auto;border:none;margin-right:.04rem;border-top:none;border-radius:.1rem;margin-left:.2rem}
+		.audiojs .progress{background:#e95b41;height:100%}
+		.audiojs .play-pause{width:.74rem;height:.74rem;border:none;padding:0;margin:0}
+		#birthday, #job {background: url('../images/activity/childrenDisease/arrow.png') #fff no-repeat scroll right 0.2rem center; background-size: 0.24rem;}
+		.h-label{width: 110%}
+		.mod-dialog .dialog-main{ margin-top: -250px!important;}
+        /*针对乐视1s和meta8兼容*/
+        @media screen and (min-width:361px) and (max-width:412px) {
+            .bzfw li{
+               margin:-0.02rem 0 0 0;
+            }
+        }
+        .tb{ position: absolute; right: .12rem; top: 0.9rem;  width: .9rem;}
+        .tb2{ top: 0.9rem; right:auto; left:.12rem;width: 1.47rem;}
+        
+        footer .yychannels{ left:1.1rem;}
+        footer .yychannels abbr{margin: 0 0 0 .2rem;}
+		.p-disabled{
+			margin: 0 0.1rem 0 0;
+			box-sizing: border-box;
+			margin-bottom: 0.1rem;
+			border: 1px solid #d3d3d3;
+			width: auto;
+			padding: 0 0.2rem;
+			border-radius: 0.08rem;
+			float: left;
+			height: 0.65rem;
+			line-height: 0.65rem;
+			text-align: center;
+			color: #666;
+			display: none;
+		}
+		#csCount_dummy{opacity:1!important;}
+		ul.xs div {
+			box-sizing: border-box;
+			display: none;
+			margin-bottom: 0.1rem;
+			border: 1px solid #d3d3d3;
+			width: auto;
+			padding: 0 0.2rem;
+			border-radius: 0.08rem;
+			float: left;
+			height: 0.65rem;
+			line-height: 0.65rem;
+			text-align: center;
+			color: #666;
+		}
+
+
+		.nav_download{ width: 100%; text-align: center; color: #aaa; font-size: .2rem; padding: 0 0 1.1rem 0; margin: -.78rem 0 0 0; display: none;}
+.nav_download p:nth-child(1),.nav_download p:nth-child(2){ margin: 0 0 .1rem 0; }
+.nav_download a{ text-decoration: none; color: #999 ; margin: 0 .2rem; display:inline-block;}
+.nav_download span{ }
+.index_download{ position: fixed; left: 0; right:0;top: 0; z-index: 9999;text-align:center; display: none;}
+.index_download img{ width:100%; max-width:inherit;}
+.index_download div{position:absolute;top:0.15rem;right:0.15rem;width:0.5rem;height:0.5rem}
+.index_download div:nth-child(2),.index_download div:nth-child(3){position:absolute;top:0;height:0.88rem}
+.index_download .index_download2{left:0;width:100%;}
+.index_download div:nth-child(2){left:0;width:50%}
+.index_download div:nth-child(3){top:0.32rem;right:0.7rem;width:29%;height:0.28rem;text-align:right;line-height:0.28rem;font-size:0.26rem;color:#f0f0f0;border-left:1px solid #4d4d4d;}
+.index_logo{ display: none; position: fixed; left:1.8%; top:1%; width:7.4%; background: #f04a34; border-radius:15%; z-index:9999;-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);}
+.index_logo img{ float:left; width: 90%; margin: 5%;}
+.index_logo label{display:none;}
+/* 首页动画效果改版1.4 2016-12-14 */
+.logoHide{  -webkit-animation: square-to-circle 2s 0s  cubic-bezier(1,.015,.295,1.225) forwards;}
+.logoHide span{display:none;}
+.logoHide label{display:block;}
+.logoShow{  -webkit-animation: circle-to-square 2s 0s  cubic-bezier(1,.015,.295,1.225) forwards;}
+.logoShow span{display:block;}
+.logoShow label{display:none;}
+@-webkit-keyframes square-to-circle{
+    0%{
+        border-radius:15%;
+    }
+    100%{
+        border-radius:50%;
+    }
+}
+@-webkit-keyframes circle-to-square{
+    0%{
+        border-radius:50%;
+    }
+    100%{
+        border-radius:15%;
+    }
+}

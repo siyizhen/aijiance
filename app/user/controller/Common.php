@@ -4,19 +4,19 @@ use think\Input;
 use think\Controller;
 use clt\Leftnav;
 class Common extends Controller{
-    protected $userInfo;
+    protected $userInfo,$whereIs;
     public function _initialize(){
+        $this->whereIs=whereIs();
+        if($this->whereIs=='wechat'){
+            exit;
+        }
+
         $this->userInfo=db('users')->alias('u')
             ->join(config('database.prefix').'user_level ul','u.level = ul.level_id','left')
             ->where(['u.id'=>session('user.id')])
             ->field('u.*,ul.level_name')
             ->find();
         $this->assign('userInfo',$this->userInfo);
-
-        $whereIs=whereIs();
-        if($whereIs!='pc'){
-            exit;
-        }
 
         $sys = F('System');
         $this->assign('sys',$sys);

@@ -69,7 +69,7 @@
 		//验证手机号码
 		function checkPhone(){
 			var phone = $('#phone').val();
-			var pattern = /^1[0-9]{10}$/;
+			var pattern = {:config('reg.phone')};
 			isPhone = 1;
 			if(phone == '') {
 				layer.msg('请输入手机号码',{icon:2});

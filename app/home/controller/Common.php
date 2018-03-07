@@ -6,10 +6,10 @@ use clt\Leftnav;
 use think\Request;
 use think\Controller;
 class Common extends Controller{
-    protected $pagesize;
+    protected $pagesize,$whereIs;
     public function _initialize(){
-        $whereIs=whereIs();
-        if($whereIs!='pc'){
+        $this->whereIs=whereIs();
+        if($this->whereIs=='wechat'){
             exit;
         }
         $sys = F('System');
@@ -42,10 +42,14 @@ class Common extends Controller{
         }
         $this->assign('category',$cate);
         //广告
-        $adList = cache('adList');
+        $adList = cache('adList_'.$this->whereIs);
         if(!$adList){
-            $adList = db('ad')->where(['type_id'=>1,'open'=>1])->order('sort asc')->limit('4')->select();
-            cache('adList', $adList, 3600);
+            if($this->whereIs=='pc'){
+                $adList = db('ad')->where(['type_id'=>1,'open'=>1])->order('sort asc')->limit('4')->select();
+            }else{
+                $adList = db('ad')->where(['type_id'=>10,'open'=>1])->order('sort asc')->limit('4')->select();
+            }
+            cache('adList_'.$this->whereIs, $adList, 3600);
         }
         $this->assign('adList', $adList);
         //友情链接

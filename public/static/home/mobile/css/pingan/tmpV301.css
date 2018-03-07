@@ -1,0 +1,64 @@
+*{padding:0;margin:0;vertical-align:middle;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+body{font-size:12px;}
+ul,ol{list-style:none}
+.title{background:#f6f6f6;border-bottom:1px solid #eaeaea;height:40px;line-height:40px;padding:0 15px}
+.infoWrapper{clear:both;}
+.infoTitle{float:left;width:83px;display:inline;line-height:35px;}
+
+.infoContent{margin-left:83px;text-align:left;line-height:35px;}
+.infoContent *{ line-height: 150%;}
+input{font-size:12px;width:100%;border:#e5e5e5 solid thin;padding:9px 0 10px 5px;-webkit-appearance:none;border-radius:3px;color:#666;}
+select{font-size:12px;width:100%;border:#e5e5e5 solid thin;padding:9px 0 10px 5px;-webkit-appearance:none;border-radius:3px}
+.bg{background:#fff; border-bottom:#e5e5e5 solid thin; padding:0 0 10px 0;}
+.posRel{position:relative}
+.infoContent button{position:absolute;top:0;right:0;padding:9px 5px 10px 5px;background:red;border:none;color:#fff;border-radius:0 5px 5px 0;font-size:12px;line-height:1em}
+.range{clear: both;}
+.h50{height:50px}
+.infoContent select{ margin:0 0 12px 0;}
+.infoContent select:nth-last-child(3){margin:0 0 12px 0;}
+.infoContent select:nth-last-child(2){margin:0 0 12px 0;}
+select{ color:#a9a9a9;}
+.infoWrapper{ min-height:50px;}
+.very{text-indent:5px;font-size:0.75em;color:red;min-height:4px;margin-top:0; padding:2px 0; display:inline-block;}
+
+#startTime{ color:#e62f17;}
+#fromTime,#toTime,#fromTimeView,#toTimeView{width:100%; float:left; color:#888; line-height:20px; text-indent:5px; display: inline; font-size:11px; padding:0 0 0 1px; }
+footer{position:fixed;width:100%;left:0;right:0;bottom:0;background:#fff;height:50px;line-height:50px;border-top:1px solid #eaeaea}
+footer div{text-align: center;width:50%;height:50px;line-height:50px;font-size:20px}
+footer div.fl{float:left;color:#e62f17;font-size:24px;}
+footer div.fr{float:right;background:#e33124;color:#fff}
+
+/**checked css Gender Range date**/
+.yListr ul:nth-child(1){float:left; width:100%;}
+.yListr ul li em{min-width:30px;text-align:center;float:left; margin:0 8px 8px 0;cursor:pointer;color:#666666;font-size:12px;display:inline-block;padding:8px 12px 9px 12px;font-style:normal;border:1px solid #dcdcdc;border-radius:3px}
+.yListr ul li em.yListrclickem{overflow: hidden;border-radius:3px;border:1px solid #e62f17;position:relative; }
+.yListr ul li em.yListrclickem i{border-radius:3px;display:block;width:15px;height:14px;right:0;bottom:0;position:absolute;}
+.yListr ul li em.yListrclickem::after{width: 16px;height: 16px;z-index: 1;content: '';background: #e62f17;position: absolute;right: -8px;bottom: -8px;display: block;-ms-transform:rotate(-45deg);
+-moz-transform:rotate(-45deg);     /* Firefox */
+-webkit-transform:rotate(-45deg); /* Safari 鍜� Chrome */
+-o-transform:rotate(-45deg);     /* Opera */
+transform:rotate(-45deg);}
+ul.range li{position:relative}
+ul.range li div{display:inline-block;width:75%;color:#878787}
+ul.range li bdi{float:right;position:absolute;right:0;bottom:0;color:#e62f17}
+
+/** checkbox css **/
+input[type=checkbox] {visibility: hidden}
+.checkboxOne {width: 20px;height:20px;position: relative}
+.checkboxOne label {cursor: pointer;position: absolute;width: 20px;height: 20px;top: 0;left: 0;background: #dedede;border-radius:3px}
+.checkboxOne label:after {opacity: 0.1;content: '';position: absolute;width: 9px;height: 5px;background: transparent;top: 4px;left: 4px;border: 3px solid #434343;border-top: none;border-right: none;-webkit-transform: rotate(-45deg);-moz-transform: rotate(-45deg);-o-transform: rotate(-45deg);-ms-transform: rotate(-45deg);transform: rotate(-45deg);}
+.checkboxOne label:hover::after {opacity: 0.1}
+.checkboxOne input[type=checkbox]:checked+label:after {opacity: 1}
+
+/* p_number */
+/**
+.p_number{}	
+.p_number .f_l{float:left;}
+.p_number .add_chose{width:auto}
+.p_number .add_chose a{color:#333;font-size:1.5em;text-decoration:none;text-align:center;border:1px solid #eaeaea;margin:0;float:left;display:block;width:43px;height:35px;overflow:hidden}
+.p_number .add_chose a.reduce{background-position:0 0;}
+.p_number .add_chose a.reduce:hover{background-position:0 -16px;}
+.p_number .add_chose a.add{background-position:-16px 0;}
+.p_number .add_chose a.add:hover{background-position:-16px -16px;}
+.p_number .add_chose .text{float:left;text-indent:0;text-align:center;display:inline;border:solid 1px #eaeaea;padding:8px 0 8px 0;width:53px;line-height:18px;font-size:14px;color:#e62f17;font-weight:800;border-radius:0}
+**/

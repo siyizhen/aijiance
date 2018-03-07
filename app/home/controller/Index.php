@@ -5,6 +5,6 @@ class Index extends Common{
         parent::_initialize();
     }
     public function index(){
-        return $this->fetch('pc/index');
+        return $this->fetch($this->whereIs.'/index');
     }
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:40:"F:\www\hiv/app/home\view\pc\baoxian.html";i:1520327312;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1520318094;s:39:"F:\www\hiv/app/home\view\pc\leftkf.html";i:1520318666;s:46:"F:\www\hiv/app/home\view\pc\footer_source.html";i:1520318730;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:40:"F:\www\hiv/app/home\view\pc\baoxian.html";i:1520327312;s:46:"F:\www\hiv/app/home\view\pc\common_header.html";i:1520408244;s:39:"F:\www\hiv/app/home\view\pc\leftkf.html";i:1520318666;s:46:"F:\www\hiv/app/home\view\pc\footer_source.html";i:1520318730;}*/ ?>
 ﻿<!DOCTYPE html>
 <head>
 	<meta name="Generator" content="CmsEasy 5_6_0_20170105_UTF8" />
@@ -26,8 +26,8 @@
 				<div class="menu">
 					<ul>
 						<li <?php if($controller == index): ?>class="on"<?php endif; ?>><a href="<?php echo url('home/index/index'); ?>">网站首页</a></li>
-						<li><a href="<?php echo url('home/baoxian/index'); ?>">防艾险</a></li>
-						<li><a href="<?php echo url('home/question/question'); ?>">问卷中心</a></li>
+						<li <?php if($controller == baoxian): ?>class="on"<?php endif; ?>><a href="<?php echo url('home/baoxian/index'); ?>">防艾险</a></li>
+						<li <?php if($controller == question): ?>class="on"<?php endif; ?>><a href="<?php echo url('home/question/question'); ?>">问卷中心</a></li>
 						<?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 		                <li <?php if($controller == $vo['catdir']): ?>class="on"<?php endif; ?>>
 		                    <a href="<?php echo url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']]); ?>" title="<?php echo $vo['catname']; ?>-<?php echo $sys['name']; ?>"><?php echo $vo['catname']; ?></a>

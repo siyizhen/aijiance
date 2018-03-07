@@ -33,7 +33,7 @@ class EmptyController extends Common{
                 $province = db('Region')->where(array('pid'=>1))->select();
                 $this->assign('province',$province);
             }
-            return $this->fetch('pc/'.$template);
+            return $this->fetch($this->whereIs.'/'.$template);
         }else{
             if(DBNAME=='picture'){
                 $setup = db('field')->where(array('moduleid'=>3,'field'=>'group'))->value('setup');
@@ -87,7 +87,7 @@ class EmptyController extends Common{
             }
 			$cattemplate = db('category')->where('id',input('catId'))->value('template_list');
 			$template =$cattemplate ? $cattemplate : DBNAME.'_list';
-            return $this->fetch('pc/'.$template);
+            return $this->fetch($this->whereIs.'/'.$template);
         }
     }
     public function info(){
@@ -129,6 +129,6 @@ class EmptyController extends Common{
 			}
 		}
 
-        return $this->fetch('pc/'.$template);
+        return $this->fetch($this->whereIs.'/'.$template);
     }
 }

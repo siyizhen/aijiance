@@ -25,8 +25,8 @@
 				<div class="menu">
 					<ul>
 						<li {if condition="$controller eq index"}class="on"{/if}><a href="{:url('home/index/index')}">网站首页</a></li>
-						<li><a href="{:url('home/baoxian/index')}">防艾险</a></li>
-						<li><a href="{:url('home/question/question')}">问卷中心</a></li>
+						<li {if condition="$controller eq baoxian"}class="on"{/if}><a href="{:url('home/baoxian/index')}">防艾险</a></li>
+						<li {if condition="$controller eq question"}class="on"{/if}><a href="{:url('home/question/question')}">问卷中心</a></li>
 						{volist name="category" id="vo"}
 		                <li {if condition="$controller eq $vo['catdir']"}class="on"{/if}>
 		                    <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']])}" title="{$vo.catname}-{$sys.name}">{$vo.catname}</a>

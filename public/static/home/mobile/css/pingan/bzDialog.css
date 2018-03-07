@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+.mod-dialog-bg1 {background: #000;opacity: .8;filter: alpha(opacity=80);height:2000%;left: 0;position: fixed;top: 0;width: 100%;z-index: 999999;animation: fade-in;/*动画名称*/
+    animation-duration: .5s;/*动画持续时间*/
+    -webkit-animation:fade-in .5s;/*针对webkit内核*/}
+@keyframes fade-in {
+    0% {opacity: 0;}/*初始状态 透明度为0*/
+    10% {opacity: 0;}/*过渡状态 透明度为0*/
+    80% {opacity: 0.8;}/*结束状态 透明度为1*/
+}
+@-webkit-keyframes fade-in {/*针对webkit内核*/
+    0% {opacity: 0;}
+    10% {opacity: 0;}
+    80% {opacity: 0.8;}
+}	
+.mod-dialog1 {background-color: #fff;position: fixed;z-index: 999999;left:0;right:0}
+.mod-dialog1 .dialog-main1 {font-size: 14px;text-align: center;position:fixed;left:50%;top:50%;margin-left:-40%;margin-top:-75px;width:80%;height:auto;background:#fff;border-radius:8px}
+.mod-dialog1 .dialog-content1 {font-size: 14px;line-height: 24px;}
+.mod-dialog1 .dialog-console1 {line-height:40px;height:40px;border-top:1px solid #e5e5e5;}
+.mod-dialog1 .dialog-console1 a{margin:0px}
+.mod-dialog1 .dialog-console1 .console-btn-confirm1 {line-height:40px;text-decoration:none;border-radius:5px;text-align:center;font-size:1em}
+.dialog-content1{padding:20px}
+.dialog-console1 a{display:inline-block;width:50%;text-decoration:none; color:#435a77;}
+.mod-dialog1 .dialog-console1 .console-btn-cancel1{border-right:1px solid #e5e5e5;margin-right:-1px}

@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-03-06 14:31:39
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-06 22:56:29
+ * @Last Modified time: 2018-03-07 16:46:12
  */
 namespace app\home\controller;
 class Baoxian extends Common{
@@ -18,12 +18,20 @@ class Baoxian extends Common{
 	public function index(){
 		$rows=db('article')->where('posid',5)->select();
 		$this->assign('rows',$rows);
-		return $this->fetch('pc/baoxian');
+		return $this->fetch($this->whereIs.'/'.'baoxian');
 	}
 
 	public function toubao(){
 		if(request()->isAjax()){
 			$data=input('param.');
+			if(!empty($data['data'])){
+				$dataArr=explode('&',$data['data']);
+				foreach ($dataArr as $k => $v) {
+					$vArr=explode('=',$v);
+					$data[$vArr[0]]=$vArr[1];
+				}
+			}
+			unset($data['data']);
 			if(empty($data['truename'])){
 				$arr=['status'=>0,'msg'=>'请输入被保人姓名！','url'=>''];
 				return json($arr);
@@ -113,15 +121,23 @@ class Baoxian extends Common{
 	    	$end_time=strtotime(date('Y-m-d', strtotime("+1 year")))+3600*24-1;
 	    	$this->assign('start_time',date('Y年m月d日 H:i:s',$start_time));
 	    	$this->assign('end_time',date('Y年m月d日 H:i:s',$end_time));
-			return $this->fetch('pc/toubao');
+			return $this->fetch($this->whereIs.'/'.'toubao');
 		}
 	}
 
+	public function mobileBaoxianRequire(){
+		$start_time=strtotime(date('Y-m-d'))+3600*24;
+    	$end_time=strtotime(date('Y-m-d', strtotime("+1 year")))+3600*24-1;
+    	$this->assign('start_time',date('Y年m月d日 H:i:s',$start_time));
+    	$this->assign('end_time',date('Y年m月d日 H:i:s',$end_time));
+		return $this->fetch($this->whereIs.'/'.'require');
+	}
+
 	public function payment(){
-		return $this->fetch('pc/payment');
+		return $this->fetch($this->whereIs.'/'.'payment');
 	}
 
 	public function payResult(){
-		return $this->fetch('pc/pay_result');
+		return $this->fetch($this->whereIs.'/'.'pay_result');
 	}
 }

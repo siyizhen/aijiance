@@ -4,13 +4,17 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 17:27:43
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-05 14:48:29
+ * @Last Modified time: 2018-03-07 12:59:13
  */
 namespace app\home\controller;
 use think\Controller;
 class Question extends Controller{
-	protected $userid,$baseC;
+	protected $userid,$baseC,$whereIs;
 	public function _initialize(){
+		$this->whereIs=whereIs();
+        if($this->whereIs=='wechat'){
+            exit;
+        }
 		$this->userid=session('user.id');
 		$this->baseC=controller('base/base');
 	}
@@ -24,7 +28,7 @@ class Question extends Controller{
 		            'wait'=>5,
 		            'url'=>url('user/login/index'),
 		        ];
-	    		return $this->baseC->showMessage('pc',$param);
+	    		return $this->baseC->showMessage($this->whereIs,$param);
 	        }
         	
         	$data=input('param.');
@@ -67,14 +71,14 @@ class Question extends Controller{
 		            'url'=>url('home/question/question'),
 		        ];
 	        }
-	    	return $this->baseC->showMessage('pc',$param);
+	    	return $this->baseC->showMessage($this->whereIs,$param);
         }else{
         	$rows=db('questions',[],false)->alias('a')->join('__QUESTIONNAIRES__ b','a.questionnaire_id=b.id')->where('b.is_use',2)->field('a.id as question_id,a.*,b.*')->order('sort asc')->select();
 	        foreach ($rows as $k => $v) {
 	            $rows[$k]['optionsList']=json_decode($v['options'],true);
 	        }
 	        $this->assign('questions',$rows);
-	        return $this->fetch('pc/'.'question');
+	        return $this->fetch($this->whereIs.'/'.'question');
         }
     }
 }

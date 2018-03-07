@@ -137,7 +137,7 @@
 		//验证手机号码
 		function checkPhone(){
 			var phone = $('#phone').val();
-			var pattern = /^1[0-9]{10}$/;
+			var pattern = {:config('reg.phone')};
 			isPhone = 1;
 			if(phone == '') {
 				layer.msg('请输入手机号码',{icon:2});
@@ -169,7 +169,6 @@
 
 	    layui.use('form', function () {
             var form = layui.form,$ = layui.jquery;
-            // 登录提交监听
             form.on('submit(sub)', function (data) {
             	if(typeof data.field.agree == 'undefined'){
             		layer.msg('请认真阅读相关声明公告、条款协议后勾选！',{icon:2});

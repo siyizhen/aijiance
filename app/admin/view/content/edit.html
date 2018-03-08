@@ -61,7 +61,11 @@
                 success:function(res){
                     var str='<option value="">请选择省</option>';
                     $.each(res, function(index, val) {
-                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                        if(val.id=="{$info.province}"){
+                            str+='<option value="'+val.id+'" selected="">'+val.name+'</option>';
+                        }else{
+                            str+='<option value="'+val.id+'">'+val.name+'</option>';
+                        }
                     });
                     $("#province").html(str);
                     $("#city").html('<option value="">请选择市</option>');
@@ -112,7 +116,45 @@
                             form.render();
                         }
                     })
-                });  
+                }); 
+
+                $.ajax({
+                    url: "{:url('base/base/getRegion')}",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {pid:"{$info.province}",type:2},
+                    success:function(res){
+                        var str='<option value="">请选择城市</option>';
+                        $.each(res, function(index, val) {
+                            if("{$info.city}"==val.id){
+                                str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                            }else{
+                                str+='<option value="'+val.id+'">'+val.name+'</option>';
+                            }
+                        });
+                        $("#city").html(str);
+                        $("#district").html('<option value="">请选择区县</option>');
+                        
+                        $.ajax({
+                            url: "{:url('base/base/getRegion')}",
+                            type: 'GET',
+                            dataType: 'json',
+                            data: {pid:"{$info.city}",type:3},
+                            success:function(res){
+                                var str='<option value="">请选择区县</option>';
+                                $.each(res, function(index, val) {
+                                    if("{$info.district}"==val.id){
+                                        str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                                    }else{
+                                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                                    }
+                                });
+                                $("#district").html(str);
+                                form.render();
+                            }
+                        }); 
+                    }
+                })
             })   
         </script>
         {/if}

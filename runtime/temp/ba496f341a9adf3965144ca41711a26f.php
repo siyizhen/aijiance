@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:49:"F:\www\hiv/app/admin\view\content\jiancedian.html";i:1520503582;s:42:"F:\www\hiv/app/admin\view\common\head.html";i:1519691410;s:42:"F:\www\hiv/app/admin\view\common\foot.html";i:1519691410;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:49:"E:\www\hiv/app/admin\view\content\jiancedian.html";i:1520516936;s:42:"E:\www\hiv/app/admin\view\common\head.html";i:1520516936;s:42:"E:\www\hiv/app/admin\view\common\foot.html";i:1520516936;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

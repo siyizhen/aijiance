@@ -64,7 +64,6 @@ class EmptyController extends Common{
                 }
                 $this->assign('list',$list);
             }else{
-
                 $list=$this->dao->alias('a')
                     ->join(config('database.prefix').'category c','a.catid = c.id','left')
                     ->where($map)

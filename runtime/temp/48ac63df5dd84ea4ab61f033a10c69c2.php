@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:43:"F:\www\hiv/app/admin\view\content\edit.html";i:1520502196;s:42:"F:\www\hiv/app/admin\view\common\head.html";i:1519691410;s:42:"F:\www\hiv/app/admin\view\common\foot.html";i:1519691410;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:43:"E:\www\hiv/app/admin\view\content\edit.html";i:1520519042;s:42:"E:\www\hiv/app/admin\view\common\head.html";i:1520516936;s:42:"E:\www\hiv/app/admin\view\common\foot.html";i:1520516936;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +76,11 @@
                 success:function(res){
                     var str='<option value="">请选择省</option>';
                     $.each(res, function(index, val) {
-                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                        if(val.id=="<?php echo $info['province']; ?>"){
+                            str+='<option value="'+val.id+'" selected="">'+val.name+'</option>';
+                        }else{
+                            str+='<option value="'+val.id+'">'+val.name+'</option>';
+                        }
                     });
                     $("#province").html(str);
                     $("#city").html('<option value="">请选择市</option>');
@@ -127,7 +131,45 @@
                             form.render();
                         }
                     })
-                });  
+                }); 
+
+                $.ajax({
+                    url: "<?php echo url('base/base/getRegion'); ?>",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {pid:"<?php echo $info['province']; ?>",type:2},
+                    success:function(res){
+                        var str='<option value="">请选择城市</option>';
+                        $.each(res, function(index, val) {
+                            if("<?php echo $info['city']; ?>"==val.id){
+                                str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                            }else{
+                                str+='<option value="'+val.id+'">'+val.name+'</option>';
+                            }
+                        });
+                        $("#city").html(str);
+                        $("#district").html('<option value="">请选择区县</option>');
+                        
+                        $.ajax({
+                            url: "<?php echo url('base/base/getRegion'); ?>",
+                            type: 'GET',
+                            dataType: 'json',
+                            data: {pid:"<?php echo $info['city']; ?>",type:3},
+                            success:function(res){
+                                var str='<option value="">请选择区县</option>';
+                                $.each(res, function(index, val) {
+                                    if("<?php echo $info['district']; ?>"==val.id){
+                                        str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+                                    }else{
+                                        str+='<option value="'+val.id+'">'+val.name+'</option>';
+                                    }
+                                });
+                                $("#district").html(str);
+                                form.render();
+                            }
+                        }); 
+                    }
+                })
             })   
         </script>
         <?php endif; if(is_array($fields) || $fields instanceof \think\Collection || $fields instanceof \think\Paginator): $i = 0; $__LIST__ = $fields;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;if(!empty($r['status'])): ?>

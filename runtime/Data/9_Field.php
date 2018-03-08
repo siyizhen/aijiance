@@ -212,11 +212,11 @@ return array (
     'class' => 'is_recommend',
     'type' => 'radio',
     'setup' => 'array (
-  \'options\' => \'是|1
-否|0\',
-  \'fieldtype\' => \'tinyint\',
+  \'options\' => \'否|1
+是|2\',
+  \'fieldtype\' => \'varchar\',
   \'numbertype\' => \'1\',
-  \'default\' => \'0\',
+  \'default\' => \'1\',
 )',
     'ispost' => 0,
     'unpostgroup' => '',

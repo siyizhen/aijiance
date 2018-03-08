@@ -6,5 +6,6 @@ return array (
   'product' => 4,
   'download' => 5,
   'team' => 6,
+  'jiancedian' => 9,
 );
 ?>

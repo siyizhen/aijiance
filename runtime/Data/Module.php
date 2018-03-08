@@ -78,5 +78,18 @@ return array (
     'listorder' => 0,
     'status' => 1,
   ),
+  9 => 
+  array (
+    'id' => 9,
+    'title' => '检测点模型',
+    'name' => 'jiancedian',
+    'description' => '预约检测模块',
+    'type' => 1,
+    'issystem' => 0,
+    'listfields' => '*',
+    'setup' => '',
+    'listorder' => 0,
+    'status' => 1,
+  ),
 );
 ?>

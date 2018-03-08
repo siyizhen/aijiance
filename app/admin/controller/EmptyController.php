@@ -57,15 +57,35 @@ class EmptyController extends Common{
             $rsult['code'] = 0;
             $rsult['msg'] = "获取成功";
             $lists = $list['data'];
+
+            if(isset($lists[0]['is_recommend'])){
+                $Region=db("region");
+                $rows=$Region->field('id,name')->cache(24*3600*365)->select();
+                $arr=[];
+                foreach ($rows as $k => $v) {
+                    $arr[$v['id']]=$v['name'];
+                }
+            }
             foreach ($lists as $k=>$v ){
                 $lists[$k]['createtime'] = date('Y-m-d H:i:s',$v['createtime']);
+
+                if(isset($v['is_recommend'])){
+                    $lists[$k]['is_recommend']=getIsRecommend($v['is_recommend']); 
+                    $lists[$k]['province']=$arr[$v['province']];
+                    $lists[$k]['city']=$arr[$v['city']];
+                    $lists[$k]['district']=$arr[$v['district']];
+                }
             }
             $rsult['data'] = $lists;
             $rsult['count'] = $list['total'];
             $rsult['rel'] = 1;
             return $rsult;
         }else{
-            return $this->fetch ('content/index');
+            if(MODULE_NAME=='jiancedian'){
+                return $this->fetch ('content/jiancedian');
+            }else{
+                return $this->fetch ('content/index');
+            }
         }
     }
 

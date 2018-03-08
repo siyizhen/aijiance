@@ -51,7 +51,7 @@ class Index extends Common{
         }else{
             $info=db('users')->where('id',$this->userid)->find();
             $this->assign('info',$info);
-            return $this->fetch('pc/my_info');
+            return $this->fetch($this->whereIs.'/'.'my_info');
         }
     }
 
@@ -71,7 +71,7 @@ class Index extends Common{
 
             $address=db('address')->where('userid',$this->userid)->find();
             $this->assign('address',$address);
-            return $this->fetch('pc/my_address');
+            return $this->fetch($this->whereIs.'/'.'my_address');
         }
     }
 
@@ -99,7 +99,7 @@ class Index extends Common{
         $page = $list->render();
         $this->assign('list', $list);
         $this->assign('page', $page);
-        return $this->fetch('pc/my_order');
+        return $this->fetch($this->whereIs.'/'.'my_order');
     }
 
     public function changePhone(){
@@ -115,7 +115,7 @@ class Index extends Common{
             cache($data['type'].'_'.session('user.username'),NULL);
             return json(['status'=>1,'url'=>url('newPhone')]);
         }else{  
-            return $this->fetch('pc/change_phone');
+            return $this->fetch($this->whereIs.'/'.'change_phone');
         }
     }
 
@@ -141,7 +141,7 @@ class Index extends Common{
             }
             return json($arr);
         }else{  
-            return $this->fetch('pc/new_phone');
+            return $this->fetch($this->whereIs.'/'.'new_phone');
         }
     }
 
@@ -161,7 +161,7 @@ class Index extends Common{
         //更新我的未读意见建议
         $where['is_read']=2;
         db('message')->where($where)->update(['is_read'=>1]);
-        return $this->fetch('pc/my_suggestion');
+        return $this->fetch($this->whereIs.'/'.'my_suggestion');
     }
 
     public function addSuggestion(){
@@ -178,7 +178,7 @@ class Index extends Common{
             }
             return json($arr);
         }else{
-            return $this->fetch('pc/add_suggestion');
+            return $this->fetch($this->whereIs.'/'.'add_suggestion');
         }
     }
 
@@ -208,7 +208,7 @@ class Index extends Common{
             return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
         }else{
             $this->assign('url',url('myMsg'));
-            return $this->fetch('pc/my_msg');
+            return $this->fetch($this->whereIs.'/'.'my_msg');
         }
     }
 
@@ -238,7 +238,7 @@ class Index extends Common{
             return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
         }else{
             $this->assign('url',url('mySms'));
-            return $this->fetch('pc/my_msg');
+            return $this->fetch($this->whereIs.'/'.'my_msg');
         }
     }
 
@@ -247,7 +247,7 @@ class Index extends Common{
         $info=db('send_msg',[],false)->where('id',$id)->find();
         db('send_msg',[],false)->where('id',$id)->update(['is_read'=>1]);
         $this->assign('info',$info);
-        return $this->fetch('pc/send_msg_detail');
+        return $this->fetch($this->whereIs.'/'.'send_msg_detail');
     }
 
     public function myQuestionnaire(){
@@ -270,7 +270,7 @@ class Index extends Common{
             }
             return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
         }
-        return $this->fetch('pc/my_questionnaire');
+        return $this->fetch($this->whereIs.'/'.'my_questionnaire');
     }
 
     public function myQuestion(){
@@ -303,6 +303,6 @@ class Index extends Common{
             }
         }
         $this->assign('questions',$rows);
-        return $this->fetch('pc/my_question');
+        return $this->fetch($this->whereIs.'/'.'my_question');
     }
 }

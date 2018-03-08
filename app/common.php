@@ -949,3 +949,16 @@ function getIsUse($key){
     $arr=isUse();
     return $arr[$key];
 }
+
+function isRecommend(){
+    $arr=[
+        0=>'否',
+        1=>'是'
+    ];
+    return $arr;
+}
+
+function getIsRecommend($key){
+    $arr=isRecommend();
+    return $arr[$key];
+}

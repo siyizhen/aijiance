@@ -17,8 +17,10 @@
         <input  class="text" type="text" placeholder="验证码" id="code">
         <input class="btn" type="button" value="获取验证码" style="text-indent:0;background-color: #ff8a01;" id="sendCode" onclick="getCode();">
     </p>
-
-    <div class="sub"><input type="button" value="登录"></div>	
+    
+    <input type="hidden" value="{:input('param.preferUrl')}" id="preferUrl"> 
+    <input type="hidden" value="{:input('param.sence')}" id="sence">
+    <div class="sub"><input type="button" value="登录" onclick="return login();"></div>	
 </div>
 
 <script src="__HOME__/mobile/js/zepto.min.js"></script>
@@ -55,12 +57,12 @@
             if(username == '') {
                 layer.open({content:'请输入手机号码！',skin: 'msg',time:3});
                 isPhone = 0;
-                return;
+                return false;
             }
             if(!pattern.test(username)){
                 layer.open({content:'请输入手机号码！',skin: 'msg',time:3});
                 isPhone = 0;
-                return;
+                return false;
             }
         }
 
@@ -78,6 +80,24 @@
                     $("#sendCode").attr('onclick','getCode()').css('background-color', '#ff8a01').val('发送验证码');
                 }
             },1000);
+        }
+
+        function login(){
+            var reg = {:config('reg.phone')};
+            if(!reg.test($.trim($("#username").val()))){
+                layer.open({content:'请输入正确的手机号码！',skin: 'msg',time:3});
+                return;
+            }
+            var data={username:$.trim($("#username").val()),code:$.trim($("#code").val())};
+            $.post("{:url('login/index')}?preferUrl="+$("#preferUrl").val()+"&sence="+$.trim($("#sence").val()),data,function(res){
+                var res=JSON.parse(res);
+                layer.open({content:res.msg,skin: 'msg',time:3});
+                if(res.code > 0){
+                    setTimeout(function(){
+                        location.href = res.url;
+                    },2000);
+                }
+            });
         }
 </script>
 </body>

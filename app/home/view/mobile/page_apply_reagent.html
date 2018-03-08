@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+        {include file="mobile/header_source"}
+    </head>
+    <body style="background: #eee;">
+    	<div class="card" onclick="turn(this)" urls="{:url('home/question/question')}">
+    		<div class="card-header"><p>参加问卷调查</p></div>
+    		<div class="card-content">
+			    <div class="card-content-inner" style="text-align: center;">
+		        为了后续争取公益伙伴的支持以提升我们的服务，我们恳请您参加一项问卷调查，这会帮到我们很多，对您的支持，我们不胜感激!
+		      </div>
+		    </div>
+    	</div>
+
+    	<div class="card" onclick="turn(this)" urls="{:url('home/order/mobileReagent')}?preferUrl={:url('home/order/mobileReagent')}">
+    		<div class="card-header"><p>直接申请试剂</p></div>
+    		<div class="card-content">
+				<div class="card-content-inner" style="text-align: center;">
+		        我并不想填写问卷，直接进入申请页面
+		    	</div>
+		    </div>
+    	</div>
+
+    	<div style="margin: .5rem" onclick="turn(this)" urls="{:url('home/baoxian/index')}">
+    		<div class="swiper-container swiper-no-swiping">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+                        <img src="__HOME__/mobile/images/baoxian.jpg" alt="" width="100%">
+                    </div>
+				</div>
+			</div>
+    	</div>
+
+        {include file="mobile/footer_tabbar" /}
+        <script type="text/javascript" src="__HOME__/mobile/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            function turn(obj){
+                var urls=$(obj).attr('urls');
+                window.location.href=urls;
+            }
+        </script>
+    </body>
+</html>

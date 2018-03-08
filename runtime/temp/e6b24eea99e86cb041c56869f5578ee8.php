@@ -1,15 +1,33 @@
-{include file="common/head"/}
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:43:"F:\www\hiv/app/admin\view\content\edit.html";i:1520502196;s:42:"F:\www\hiv/app/admin\view\common\head.html";i:1519691410;s:42:"F:\www\hiv/app/admin\view\common\foot.html";i:1519691410;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><?php echo config('sys_name'); ?></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="__STATIC__/plugins/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="__ADMIN__/css/global.css" media="all">
+    <link rel="stylesheet" href="__STATIC__/common/css/font.css" media="all">
+</head>
+<body class="skin-<?php if(!empty($_COOKIE['skin'])){echo $_COOKIE['skin'];}else{echo '0';setcookie('skin','0');}?>">
 <link rel="stylesheet" href="__STATIC__/plugins/spectrum/spectrum.css">
 <style>
     .edui-editor{z-index: 1!important;}
 </style>
 <script>
     var ADMIN = '__ADMIN__';
-    var UPURL = "{:url('UpFiles/upImages')}";
+    var UPURL = "<?php echo url('UpFiles/upImages'); ?>";
     var PUBLIC = "__PUBLIC__";
     var imgClassName,fileClassName;
 </script>
-{include file="common/foot"/}
+<script type="text/javascript" src="__STATIC__/plugins/layui/layui.js"></script>
+
+
 <script src="__STATIC__/common/js/jquery.2.1.1.min.js"></script>
 <script>
     var edittext=new Array();
@@ -18,11 +36,10 @@
 <script src="__STATIC__/ueditor/ueditor.all.min.js" type="text/javascript"></script>
 <div class="admin-main layui-anim layui-anim-upbit">
     <fieldset class="layui-elem-field layui-field-title">
-        <legend>{$title}</legend>
+        <legend><?php echo $title; ?></legend>
     </fieldset>
     <form class="layui-form" method="post">
-    {if condition="$info['id'] neq ''"}<input TYPE="hidden" name="id" value="{$info.id}">{/if}
-        {if condition="input('param.catid') eq 13"}
+    <?php if($info['id'] != ''): ?><input TYPE="hidden" name="id" value="<?php echo $info['id']; ?>"><?php endif; if(input('param.catid') == 13): ?>
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-4">
@@ -30,9 +47,7 @@
             </div>
             <div class="layui-form-mid layui-word-aux red">*必填</div>
         </div>
-        {/if}
-
-        {if condition="MODULE_NAME eq 'jiancedian'"}
+        <?php endif; if(MODULE_NAME == 'jiancedian'): ?>
         <div class="layui-form-item">
             <label class="layui-form-label">城市</label>
             <div class="layui-input-inline">
@@ -54,7 +69,7 @@
 
         <script type="text/javascript">
             $.ajax({
-                url: "{:url('base/base/getRegion')}",
+                url: "<?php echo url('base/base/getRegion'); ?>",
                 type: 'GET',
                 dataType: 'json',
                 data: {pid:1,type:1},
@@ -80,7 +95,7 @@
                 form.on('select(province)', function(data){
                     var province=data.value;
                     $.ajax({
-                        url: "{:url('base/base/getRegion')}",
+                        url: "<?php echo url('base/base/getRegion'); ?>",
                         type: 'GET',
                         dataType: 'json',
                         data: {pid:province,type:2},
@@ -99,7 +114,7 @@
                 form.on('select(city)', function(data){
                     var city=data.value;
                     $.ajax({
-                        url: "{:url('base/base/getRegion')}",
+                        url: "<?php echo url('base/base/getRegion'); ?>",
                         type: 'GET',
                         dataType: 'json',
                         data: {pid:city,type:3},
@@ -115,26 +130,22 @@
                 });  
             })   
         </script>
-        {/if}
-
-        {volist name="fields" id="r"}
-            {if condition="!empty($r['status'])"}
+        <?php endif; if(is_array($fields) || $fields instanceof \think\Collection || $fields instanceof \think\Paginator): $i = 0; $__LIST__ = $fields;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;if(!empty($r['status'])): ?>
                 <div class="layui-form-item">
-                    <label class="layui-form-label">{$r.name}</label>
-                    <div class="layui-input-4" id="box_{$r['field']}">
-                        {$r,input($r['field'])|getform=$form,###}
+                    <label class="layui-form-label"><?php echo $r['name']; ?></label>
+                    <div class="layui-input-4" id="box_<?php echo $r['field']; ?>">
+                        <?php echo getform($form,$r,input($r['field'])); ?>
                     </div>
                 </div>
-            {/if}
-        {/volist}
+            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button type="button" class="layui-btn" lay-submit="" lay-filter="submit">{:lang('submit')}</button>
-                {if condition="MODULE_NAME eq 'page'"}
-                <a href="{:url('category/index')}" class="layui-btn layui-btn-primary">{:lang('back')}</a>
-                {else /}
-                <a href="{:url('index',['catid'=>input('catid')])}" class="layui-btn layui-btn-primary">{:lang('back')}</a>
-                {/if}
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="submit"><?php echo lang('submit'); ?></button>
+                <?php if(MODULE_NAME == 'page'): ?>
+                <a href="<?php echo url('category/index'); ?>" class="layui-btn layui-btn-primary"><?php echo lang('back'); ?></a>
+                <?php else: ?>
+                <a href="<?php echo url('index',['catid'=>input('catid')]); ?>" class="layui-btn layui-btn-primary"><?php echo lang('back'); ?></a>
+                <?php endif; ?>
             </div>
         </div>
     </form>
@@ -144,11 +155,11 @@
 <script src='__STATIC__/common/js/layui-mz-min.js'></script>
 <script>
     var thumb,pic,file;
-    {if condition="ACTION_NAME=='add'"}
-    var url= "{:url('insert')}";
-    {else /}
-        var url= "{:url('update')}";
-    {/if}
+    <?php if(ACTION_NAME=='add'): ?>
+    var url= "<?php echo url('insert'); ?>";
+    <?php else: ?>
+        var url= "<?php echo url('update'); ?>";
+    <?php endif; ?>
 
     layui.use(['form','upload','layedit','laydate','jquery'], function () {
 		
@@ -157,7 +168,7 @@
         //缩略图上传
         upload.render({
             elem: '#thumbBtn'
-            ,url: '{:url("UpFiles/upload")}'
+            ,url: '<?php echo url("UpFiles/upload"); ?>'
             ,accept: 'images' //普通文件
             ,exts: 'jpg|png|gif' //只允许上传压缩文件
             ,done: function(res){
@@ -170,7 +181,7 @@
         var imagesSrc;
         upload.render({
             elem: '#test2'
-            ,url: '{:url("UpFiles/upImages")}'
+            ,url: '<?php echo url("UpFiles/upImages"); ?>'
             ,multiple: true
             ,done: function(res){
                 $('#demo2 .layui-row').append('<div class="layui-col-md3"><div class="dtbox"><img src="__PUBLIC__'+ res.src +'" class="layui-upload-img"><input type="hidden" class="imgVal" value="'+ res.src +'"> <i class="delimg layui-icon">&#x1006;</i></div></div>');

@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 17:27:43
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-07 12:59:13
+ * @Last Modified time: 2018-03-08 17:00:08
  */
 namespace app\home\controller;
 use think\Controller;
@@ -78,6 +78,7 @@ class Question extends Controller{
 	            $rows[$k]['optionsList']=json_decode($v['options'],true);
 	        }
 	        $this->assign('questions',$rows);
+	        $this->assign('controller',request()->controller());
 	        return $this->fetch($this->whereIs.'/'.'question');
         }
     }

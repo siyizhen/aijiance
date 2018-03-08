@@ -3,10 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-        <title>{if condition="$info['title']"}{$info.title}{elseif condition="$title" /}{$title}{else}{$sys.title}{/if}</title>
-        <link rel="stylesheet" href="__HOME__/mobile/css/weui.css" type="text/css">
-        <link rel="stylesheet" href="__HOME__/mobile/css/mobile.css">
-        <link rel="stylesheet" href="__HOME__/mobile/css/font-awesome.min.css">
+        {include file="mobile/header_source" /}
     </head>
     <body>
     	<article class="weui-article">

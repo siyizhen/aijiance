@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+        {include file="mobile/header_source" /}
+        <style>
+			.weui-label{width: 77px;}
+        </style>
+    </head>
+    <body>
+    		<div class="weui-cells__title">申请试剂</div>
+	    	<div class="weui-cells weui-cells_form">
+	    		<div class="weui-cell weui-cell_select">
+	                <div class="weui-cell__bd">
+	                    <select class="weui-select" name="youjidian" id="youjidian">
+	                        <option selected="" value="">请选择邮寄点</option>
+	                        {volist name="youjidianArr" id="m"}
+							<option value="{$m.id}">{$m.name}</option>
+							{/volist}
+	                    </select>
+	                </div>
+	            </div>
+
+				<div class="weui-cell">
+					<div class="weui-cell__hd"><label class="weui-label">收货人</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="text" placeholder="请输入收货人" name="shoujianren" id="shoujianren">
+					</div>
+				</div>
+
+				<div class="weui-cell">
+				    <div class="weui-cell__hd">
+				      <label class="weui-label">联系电话</label>
+				    </div>
+				    <div class="weui-cell__bd">
+				      <input class="weui-input" type="tel" name="getphone" id="getphone" placeholder="请输入联系电话">
+				    </div>
+				</div>
+
+				<div class="weui-cell">
+					<div class="weui-cell__hd"><label class="weui-label">城市</label></div>
+					<div class="weui-cell__bd">
+						<select class="my_select" id="province">
+	                        <option value="">请选择省份</option>
+							{volist name="province" id="m"}
+							<option value="{$m.id}">{$m.name}</option>
+							{/volist}
+	                    </select>
+	                    <select class="my_select" id="city">
+	                        <option value="">请选择城市</option>
+	                    </select>
+	                    <select class="my_select" id="district">
+	                        <option value="">请选择区县</option>
+	                    </select>
+					</div>
+				</div>
+	    	</div>
+
+	    	<div class="weui-cells__title" style="color: #000;">详细地址</div>
+			<div class="weui-cells weui-cells_form">
+			  <div class="weui-cell">
+			    <div class="weui-cell__bd">
+			      <textarea class="weui-textarea" name="address" id="address" placeholder="请输入详细地址" rows="3"></textarea>
+			    </div>
+			  </div>
+			</div>
+
+	    	<div class="weui-cells__tips" style="text-align: center;padding-top: 10px;">温馨提示:您需要支付邮递费用，在线支付为15元</div>
+	    	<div class="weui-cells__tips" style="text-align: center;padding-bottom: 10px;">选择货到付款，我们统一使用顺丰发货，约为22元</div>
+
+			<div class="weui-cells weui-cells_checkbox">
+				<label class="weui-cell weui-check__label receive_self" for="receive_self">
+					<div class="weui-cell__hd">
+						<input type="radio" class="weui-check" name="payway" value="1" id="receive_self">
+						<i class="weui-icon-checked"></i>
+					</div>
+					<div class="weui-cell__bd">
+						<p>货到付款</p>
+					</div>
+				</label>
+
+				<label class="weui-cell weui-check__label wechatpay" for="wechatpay">
+					<div class="weui-cell__hd">
+						<input type="radio" class="weui-check" name="payway" value="2" id="wechatpay">
+						<i class="weui-icon-checked"></i>
+					</div>
+					<div class="weui-cell__bd">
+						<p>微信支付</p>
+					</div>
+				</label>
+			</div>
+
+	    	<input type="button" class="weui-btn weui-btn_warn submit_btn" value="提 交" onclick="submits();">
+		
+		{include file="mobile/footer_tabbar" /}
+
+		<script type="text/javascript" src="__HOME__/mobile/js/jquery.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="__STATIC__/plugins/layer_mobile/layer.js"></script>
+		<script src="__STATIC__/plugins/jquery_cookie/jquery.cookie.js"></script>
+    	<script type="text/javascript">
+			$("#province").change(function() {
+				var province=$(this).val();
+				$.ajax({
+					url: "{:url('base/base/getRegion')}",
+					type: 'GET',
+					dataType: 'json',
+					data: {pid:province,type:2},
+					success:function(res){
+						var str='<option value="">请选择城市</option>';
+						$.each(res, function(index, val) {
+							str+='<option value="'+val.id+'">'+val.name+'</option>';
+						});
+						$("#city").html(str);
+						$("#district").html('<option value="">请选择区县</option>');
+					}
+				})
+			});
+
+			$("#city").change(function() {
+				var city=$(this).val();
+				$.ajax({
+					url: "{:url('base/base/getRegion')}",
+					type: 'GET',
+					dataType: 'json',
+					data: {pid:city,type:3},
+					success:function(res){
+						var str='<option value="">请选择区县</option>';
+						$.each(res, function(index, val) {
+							str+='<option value="'+val.id+'">'+val.name+'</option>';
+						});
+						$("#district").html(str);
+					}
+				})
+			});
+
+			function submits(){
+				var youjidian=$.trim($("#youjidian").val());
+				var shoujianren=$.trim($("#shoujianren").val());
+				var getphone=$.trim($("#getphone").val());
+				var shoujianren=$.trim($("#shoujianren").val());
+				var province=$.trim($("#province").val());
+				var city=$.trim($("#city").val());
+				var district=$.trim($("#district").val());
+				var address=$.trim($("#address").val());
+				var payway=$("input[name='payway']:checked").val();
+
+				if(youjidian==''){
+					layer.open({content:'请选择邮寄点！',skin: 'msg',time:3});
+					$("#youjidian").focus();
+					return;
+				}
+				if(shoujianren==''){
+					layer.open({content:'请输入收件人！',skin: 'msg',time:3});
+					$("#shoujianren").focus();
+					return;
+				}
+				var reg={:config('reg.phone')};
+				if(!reg.test(getphone)){
+					layer.open({content:'请输入正确的手机号！',skin: 'msg',time:3});
+					$("#getphone").focus();
+					return;
+				}
+				if(isNaN(province)||province==''){
+					layer.open({content:'请选择省份！',skin: 'msg',time:3});
+					$("#province").focus();
+					return;
+				}
+				if(isNaN(city)||city==''){
+					layer.open({content:'请选择城市！',skin: 'msg',time:3});
+					$("#city").focus();
+					return;
+				}
+				if(isNaN(district)||district==''){
+					layer.open({content:'请选择区县！',skin: 'msg',time:3});
+					$("#district").focus();
+					return;
+				}
+				if(address==''){
+					layer.open({content:'请输入详细地址！',skin: 'msg',time:3});
+					$("#address").focus();
+					return;
+				}
+				if(isNaN(payway)||payway==''){
+					layer.open({content:'请选择支付方式！',skin: 'msg',time:3});
+					return;
+				}
+				var data={youjidian:youjidian,shoujianren:shoujianren,getphone:getphone,province:province,city:city,district:district,address:address,payway:payway};
+				var _index=layer.open({type: 2,content: '加载中'});
+				$.ajax({
+					url: '{:url("order/add")}',
+					type: 'POST',
+					dataType:'json',
+					data: data,
+					success:function(res){
+						$.cookie("orderInfo",JSON.stringify(data));
+						layer.open({content:res.msg,skin: 'msg',time:3});
+						if(res.status==0){	
+							if(res.url!=''){
+								setTimeout(function(){
+									window.location.href=res.url+'?preferUrl='+window.location.href;
+								},3000);
+							}
+						}else{
+							setTimeout(function(){
+								window.location.href=res.url;
+							},3000);
+						}
+					},
+					complete:function(){
+						layer.close(_index);
+					}
+				})
+			}
+
+			//显示上一次提交的订单信息
+			if(typeof $.cookie("orderInfo") != 'undefined' && ($.cookie("orderInfo")!=''||$.cookie("orderInfo")!=null)){
+				var data=JSON.parse($.cookie("orderInfo"));
+				for(var i=0;i<$("#youjidian option").length;i++){
+					if(data.youjidian==$("#youjidian option").eq(i).attr('value')){
+						$("#youjidian option").eq(i).attr('selected','selected');
+					}
+				}
+				$("#shoujianren").val(data.shoujianren);
+				$("#getphone").val(data.getphone);
+				for(var i=0;i<$("#province option").length;i++){
+					if(data.province==$("#province option").eq(i).attr('value')){
+						$("#province option").eq(i).attr('selected','selected');
+
+						$.ajax({
+							url: "{:url('base/base/getRegion')}",
+							type: 'GET',
+							dataType: 'json',
+							data: {pid:data.province,type:2},
+							success:function(res){
+								var str='<option value="">请选择城市</option>';
+								$.each(res, function(index, val) {
+									if(data.city==val.id){
+										str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+									}else{
+										str+='<option value="'+val.id+'">'+val.name+'</option>';
+									}
+								});
+								$("#city").html(str);
+								$("#district").html('<option value="">请选择区县</option>');
+
+								$.ajax({
+									url: "{:url('base/base/getRegion')}",
+									type: 'GET',
+									dataType: 'json',
+									data: {pid:data.city,type:3},
+									success:function(res){
+										var str='<option value="">请选择区县</option>';
+										$.each(res, function(index, val) {
+											if(data.district==val.id){
+												str+='<option value="'+val.id+'" selected="selected">'+val.name+'</option>';
+											}else{
+												str+='<option value="'+val.id+'">'+val.name+'</option>';
+											}
+										});
+										$("#district").html(str);
+									}
+								});
+							}
+						})
+					}
+				}
+				$("#address").val(data.address);
+				for(var i=0;i<$("input[name='payway']").length;i++){
+					if(data.payway==$("input[name='payway']").eq(i).val()){
+						$("input[name='payway']").eq(i).attr('checked','checked');
+					}
+				}
+			}
+    	</script>
+    </body>
+</html>

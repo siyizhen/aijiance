@@ -1,11 +1,11 @@
 <div class="weui-tabbar">
-    <a href="{:url('home/index/index')}" class="weui-tabbar__item weui-bar__item_on {if condition='$controller eq index'}tabon{/if}">
+    <a href="{:url('home/index/index')}" class="weui-tabbar__item weui-bar__item_on {if condition='in_array($controller,[index,about])'}tabon{/if}">
         <span class="icon_box">
             <i class="weui-tabbar__icon tab_icon fa fa-home"></i>
         </span>
         <p class="weui-tabbar__label">主页</p>
     </a>
-    <a href="{:url('home/baoxian/index')}" class="weui-tabbar__item weui-bar__item_on">
+    <a href="{:url('home/reagent/index',['catId'=>15])}" class="weui-tabbar__item weui-bar__item_on {if condition='in_array($controller,[Order,reagent,Question])'}tabon{/if}">
         <span class="icon_box">
             <i class="weui-tabbar__icon tab_icon fa fa-shopping-cart"></i>
         </span>

@@ -4,7 +4,7 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 16:42:59
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-06 17:37:38
+ * @Last Modified time: 2018-03-08 16:14:17
  */
 namespace app\base\controller;
 use think\Controller;
@@ -57,6 +57,8 @@ class Base extends Controller{
         $this->assign('param',$param);
         if($type=='pc'){
             return $this->fetch('pc/message');
+        }elseif($type=='mobile'){
+            return $this->fetch('mobile/message');
         }
     }
 

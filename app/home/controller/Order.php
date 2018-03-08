@@ -4,23 +4,26 @@
  * @emial:  1193814298@qq.com
  * @Date:   2018-02-26 17:27:43
  * @Last Modified by:   siyizhen
- * @Last Modified time: 2018-03-01 22:38:10
+ * @Last Modified time: 2018-03-08 13:43:48
  */
 namespace app\home\controller;
 use think\Controller;
 class Order extends Controller{
+    protected $userid,$whereIs;
     public function _initialize(){
-    	if (!session('user.id')) {
+        $this->userid=session('user.id');
+        $this->whereIs=whereIs();
+    	if (!$this->userid) {
     		if(request()->isAjax()){
     			$arr=['status'=>0,'msg'=>'请先登录！','url'=>url('user/login/index')];
     			json($arr)->send();exit;
 	    	}else{
-	    		$this->redirect('user/login/index');
+	    		$this->redirect(url('user/login/index',['sence'=>input('param.sence')]).'?preferUrl='.input('param.preferUrl'));
 	    	}
         }
 
         //判断是否完善基本信息
-        $ziliao_success=db('users',[],false)->where('id',session('user.id'))->value('ziliao_success');
+        $ziliao_success=db('users',[],false)->where('id',$this->userid)->value('ziliao_success');
         if($ziliao_success==0){
             $arr=['status'=>0,'msg'=>'申请免费试剂需要您先完善基本资料！','url'=>url('user/index/myInfo')];
             json($arr)->send();exit;
@@ -61,7 +64,7 @@ class Order extends Controller{
             $arr=['status'=>0,'msg'=>'请输入详细地址！','url'=>''];
             return json($arr);
         }
-        $userid=session('user.id');
+        $userid=$this->userid;
         //判断是否已添加收货地址
         $nums=db('address',[],false)->where('userid',$userid)->count('id');
         $addressArr=[
@@ -92,11 +95,24 @@ class Order extends Controller{
         $data['money']=config('money');
         $res=db('main_order',[],false)->insert($data);
         if($res){
-            $arr=['status'=>1,'msg'=>'订单确认成功！','url'=>url('pay')];
+            $arr=['status'=>1,'msg'=>'订单确认成功，请支付邮费！','url'=>url('pay')];
         }else{
             $arr=['status'=>0,'msg'=>'系统繁忙，请稍候再试！','url'=>''];
         }
         return json($arr);
+    }
+
+    public function mobileReagent(){
+        $commonM=model('base/base');
+        $youjidianArr=$commonM->getLastVctArr(config('role_root'));
+        $youjidianArr=db('role',[],false)->where('id','in',$youjidianArr)->field('name,id')->select();
+        $this->assign('youjidianArr',$youjidianArr);
+
+        $province = db('Region')->where(array('pid'=>1))->select();
+        $this->assign('province',$province);
+
+        $this->assign('controller',request()->controller());
+        return $this->fetch($this->whereIs.'/'.'reagent_require');
     }
 
     public function pay(){

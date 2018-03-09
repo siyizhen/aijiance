@@ -903,9 +903,9 @@ ul,ol,li{list-style: none;}
 .foot ul{padding:0;margin:0;padding-left:60px;}
 .foot ul li{line-height:1.8;color:#989898;}
 .foot1,.foot2,.foot3{margin-bottom:20px;}
-.foot1 ul{background:url(../images/base/foot-ico1.png) left 15px no-repeat;}
-.foot2 ul{background:url(../images/base/foot-ico1.png) left 15px no-repeat;}
-.foot3 ul{background:url(../images/base/foot-ico1.png) left 15px no-repeat;}
+.foot1 ul{background:url(../images/base/phone_05.png) left 15px no-repeat;}
+.foot2 ul{background:url(../images/base/infomation.png) left 15px no-repeat;}
+.foot3 ul{background:url(../images/base/question.png) left 15px no-repeat;}
 .foot2 ul li.fenxiang a{float:left;margin:10px 15px 0 0;display:block;height:30px;width:30px;line-height:30px;text-align:center;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;color:#666;}
 .foot2 ul li.fenxiang  a:hover{background:#EEE;color:#333;}
 .foot2 ul li.fenxiang a span{line-height: 28px;cursor: pointer;}
@@ -944,7 +944,7 @@ ul,ol,li{list-style: none;}
 
 
 
-.box2{padding: 40px 0;}
+.box2{/*padding: 40px 0;*/}
 
 @media screen and (min-width: 768px) {
 .box2{min-height:70vh;}

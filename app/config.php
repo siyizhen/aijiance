@@ -245,7 +245,7 @@ return [
     'paginate'               => [
         'type'      => 'clt\Bootstrap',
         'var_page'  => 'page',
-        'list_rows' => 15,
+        'list_rows' => 8,
         'page_size'=>5, //页码数量
         'page_button'=>[
             'total_rows'=>true, //是否显示总条数
@@ -270,7 +270,9 @@ return [
     'cookie_time'=>3600*24*7,
     'role_root'=>11,
     'role_root_admin_id'=>16,
-    'turn_seconds'=>3,
+    'baidu_ak'=>[
+        'location'=>'65CFncjUGqkjcU1SfethluVr3U2CTZRH'
+    ],
     'reg'=>[
         'phone'=>'/^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$/',
         'idcard'=>'/(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/'

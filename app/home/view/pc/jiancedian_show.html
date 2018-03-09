@@ -1,0 +1,40 @@
+﻿{include file="pc/common_header" /}
+<link rel="stylesheet" href="__HOME__/pc/public/index/layui/css/layui.css">
+<link rel="stylesheet" href="__HOME__/pc/css/jiancedian.css">
+<style>
+    .fuzhu_title{height: 40px;line-height: 40px;}
+    .breadcrumb{background: #FFF;margin-bottom: 0;margin-top: 15px;}
+    .main{float: none !important;margin:0 auto !important;}
+    #BRS{min-height: 790px;}
+</style>
+    <div id="BRS">
+        <section class="content">  
+            <nav style="max-width: 1000px;margin:0 auto;margin-bottom: 10px;">
+                <ol class="breadcrumb"><span class="glyphicon glyphicon-list"></span>
+                    {include file="pc/show_short_title" /}
+                </ol>
+            </nav>
+
+            <div class="article-detail">
+                <div class="article-detail-body">
+                    <p class="fuzhu_title" style="font-size: 18px;font-weight:400;">{$info.name}</p>
+                    <a href="{$info.map_url}" target="_blank">
+                        <p class="fuzhu_title" style="color:red;"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;{$info.address}</p>
+                    </a>
+                    <p class="fuzhu_title"><i class="fa fa-phone"></i>&nbsp;&nbsp;{$info.phone}</p>
+                    <p class="fuzhu_title"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{$info.service_time}</p>
+                    <div class="caption" style="margin-top: 20px;">                 
+                        <h3>检测方式</h3>                 
+                        <p style="padding:10px;">{$info.jiance_way}</p>             
+                    </div>
+                    <div class="caption" style="margin-top: 20px;">                 
+                        <h3>检测说明</h3>                 
+                        <p style="padding:10px;">{$info.jiance_explation}</p>             
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {include file="pc/common_footer" /}
+</html>

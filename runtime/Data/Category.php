@@ -133,7 +133,7 @@ return array (
     'description' => '预约检测',
     'listorder' => 0,
     'ishtml' => 0,
-    'ismenu' => 0,
+    'ismenu' => 1,
     'hits' => 0,
     'image' => '',
     'child' => 0,

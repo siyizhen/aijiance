@@ -952,8 +952,8 @@ function getIsUse($key){
 
 function isRecommend(){
     $arr=[
-        1=>'否',
-        2=>'是'
+        1=>'是',
+        2=>'否'
     ];
     return $arr;
 }
@@ -961,4 +961,10 @@ function isRecommend(){
 function getIsRecommend($key){
     $arr=isRecommend();
     return $arr[$key];
+}
+
+function getLocation(){
+    $url='https://api.map.baidu.com/location/ip?coor=gcj02&ak='.config('baidu_ak.location');
+    $data=httpRequest($url,'get');
+    return json_decode($data,true);
 }

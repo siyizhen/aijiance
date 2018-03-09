@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:43:"E:\www\hiv/app/admin\view\content\edit.html";i:1520519042;s:42:"E:\www\hiv/app/admin\view\common\head.html";i:1520516936;s:42:"E:\www\hiv/app/admin\view\common\foot.html";i:1520516936;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:43:"F:\www\hiv/app/admin\view\content\edit.html";i:1520555808;s:42:"F:\www\hiv/app/admin\view\common\head.html";i:1519691410;s:42:"F:\www\hiv/app/admin\view\common\foot.html";i:1519691410;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,6 +66,9 @@
                 </select>
             </div>
         </div>
+
+        <input type="hidden" value="<?php echo input('param.catid'); ?>" name="catid">
+        <input type="hidden" value="" name="createtime">
 
         <script type="text/javascript">
             $.ajax({

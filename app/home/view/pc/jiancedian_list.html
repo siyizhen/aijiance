@@ -1,0 +1,121 @@
+﻿{include file="pc/common_header" /}
+<link rel="stylesheet" href="__HOME__/pc/public/index/layui/css/layui.css">
+<link rel="stylesheet" href="__HOME__/pc/css/jiancedian.css">
+<style>
+    .breadcrumb{background: #FFF;margin-bottom: 0;margin-top: 15px;}
+    .main{float: none !important;margin:0 auto !important;}
+    #BRS{min-height: 790px;}
+    .fuzhu_sheng{background:#FFF;height: 46px;padding-top: 3px;margin-top: 5px;}
+    .location_box{width: 350px;text-align: left;color: red;}
+    .pagination{margin:10px 0 !important;}
+</style>
+    <div id="BRS">
+        <div class="main">
+            <nav>
+                <ol class="breadcrumb"><span class="glyphicon glyphicon-list"></span>
+                    {include file="pc/list_short_title" /}
+                </ol>
+            </nav>
+
+            <div class="layui-form fuzhu_sheng">
+                <div class="layui-form-item">
+                    <label class="layui-form-label" style="width: 100px;">变更城市</label>
+                    <div class="layui-input-inline">
+                        <select id="province" lay-filter="province">
+                            <option value="">请选择省</option>
+                            {volist name="province" id="m"}
+                            <option value="{$m.id}">{$m.name}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select id="city" lay-filter="city">
+                            <option value="">请选择市</option>
+                        </select>
+                    </div>
+
+                    <label class="layui-form-label location_box"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;<span id="location">{$nowProvince} {$nowCity}</span></label>
+                </div>
+            </div>
+
+            <!--文章列表-->
+            <div class="article-list" style="margin-top: 5px;">
+                {volist name="list" id="vo"}
+                <div class="item">
+                    <a href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}" target="_blank">
+                        <div class="info">
+                            <div class="titles layui-elip">
+                                {if condition="$vo.is_recommend eq 1"}
+                                <span>推荐</span>
+                                {/if}
+                                <p class="layui-elip">{$vo.name}</p>
+                            </div>
+                            <div class="abstract">{$vo.address}</div>
+                        </div>
+                    </a>
+                    <span class="t"></span>
+                    <span class="r"></span>
+                    <span class="b"></span>
+                    <span class="l"></span>
+                </div>
+                {/volist}
+            </div>
+            {if condition="!empty($list)"}
+            <div style="text-align: center;background: #FFF;">
+                {$page}
+            </div>
+            {else}
+            <div style="text-align: center;background: #FFF;padding: 10px;">
+                暂无数据
+            </div>
+            {/if}
+        </div>
+    </div>
+
+    {include file="pc/common_footer" /}
+    <script src="__HOME__/pc/public/index/js/jquery-2.0.3.min.js"></script>
+    <script src="__HOME__/pc/js/layer/layer.js"></script>
+    <script src="__HOME__/pc/public/index/layui/layui.js"></script>
+    <script type="text/javascript">
+        layui.use('form',function(){
+            var form=layui.form;
+            var nowProvince,nowCity;
+            form.on('select(province)', function(data){
+                var province=data.value;
+                $.each(data.elem, function(index, val) {
+                    if($(val).val()==province){
+                        nowProvince=$(val).html();
+                    }
+                });
+                $.ajax({
+                    url: "{:url('base/base/getRegion')}",
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {pid:province,type:2},
+                    success:function(res){
+                        var str='<option value="">请选择城市</option>';
+                        $.each(res, function(index, val) {
+                            str+='<option value="'+val.id+'">'+val.name+'</option>';
+                        });
+                        $("#city").html(str);
+                        $("#district").html('<option value="">请选择区县</option>');
+                        form.render();
+                    }
+                })
+            });
+
+            form.on('select(city)', function(data){
+                var city=data.value;
+                var province=$("#province").val();
+                $.each(data.elem, function(index, val) {
+                    if($(val).val()==city){
+                        nowCity=$(val).html();
+                    }
+                });
+
+                window.location.href='/home/jiancedian/index/catId/22.html?page=1&province='+province+'&city='+city+'&longitude={$longitude}&latitude={$latitude}';
+            });  
+        });
+    </script>
+</body>
+</html>

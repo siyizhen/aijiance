@@ -3,6 +3,7 @@ namespace app\home\controller;
 use think\Db;
 use think\Request;
 use clt\Form;
+use tree\Tree;
 class EmptyController extends Common{
     protected  $dao,$fields;
     public function _initialize()
@@ -64,12 +65,47 @@ class EmptyController extends Common{
                 }
                 $this->assign('list',$list);
             }else{
-                $list=$this->dao->alias('a')
-                    ->join(config('database.prefix').'category c','a.catid = c.id','left')
-                    ->where($map)
-                    ->field('a.*,c.catdir')
-                    ->order('listorder asc,createtime desc')
-                    ->paginate($this->pagesize);
+                if(DBNAME=='jiancedian'){
+                    $this->assign('whereIs',$this->whereIs);
+
+                    if(!empty(input('param.province'))&&!empty(input('param.city'))){
+                        $map['a.province']=input('param.province');
+                        $map['a.city']=input('param.city');
+                        $nowProvince=db('Region')->where('id',input('param.province'))->value('name');
+                        $nowCity=db('Region')->where('id',input('param.city'))->value('name');
+                    }else{
+                        $dataArr=getLocation();
+                        $nowProvince=$dataArr['content']['address_detail']['province'];
+                        $nowCity=$dataArr['content']['address_detail']['city'];
+
+                        $longitude=$dataArr['content']['point']['x'];
+                        $latitude=$dataArr['content']['point']['y'];
+                    }
+                    $list=$this->dao->alias('a')
+                        ->join(config('database.prefix').'category c','a.catid = c.id','left')
+                        ->where($map)
+                        ->field([
+                            'a.*',
+                            'c.catdir'=>'catdir',
+                            "($longitude-longitude)*($longitude-longitude)+($latitude-latitude)*($latitude-latitude)"=>'distance'
+                        ])
+                        ->order('a.is_recommend,distance asc')
+                        ->paginate($this->pagesize,false,['query' => request()->param()]);
+
+                    $province = db('Region')->where(array('pid'=>1))->select();
+                    $this->assign('province',$province);
+                    $this->assign('nowProvince',$nowProvince);
+                    $this->assign('nowCity',$nowCity);
+                    $this->assign('longitude',$longitude);
+                    $this->assign('latitude',$latitude);
+                }else{
+                    $list=$this->dao->alias('a')
+                        ->join(config('database.prefix').'category c','a.catid = c.id','left')
+                        ->where($map)
+                        ->field('a.*,c.catdir')
+                        ->order('listorder asc,createtime desc')
+                        ->paginate($this->pagesize);
+                }
                 // 获取分页显示
                 $page = $list->render();
                 $list = $list->toArray();

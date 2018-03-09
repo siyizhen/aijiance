@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+        {include file="mobile/header_source" /}
+        <style>
+			.fuzhu_title{margin-left: 10px;font-size: 12px;}
+        </style>
+    </head>
+    <body>
+		<div class="weui-panel">
+			<div class="weui-panel__bd">
+				<div class="weui-media-box weui-media-box_small-appmsg">
+					<div class="weui-cells">
+						<a class="weui-cell weui-cell_access" href="javascript:;">
+							<div class="weui-cell__hd"></div>
+							<div class="weui-cell__bd weui-cell_primary">
+								<p>{$info.name}</p>
+							</div>
+
+						</a>
+						<a class="weui-cell weui-cell_access" href="{$info.map_url}" style="color:red;">
+							<div class="weui-cell__hd"><i class="fa fa-map-marker"></i></div>
+							<div class="weui-cell__bd weui-cell_primary fuzhu_title">
+								<p>{$info.address}</p>
+							</div>
+						</a>
+						<a class="weui-cell weui-cell_access" href="tel:{$info.phone}" style="color:red;">
+							<div class="weui-cell__hd"><i class="fa fa-phone"></i></div>
+							<div class="weui-cell__bd weui-cell_primary fuzhu_title">
+								<p>{$info.phone}</p>
+							</div>
+						</a>
+						<a class="weui-cell weui-cell_access" href="javascript:;">
+							<div class="weui-cell__hd"><i class="fa fa-clock-o"></i></div>
+							<div class="weui-cell__bd weui-cell_primary fuzhu_title">
+								<p>{$info.service_time}</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">检测方式</h4>
+                    <p class="weui-media-box__desc">{$info.jiance_way}</p>
+                </div>
+            </div>
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">检测说明</h4>
+                    <p class="weui-media-box__desc">{$info.jiance_explation}</p>
+                </div>
+            </div>
+		</div>
+		{include file="mobile/footer_tabbar" /}
+    </body>
+</html>

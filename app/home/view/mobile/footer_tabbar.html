@@ -11,7 +11,7 @@
         </span>
         <p class="weui-tabbar__label">申请试剂</p>
     </a>
-    <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+    <a href="{:url('home/jiancedian/index',['catId'=>22])}" class="weui-tabbar__item weui-bar__item_on {if condition='in_array($controller,[jiancedian])'}tabon{/if}">
         <span class="icon_box">
             <i class="weui-tabbar__icon tab_icon fa fa-star-o"></i>
         </span>

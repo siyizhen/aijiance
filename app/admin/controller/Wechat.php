@@ -31,7 +31,7 @@ class Wechat extends Common{
         $url_top = substr($url, 7);
         // 去除链接的尾部index.php
         $url_top = str_replace('/index.php', '', $url_top);
-        $call_back_url = $domain_name.'/home/wchat/relateWeixin';
+        $call_back_url = $domain_name.'/user/wchat/relateWeixin';
         $this->assign("url", $url_top);
         $this->assign("call_back_url", $call_back_url);
         $this->assign('wchat_config', $wchat_config["value"]);

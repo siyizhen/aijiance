@@ -32585,3 +32585,3366 @@
 [ error ] [8]Use of undefined constant reagent - assumed 'reagent'[F:\www\hiv\runtime\temp\d75eda63eec73f5cc401eee55670042f.php:36]
 [ error ] [8]Use of undefined constant Question - assumed 'Question'[F:\www\hiv\runtime\temp\d75eda63eec73f5cc401eee55670042f.php:36]
 [ error ] [8]Use of undefined constant jiancedian - assumed 'jiancedian'[F:\www\hiv\runtime\temp\d75eda63eec73f5cc401eee55670042f.php:42]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:07+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] test.hiv.com/ [运行时间：1.193069s][吞吐率：0.84req/s] [内存消耗：2,234.27kb] [文件加载：59]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\Index->index[ E:\www\hiv\app\home\controller\Index.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\index.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.135007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `parentid` = 0  AND `ismenu` = 1 ORDER BY `listorder` [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `ismenu` = 1 ORDER BY `listorder` [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_ad` [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_ad` WHERE  `type_id` = 1  AND `open` = 1 ORDER BY sort asc LIMIT 4 [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_link` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_link` WHERE  `open` = 1 ORDER BY sort asc [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  (  posid = 1 ) ORDER BY listorder asc,createtime desc LIMIT 3 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  (  catid=17 ) ORDER BY listorder asc,createtime desc LIMIT 8 [ RunTime:0.090006s ]
+[ error ] [8]unserialize(): Error at offset 0 of 2585 bytes[E:\www\hiv\think\library\think\cache\driver\File.php:120]
+[ error ] [8]unserialize(): Error at offset 0 of 1030 bytes[E:\www\hiv\think\library\think\cache\driver\File.php:120]
+[ error ] [8]unserialize(): Error at offset 0 of 1220 bytes[E:\www\hiv\think\library\think\cache\driver\File.php:120]
+[ error ] [8]未定义数组索引: key[E:\www\hiv\app\common\taglib\Clt.php:29]
+[ error ] [8]未定义数组索引: key[E:\www\hiv\app\common\taglib\Clt.php:29]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:14+08:00 ] 127.0.0.1 127.0.0.1 GET /home/reagent/index/catId/15.html
+[ info ] test.hiv.com/home/reagent/index/catId/15.html [运行时间：1.539088s][吞吐率：0.65req/s] [内存消耗：2,551.80kb] [文件加载：60]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'reagent',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '15',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\page_apply_reagent.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+  10 => 'youjidianArr',
+  11 => 'province',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.125007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.087005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.085005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_page` [ RunTime:0.087005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_page` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.085005s ]
+[ sql ] [ SQL ] SELECT `template_show` FROM `ajc_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.084004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_role` [ RunTime:0.087005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 11 [ RunTime:0.084005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 20 [ RunTime:0.084004s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 21 [ RunTime:0.084005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 22 [ RunTime:0.083005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 23 [ RunTime:0.084005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 24 [ RunTime:0.083005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 25 [ RunTime:0.085004s ]
+[ sql ] [ SQL ] SELECT `name`,`id` FROM `ajc_role` WHERE  `id` IN (21,23,25) [ RunTime:0.084005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_region` [ RunTime:0.086005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_region` WHERE  `pid` = 1 [ RunTime:0.086005s ]
+[ error ] [8]未定义数组索引: keywords[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:10]
+[ error ] [8]未定义数组索引: description[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:19+08:00 ] 127.0.0.1 127.0.0.1 GET /home/baoxian/index.html
+[ info ] test.hiv.com/home/baoxian/index.html [运行时间：0.464027s][吞吐率：2.16req/s] [内存消耗：2,256.39kb] [文件加载：59]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'baoxian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Baoxian->index[ E:\www\hiv\app\home\controller\Baoxian.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\baoxian.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'rows',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.113007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.078004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.075005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.077004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `posid` = 5 [ RunTime:0.075004s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:35]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:25+08:00 ] 127.0.0.1 127.0.0.1 GET /home/question/question.html
+[ info ] test.hiv.com/home/question/question.html [运行时间：0.348020s][吞吐率：2.87req/s] [内存消耗：2,070.28kb] [文件加载：51]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'question',
+    2 => 'question',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/baoxian/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Question->question[ E:\www\hiv\app\home\controller\Question.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\question.html [ array (
+  0 => 'questions',
+  1 => 'controller',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.140008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_questions` [ RunTime:0.093006s ]
+[ sql ] [ SQL ] SELECT a.id as question_id,`a`.*,`b`.* FROM `ajc_questions` `a` INNER JOIN `ajc_questionnaires` `b` ON `a`.`questionnaire_id`=`b`.`id` WHERE  `b`.`is_use` = 2 ORDER BY sort asc [ RunTime:0.092005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:27+08:00 ] 127.0.0.1 127.0.0.1 GET /home/baoxian/index.html
+[ info ] test.hiv.com/home/baoxian/index.html [运行时间：0.450026s][吞吐率：2.22req/s] [内存消耗：2,113.88kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'baoxian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Baoxian->index[ E:\www\hiv\app\home\controller\Baoxian.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\baoxian.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'rows',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.113006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.077004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.078005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `posid` = 5 [ RunTime:0.077004s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:35]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:31+08:00 ] 127.0.0.1 127.0.0.1 GET /home/question/question.html
+[ info ] test.hiv.com/home/question/question.html [运行时间：0.338019s][吞吐率：2.96req/s] [内存消耗：1,932.72kb] [文件加载：48]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'question',
+    2 => 'question',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/baoxian/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Question->question[ E:\www\hiv\app\home\controller\Question.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\question.html [ array (
+  0 => 'questions',
+  1 => 'controller',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.134008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_questions` [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT a.id as question_id,`a`.*,`b`.* FROM `ajc_questions` `a` INNER JOIN `ajc_questionnaires` `b` ON `a`.`questionnaire_id`=`b`.`id` WHERE  `b`.`is_use` = 2 ORDER BY sort asc [ RunTime:0.091005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:33+08:00 ] 127.0.0.1 127.0.0.1 GET /home/baoxian/index.html
+[ info ] test.hiv.com/home/baoxian/index.html [运行时间：0.321018s][吞吐率：3.12req/s] [内存消耗：2,113.88kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'baoxian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Baoxian->index[ E:\www\hiv\app\home\controller\Baoxian.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\baoxian.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'rows',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.079004s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.056004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.055003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `posid` = 5 [ RunTime:0.054003s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:35]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:36+08:00 ] 127.0.0.1 127.0.0.1 GET /home/reagent/index/catId/15.html
+[ info ] test.hiv.com/home/reagent/index/catId/15.html [运行时间：1.624093s][吞吐率：0.62req/s] [内存消耗：2,397.52kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'reagent',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/baoxian/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '15',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\page_apply_reagent.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+  10 => 'youjidianArr',
+  11 => 'province',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.134008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_page` [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_page` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT `template_show` FROM `ajc_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_role` [ RunTime:0.093006s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 11 [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 20 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 21 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 22 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 23 [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 24 [ RunTime:0.099006s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 25 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT `name`,`id` FROM `ajc_role` WHERE  `id` IN (21,23,25) [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_region` [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_region` WHERE  `pid` = 1 [ RunTime:0.091005s ]
+[ error ] [8]未定义数组索引: keywords[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:10]
+[ error ] [8]未定义数组索引: description[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:40+08:00 ] 127.0.0.1 127.0.0.1 GET /home/jiancedian/index/catId/22.html
+[ info ] test.hiv.com/home/jiancedian/index/catId/22.html [运行时间：1.409081s][吞吐率：0.71req/s] [内存消耗：2,377.41kb] [文件加载：61]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'jiancedian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/reagent/index/catId/15.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '22',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\jiancedian_list.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'whereIs',
+  10 => 'province',
+  11 => 'nowProvince',
+  12 => 'nowCity',
+  13 => 'longitude',
+  14 => 'latitude',
+  15 => 'list',
+  16 => 'page',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.110006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.077005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_jiancedian` [ RunTime:0.077004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_jiancedian` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 22 LIMIT 1 [ RunTime:0.074005s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` AS `catdir`,(112.97276661621-longitude)*(112.97276661621-longitude)+(28.207791843871-latitude)*(28.207791843871-latitude) AS `distance` FROM `ajc_jiancedian` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 22 ORDER BY a.is_recommend,distance asc LIMIT 0,8 [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_region` [ RunTime:0.076005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_region` WHERE  `pid` = 1 [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT `template_list` FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.074004s ]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:117]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:118]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:117]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:118]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:37:44+08:00 ] 127.0.0.1 127.0.0.1 GET /home/jiancedian/info/id/5/catId/22.html
+[ info ] test.hiv.com/home/jiancedian/info/id/5/catId/22.html [运行时间：0.661038s][吞吐率：1.51req/s] [内存消耗：2,238.17kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'jiancedian',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/jiancedian/index/catId/22.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+  'catId' => '22',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\jiancedian_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.143008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.098006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.099006s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_jiancedian` [ RunTime:0.098005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_jiancedian` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.097005s ]
+[ sql ] [ SQL ] SELECT `template_show` FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.095006s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:135]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:136]
+[ error ] [8]未定义数组索引: title[E:\www\hiv\runtime\temp\ffe759a1012245792562201813e9b0ae.php:5]
+[ error ] [8]未定义数组索引: keywords[E:\www\hiv\runtime\temp\ffe759a1012245792562201813e9b0ae.php:10]
+[ error ] [8]未定义数组索引: description[E:\www\hiv\runtime\temp\ffe759a1012245792562201813e9b0ae.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\ffe759a1012245792562201813e9b0ae.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\ffe759a1012245792562201813e9b0ae.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\ffe759a1012245792562201813e9b0ae.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:05+08:00 ] 127.0.0.1 127.0.0.1 GET /home/jiancedian/index/catId/22.html
+[ info ] test.hiv.com/home/jiancedian/index/catId/22.html [运行时间：1.002057s][吞吐率：1.00req/s] [内存消耗：2,230.73kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'jiancedian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/jiancedian/info/id/5/catId/22.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '22',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\jiancedian_list.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'whereIs',
+  10 => 'province',
+  11 => 'nowProvince',
+  12 => 'nowCity',
+  13 => 'longitude',
+  14 => 'latitude',
+  15 => 'list',
+  16 => 'page',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.139008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.095005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_jiancedian` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_jiancedian` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 22 LIMIT 1 [ RunTime:0.091006s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` AS `catdir`,(112.97276661621-longitude)*(112.97276661621-longitude)+(28.207791843871-latitude)*(28.207791843871-latitude) AS `distance` FROM `ajc_jiancedian` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 22 ORDER BY a.is_recommend,distance asc LIMIT 0,8 [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_region` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_region` WHERE  `pid` = 1 [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT `template_list` FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.091005s ]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:117]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:118]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:117]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:118]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:13+08:00 ] 127.0.0.1 127.0.0.1 GET /about/14.html
+[ info ] test.hiv.com/about/14.html [运行时间：0.498029s][吞吐率：2.01req/s] [内存消耗：2,234.41kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'about',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/jiancedian/index/catId/22.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '14',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\page_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.118007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.083005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.081005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_page` [ RunTime:0.082004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_page` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.081005s ]
+[ error ] [8]未定义数组索引: keywords[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:10]
+[ error ] [8]未定义数组索引: description[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:19+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/index/catId/16.html
+[ info ] test.hiv.com/home/article/index/catId/16.html [运行时间：0.432024s][吞吐率：2.31req/s] [内存消耗：2,347.83kb] [文件加载：61]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/about/14.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_list.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'list',
+  10 => 'page',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.078004s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.056003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.055004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 16 LIMIT 1 [ RunTime:0.052003s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 16 ORDER BY listorder asc,createtime desc LIMIT 0,8 [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SELECT `template_list` FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.053003s ]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:24+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/info/id/47/catId/16.html
+[ info ] test.hiv.com/home/article/info/id/47/catId/16.html [运行时间：0.569033s][吞吐率：1.76req/s] [内存消耗：2,238.57kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '47',
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.093005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.066004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.064004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.065004s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 47 [ RunTime:0.064003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.062004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` <= 0  AND `createtime` >= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.063004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` >= 0  AND `createtime` <= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.063003s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:29+08:00 ] 127.0.0.1 127.0.0.1 GET /home/baoxian/index.html
+[ info ] test.hiv.com/home/baoxian/index.html [运行时间：0.415024s][吞吐率：2.41req/s] [内存消耗：2,113.88kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'baoxian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/info/id/47/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Baoxian->index[ E:\www\hiv\app\home\controller\Baoxian.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\baoxian.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'rows',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.105006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.071004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.070004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.072004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `posid` = 5 [ RunTime:0.070004s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:35]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:41+08:00 ] 127.0.0.1 127.0.0.1 GET /home/question/question.html
+[ info ] test.hiv.com/home/question/question.html [运行时间：0.279016s][吞吐率：3.58req/s] [内存消耗：1,932.72kb] [文件加载：48]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'question',
+    2 => 'question',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/baoxian/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Question->question[ E:\www\hiv\app\home\controller\Question.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\question.html [ array (
+  0 => 'questions',
+  1 => 'controller',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.108006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_questions` [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT a.id as question_id,`a`.*,`b`.* FROM `ajc_questions` `a` INNER JOIN `ajc_questionnaires` `b` ON `a`.`questionnaire_id`=`b`.`id` WHERE  `b`.`is_use` = 2 ORDER BY sort asc [ RunTime:0.074004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:44+08:00 ] 127.0.0.1 127.0.0.1 GET /home/baoxian/index.html
+[ info ] test.hiv.com/home/baoxian/index.html [运行时间：0.539031s][吞吐率：1.86req/s] [内存消耗：2,113.88kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'baoxian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/info/id/47/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Baoxian->index[ E:\www\hiv\app\home\controller\Baoxian.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\baoxian.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'rows',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.138008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.095005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.093006s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.095005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `posid` = 5 [ RunTime:0.094006s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:35]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:46+08:00 ] 127.0.0.1 127.0.0.1 GET /home/question/question.html
+[ info ] test.hiv.com/home/question/question.html [运行时间：0.277015s][吞吐率：3.61req/s] [内存消耗：1,932.72kb] [文件加载：48]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'question',
+    2 => 'question',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/baoxian/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Question->question[ E:\www\hiv\app\home\controller\Question.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\question.html [ array (
+  0 => 'questions',
+  1 => 'controller',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.108006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_questions` [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT a.id as question_id,`a`.*,`b`.* FROM `ajc_questions` `a` INNER JOIN `ajc_questionnaires` `b` ON `a`.`questionnaire_id`=`b`.`id` WHERE  `b`.`is_use` = 2 ORDER BY sort asc [ RunTime:0.073004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:48+08:00 ] 127.0.0.1 127.0.0.1 GET /home/baoxian/index.html
+[ info ] test.hiv.com/home/baoxian/index.html [运行时间：0.532030s][吞吐率：1.88req/s] [内存消耗：2,113.88kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'baoxian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/info/id/47/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\home\controller\Baoxian->index[ E:\www\hiv\app\home\controller\Baoxian.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\baoxian.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'rows',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.094006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `posid` = 5 [ RunTime:0.092005s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:35]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+[ error ] [8]未定义变量: qqArr[E:\www\hiv\runtime\temp\7ce55d62c3d3e6a2940628960292e8f9.php:184]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:50+08:00 ] 127.0.0.1 127.0.0.1 GET /home/reagent/index/catId/15.html
+[ info ] test.hiv.com/home/reagent/index/catId/15.html [运行时间：1.041059s][吞吐率：0.96req/s] [内存消耗：2,397.52kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'reagent',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/baoxian/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '15',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\page_apply_reagent.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+  10 => 'youjidianArr',
+  11 => 'province',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.085005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.060003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.058003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_page` [ RunTime:0.059004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_page` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.058003s ]
+[ sql ] [ SQL ] SELECT `template_show` FROM `ajc_category` WHERE  `id` = 15 LIMIT 1 [ RunTime:0.057003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_role` [ RunTime:0.060004s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 11 [ RunTime:0.057003s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 20 [ RunTime:0.057003s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 21 [ RunTime:0.057004s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 22 [ RunTime:0.056003s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 23 [ RunTime:0.057003s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 24 [ RunTime:0.057004s ]
+[ sql ] [ SQL ] SELECT `id`,`pid` FROM `ajc_role` WHERE  `pid` = 25 [ RunTime:0.058003s ]
+[ sql ] [ SQL ] SELECT `name`,`id` FROM `ajc_role` WHERE  `id` IN (21,23,25) [ RunTime:0.057003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_region` [ RunTime:0.059004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_region` WHERE  `pid` = 1 [ RunTime:0.059003s ]
+[ error ] [8]未定义数组索引: keywords[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:10]
+[ error ] [8]未定义数组索引: description[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\52a5abcaf2132d6203161b302ab65b52.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:55+08:00 ] 127.0.0.1 127.0.0.1 GET /home/jiancedian/index/catId/22.html
+[ info ] test.hiv.com/home/jiancedian/index/catId/22.html [运行时间：0.878051s][吞吐率：1.14req/s] [内存消耗：2,230.77kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'jiancedian',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/reagent/index/catId/15.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '22',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\jiancedian_list.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'whereIs',
+  10 => 'province',
+  11 => 'nowProvince',
+  12 => 'nowCity',
+  13 => 'longitude',
+  14 => 'latitude',
+  15 => 'list',
+  16 => 'page',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.110007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.077004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.075005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_jiancedian` [ RunTime:0.077005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_jiancedian` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 22 LIMIT 1 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` AS `catdir`,(112.97276661621-longitude)*(112.97276661621-longitude)+(28.207791843871-latitude)*(28.207791843871-latitude) AS `distance` FROM `ajc_jiancedian` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 22 ORDER BY a.is_recommend,distance asc LIMIT 0,8 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_region` [ RunTime:0.077005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_region` WHERE  `pid` = 1 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SELECT `template_list` FROM `ajc_category` WHERE  `id` = 22 LIMIT 1 [ RunTime:0.075004s ]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:117]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:118]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: thumb[E:\www\hiv\app\home\controller\EmptyController.php:117]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:118]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\5db7ded6d9178f8321bdd75aa940b87d.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:38:58+08:00 ] 127.0.0.1 127.0.0.1 GET /about/14.html
+[ info ] test.hiv.com/about/14.html [运行时间：0.527030s][吞吐率：1.90req/s] [内存消耗：2,099.91kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'about',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/jiancedian/index/catId/22.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '14',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\page_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.134008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_page` [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_page` WHERE  `id` = 14 LIMIT 1 [ RunTime:0.091005s ]
+[ error ] [8]未定义数组索引: keywords[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:10]
+[ error ] [8]未定义数组索引: description[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\acd3ec34bff65d62af83704a99ff7210.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:39:06+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/index/catId/16.html
+[ info ] test.hiv.com/home/article/index/catId/16.html [运行时间：0.640037s][吞吐率：1.56req/s] [内存消耗：2,211.84kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/about/14.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_list.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'list',
+  10 => 'page',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.120007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.083005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.081005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.084005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 16 LIMIT 1 [ RunTime:0.080004s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 16 ORDER BY listorder asc,createtime desc LIMIT 0,8 [ RunTime:0.086005s ]
+[ sql ] [ SQL ] SELECT `template_list` FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.080005s ]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:39:17+08:00 ] 127.0.0.1 127.0.0.1 GET /user/login/index.html
+[ info ] test.hiv.com/user/login/index.html [运行时间：0.664038s][吞吐率：1.51req/s] [内存消耗：2,215.45kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\user\controller\Login->index[ E:\www\hiv\app\user\controller\Login.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/user\view\pc\login.html [ array (
+  0 => 'userInfo',
+  1 => 'sys',
+  2 => 'title',
+  3 => 'keywords',
+  4 => 'description',
+  5 => 'category',
+  6 => 'plugin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.118007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_users` [ RunTime:0.082004s ]
+[ sql ] [ SQL ] SELECT `u`.*,`ul`.`level_name` FROM `ajc_users` `u` LEFT JOIN `ajc_user_level` `ul` ON `u`.`level`=`ul`.`level_id` WHERE  `u`.`id` IS NULL LIMIT 1 [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.083005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.080004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_plugin` [ RunTime:0.082005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_plugin` WHERE  `type` = 'login'  AND `status` = 1 [ RunTime:0.080005s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:33]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:34]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:35]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:35]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:37]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:37]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:37]
+[ error ] [8]未定义变量: controller[E:\www\hiv\runtime\temp\e101caa033a38c8c3d81428063802a12.php:37]
+---------------------------------------------------------------
+[ 2018-03-09T20:39:21+08:00 ] 127.0.0.1 127.0.0.1 GET /index.html
+[ info ] test.hiv.com/index.html [运行时间：0.479027s][吞吐率：2.09req/s] [内存消耗：2,070.60kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/user/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\Index->index[ E:\www\hiv\app\home\controller\Index.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\index.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.101006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.070004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.068003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.070004s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  (  posid = 1 ) ORDER BY listorder asc,createtime desc LIMIT 3 [ RunTime:0.069004s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  (  catid=17 ) ORDER BY listorder asc,createtime desc LIMIT 8 [ RunTime:0.077004s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:42:17+08:00 ] 127.0.0.1 127.0.0.1 GET /home/media/info/id/48/catId/17.html
+[ info ] test.hiv.com/home/media/info/id/48/catId/17.html [运行时间：0.754043s][吞吐率：1.33req/s] [内存消耗：2,102.99kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'media',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '48',
+  'catId' => '17',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.112006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.077004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.078005s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 48 [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 48 LIMIT 1 [ RunTime:0.077005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 17  AND `id` <> 48  AND `listorder` <= 0  AND `createtime` >= 1520176578 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.078004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 17  AND `id` <> 48  AND `listorder` >= 0  AND `createtime` <= 1520176578 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.076005s ]
+[ sql ] [ SQL ] SELECT `template_show` FROM `ajc_category` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.075004s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:42:25+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/index/catId/16.html
+[ info ] test.hiv.com/home/article/index/catId/16.html [运行时间：0.694040s][吞吐率：1.44req/s] [内存消耗：2,211.98kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/media/info/id/48/catId/17.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->index[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_list.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'list',
+  10 => 'page',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.088005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 16 LIMIT 1 [ RunTime:0.087005s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  `catid` = 16 ORDER BY listorder asc,createtime desc LIMIT 0,8 [ RunTime:0.089005s ]
+[ sql ] [ SQL ] SELECT `template_list` FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.088005s ]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:114]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:116]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\6bb874c1032a681bfc125deed0e60842.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:42:27+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/info/id/47/catId/16.html
+[ info ] test.hiv.com/home/article/info/id/47/catId/16.html [运行时间：0.808046s][吞吐率：1.24req/s] [内存消耗：2,103.43kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '47',
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.095005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.096005s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 47 [ RunTime:0.091006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` <= 0  AND `createtime` >= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` >= 0  AND `createtime` <= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.090005s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:44:54+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/info/id/47/catId/16.html
+[ info ] test.hiv.com/home/article/info/id/47/catId/16.html [运行时间：0.808046s][吞吐率：1.24req/s] [内存消耗：2,238.89kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '47',
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.135008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 47 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` <= 0  AND `createtime` >= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` >= 0  AND `createtime` <= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.091005s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:45:19+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/info/id/47/catId/16.html
+[ info ] test.hiv.com/home/article/info/id/47/catId/16.html [运行时间：0.686039s][吞吐率：1.46req/s] [内存消耗：2,238.86kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '47',
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.115007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.079004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.076005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.078004s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 47 [ RunTime:0.076005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` <= 0  AND `createtime` >= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` >= 0  AND `createtime` <= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.076005s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:45:32+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/info/id/47/catId/16.html
+[ info ] test.hiv.com/home/article/info/id/47/catId/16.html [运行时间：0.536030s][吞吐率：1.87req/s] [内存消耗：2,238.89kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '47',
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.087005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.061003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.060004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.062003s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 47 [ RunTime:0.058004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.059003s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` <= 0  AND `createtime` >= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.059004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` >= 0  AND `createtime` <= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.059003s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:45:43+08:00 ] 127.0.0.1 127.0.0.1 GET /home/article/info/id/47/catId/16.html
+[ info ] test.hiv.com/home/article/info/id/47/catId/16.html [运行时间：0.716041s][吞吐率：1.40req/s] [内存消耗：2,238.89kb] [文件加载：58]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'article',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/index/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '47',
+  'catId' => '16',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.119007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.082005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 16 LIMIT 1 [ RunTime:0.081005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.082004s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 47 [ RunTime:0.080005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.080005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` <= 0  AND `createtime` >= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.080004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 16  AND `id` <> 47  AND `listorder` >= 0  AND `createtime` <= 1520174582 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.080005s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:45:57+08:00 ] 127.0.0.1 127.0.0.1 GET /index.html
+[ info ] test.hiv.com/index.html [运行时间：0.378022s][吞吐率：2.65req/s] [内存消耗：2,070.58kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/home/article/info/id/47/catId/16.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\Index->index[ E:\www\hiv\app\home\controller\Index.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\index.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.079005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.056003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` IS NULL LIMIT 1 [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.055004s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  (  posid = 1 ) ORDER BY listorder asc,createtime desc LIMIT 3 [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SELECT `a`.*,`c`.`catdir` FROM `ajc_article` `a` LEFT JOIN `ajc_category` `c` ON `a`.`catid`=`c`.`id` WHERE  (  catid=17 ) ORDER BY listorder asc,createtime desc LIMIT 8 [ RunTime:0.054003s ]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:5]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:10]
+[ error ] [8]未定义变量: info[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:11]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\d3d5ddea82f9f2d8d1edbfc794efb548.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:46:01+08:00 ] 127.0.0.1 127.0.0.1 GET /home/media/info/id/48/catId/17.html
+[ info ] test.hiv.com/home/media/info/id/48/catId/17.html [运行时间：0.782044s][吞吐率：1.28req/s] [内存消耗：2,103.02kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'media',
+    2 => 'info',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=9baflul29ommp44bohhk45lh40',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => '48',
+  'catId' => '17',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ RUN ] app\home\controller\EmptyController->info[ E:\www\hiv\app\home\controller\EmptyController.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/home\view\pc\article_show.html [ array (
+  0 => 'sys',
+  1 => 'action',
+  2 => 'controller',
+  3 => 'title',
+  4 => 'keywords',
+  5 => 'description',
+  6 => 'category',
+  7 => 'adList',
+  8 => 'linkList',
+  9 => 'info',
+) ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.118006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_category` [ RunTime:0.082005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_category` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.080005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_article` [ RunTime:0.081004s ]
+[ sql ] [ SQL ] UPDATE `ajc_article`  SET `hits`=hits+1  WHERE  `id` = 48 [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_article` WHERE  `id` = 48 LIMIT 1 [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 17  AND `id` <> 48  AND `listorder` <= 0  AND `createtime` >= 1520176578 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.078004s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`createtime`,`listorder` FROM `ajc_article` WHERE  `catid` = 17  AND `id` <> 48  AND `listorder` >= 0  AND `createtime` <= 1520176578 ORDER BY listorder,createtime DESC LIMIT 1 [ RunTime:0.078005s ]
+[ sql ] [ SQL ] SELECT `template_show` FROM `ajc_category` WHERE  `id` = 17 LIMIT 1 [ RunTime:0.078004s ]
+[ error ] [8]未定义数组索引: pic[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]Use of undefined constant __HOME__ - assumed '__HOME__'[E:\www\hiv\app\home\controller\EmptyController.php:131]
+[ error ] [8]未定义数组索引: title_style[E:\www\hiv\app\home\controller\EmptyController.php:132]
+[ error ] [8]未定义数组下标: 1[E:\www\hiv\app\home\controller\EmptyController.php:134]
+[ error ] [8]Use of undefined constant index - assumed 'index'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:33]
+[ error ] [8]Use of undefined constant baoxian - assumed 'baoxian'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:34]
+[ error ] [8]Use of undefined constant question - assumed 'question'[E:\www\hiv\runtime\temp\661706e905ed594312d338adecb9ab4f.php:35]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:13+08:00 ] 127.0.0.1 127.0.0.1 GET /admin
+[ info ] test.hiv.com/admin [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：1,345.84kb] [文件加载：43]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-09T20:47:13+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/login/index.html
+[ info ] test.hiv.com/admin/login/index.html [运行时间：0.034002s][吞吐率：29.41req/s] [内存消耗：1,428.74kb] [文件加载：44]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ E:\www\hiv\app\admin\controller\Login.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-09T20:47:13+08:00 ] 127.0.0.1 127.0.0.1 GET /captcha.html
+[ info ] test.hiv.com/captcha.html [运行时间：0.066004s][吞吐率：15.15req/s] [内存消耗：1,075.02kb] [文件加载：32]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/login/index.html',
+  'accept' => 'image/webp,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ E:\www\hiv\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-09T20:47:21+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/login/index.html
+[ info ] test.hiv.com/admin/login/index.html [运行时间：0.261015s][吞吐率：3.83req/s] [内存消耗：2,209.52kb] [文件加载：51]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/login/index.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => '*/*',
+  'content-length' => '48',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'siyizhen',
+  'password' => 'siyizhen',
+  'captcha' => 'jntw',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ E:\www\hiv\app\admin\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.086005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_admin` [ RunTime:0.060003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_admin` WHERE  `username` = 'siyizhen' LIMIT 1 [ RunTime:0.058004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:23+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] test.hiv.com/admin/index/index.html [运行时间：0.324019s][吞吐率：3.09req/s] [内存消耗：2,210.55kb] [文件加载：59]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ E:\www\hiv\app\admin\controller\Index.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\index\index.html [ array (
+  0 => 'menus',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.105006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_auth_rule` [ RunTime:0.074004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_auth_rule` WHERE  (  menustatus=1 ) ORDER BY `sort` [ RunTime:0.073004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:23+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/main.html
+[ info ] test.hiv.com/admin/index/main.html [运行时间：0.231013s][吞吐率：4.33req/s] [内存消耗：1,611.45kb] [文件加载：52]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'main',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->main[ E:\www\hiv\app\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\index\main.html [ array (
+  0 => 'config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.125007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SELECT VERSION() AS ver [ RunTime:0.083005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:28+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/config.html
+[ info ] test.hiv.com/admin/Wechat/config.html [运行时间：0.386022s][吞吐率：2.59req/s] [内存消耗：2,236.56kb] [文件加载：59]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'config',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->config[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\config.html [ array (
+  0 => 'url',
+  1 => 'call_back_url',
+  2 => 'wchat_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.107006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_config` [ RunTime:0.144009s ]
+[ sql ] [ SQL ] SELECT `value` FROM `ajc_wx_config` WHERE  `key` = 'SHOPWCHAT' LIMIT 1 [ RunTime:0.104006s ]
+[ error ] [8]未定义变量: title[E:\www\hiv\runtime\temp\086acbcccdd59b60a337b683634e1961.php:20]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:34+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/config.html
+[ info ] test.hiv.com/admin/Wechat/config.html [运行时间：0.207012s][吞吐率：4.83req/s] [内存消耗：2,117.39kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'config',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->config[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\config.html [ array (
+  0 => 'url',
+  1 => 'call_back_url',
+  2 => 'wchat_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.076005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_config` [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SELECT `value` FROM `ajc_wx_config` WHERE  `key` = 'SHOPWCHAT' LIMIT 1 [ RunTime:0.052003s ]
+[ error ] [8]未定义变量: title[E:\www\hiv\runtime\temp\086acbcccdd59b60a337b683634e1961.php:20]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:43+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/menu.html
+[ info ] test.hiv.com/admin/Wechat/menu.html [运行时间：1.046059s][吞吐率：0.96req/s] [内存消耗：2,355.27kb] [文件加载：59]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'menu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->menu[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\menu.html [ array (
+  0 => 'wx_name',
+  1 => 'pagesize',
+  2 => 'menu_list',
+  3 => 'MAX_MENU_LENGTH',
+  4 => 'MAX_SUB_MENU_LENGTH',
+  5 => 'menu_list_count',
+  6 => 'default_menu_info',
+  7 => 'class_index',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.119007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_menu` [ RunTime:0.153008s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_menu` WHERE  `instance_id` = 0  AND `pid` = 0 ORDER BY sort asc [ RunTime:0.126008s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_menu` WHERE  `instance_id` = 0  AND `pid` = 1 ORDER BY sort asc [ RunTime:0.080004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_menu` WHERE  `instance_id` = 0  AND `pid` = 2 ORDER BY sort asc [ RunTime:0.080005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_menu` WHERE  `instance_id` = 0  AND `pid` = 3 ORDER BY sort asc [ RunTime:0.080004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.098006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `media_id` = 4 LIMIT 1 [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.084005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 4 [ RunTime:0.083005s ]
+[ error ] [8]Use of undefined constant media_list - assumed 'media_list'[E:\www\hiv\runtime\temp\f6cb26de4f4f6b2dab75db3ccc0bf12a.php:218]
+[ error ] [8]Use of undefined constant item_list - assumed 'item_list'[E:\www\hiv\runtime\temp\f6cb26de4f4f6b2dab75db3ccc0bf12a.php:218]
+[ error ] [8]Use of undefined constant cover - assumed 'cover'[E:\www\hiv\runtime\temp\f6cb26de4f4f6b2dab75db3ccc0bf12a.php:218]
+[ error ] [8]Use of undefined constant media_list - assumed 'media_list'[E:\www\hiv\runtime\temp\f6cb26de4f4f6b2dab75db3ccc0bf12a.php:218]
+[ error ] [8]Use of undefined constant item_list - assumed 'item_list'[E:\www\hiv\runtime\temp\f6cb26de4f4f6b2dab75db3ccc0bf12a.php:218]
+[ error ] [8]Use of undefined constant cover - assumed 'cover'[E:\www\hiv\runtime\temp\f6cb26de4f4f6b2dab75db3ccc0bf12a.php:218]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:44+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/onloadmaterial.html
+[ info ] test.hiv.com/admin/wechat/onloadmaterial.html [运行时间：0.567033s][吞吐率：1.76req/s] [内存消耗：2,148.71kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'onloadmaterial',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/Wechat/menu.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '22',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->onloadMaterial[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.112006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.074004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' LIMIT 1 [ RunTime:0.071004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' ORDER BY `sort` LIMIT 0,10 [ RunTime:0.071004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.072004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.071004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.071004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:48+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/materialmessage.html
+[ info ] test.hiv.com/admin/Wechat/materialmessage.html [运行时间：0.022002s][吞吐率：45.45req/s] [内存消耗：1,615.50kb] [文件加载：50]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'materialmessage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->materialmessage[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\materialmessage.html [ array (
+  0 => 'type',
+  1 => 'child_menu_list',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-09T20:47:49+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/materialmessage.html
+[ info ] test.hiv.com/admin/wechat/materialmessage.html [运行时间：0.794045s][吞吐率：1.26req/s] [内存消耗：2,144.26kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'materialmessage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/Wechat/materialmessage.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '21',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->materialmessage[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.108006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `title` LIKE '%%' LIMIT 1 [ RunTime:0.073004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `title` LIKE '%%' ORDER BY create_time desc LIMIT 0,10 [ RunTime:0.074005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.075004s ]
+[ sql ] [ SQL ] SELECT `title` FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.074004s ]
+[ sql ] [ SQL ] SELECT `title` FROM `ajc_wx_media_item` WHERE  `media_id` = 1 [ RunTime:0.073004s ]
+[ sql ] [ SQL ] SELECT `title` FROM `ajc_wx_media_item` WHERE  `media_id` = 4 [ RunTime:0.073005s ]
+[ sql ] [ SQL ] SELECT `title` FROM `ajc_wx_media_item` WHERE  `media_id` = 2 [ RunTime:0.073004s ]
+[ sql ] [ SQL ] SELECT `title` FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.073004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:52+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/replay.html
+[ info ] test.hiv.com/admin/Wechat/replay.html [运行时间：0.715041s][吞吐率：1.40req/s] [内存消耗：2,254.14kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'replay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->replay[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\replay.html [ array (
+  0 => 'child_menu_list',
+  1 => 'type',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.132008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_follow_replay` [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_follow_replay` WHERE  `instance_id` = 0 LIMIT 1 [ RunTime:0.105006s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.090005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `media_id` = 1 LIMIT 1 [ RunTime:0.088005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 1 [ RunTime:0.088005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:52+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/onloadmaterial.html
+[ info ] test.hiv.com/admin/wechat/onloadmaterial.html [运行时间：0.628036s][吞吐率：1.59req/s] [内存消耗：2,148.73kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'onloadmaterial',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/Wechat/replay.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '22',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->onloadMaterial[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.118006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.081005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' LIMIT 1 [ RunTime:0.078005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' ORDER BY `sort` LIMIT 0,10 [ RunTime:0.079004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.082005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.081004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.082005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:55+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/replay.html
+[ info ] test.hiv.com/admin/Wechat/replay.html [运行时间：0.602035s][吞吐率：1.66req/s] [内存消耗：2,105.06kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'replay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->replay[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\replay.html [ array (
+  0 => 'child_menu_list',
+  1 => 'type',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.114006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_follow_replay` [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_follow_replay` WHERE  `instance_id` = 0 LIMIT 1 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.079004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `media_id` = 1 LIMIT 1 [ RunTime:0.076005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.078004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 1 [ RunTime:0.076005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:56+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/onloadmaterial.html
+[ info ] test.hiv.com/admin/wechat/onloadmaterial.html [运行时间：0.718041s][吞吐率：1.39req/s] [内存消耗：2,148.73kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'onloadmaterial',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/Wechat/replay.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '22',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->onloadMaterial[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' LIMIT 1 [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' ORDER BY `sort` LIMIT 0,10 [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.094005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.095005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:56+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/wechat/replay/type/2.html
+[ info ] test.hiv.com/admin/wechat/replay/type/2.html [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：1,494.81kb] [文件加载：48]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'replay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/Wechat/replay.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->replay[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\replay.html [ array (
+  0 => 'child_menu_list',
+  1 => 'type',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-03-09T20:47:57+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/keyreplaylist.html
+[ info ] test.hiv.com/admin/wechat/keyreplaylist.html [运行时间：0.462026s][吞吐率：2.16req/s] [内存消耗：2,137.10kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'keyreplaylist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/wechat/replay/type/2.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '15',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->keyReplayList[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_key_replay` [ RunTime:0.116007s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_key_replay` LIMIT 1 [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_key_replay` ORDER BY `sort` LIMIT 0,10 [ RunTime:0.092005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:58+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/onloadmaterial.html
+[ info ] test.hiv.com/admin/wechat/onloadmaterial.html [运行时间：0.405024s][吞吐率：2.47req/s] [内存消耗：2,148.73kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'onloadmaterial',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/wechat/replay/type/2.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '22',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->onloadMaterial[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.075004s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.052003s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' LIMIT 1 [ RunTime:0.050003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' ORDER BY `sort` LIMIT 0,10 [ RunTime:0.050003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.052003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.052003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.051003s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:59+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/wechat/replay/type/3.html
+[ info ] test.hiv.com/admin/wechat/replay/type/3.html [运行时间：0.483028s][吞吐率：2.07req/s] [内存消耗：2,108.95kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'replay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/wechat/replay/type/2.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'type' => '3',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->replay[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\replay.html [ array (
+  0 => 'child_menu_list',
+  1 => 'type',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.086005s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_default_replay` [ RunTime:0.061004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_default_replay` WHERE  `instance_id` = 0 LIMIT 1 [ RunTime:0.071004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.060003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `media_id` = 3 LIMIT 1 [ RunTime:0.059004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.061003s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.059004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:47:59+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/onloadmaterial.html
+[ info ] test.hiv.com/admin/wechat/onloadmaterial.html [运行时间：0.597034s][吞吐率：1.67req/s] [内存消耗：2,148.73kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'onloadmaterial',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/wechat/replay/type/3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '22',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->onloadMaterial[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.113007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.079004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' LIMIT 1 [ RunTime:0.075005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' ORDER BY `sort` LIMIT 0,10 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.077005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.076004s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.077004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:48:00+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/wechat/replay/type/1.html
+[ info ] test.hiv.com/admin/wechat/replay/type/1.html [运行时间：0.614035s][吞吐率：1.63req/s] [内存消耗：2,105.59kb] [文件加载：55]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'replay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/wechat/replay/type/3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'type' => '1',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->replay[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\replay.html [ array (
+  0 => 'child_menu_list',
+  1 => 'type',
+  2 => 'info',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.114006s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_follow_replay` [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_follow_replay` WHERE  `instance_id` = 0 LIMIT 1 [ RunTime:0.078004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.079005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `media_id` = 1 LIMIT 1 [ RunTime:0.083004s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.080005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 1 [ RunTime:0.077004s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:48:01+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/wechat/onloadmaterial.html
+[ info ] test.hiv.com/admin/wechat/onloadmaterial.html [运行时间：0.712041s][吞吐率：1.40req/s] [内存消耗：2,148.73kb] [文件加载：56]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'wechat',
+    2 => 'onloadmaterial',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://test.hiv.com/admin/wechat/replay/type/1.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://test.hiv.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '22',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+  'type' => '2',
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->onloadMaterial[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.136008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media` [ RunTime:0.093006s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' LIMIT 1 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media` WHERE  `type` = '2'  AND `title` LIKE '%%' ORDER BY `sort` LIMIT 0,10 [ RunTime:0.091005s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_media_item` [ RunTime:0.093005s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 3 [ RunTime:0.092006s ]
+[ sql ] [ SQL ] SELECT * FROM `ajc_wx_media_item` WHERE  `media_id` = 5 [ RunTime:0.092005s ]
+---------------------------------------------------------------
+[ 2018-03-09T20:48:05+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/config.html
+[ info ] test.hiv.com/admin/Wechat/config.html [运行时间：0.298017s][吞吐率：3.36req/s] [内存消耗：2,117.39kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'config',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->config[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\config.html [ array (
+  0 => 'url',
+  1 => 'call_back_url',
+  2 => 'wchat_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.115007s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_config` [ RunTime:0.082005s ]
+[ sql ] [ SQL ] SELECT `value` FROM `ajc_wx_config` WHERE  `key` = 'SHOPWCHAT' LIMIT 1 [ RunTime:0.076004s ]
+[ error ] [8]未定义变量: title[E:\www\hiv\runtime\temp\086acbcccdd59b60a337b683634e1961.php:20]
+---------------------------------------------------------------
+[ 2018-03-09T21:01:23+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Wechat/config.html
+[ info ] test.hiv.com/admin/Wechat/config.html [运行时间：0.347020s][吞吐率：2.88req/s] [内存消耗：2,117.68kb] [文件加载：57]
+[ info ] [ LANG ] E:\www\hiv\think\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Wechat',
+    2 => 'config',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'skin=0; PHPSESSID=fum0unao65mhm7sdldhl876540',
+  'accept-language' => 'zh-CN,zh;q=0.8,en;q=0.6',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'referer' => 'http://test.hiv.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'test.hiv.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] E:\www\hiv/app/admin\lang\zh-cn.php
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Wechat->config[ E:\www\hiv\app\admin\controller\Wechat.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\www\hiv/app/admin\view\wechat\config.html [ array (
+  0 => 'url',
+  1 => 'call_back_url',
+  2 => 'wchat_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.138008s ] mysql:dbname=aijiance;host=123.56.90.223;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `ajc_wx_config` [ RunTime:0.092005s ]
+[ sql ] [ SQL ] SELECT `value` FROM `ajc_wx_config` WHERE  `key` = 'SHOPWCHAT' LIMIT 1 [ RunTime:0.090006s ]
+[ error ] [8]未定义变量: title[E:\www\hiv\runtime\temp\086acbcccdd59b60a337b683634e1961.php:20]
